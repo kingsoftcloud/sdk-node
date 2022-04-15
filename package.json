@@ -1,5 +1,5 @@
 {
-    "name": "lhc-test-node",
+    "name": "ksc-sdk-node",
     "version": "1.0.5",
     "description": "",
     "main": "dist/index.js",
