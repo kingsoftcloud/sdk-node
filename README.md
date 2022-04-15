@@ -4,7 +4,7 @@
 
 # 依赖环境
 
-1. NODEJS 6.0.0 版本及以上
+1. NODEJS 10.0.0 版本及以上
 2. 从金山云控制台 开通相应产品
 3. 获取 secretId、secretKey。
 
