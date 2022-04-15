@@ -4,15 +4,15 @@
 name: Node.js Package
 
 on:
-  push:
-    tags:
-      - v*
-  # pull_request:
-  #   branches:
-  #     - master
-  # push:
-  #   branches:
-  #     - master
+#  push:
+#    tags:
+#      - v*
+   pull_request:
+     branches:
+       - master
+   push:
+     branches:
+       - master
 
 jobs:
   build:
@@ -25,6 +25,9 @@ jobs:
       - run: npm i
       - run: npm run test
       - run: npm run build
+      - run: git add . && git commit -m 'build'
+      - run: npm version patch
+      - run: git push && git push --tags
 
   publish-npm:
     needs: build
