@@ -32,3 +32,6 @@ module.exports = serviceDirs.reduce((acc, serviceDir) => {
    }
    return acc
 }, {})
+
+
+// test
