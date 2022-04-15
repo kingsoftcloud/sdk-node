@@ -7,7 +7,7 @@ describe('sign', function () {
         'Undefined': undefined,
         'Null': null,
         'Boolean': true,
-        'Accesskey': 'AKLTXQVF0pOmS6aahIrD5r0B3Q', //公共参数
+        'Accesskey': 'AKKKKKK', //公共参数
         'Service': 'iam', //公共参数
         'Action': 'CreateUser', //公共参数
         'Version': '2015-11-01', //公共参数
@@ -16,7 +16,7 @@ describe('sign', function () {
         'SignatureMethod': 'HMAC-SHA256', //公共参数
         'UserName': 'Ttest', //业务参数
         'RealName': '周四测试', //业务参数
-        'Email': 'zsce@kkingsoft.com', //业务参数
+        'Email': 'zsce@aa.com', //业务参数
         'Remark': '~ce shi*%#|+', //业务参数
         'Array': [1, 2, 3],
         'SimpleFilter': {
@@ -44,7 +44,7 @@ describe('sign', function () {
     }
     let expectParams = {
         Boolean: 'true',
-        Accesskey: 'AKLTXQVF0pOmS6aahIrD5r0B3Q',
+        Accesskey: 'AKKKKKK',
         Service: 'iam',
         Action: 'CreateUser',
         Version: '2015-11-01',
@@ -53,20 +53,20 @@ describe('sign', function () {
         SignatureMethod: 'HMAC-SHA256',
         UserName: 'Ttest',
         RealName: '周四测试',
-        Email: 'zsce@kkingsoft.com',
+        Email: 'zsce@aa.com',
         Remark: '~ce shi*%#|+',
-        'Array.0': 1,
-        'Array.1': 2,
-        'Array.2': 3,
+        'Array[0]': 1,
+        'Array[1]': 2,
+        'Array[2]': 3,
         'SimpleFilter.1': '1',
         'SimpleFilter.2': '2',
         'DeepFilter.1.a': 1,
         'DeepFilter.1.b': 2,
         'DeepFilter.2.a': 2,
         'DeepFilter.2.b': 3,
-        Signature: '4cdbf8d87152b601f19fd3f6710da5277603d4c6ed3940f84c8ca1bbe533f144'
+        Signature: 'f99dc36bc6cd84dbb3148a402df6fc1ad9891a26dca42315b831551f5ae92620'
     }
-    let sk = 'OMovU5PTLh6y9E9Ioe3K411jt99VqyQSBXgAcDYlo49R3lvUIzb6e/efZCFDmtFlzw=='
+    let sk = 'SKKKKK=='
 
     describe('.getSignedParams', function () {
         it('should return the same signedParams', function () {
@@ -79,7 +79,7 @@ describe('sign', function () {
                 'Undefined': undefined,
                 'Null': null,
                 Boolean: true,
-                Accesskey: 'AKLTXQVF0pOmS6aahIrD5r0B3Q',
+                Accesskey: 'AKKKKKK',
                 Service: 'iam',
                 Action: 'CreateUser',
                 Version: '2015-11-01',
@@ -88,11 +88,11 @@ describe('sign', function () {
                 SignatureMethod: 'HMAC-SHA256',
                 UserName: 'Ttest',
                 RealName: '周四测试',
-                Email: 'zsce@kkingsoft.com',
+                Email: 'zsce@aa.com',
                 Remark: '~ce shi*%#|+',
-                'Array.0': 1,
-                'Array.1': 2,
-                'Array.2': 3,
+                'Array[0]': 1,
+                'Array[1]': 2,
+                'Array[2]': 3,
                 'SimpleFilter.1': '1',
                 'SimpleFilter.2': '2',
                 'SimpleFilter.3': null,

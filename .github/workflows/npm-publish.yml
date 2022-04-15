@@ -22,23 +22,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: npm i
-#      - run: npm run test
+          registry-url: https://registry.npmjs.org/
       - run: git config --global user.email "build@ksyun.com"
       - run: git config --global user.name "autopublish"
+      - run: npm i
+      - run: npm run test
       - run: npm run build
       - run: npm version patch
       - run: git push && git push --tags
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
