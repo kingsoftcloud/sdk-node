@@ -24,6 +24,8 @@ jobs:
           node-version: 16
       - run: npm i
 #      - run: npm run test
+      - run: git config --global user.email "build@ksyun.com"
+      - run: git config --global user.name "autopublish"
       - run: npm run build
       - run: git add . && git commit -m 'build'
       - run: npm version patch
