@@ -22,7 +22,7 @@
 
 ## 通过源码包安装
 
-1. 前往 [Github 仓库](https://github.com/KscSDK/ksc-sdk-node)下载源码压缩包。
+1. 前往 [Github 仓库](https://github.com/kingsoftcloud/sdk-node)下载源码压缩包。
 2. 解压源码包到您项目合适的位置。
 3. 在您的代码中引用对应模块代码，可参考示例。
 
