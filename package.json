@@ -1,13 +1,14 @@
 {
     "name": "ksc-sdk-node",
-    "version": "1.0.8",
+    "version": "1.0.6",
     "description": "",
     "main": "dist/index.js",
     "scripts": {
         "lint": "eslint --ext .js src/",
         "build": "babel src --out-dir dist",
         "test": "mocha",
-        "example": "node example/iam.js"
+        "example": "node example/iam.js",
+        "postversion": "git push && git push --tags"
     },
     "keywords": [],
     "author": "Sunxinqiang",

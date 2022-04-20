@@ -2,7 +2,7 @@ const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
     _baseConfig = {
-        'protocol': 'https://',
+        'protocol': 'http://',
         'endpoint': 'actiontrail.api.ksyun.com',
         'config': {
             'timeout': 60,  //设置timeout

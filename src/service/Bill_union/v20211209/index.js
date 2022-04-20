@@ -2,7 +2,7 @@ const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
     _baseConfig = {
-        'protocol': 'https://',
+        'protocol': 'http://',
         'endpoint': 'bill-union.api.ksyun.com',
         'config': {
             'timeout': 60,  //设置timeout
@@ -11,7 +11,7 @@ module.exports = class Client extends BaseClient {
             },
             'credentials': {
                 'region': 'cn-shanghai-3',
-                'service': 'bill_union',
+                'service': 'bill-union',
             },
         },
     }
