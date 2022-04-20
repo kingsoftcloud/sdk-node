@@ -17,7 +17,7 @@
 通过 npm 获取安装是使用 NODEJS SDK 的推荐方法，npm 是 NODEJS 的包管理工具。关于 npm 详细可参考[ npm 官网](https://www.npmjs.com/) 。
 
 1. 执行以下安装命令：
-   > npm install ksc-sdk-node --save
+   > npm install ksyun-sdk-node --save
 2. 在您的代码中引用对应模块代码，可参考示例。
 
 ## 通过源码包安装
@@ -29,7 +29,7 @@
 # 示例
 
 ```js
-const kscSdk = require('ksc-sdk-node')
+const kscSdk = require('ksyun-sdk-node')
 
 const Client = kscSdk.Iam.v20151101
 const clientConfig = {
