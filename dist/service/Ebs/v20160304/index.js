@@ -352,6 +352,26 @@ module.exports = class Client extends BaseClient {
           'VolumeType': 'String',
           'InstanceId': 'String'
         }
+      },
+      'DescribeCreateVolumePrice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeCreateVolumePrice'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'VolumeType': 'String',
+          'Size': 'Int',
+          'AvailabilityZone': 'String',
+          'ChargeType': 'String',
+          'PurchaseTime': 'Int'
+        }
       }
     });
   }
