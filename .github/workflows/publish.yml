@@ -21,7 +21,7 @@ jobs:
       - run: git config --global user.email "autotag@ksyun.com"
       - run: git config --global user.name "autotag"
       - run: npm run build
-      - run: git add . && git commit -m 'build'
+      # - run: git add . && git commit -m 'build'
       - run: npm version patch
       - run: gh release create $(git describe --tags `git rev-list --tags --max-count=1`) --generate-notes
         env:
