@@ -27,7 +27,7 @@ module.exports = class Client extends BaseClient {
     _defineProperty(this, "_apiList", {
       'CreateUser': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -52,7 +52,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListUsers': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -70,7 +70,7 @@ module.exports = class Client extends BaseClient {
       },
       'UpdateUser': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -92,7 +92,7 @@ module.exports = class Client extends BaseClient {
       },
       'GetUser': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -108,7 +108,7 @@ module.exports = class Client extends BaseClient {
       },
       'DeleteUser': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -124,7 +124,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListAttachedUserPolicies': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -142,7 +142,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListPolicyVersions': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -158,7 +158,7 @@ module.exports = class Client extends BaseClient {
       },
       'SetDefaultPolicyVersion': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -175,7 +175,7 @@ module.exports = class Client extends BaseClient {
       },
       'AttachUserPolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -192,7 +192,7 @@ module.exports = class Client extends BaseClient {
       },
       'DeletePolicyVersion': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -209,7 +209,7 @@ module.exports = class Client extends BaseClient {
       },
       'GetPolicyVersion': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -226,7 +226,7 @@ module.exports = class Client extends BaseClient {
       },
       'CreatePolicyVersion': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -245,7 +245,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListPolicies': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -264,7 +264,7 @@ module.exports = class Client extends BaseClient {
       },
       'GetPolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -280,7 +280,7 @@ module.exports = class Client extends BaseClient {
       },
       'DeletePolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -296,7 +296,7 @@ module.exports = class Client extends BaseClient {
       },
       'CreatePolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -316,7 +316,7 @@ module.exports = class Client extends BaseClient {
       },
       'ChangePassword': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -333,7 +333,7 @@ module.exports = class Client extends BaseClient {
       },
       'UpdateLoginProfile': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -354,7 +354,7 @@ module.exports = class Client extends BaseClient {
       },
       'GetLoginProfile': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -370,7 +370,7 @@ module.exports = class Client extends BaseClient {
       },
       'CreateAccessKey': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -386,7 +386,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListAccessKeys': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -402,7 +402,7 @@ module.exports = class Client extends BaseClient {
       },
       'UpdateAccessKey': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -420,7 +420,7 @@ module.exports = class Client extends BaseClient {
       },
       'DeleteAccessKey': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -435,9 +435,79 @@ module.exports = class Client extends BaseClient {
           'AccessKeyId': 'String'
         }
       },
+      'ListVirtualMFADevices': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListVirtualMFADevices'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AssignmentStatus': 'String',
+          'Marker': 'String',
+          'MaxItems': 'Int'
+        }
+      },
+      'EnableMFADevice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'EnableMFADevice'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AuthenticationCode1': 'String',
+          'AuthenticationCode2': 'String',
+          'SerialNumber': 'String',
+          'UserName': 'String'
+        }
+      },
+      'DeactivateMFADevice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeactivateMFADevice'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'SerialNumber': 'String',
+          'UserName': 'String'
+        }
+      },
+      'GetVirtualMFADevice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetVirtualMFADevice'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'UserName': 'String'
+        }
+      },
       'CreateRole': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -455,7 +525,7 @@ module.exports = class Client extends BaseClient {
       },
       'DeleteRole': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -471,7 +541,7 @@ module.exports = class Client extends BaseClient {
       },
       'GetRole': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -487,7 +557,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListRoles': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -504,7 +574,7 @@ module.exports = class Client extends BaseClient {
       },
       'AttachRolePolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -521,7 +591,7 @@ module.exports = class Client extends BaseClient {
       },
       'DetachRolePolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -538,7 +608,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListAttachedRolePolicies': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -556,7 +626,7 @@ module.exports = class Client extends BaseClient {
       },
       'UpdateRoleTrustAccounts': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -571,27 +641,9 @@ module.exports = class Client extends BaseClient {
           'NewTrustAccounts': 'String'
         }
       },
-      'ListEntityForPolicy': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListEntityForPolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String',
-          'Marker': 'String',
-          'MaxItems': 'Int'
-        }
-      },
       'CreateProject': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -604,6 +656,58 @@ module.exports = class Client extends BaseClient {
         'paramsType': {
           'ProjectName': 'String',
           'ProjectDesc': 'String'
+        }
+      },
+      'GetAccountAllProjectList': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetAccountAllProjectList'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'GetProjectInstanceList': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetProjectInstanceList'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ProjectId': 'Int',
+          'ProductLine': 'String',
+          'Ps': 'Int',
+          'Pn': 'Int'
+        }
+      },
+      'UpdateInstanceProjectId': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateInstanceProjectId'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ProjectId': 'Int',
+          'InstanceId': 'String',
+          'Action': 'String',
+          'Version': 'String'
         }
       },
       'ListEntitiesForPolicy': {
@@ -626,7 +730,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListProjectMember': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -642,7 +746,7 @@ module.exports = class Client extends BaseClient {
       },
       'DeleteProjectMember': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -659,7 +763,7 @@ module.exports = class Client extends BaseClient {
       },
       'AddProjectMember': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -677,7 +781,7 @@ module.exports = class Client extends BaseClient {
       },
       'UpdateRole': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -694,7 +798,7 @@ module.exports = class Client extends BaseClient {
       },
       'UpdatePolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -711,7 +815,7 @@ module.exports = class Client extends BaseClient {
       },
       'CreateGroup': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -728,7 +832,7 @@ module.exports = class Client extends BaseClient {
       },
       'DeleteGroup': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -744,7 +848,7 @@ module.exports = class Client extends BaseClient {
       },
       'DetachGroupPolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -761,7 +865,7 @@ module.exports = class Client extends BaseClient {
       },
       'AttachGroupPolicy': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -778,7 +882,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListGroupPolicies': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -796,7 +900,7 @@ module.exports = class Client extends BaseClient {
       },
       'AddUserToGroup': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -813,7 +917,7 @@ module.exports = class Client extends BaseClient {
       },
       'GetGroup': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -831,7 +935,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListGroupsForUser': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -849,7 +953,7 @@ module.exports = class Client extends BaseClient {
       },
       'ListGroups': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -866,7 +970,7 @@ module.exports = class Client extends BaseClient {
       },
       'RemoveUserFromGroup': {
         'url': '/',
-        'method': 'POST',
+        'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
@@ -880,6 +984,20 @@ module.exports = class Client extends BaseClient {
           'GroupName': 'String',
           'UserName': 'String'
         }
+      },
+      'ListAllUserAccessKeys': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListAllUserAccessKeys'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
       }
     });
   }
