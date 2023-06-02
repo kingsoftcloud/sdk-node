@@ -429,7 +429,7 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-                'LocalVolumeSnapshotId': 'Array',
+                'LocalVolumeSnapshotId': 'Filter',
             }
         },
         'ModifyDataGuardGroups': {
