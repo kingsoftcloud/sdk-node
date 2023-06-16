@@ -78,7 +78,10 @@ module.exports = class Client extends BaseClient {
           'InstanceNameSuffix': 'String',
           'ProjectId': 'Int',
           'DataDisk': 'Filter',
-          'NetworkInterface': 'Filter'
+          'NetworkInterface': 'Filter',
+          'Userdata': 'String',
+          'SystemDisk.DiskType': 'String',
+          'SystemDisk.DiskSize': 'Int'
         }
       },
       'StartInstances': {
@@ -174,7 +177,9 @@ module.exports = class Client extends BaseClient {
           'SystemDisk.DiskType': 'String',
           'DataDisk': 'Filter',
           'StopInstance': 'Boolean',
-          'AutoRestart': 'Boolean'
+          'AutoRestart': 'Boolean',
+          'SystemDisk.DiskSize': 'Int',
+          'SystemDisk.ResizeType': 'String'
         }
       },
       'TerminateInstances': {
@@ -245,10 +250,12 @@ module.exports = class Client extends BaseClient {
         'paramsType': {
           'InstanceId': 'String',
           'ImageId': 'String',
-          'SystemDisk': 'String',
+          'SystemDisk.DiskSize': 'Int',
           'InstancePassword': 'String',
           'KeyId': 'Filter',
-          'KeepImageLogin': 'Boolean'
+          'KeepImageLogin': 'Boolean',
+          'SystemDisk.DiskType': 'String',
+          'SystemDisk.ResizeType': 'String'
         }
       },
       'CreateImage': {
@@ -431,7 +438,7 @@ module.exports = class Client extends BaseClient {
           }
         },
         'paramsType': {
-          'LocalVolumeSnapshotId': 'Array'
+          'LocalVolumeSnapshotId': 'Filter'
         }
       },
       'ModifyDataGuardGroups': {
@@ -632,7 +639,7 @@ module.exports = class Client extends BaseClient {
           'KeepImageLogin': 'Boolean',
           'KeyId': 'Filter',
           'DataDisk': 'Filter',
-          'SystemDisk': 'Filter',
+          'SystemDisk.DiskSize': 'String',
           'AddressBandWidth': 'Int',
           'BandWidthShareId': 'String',
           'LineId': 'String',
@@ -641,7 +648,9 @@ module.exports = class Client extends BaseClient {
           'InstanceNameSuffix': 'String',
           'UserData': 'String',
           'InstanceNameTimeSuffix': 'Boolean',
-          'Tag': 'Filter'
+          'Tag': 'Filter',
+          'SystemDisk.DiskType': 'String',
+          'SystemDisk.ResizeType': 'String'
         }
       },
       'DeleteScalingConfiguration': {
@@ -1408,7 +1417,7 @@ module.exports = class Client extends BaseClient {
         'paramsType': {
           'ImageId': 'String',
           'InstanceType': 'String',
-          'SystemDisk': 'String',
+          'SystemDisk.DiskSize': 'String',
           'DataDiskGb': 'Int',
           'SubnetId': 'String',
           'DataDisk': 'Filter',
@@ -1428,7 +1437,9 @@ module.exports = class Client extends BaseClient {
           'AddressChargeType': 'String',
           'AddressPurchaseTime': 'Int',
           'AddressProjectId': 'String',
-          'ModelName': 'String'
+          'ModelName': 'String',
+          'SystemDisk.DiskType': 'String',
+          'SystemDisk.ResizeType': 'String'
         }
       },
       'TerminateModels': {
@@ -1608,7 +1619,7 @@ module.exports = class Client extends BaseClient {
           'KeepImageLogin': 'Boolean',
           'KeyId': 'Filter',
           'DataDisk': 'Filter',
-          'SystemDisk': 'Filter',
+          'SystemDisk.DiskSize': 'Int',
           'AddressBandWidth': 'Int',
           'BandWidthShareId': 'String',
           'LineId': 'String',
@@ -1620,7 +1631,9 @@ module.exports = class Client extends BaseClient {
           'Tag': 'Filter',
           'LoginSetAfter': 'Boolean',
           'IpBindAfter': 'Boolean',
-          'InstanceNameRandom': 'Boolean'
+          'InstanceNameRandom': 'Boolean',
+          'SystemDisk.DiskType': 'String',
+          'SystemDisk.ResizeType': 'String'
         }
       },
       'DescribeSpotPriceHistory': {
@@ -1747,6 +1760,41 @@ module.exports = class Client extends BaseClient {
           'InstanceId': 'Filter'
         }
       },
+      'PreMigrateInstance': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'PreMigrateInstance'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'InstanceId': 'String',
+          'InstanceType': 'String',
+          'SystemDiskType': 'String',
+          'DataDiskType': 'String'
+        }
+      },
+      'CancelPreMigrateInstance': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CancelPreMigrateInstance'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'InstanceId': 'String'
+        }
+      },
       'DescribeInstanceKmr': {
         'url': '/',
         'method': 'GET',
@@ -1754,50 +1802,6 @@ module.exports = class Client extends BaseClient {
           'query': {
             'Version': '2016-03-04',
             'Action': 'DescribeInstanceKmr'
-          },
-          'headers': {
-            'Content-Type': 'application/json'
-          }
-        },
-        'paramsType': {}
-      },
-      'ValidatedDiskEncrypt': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'ValidatedDiskEncrypt'
-          },
-          'headers': {
-            'Content-Type': 'application/json'
-          }
-        },
-        'paramsType': {
-          'AccountId': 'String'
-        }
-      },
-      'DistributeKmsPermission': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'DistributeKmsPermission'
-          },
-          'headers': {
-            'Content-Type': 'application/json'
-          }
-        },
-        'paramsType': {}
-      },
-      'DescribeEntrySnapshots': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'DescribeEntrySnapshots'
           },
           'headers': {
             'Content-Type': 'application/json'
