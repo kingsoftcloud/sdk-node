@@ -1303,6 +1303,92 @@ module.exports = class Client extends BaseClient {
           'NetworkInterfaceId': 'String'
         }
       },
+      'CreateHaVip': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateHaVip'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'SubnetId': 'String',
+          'IpAddress': 'String'
+        }
+      },
+      'DeleteHaVip': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteHaVip'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HaVipId': 'String'
+        }
+      },
+      'AssociateHaVip': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'AssociateHaVip'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'NetworkInterfaceId': 'String',
+          'HaVipId': 'String'
+        }
+      },
+      'UnAssociateHaVip': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'UnAssociateHaVip'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'NetworkInterfaceId': 'String',
+          'HaVipId': 'String'
+        }
+      },
+      'DescribeHaVip': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeHaVip'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HaVipId': 'Filter',
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
       'DeleteDirectConnectGatewayRoute': {
         'url': '/',
         'method': 'GET',
