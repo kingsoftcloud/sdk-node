@@ -10,7 +10,7 @@ module.exports = class Client extends BaseClient {
 
     _defineProperty(this, "_baseConfig", {
       'protocol': 'http://',
-      'endpoint': 'iam.api.ksyun.com',
+      'endpoint': 'epc.api.ksyun.com',
       'config': {
         'timeout': 60,
         //设置timeout
@@ -19,985 +19,1024 @@ module.exports = class Client extends BaseClient {
         },
         'credentials': {
           'region': 'cn-shanghai-3',
-          'service': 'iam'
+          'service': 'epc'
         }
       }
     });
 
     _defineProperty(this, "_apiList", {
-      'CreateUser': {
+      'CreateEpc': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'CreateUser'
+            'Action': 'CreateEpc'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'UserName': 'String',
-          'RealName': 'String',
-          'Phone': 'String',
-          'Email': 'String',
-          'Remark': 'String',
+          'HostType': 'String',
+          'AvailabilityZone': 'String',
+          'Raid': 'String',
+          'RaidId': 'String',
+          'ImageId': 'String',
+          'NetworkInterfaceMode': 'String',
+          'SubnetId': 'String',
+          'PrivateIpAddress': 'String',
+          'keyId': 'String',
+          'SecurityGroupId': 'Filter',
+          'DNS1': 'String',
+          'DNS2': 'String',
+          'HostName': 'String',
+          'ProjectId': 'String',
+          'ChargeType': 'String',
+          'Sn': 'String',
+          'PurchaseTime': 'Int',
           'Password': 'String',
-          'PasswordResetRequired': 'Int',
-          'OpenLoginProtection': 'Int',
-          'OpenSecurityProtection': 'Int',
-          'ViewAllProject': 'Int'
-        }
-      },
-      'ListUsers': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListUsers'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'Marker': 'String',
-          'MaxItems': 'Int',
-          'AccessKey': 'String'
-        }
-      },
-      'UpdateUser': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'UpdateUser'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String',
-          'NewUserName': 'String',
-          'NewRealName': 'String',
-          'NewEmail': 'String',
-          'NewPhone': 'String',
-          'IsInternational': 'Int',
-          'NewRemark': 'String'
-        }
-      },
-      'GetUser': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetUser'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String'
-        }
-      },
-      'DeleteUser': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DeleteUser'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String'
-        }
-      },
-      'ListAttachedUserPolicies': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListAttachedUserPolicies'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String',
-          'Marker': 'String',
-          'MaxItems': 'String'
-        }
-      },
-      'ListPolicyVersions': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListPolicyVersions'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String'
-        }
-      },
-      'SetDefaultPolicyVersion': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'SetDefaultPolicyVersion'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String',
-          'VersionId': 'String'
-        }
-      },
-      'AttachUserPolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'AttachUserPolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String',
-          'UserName': 'String'
-        }
-      },
-      'DeletePolicyVersion': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DeletePolicyVersion'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String',
-          'VersionId': 'String'
-        }
-      },
-      'GetPolicyVersion': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetPolicyVersion'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String',
-          'VersionId': 'String'
-        }
-      },
-      'CreatePolicyVersion': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'CreatePolicyVersion'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String',
-          'PolicyDocument': 'String',
-          'SetAsDefault': 'String',
-          'PolicyStruct': 'String'
-        }
-      },
-      'ListPolicies': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListPolicies'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'Marker': 'String',
-          'MaxItems': 'String',
-          'OnlyAttached': 'Boolean',
-          'Scope': 'String'
-        }
-      },
-      'GetPolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetPolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String'
-        }
-      },
-      'DeletePolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DeletePolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String'
-        }
-      },
-      'CreatePolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'CreatePolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyName': 'String',
+          'SecurityAgent': 'String',
+          'CloudMonitorAgent': 'String',
+          'ExtensionSubnetId': 'String',
+          'ExtensionPrivateIpAddress': 'String',
+          'ExtensionDNS1': 'String',
+          'ExtensionDNS2': 'String',
           'Description': 'String',
-          'PolicyDocument': 'String',
-          'PolicyStruct': 'String',
-          'CreateMode': 'String'
+          'AddressBandWidth': 'String',
+          'LineId': 'String',
+          'BandWidthShareId': 'String',
+          'AddressChargeType': 'String',
+          'AddressPurchaseTime': 'String',
+          'AddressProjectId': 'String',
+          'SystemFileType': 'String',
+          'DataFileType': 'String',
+          'DataDiskCatalogue': 'String',
+          'DataDiskCatalogueSuffix': 'String',
+          'HyperThreading': 'String',
+          'NvmeDataFileType': 'String',
+          'NvmeDataDiskCatalogue': 'String',
+          'NvmeDataDiskCatalogueSuffix': 'String',
+          'bondAttribute': 'String',
+          'ContainerAgent': 'String',
+          'KesAgent': 'String',
+          'KmrAgent': 'String',
+          'ComputerName': 'String',
+          'OverclockingAttribute': 'String',
+          'GpuImageDriverId': 'String',
+          'SystemVolumeType': 'String',
+          'SystemVolumeSize': 'String'
         }
       },
-      'ChangePassword': {
+      'StartEpc': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'ChangePassword'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'OldPassword': 'String',
-          'NewPassword': 'String'
-        }
-      },
-      'UpdateLoginProfile': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'UpdateLoginProfile'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String',
-          'Password': 'String',
-          'PasswordResetRequired': 'Boolean',
-          'OpenLoginProtection': 'Boolean',
-          'OpenSecurityProtection': 'Boolean',
-          'ViewAllProject': 'Boolean'
-        }
-      },
-      'GetLoginProfile': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetLoginProfile'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String'
-        }
-      },
-      'CreateAccessKey': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'CreateAccessKey'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String'
-        }
-      },
-      'ListAccessKeys': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListAccessKeys'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String'
-        }
-      },
-      'UpdateAccessKey': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'UpdateAccessKey'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'AccessKeyId': 'String',
-          'UserName': 'String',
-          'Status': 'String'
-        }
-      },
-      'DeleteAccessKey': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DeleteAccessKey'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String',
-          'AccessKeyId': 'String'
-        }
-      },
-      'ListVirtualMFADevices': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListVirtualMFADevices'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'AssignmentStatus': 'String',
-          'Marker': 'String',
-          'MaxItems': 'Int'
-        }
-      },
-      'EnableMFADevice': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'EnableMFADevice'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'AuthenticationCode1': 'String',
-          'AuthenticationCode2': 'String',
-          'SerialNumber': 'String',
-          'UserName': 'String'
-        }
-      },
-      'DeactivateMFADevice': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DeactivateMFADevice'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'SerialNumber': 'String',
-          'UserName': 'String'
-        }
-      },
-      'GetVirtualMFADevice': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetVirtualMFADevice'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'UserName': 'String'
-        }
-      },
-      'CreateRole': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'CreateRole'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String',
-          'TrustAccounts': 'String',
-          'Description': 'String'
-        }
-      },
-      'DeleteRole': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DeleteRole'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String'
-        }
-      },
-      'GetRole': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetRole'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String'
-        }
-      },
-      'ListRoles': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListRoles'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'Marker': 'String',
-          'MaxItems': 'Int'
-        }
-      },
-      'AttachRolePolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'AttachRolePolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String',
-          'PolicyKrn': 'String'
-        }
-      },
-      'DetachRolePolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DetachRolePolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String',
-          'PolicyKrn': 'String'
-        }
-      },
-      'ListAttachedRolePolicies': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListAttachedRolePolicies'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String',
-          'Marker': 'String',
-          'MaxItems': 'Int'
-        }
-      },
-      'UpdateRoleTrustAccounts': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'UpdateRoleTrustAccounts'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String',
-          'NewTrustAccounts': 'String'
-        }
-      },
-      'CreateProject': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'CreateProject'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'ProjectName': 'String',
-          'ProjectDesc': 'String'
-        }
-      },
-      'GetAccountAllProjectList': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetAccountAllProjectList'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {}
-      },
-      'GetProjectInstanceList': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'GetProjectInstanceList'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'ProjectId': 'Int',
-          'ProductLine': 'String',
-          'Ps': 'Int',
-          'Pn': 'Int'
-        }
-      },
-      'UpdateInstanceProjectId': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'UpdateInstanceProjectId'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'ProjectId': 'Int',
-          'InstanceId': 'String',
-          'Action': 'String',
-          'Version': 'String'
-        }
-      },
-      'ListEntitiesForPolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ListEntitiesForPolicy'
+            'Action': 'StartEpc'
           },
           'headers': {
             'Content-Type': 'application/json'
           }
         },
         'paramsType': {
-          'PolicyKrn': 'String',
-          'MaxItems': 'Int',
-          'Marker': 'String'
+          'HostId': 'String'
         }
       },
-      'ListProjectMember': {
+      'RebootEpc': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'ListProjectMember'
+            'Action': 'RebootEpc'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String'
+        }
+      },
+      'DeleteEpc': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteEpc'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String'
+        }
+      },
+      'ReinstallEpc': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ReinstallEpc'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'ProjectId': 'Int'
+          'HostId': 'String',
+          'ImageId': 'String',
+          'keyId': 'String',
+          'Password': 'String',
+          'NetworkInterfaceMode': 'String',
+          'SecurityAgent': 'String',
+          'CloudMonitorAgent': 'String',
+          'Raid': 'String',
+          'RaidId': 'String',
+          'HostName': 'String',
+          'SystemFileType': 'String',
+          'DataFileType': 'String',
+          'DataDiskCatalogue': 'String',
+          'DataDiskCatalogueSuffix': 'String',
+          'HyperThreading': 'String',
+          'NvmeDataFileType': 'String',
+          'NvmeDataDiskCatalogue': 'String',
+          'NvmeDataDiskCatalogueSuffix': 'String',
+          'bondAttribute': 'String',
+          'KesAgent': 'String',
+          'KmrAgent': 'String',
+          'ComputerName': 'String',
+          'OverclockingAttribute': 'String',
+          'DelayStart': 'Int',
+          'AvailabilityZone': 'String',
+          'GpuImageDriverId': 'String'
         }
       },
-      'DeleteProjectMember': {
+      'ModifySecurityGroup': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'DeleteProjectMember'
+            'Action': 'ModifySecurityGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'NetworkInterfaceId': 'String',
+          'SecurityGroupId': 'Filter'
+        }
+      },
+      'ImportKey': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ImportKey'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'ProjectId': 'Int',
-          'MemberIds': 'String'
-        }
-      },
-      'AddProjectMember': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'AddProjectMember'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'ProjectId': 'Int',
-          'IdentityId': 'String',
-          'IdentityType': 'Int'
-        }
-      },
-      'UpdateRole': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'UpdateRole'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'RoleName': 'String',
-          'NewDescription': 'String'
-        }
-      },
-      'UpdatePolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'UpdatePolicy'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'PolicyKrn': 'String',
-          'NewDescription': 'String'
-        }
-      },
-      'CreateGroup': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'CreateGroup'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'GroupName': 'String',
+          'KeyName': 'String',
+          'PublicKey': 'String',
           'Description': 'String'
         }
       },
-      'DeleteGroup': {
+      'DeleteKey': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'DeleteGroup'
+            'Action': 'DeleteKey'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'GroupName': 'String'
+          'KeyId': 'String'
         }
       },
-      'DetachGroupPolicy': {
+      'CreateKey': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'DetachGroupPolicy'
+            'Action': 'CreateKey'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'GroupName': 'String',
-          'PolicyKrn': 'String'
+          'KeyName': 'String',
+          'Description': 'String'
         }
       },
-      'AttachGroupPolicy': {
+      'DescribeKeys': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'AttachGroupPolicy'
+            'Action': 'DescribeKeys'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'GroupName': 'String',
-          'PolicyKrn': 'String'
+          'KeyId': 'Filter'
         }
       },
-      'ListGroupPolicies': {
+      'DescribeEpcs': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'ListGroupPolicies'
+            'Action': 'DescribeEpcs'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'GroupName': 'String',
-          'MaxItems': 'String',
-          'Marker': 'String'
+          'ProjectId': 'Filter',
+          'HostId': 'Filter',
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
         }
       },
-      'AddUserToGroup': {
+      'GetDynamicCode': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'AddUserToGroup'
+            'Action': 'GetDynamicCode'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'GroupName': 'String',
-          'UserName': 'String'
+          'RemoteManagementId': 'String'
         }
       },
-      'GetGroup': {
+      'DescribeVpns': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'GetGroup'
+            'Action': 'DescribeVpns'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'GroupName': 'String',
-          'MaxItems': 'String',
-          'Marker': 'String'
+          'DynamicCode': 'String',
+          'Pin': 'String',
+          'RemoteManagementId': 'String'
         }
       },
-      'ListGroupsForUser': {
+      'CreateImage': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'ListGroupsForUser'
+            'Action': 'CreateImage'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'UserName': 'String',
-          'MaxItems': 'String',
-          'Marker': 'String'
+          'HostId': 'String',
+          'ImageName': 'String',
+          'ImageMode': 'String',
+          'ImageInitialization': 'String'
         }
       },
-      'ListGroups': {
+      'ModifyImage': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'ListGroups'
+            'Action': 'ModifyImage'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'MaxItems': 'String',
-          'Marker': 'String'
+          'ImageName': 'String',
+          'ImageId': 'String'
         }
       },
-      'RemoveUserFromGroup': {
+      'DeleteImage': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'RemoveUserFromGroup'
+            'Action': 'DeleteImage'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'GroupName': 'String',
-          'UserName': 'String'
+          'ImageId': 'String'
         }
       },
-      'ListAllUserAccessKeys': {
+      'DescribeImages': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2015-11-01',
-            'Action': 'ListAllUserAccessKeys'
+            'Action': 'DescribeImages'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'ModifyDns': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ModifyDns'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'NetworkInterfaceId': 'String',
+          'HostId': 'String',
+          'DNS1': 'String',
+          'DNS2': 'String'
+        }
+      },
+      'ModifyNetworkInterfaceAttribute': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ModifyNetworkInterfaceAttribute'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {}
+      },
+      'DescribePhysicalMonitor': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribePhysicalMonitor'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String'
+        }
+      },
+      'DescribeEpcManagements': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeEpcManagements'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'MaxResults': 'Int',
+          'NextToken': 'String',
+          'DynamicCode': 'String',
+          'Pin': 'String',
+          'EpcManagementId': 'Filter',
+          'RemoteManagementId': 'String'
+        }
+      },
+      'DescribeRemoteManagements': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeRemoteManagements'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'RemoteManagementId': 'Filter'
+        }
+      },
+      'StopEpc': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'StopEpc'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String'
+        }
+      },
+      'ModifyEpc': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ModifyEpc'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'HostName': 'String',
+          'Description': 'String'
+        }
+      },
+      'ModifyRemoteManagement': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ModifyRemoteManagement'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'RemoteManagementId': 'String',
+          'DynamicCode': 'String',
+          'Pin': 'String',
+          'NewPhoneNumber': 'String',
+          'NewPin': 'String',
+          'Name': 'String',
+          'VersionId': 'Int'
+        }
+      },
+      'CreateRemoteManagement': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateRemoteManagement'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'DynamicCode': 'String',
+          'Pin': 'String',
+          'PhoneNumber': 'String',
+          'Name': 'String',
+          'VersionId': 'Int'
+        }
+      },
+      'ReinstallCustomerEpc': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ReinstallCustomerEpc'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'ServerIp': 'String',
+          'Path': 'String'
+        }
+      },
+      'DeleteRemoteManagement': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteRemoteManagement'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'ModifyHyperThreading': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ModifyHyperThreading'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'HyperThreadingStatus': 'String'
+        }
+      },
+      'AssociateCluster': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AssociateCluster'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'ClusterId': 'String'
+        }
+      },
+      'DisassociateCluster': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DisassociateCluster'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String'
+        }
+      },
+      'DescribeInspections': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeInspections'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'MaxResults': 'Int',
+          'NextToken': 'String',
+          'Filter': 'Filter'
+        }
+      },
+      'DescribeEpcStocks': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeEpcStocks'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'Filter': 'Filter'
+        }
+      },
+      'DescribeEpcDeviceAttributes': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeEpcDeviceAttributes'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'Filter': 'Filter',
+          'DeviceAttributeId': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'DescribeProcesses': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeProcesses'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'OperationProcessId': 'Filter',
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'CreateProcess': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateProcess'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ProcessId': 'String',
+          'InstanceId': 'String',
+          'Sn': 'String',
+          'AvailabilityZone': 'String',
+          'CreateTime': 'String',
+          'Attribute': 'String',
+          'Content': 'String',
+          'MachineCount': 'Int',
+          'Title': 'String',
+          'Type': 'String',
+          'Confirm': 'String',
+          'ProcessSource': 'Int'
+        }
+      },
+      'DeleteProcess': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteProcess'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'OperationProcessId': 'String'
+        }
+      },
+      'ReplyProcess': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ReplyProcess'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'OperationProcessId': 'String',
+          'Remarks': 'String'
+        }
+      },
+      'DescribeEpcTrashes': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeEpcTrashes'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'ReturnEpc': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ReturnEpc'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String'
+        }
+      },
+      'CreateResourceRequirement': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateResourceRequirement'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AvailabilityZone': 'String',
+          'RequirementCount': 'Int',
+          'ProjectName': 'String',
+          'UsageDate': 'String',
+          'Description': 'String',
+          'HostType': 'String'
+        }
+      },
+      'AttachVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AttachVolume'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'VolumeId': 'String'
+        }
+      },
+      'DetachVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DetachVolume'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'VolumeId': 'String'
+        }
+      },
+      'DescribePrice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribePrice'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ChargeType': 'String',
+          'HostType': 'String',
+          'AvailabilityZone': 'String',
+          'PurchaseTime': 'Int',
+          'Amount': 'Int'
+        }
+      },
+      'ModifyOverclockingAttribute': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ModifyOverclockingAttribute'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'OverclockingAttribute': 'String'
+        }
+      },
+      'CopyImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CopyImage'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'DestinationName': 'String',
+          'ImageId': 'String',
+          'DestinationRegion': 'String',
+          'CopyTag': 'String'
+        }
+      },
+      'DescribeEpcRaidAttributes': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeEpcRaidAttributes'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'DescribeGpuImageDriver': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeGpuImageDriver'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'MaxResults': 'Int',
+          'NextToken': 'String',
+          'ImageId': 'String',
+          'HostType': 'String'
+        }
+      },
+      'CreateShareImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateShareImage'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ImageId': 'String',
+          'AccountId.N': 'String'
+        }
+      },
+      'DeleteShareImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteShareImage'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ImageId': 'String',
+          'AccountId.N': 'String'
+        }
+      },
+      'DescribeShareImageAccountList': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeShareImageAccountList'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'ImageId': 'String'
+        }
+      },
+      'DescribeShareImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DescribeShareImage'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'AcceptShareImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AcceptShareImage'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ImageId': 'String'
+        }
+      },
+      'RejectShareImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'RejectShareImage'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ImageId': 'String'
+        }
       }
     });
   }
