@@ -77,6 +77,7 @@ module.exports = class Client extends BaseClient {
                 'GpuImageDriverId': 'String',
                 'SystemVolumeType': 'String',
                 'SystemVolumeSize': 'String',
+                'RoceNetwork': 'String',
             }
         },
         'StartEpc': {
@@ -570,6 +571,23 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+            }
+        },
+        'ResetPassword': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ResetPassword',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'HostId': 'String',
+                'Password': 'String',
             }
         },
         'ModifyHyperThreading': {
