@@ -73,6 +73,9 @@ module.exports = class Client extends BaseClient {
                 'Userdata': 'String',
                 'SystemDisk.DiskType': 'String',
                 'SystemDisk.DiskSize': 'Int',
+                'ModelId': 'String',
+                'ModelVersion': 'Int',
+                'AssembledImageDataDiskType': 'String',
             }
         },
         'StartInstances': {
@@ -247,6 +250,7 @@ module.exports = class Client extends BaseClient {
                 'KeepImageLogin': 'Boolean',
                 'SystemDisk.DiskType': 'String',
                 'SystemDisk.ResizeType': 'String',
+                'UserData': 'String',
             }
         },
         'CreateImage': {
@@ -1437,6 +1441,7 @@ module.exports = class Client extends BaseClient {
                 'ModelName': 'String',
                 'SystemDisk.DiskType': 'String',
                 'SystemDisk.ResizeType': 'String',
+                'VersionDetail': 'String',
             }
         },
         'TerminateModels': {
@@ -1452,7 +1457,8 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-                'ModelId': 'Filter',
+                'ModelId': 'String',
+                'ModelVersion': 'Int',
             }
         },
         'DescribeModels': {
