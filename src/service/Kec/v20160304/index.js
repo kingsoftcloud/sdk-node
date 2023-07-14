@@ -76,6 +76,7 @@ module.exports = class Client extends BaseClient {
                 'ModelId': 'String',
                 'ModelVersion': 'Int',
                 'AssembledImageDataDiskType': 'String',
+                'AutoCreateEbs': 'Boolean',
             }
         },
         'StartInstances': {
