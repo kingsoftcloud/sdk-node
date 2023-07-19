@@ -1151,37 +1151,6 @@ module.exports = class Client extends BaseClient {
                 'Permission': 'String',
             }
         },
-        'DescribeImageSharePermission': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'DescribeImageSharePermission',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'ImageId': 'String',
-            }
-        },
-        'DescribeRegions': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'DescribeRegions',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-            }
-        },
         'AttachKey': {
             'url': '/',
             'method': 'GET',
@@ -1216,21 +1185,6 @@ module.exports = class Client extends BaseClient {
                 'Action': 'String',
                 'InstanceId': 'Filter',
                 'KeyId': 'Filter',
-            }
-        },
-        'DescribeAvailabilityZones': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'DescribeAvailabilityZones',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
             }
         },
         'DescribeInstanceTypeConfigs': {
@@ -1797,51 +1751,6 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'InstanceId': 'String',
-            }
-        },
-        'DescribeInstanceKmr': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'DescribeInstanceKmr',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-            }
-        },
-        'DescribeMinFlavorCount': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'DescribeMinFlavorCount',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-            }
-        },
-        'DescribeProjectMaxNum': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'DescribeProjectMaxNum',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
             }
         },
     }
