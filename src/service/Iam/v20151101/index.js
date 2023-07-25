@@ -113,6 +113,23 @@ module.exports = class Client extends BaseClient {
                 'UserName': 'String',
             }
         },
+        'DetachUserPolicy': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DetachUserPolicy',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'PolicyKrn': 'String',
+                'UserName': 'String',
+            }
+        },
         'ListAttachedUserPolicies': {
             'url': '/',
             'method': 'GET',
@@ -357,6 +374,7 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'UserName': 'String',
+                'NotCheckPassword': 'Int',
             }
         },
         'CreateAccessKey': {
@@ -990,6 +1008,45 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+            }
+        },
+        'InsertInstanceToES': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'InsertInstanceToES',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProjectId': 'Int',
+                'ProductLine': 'String',
+                'ProductGroup': 'Int',
+                'ResourceType': 'String',
+                'InstanceId': 'String',
+                'RegionEn': 'String',
+                'InstanceName': 'String',
+            }
+        },
+        'DelInstanceFromES': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DelInstanceFromES',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductLine': 'String',
+                'InstanceId': 'String',
             }
         },
     }

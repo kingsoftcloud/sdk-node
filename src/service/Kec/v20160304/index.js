@@ -558,6 +558,23 @@ module.exports = class Client extends BaseClient {
                 'Tag': 'Filter',
             }
         },
+        'DeleteDedicatedHost': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteDedicatedHost',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DedicatedHostId': 'Filter',
+                'IsRefund': 'Boolean',
+            }
+        },
         'RenameDedicatedHost': {
             'url': '/',
             'method': 'GET',
@@ -1151,6 +1168,37 @@ module.exports = class Client extends BaseClient {
                 'Permission': 'String',
             }
         },
+        'DescribeImageSharePermission': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeImageSharePermission',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'String',
+            }
+        },
+        'DescribeRegions': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeRegions',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+            }
+        },
         'AttachKey': {
             'url': '/',
             'method': 'GET',
@@ -1185,6 +1233,21 @@ module.exports = class Client extends BaseClient {
                 'Action': 'String',
                 'InstanceId': 'Filter',
                 'KeyId': 'Filter',
+            }
+        },
+        'DescribeAvailabilityZones': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeAvailabilityZones',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
             }
         },
         'DescribeInstanceTypeConfigs': {
@@ -1535,6 +1598,25 @@ module.exports = class Client extends BaseClient {
                 'DedicatedClusterName': 'String',
             }
         },
+        'InstanceMigrate': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'InstanceMigrate',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DedicatedHostId': 'String',
+                'InstanceId': 'String',
+                'InstanceType': 'String',
+                'DataDisk': 'Filter',
+            }
+        },
         'ModifyInstanceAutoDeleteTime': {
             'url': '/',
             'method': 'GET',
@@ -1751,6 +1833,21 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'InstanceId': 'String',
+            }
+        },
+        'DescribeMinFlavorCount': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeMinFlavorCount',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
             }
         },
     }
