@@ -17,7 +17,6 @@
         "abort-controller": "^3.0.0",
         "core-js": "^3.6.5",
         "crypto-js": "^4.1.1",
-        "dayjs": "^1.10.7",
         "node-fetch": "^2.6.7",
         "qs": "^6.10.3"
     },

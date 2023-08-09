@@ -8,13 +8,8 @@ const getSignedParams = require('../lib/sign.js').getSignedParams;
 
 const fetch = require('../lib/fetch.js');
 
-const dayjs = require('dayjs');
-
-const utc = require('dayjs/plugin/utc.js');
-
 const qs = require('qs');
 
-dayjs.extend(utc);
 module.exports = class BaseClient {
   constructor(clientConfig) {
     _defineProperty(this, "_baseConfig", {});
@@ -43,7 +38,7 @@ module.exports = class BaseClient {
       Service: this._baseConfig.config.credentials.service,
       Action: apiAction,
       Version: apiConfig.config.query.Version,
-      Timestamp: dayjs().utc().format('YYYY-MM-DDThh:mm:ss') + 'Z',
+      Timestamp: new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'),
       SignatureVersion: '1.0',
       SignatureMethod: 'HMAC-SHA256',
       Region: this.region || this._baseConfig.config.credentials.region
