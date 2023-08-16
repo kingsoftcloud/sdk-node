@@ -1,4 +1,4 @@
-const getSignedParams = require('../lib/sign.js').getSignedParams
+const {getSignatureHeaders, getCanonicalizedQuery} = require('../lib/signautreV4.js')
 const fetch = require('../lib/fetch.js')
 const dayjs = require('dayjs')
 const utc = require('dayjs/plugin/utc.js')
@@ -26,67 +26,116 @@ module.exports = class BaseClient {
      */
     request (apiAction, params = {}) {
 
+        params = this.formatParams(apiAction, params)
+
         let apiConfig = this._apiList[apiAction]
-        let publicParams = {
-            Accesskey: this.ak,
-            Service: this._baseConfig.config.credentials.service,
-            Action: apiAction,
-            Version: apiConfig.config.query.Version,
-            Timestamp: dayjs().utc().format('YYYY-MM-DDThh:mm:ss')+'Z',
-            SignatureVersion: '1.0',
-            SignatureMethod: 'HMAC-SHA256',
-            Region: this.region || this._baseConfig.config.credentials.region,
-        }
-
-        let combainParams = {
-            ...publicParams,
-            ...params
-        }
-
-        let signedParams = getSignedParams(combainParams, this.sk)
 
         let protocol = this.httpProfile.protocol || this._baseConfig.protocol
         let endpoint = this.httpProfile.endpoint || this._baseConfig.endpoint
-        let method = this.httpProfile.method || apiConfig.method
-
-        let url = `${protocol}${endpoint}${apiConfig.url}`
-        if (['GET', 'DELETE', 'OPTION', 'HEAD'].includes(method.toUpperCase())) {
-            url += `?${qs.stringify(signedParams)}`
-        }
+        let method = (this.httpProfile.method || apiConfig.method).toUpperCase()
+        let region = this.region || this._baseConfig.config.credentials.region
         let headers = {
             ...(this._baseConfig.config.headers || {}),
-            ...(apiConfig.config.headers || {}),
-            // 目前kop只支持application/x-www-form-urlencoded类型的签名解析
-            'Content-Type': 'application/x-www-form-urlencoded',
+            ...(apiConfig.config.headers || {})
         }
-        let body = this.getBody(method, headers['Content-Type'], signedParams)
+
+        let query = apiConfig.config.query
+        if (['GET', 'OPTION', 'HEAD'].includes(method)) {
+            query = {
+                ...query,
+                ...params
+            }
+        }
+
+        let body = this.getBody(method, headers['Content-Type'], params)
+
+        let signParams = {
+            path: apiConfig.url,
+            query,
+            body: body || '',
+            headers,
+            host: endpoint,
+            method,
+            region,
+            service: this._baseConfig.config.credentials.service,
+            access_key: this.ak,
+            secret_key: this.sk,
+        }
+
+        let signHeaders = getSignatureHeaders(signParams)
+
+        let url = `${protocol}${endpoint}${apiConfig.url}?${getCanonicalizedQuery(query)}`
 
         let timeoutSecond = this.httpProfile.timeout || this._baseConfig.config.timeout
         return fetch(url, {
             method: method,
             timeout: timeoutSecond * 1000,
-            headers,
+            headers: signHeaders,
             body
         })
     }
     /**
+     * 格式化参数，对Filter类型做扁平处理
+     * @param {string} apiAction 接口名
+     * @param {object} params 参数值
+     * @returns 格式化后的参数
+     */
+     formatParams (apiAction, params) {
+        let paramsType = this._apiList[apiAction].paramsType
+        if (!paramsType || params == null) {
+            return params
+        }
+        let res = {}
+        Object.keys(params).forEach(key => {
+            let type = paramsType[key]
+            // 这些类型不用处理，如果为null、undefined则排除掉
+            if (['String', 'Int', 'Double', 'Long', 'Boolean', 'Array'].includes(type) && params[key] != null) {
+                res[key] = params[key]
+            }
+            if (type == 'Filter') {
+                res = {
+                    ...res,
+                    ...this.formatFilter(key, params[key])
+                }
+            }
+        })
+        return res
+    }
+    formatFilter (pKey, value) {
+        let res = {}
+        Object.keys(value).forEach(key => {
+            let prefixName = `${pKey}.${key}`
+            let childValue = value[key]
+            if (typeof(childValue) == 'object') {
+                res = {
+                    ...res,
+                    ...this.formatFilter(prefixName, childValue)
+                }
+            } else {
+                res[prefixName] = childValue
+            }
+        })
+        return res
+    }
+
+    /**
      * 获取body
      * @param {string} method 请求类型
      * @param {string} contentType
-     * @param {object} signedParams 参数对象
+     * @param {object} params 参数对象
      * @returns {string}
      */
-    getBody (method, contentType, signedParams) {
-        if (!['POST', 'PUT'].includes(method.toUpperCase())) {
-            return undefined
+    getBody (method, contentType, params) {
+        if (!['POST', 'PUT'].includes(method) || JSON.stringify(params) == '{}') {
+            return null
         }
         // 目前只有下面这两种
         if (contentType == 'application/x-www-form-urlencoded') {
-            return qs.stringify(signedParams)
+            return qs.stringify(params)
         }
         if (contentType == 'application/json') {
-            return JSON.stringify(signedParams)
+            return JSON.stringify(params)
         }
-        return JSON.stringify(signedParams)
+        return JSON.stringify(params)
     }
 }
