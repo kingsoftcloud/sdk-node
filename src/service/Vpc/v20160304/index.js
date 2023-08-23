@@ -1517,5 +1517,97 @@ module.exports = class Client extends BaseClient {
                 'PrivateIpAddress': 'Filter',
             }
         },
+        'DescribeVpnGatewayRoutes': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeVpnGatewayRoutes',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'vpnGatewayId': 'String',
+                'Filter': 'Filter',
+                'maxResults': 'Int',
+                'nextToken': 'String',
+            }
+        },
+        'CreateVpnGatewayRoute': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateVpnGatewayRoute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpnGatewayId': 'String',
+                'DestinationCidrBlock': 'String',
+                'NextHopType': 'String',
+                'NextHopInstanceId': 'String',
+            }
+        },
+        'DeleteVpnGatewayRoute': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteVpnGatewayRoute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpnGatewayRouteId': 'String',
+            }
+        },
+        'DescribeVpnTunnelIpsecStatus': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeVpnTunnelIpsecStatus',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'IsMaster': 'Int',
+                'VpnTunnelId': 'Filter',
+            }
+        },
+        'QueryNatTopVifMonitor': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'QueryNatTopVifMonitor',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'natId': 'String',
+                'startTime': 'String',
+                'endTime': 'String',
+                'sortType': 'String',
+                'instanceType': 'String',
+                'ip': 'String',
+            }
+        },
     }
 }
