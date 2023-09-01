@@ -49,7 +49,7 @@ module.exports = class Client extends BaseClient {
                     'Action': 'DeleteAlarmPolicy',
                 },
                 'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json'
                 },
             },
             'paramsType': {

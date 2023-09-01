@@ -115,7 +115,7 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-                'PolicyId': 'String',
+                'PolicyId': 'Int',
                 'ContactFlag': 'Int',
                 'ContactId': 'Array',
             }
@@ -151,24 +151,21 @@ module.exports = class Client extends BaseClient {
                 'UserGrpId': 'Filter',
             }
         },
-        'ListMetrics': {
+        'UpdateAlertUserStatus': {
             'url': '/',
-            'method': 'GET',
+            'method': 'POST',
             'config': {
                 'query': {
                     'Version': '2021-01-01',
-                    'Action': 'ListMetrics',
+                    'Action': 'UpdateAlertUserStatus',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {
-                'Namespace': 'String',
-                'InstanceID': 'String',
-                'MetricName': 'String',
-                'PageIndex': 'Int',
-                'PageSize': 'Int',
+                'UserId': 'Array',
+                'UserStatus': 'Int',
             }
         },
     }

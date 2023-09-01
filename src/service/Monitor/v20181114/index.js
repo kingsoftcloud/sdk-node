@@ -25,10 +25,16 @@ module.exports = class Client extends BaseClient {
                     'Action': 'GetMetricStatisticsBatch',
                 },
                 'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
+                'Namespace': 'String',
+                'StartTime': 'String',
+                'EndTime': 'String',
+                'Aggregate': 'Array',
+                'Period': 'Int',
+                'Metrics': 'Array',
             }
         },
     }

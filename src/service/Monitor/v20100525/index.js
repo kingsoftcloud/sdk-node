@@ -38,5 +38,25 @@ module.exports = class Client extends BaseClient {
                 'Period': 'Int',
             }
         },
+        'ListMetrics': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2010-05-25',
+                    'Action': 'ListMetrics',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'Namespace': 'String',
+                'InstanceID': 'String',
+                'MetricName': 'String',
+                'PageIndex': 'Int',
+                'PageSize': 'Int',
+            }
+        },
     }
 }
