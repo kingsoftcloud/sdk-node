@@ -70,13 +70,18 @@ module.exports = class Client extends BaseClient {
                 'ProjectId': 'Int',
                 'DataDisk': 'Filter',
                 'NetworkInterface': 'Filter',
-                'Userdata': 'String',
+                'UserData': 'String',
                 'SystemDisk.DiskType': 'String',
                 'SystemDisk.DiskSize': 'Int',
                 'ModelId': 'String',
                 'ModelVersion': 'Int',
                 'AssembledImageDataDiskType': 'String',
                 'AutoCreateEbs': 'Boolean',
+                'LineId': 'String',
+                'AddressBandWidth': 'Int',
+                'AddressChargeType': 'String',
+                'AddressProjectId': 'String',
+                'AddressPurchaseTime': 'Int',
             }
         },
         'StartInstances': {
@@ -175,6 +180,7 @@ module.exports = class Client extends BaseClient {
                 'AutoRestart': 'Boolean',
                 'SystemDisk.DiskSize': 'Int',
                 'SystemDisk.ResizeType': 'String',
+                'InstantAccess': 'Boolean',
             }
         },
         'TerminateInstances': {
@@ -272,6 +278,7 @@ module.exports = class Client extends BaseClient {
                 'Type': 'String',
                 'DataDiskIds': 'Filter',
                 'SnapshotIds': 'Filter',
+                'InstantAccess': 'Boolean',
             }
         },
         'RemoveImages': {
@@ -384,6 +391,7 @@ module.exports = class Client extends BaseClient {
                 'LocalVolumeId': 'String',
                 'LocalVolumeSnapshotName': 'String',
                 'LocalVolumeSnapshotDesc': 'String',
+                'InstantAccess': 'Boolean',
             }
         },
         'DescribeLocalVolumeSnapshots': {
@@ -1817,6 +1825,7 @@ module.exports = class Client extends BaseClient {
                 'InstanceType': 'String',
                 'SystemDiskType': 'String',
                 'DataDiskType': 'String',
+                'InstantAccess': 'Boolean',
             }
         },
         'CancelPreMigrateInstance': {
@@ -1848,6 +1857,22 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+            }
+        },
+        'GetVNCAddress': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'GetVNCAddress',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
             }
         },
     }

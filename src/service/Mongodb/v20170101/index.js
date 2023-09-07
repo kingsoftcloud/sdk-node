@@ -120,6 +120,7 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'InstanceId': 'String',
+                'NodeId': 'String',
             }
         },
         'RenameMongoDBInstance': {
@@ -651,6 +652,23 @@ module.exports = class Client extends BaseClient {
                 'NodeType': 'String',
                 'NodeId': 'String',
                 'Storage': 'Int',
+            }
+        },
+        'DescribeClusterForRestore': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'DescribeClusterForRestore',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'ResetTimePoint': 'String',
             }
         },
     }
