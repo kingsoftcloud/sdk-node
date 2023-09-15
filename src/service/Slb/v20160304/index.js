@@ -958,5 +958,40 @@ module.exports = class Client extends BaseClient {
                 'PrivateLinkId': 'String',
             }
         },
+        'SetEnableAlbAccessLog': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'SetEnableAlbAccessLog',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'AlbId': 'String',
+                'EnabledLog': 'Boolean',
+            }
+        },
+        'SetAlbAccessLog': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'SetAlbAccessLog',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'AlbId': 'String',
+                'ProjectName': 'String',
+                'LogpoolName': 'String',
+            }
+        },
     }
 }

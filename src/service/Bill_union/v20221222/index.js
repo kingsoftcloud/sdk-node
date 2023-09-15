@@ -16,131 +16,116 @@ module.exports = class Client extends BaseClient {
         },
     }
     _apiList = {
-        'DescribeBillSummaryByPayMode': {
+        'QueryInstanceConsume': {
             'url': '/',
             'method': 'GET',
             'config': {
                 'query': {
-                    'Version': '2020-01-01',
-                    'Action': 'DescribeBillSummaryByPayMode',
+                    'Version': '2022-12-22',
+                    'Action': 'QueryInstanceConsume',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
-                'BillBeginMonth': 'String',
-                'BillEndMonth': 'String',
-            }
-        },
-        'DescribeBillSummaryByProduct': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2020-01-01',
-                    'Action': 'DescribeBillSummaryByProduct',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'BillBeginMonth': 'String',
-                'BillEndMonth': 'String',
-            }
-        },
-        'DescribeBillSummaryByProject': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2020-01-01',
-                    'Action': 'DescribeBillSummaryByProject',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'BillBeginMonth': 'String',
-                'BillEndMonth': 'String',
-            }
-        },
-        'DescribeInstanceSummaryBills': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2020-01-01',
-                    'Action': 'DescribeInstanceSummaryBills',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'BillMonth': 'String',
+                'StartDay': 'String',
+                'EndDay': 'String',
                 'ProductCode': 'String',
                 'Page': 'Int',
                 'Size': 'Int',
             }
         },
-        'DescribeProductCode': {
+        'QueryProjectConsume': {
             'url': '/',
             'method': 'GET',
             'config': {
                 'query': {
-                    'Version': '2020-01-01',
-                    'Action': 'DescribeProductCode',
+                    'Version': '2022-12-22',
+                    'Action': 'QueryProjectConsume',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
-            }
-        },
-        'DescribeSplitItemBillDetails': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2020-01-01',
-                    'Action': 'DescribeSplitItemBillDetails',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'CustomerBillMonth': 'Int',
-                'ProductGroupCode': 'String',
-                'StatisticType': 'Int',
-                'PayType': 'Int',
-                'SubAccountId': 'Int',
+                'StartDay': 'String',
+                'EndDay': 'String',
                 'Page': 'Int',
-                'Size': 'String',
+                'Size': 'Int',
             }
         },
-        'DescribeSplitItemDayBillDetails': {
+        'QueryProductConsume': {
             'url': '/',
             'method': 'GET',
             'config': {
                 'query': {
-                    'Version': '2020-01-01',
-                    'Action': 'DescribeSplitItemDayBillDetails',
+                    'Version': '2022-12-22',
+                    'Action': 'QueryProductConsume',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
-                'CustomerBillMonth': 'Int',
-                'ProductGroupCode': 'String',
-                'StatisticType': 'Int',
-                'PayType': 'Int',
-                'SubAccountId': 'Int',
+                'StartDay': 'String',
+                'EndDay': 'String',
+                'Page': 'Int',
+                'Size': 'Int',
+            }
+        },
+        'QueryFinanceUnitConsume': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2022-12-22',
+                    'Action': 'QueryFinanceUnitConsume',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'StartDay': 'String',
+                'EndDay': 'String',
+                'Page': 'Int',
+                'Size': 'Int',
+            }
+        },
+        'QueryFinanceUnitConsumeOfMonth': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2022-12-22',
+                    'Action': 'QueryFinanceUnitConsumeOfMonth',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'CustomerBillMonth': 'String',
+                'Page': 'Int',
+                'Size': 'Int',
+            }
+        },
+        'QueryUserConsume': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2022-12-22',
+                    'Action': 'QueryUserConsume',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'StartDay': 'String',
+                'EndDay': 'String',
                 'Page': 'Int',
                 'Size': 'Int',
             }

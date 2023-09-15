@@ -16,55 +16,40 @@ module.exports = class Client extends BaseClient {
         },
     }
     _apiList = {
-        'GetMonthBill': {
+        'GetMonthConsume': {
             'url': '/',
             'method': 'GET',
             'config': {
                 'query': {
-                    'Version': '2018-06-01',
-                    'Action': 'GetMonthBill',
+                    'Version': '2022-06-01',
+                    'Action': 'GetMonthConsume',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
-                'BillStartMonth': 'String',
-                'BillEndMonth': 'String',
+                'BillMonth': 'String',
             }
         },
-        'GetPostpayDetailBill': {
+        'GetPostpayDetailConsume': {
             'url': '/',
             'method': 'GET',
             'config': {
                 'query': {
-                    'Version': '2018-06-01',
-                    'Action': 'GetPostpayDetailBill',
+                    'Version': '2022-06-01',
+                    'Action': 'GetPostpayDetailConsume',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
-                'BillStartMonth': 'String',
-                'BillEndMonth': 'String',
+                'BillMonth': 'String',
                 'ProductCode': 'String',
                 'ProjectId': 'String',
-            }
-        },
-        'GetProductCode': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2018-06-01',
-                    'Action': 'GetProductCode',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
+                'PageNo': 'Int',
+                'PageSize': 'Int',
             }
         },
     }

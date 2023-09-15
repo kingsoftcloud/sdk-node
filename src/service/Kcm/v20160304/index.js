@@ -55,6 +55,8 @@ module.exports = class Client extends BaseClient {
                 'CertificateId': 'String',
                 'AuthMethod': 'String',
                 'CSR': 'String',
+                'ContactId': 'Int',
+                'CompanyId': 'Int',
                 'CompanyName': 'String',
                 'Department': 'String',
                 'State': 'String',

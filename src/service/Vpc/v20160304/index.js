@@ -1601,12 +1601,29 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-                'natId': 'String',
-                'startTime': 'String',
-                'endTime': 'String',
-                'sortType': 'String',
-                'instanceType': 'String',
+                'NatId': 'String',
+                'StartTime': 'String',
+                'EndTime': 'String',
+                'SortType': 'String',
+                'InstanceType': 'String',
                 'ip': 'String',
+            }
+        },
+        'ModifyNatIpStatus': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyNatIpStatus',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatIpId': 'String',
+                'Enabled': 'Boolean',
             }
         },
     }

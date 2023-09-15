@@ -18,7 +18,7 @@ module.exports = class Client extends BaseClient {
     _apiList = {
         'AssumeRole': {
             'url': '/',
-            'method': 'POST',
+            'method': 'GET',
             'config': {
                 'query': {
                     'Version': '2015-11-01',

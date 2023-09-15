@@ -3,7 +3,7 @@ const BaseClient = require("../../../base/BaseClient.js");
 module.exports = class Client extends BaseClient {
     _baseConfig = {
         'protocol': 'http://',
-        'endpoint': 'bill.api.ksyun.com',
+        'endpoint': 'kcs.api.ksyun.com',
         'config': {
             'timeout': 60,  //设置timeout
             'headers': {
@@ -11,60 +11,62 @@ module.exports = class Client extends BaseClient {
             },
             'credentials': {
                 'region': 'cn-shanghai-3',
-                'service': 'bill',
+                'service': 'kcs',
             },
         },
     }
     _apiList = {
-        'GetMonthBill': {
+        'DescribeCacheReadonlyNode': {
             'url': '/',
             'method': 'GET',
             'config': {
                 'query': {
-                    'Version': '2018-06-01',
-                    'Action': 'GetMonthBill',
+                    'Version': '2017-04-01',
+                    'Action': 'DescribeCacheReadonlyNode',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
-                'BillStartMonth': 'String',
-                'BillEndMonth': 'String',
+                'CacheId': 'String',
+                'AvailableZone': 'String',
             }
         },
-        'GetPostpayDetailBill': {
+        'AddCacheSlaveNode': {
             'url': '/',
-            'method': 'GET',
+            'method': 'PUT',
             'config': {
                 'query': {
-                    'Version': '2018-06-01',
-                    'Action': 'GetPostpayDetailBill',
+                    'Version': '2017-04-01',
+                    'Action': 'AddCacheSlaveNode',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
-                'BillStartMonth': 'String',
-                'BillEndMonth': 'String',
-                'ProductCode': 'String',
-                'ProjectId': 'String',
+                'AvailableZone': 'String',
+                'CacheId': 'String',
+                'SlaveVip': 'String',
             }
         },
-        'GetProductCode': {
+        'DeleteCacheSlaveNode': {
             'url': '/',
-            'method': 'GET',
+            'method': 'PUT',
             'config': {
                 'query': {
-                    'Version': '2018-06-01',
-                    'Action': 'GetProductCode',
+                    'Version': '2017-04-01',
+                    'Action': 'DeleteCacheSlaveNode',
                 },
                 'headers': {
                     'Content-Type': 'application/json'
                 },
             },
             'paramsType': {
+                'AvailableZone': 'String',
+                'CacheId': 'String',
+                'NodeId': 'String',
             }
         },
     }

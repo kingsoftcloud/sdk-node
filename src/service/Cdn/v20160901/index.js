@@ -3,7 +3,7 @@ const BaseClient = require("../../../base/BaseClient.js");
 module.exports = class Client extends BaseClient {
     _baseConfig = {
         'protocol': 'http://',
-        'endpoint': 'bill-union.api.ksyun.com',
+        'endpoint': 'cdn.api.ksyun.com',
         'config': {
             'timeout': 60,  //设置timeout
             'headers': {
@@ -11,21 +11,21 @@ module.exports = class Client extends BaseClient {
             },
             'credentials': {
                 'region': 'cn-shanghai-3',
-                'service': 'bill-union',
+                'service': 'cdn',
             },
         },
     }
     _apiList = {
-        'DescribeCostBill': {
+        'GetDomainPidDimensionUsageData': {
             'url': '/',
             'method': 'GET',
             'config': {
                 'query': {
-                    'Version': '2021-12-09',
-                    'Action': 'DescribeCostBill',
+                    'Version': '2016-09-01',
+                    'Action': 'GetDomainPidDimensionUsageData',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {

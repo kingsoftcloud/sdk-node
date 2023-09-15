@@ -82,6 +82,7 @@ module.exports = class Client extends BaseClient {
                 'AddressChargeType': 'String',
                 'AddressProjectId': 'String',
                 'AddressPurchaseTime': 'Int',
+                'KeyId': 'Filter',
             }
         },
         'StartInstances': {
@@ -1857,6 +1858,7 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+                'ProductType': 'Int',
             }
         },
         'GetVNCAddress': {

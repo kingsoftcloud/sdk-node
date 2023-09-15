@@ -187,40 +187,6 @@ module.exports = class Client extends BaseClient {
                 'SecurityGroupId': 'Filter',
             }
         },
-        'ImportKey': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2015-11-01',
-                    'Action': 'ImportKey',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'KeyName': 'String',
-                'PublicKey': 'String',
-                'Description': 'String',
-            }
-        },
-        'DeleteKey': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2015-11-01',
-                    'Action': 'DeleteKey',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'KeyId': 'String',
-            }
-        },
         'CreateKey': {
             'url': '/',
             'method': 'GET',
@@ -236,22 +202,6 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'KeyName': 'String',
                 'Description': 'String',
-            }
-        },
-        'DescribeKeys': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2015-11-01',
-                    'Action': 'DescribeKeys',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'KeyId': 'Filter',
             }
         },
         'DescribeEpcs': {
@@ -409,6 +359,11 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+                'NetworkInterfaceId': 'String',
+                'HostId': 'String',
+                'SubnetId': 'String',
+                'IpAddress': 'String',
+                'SecurityGroupIdList': 'Array',
             }
         },
         'DescribePhysicalMonitor': {
@@ -571,6 +526,7 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+                'RemoteManagementId': 'String',
             }
         },
         'ResetPassword': {
@@ -785,6 +741,8 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+                'MaxResults': 'Int',
+                'NextToken': 'String',
             }
         },
         'ReturnEpc': {
