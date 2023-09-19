@@ -1243,6 +1243,24 @@ module.exports = class Client extends BaseClient {
                 'NextToken': 'String',
             }
         },
+        'ModifyPrivateIpAddressAttribute': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyPrivateIpAddressAttribute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SubnetId': 'String',
+                'PrivateIpAddress': 'String',
+                'Status': 'String',
+            }
+        },
         'DeleteNetworkInterface': {
             'url': '/',
             'method': 'GET',

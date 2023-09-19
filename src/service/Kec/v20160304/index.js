@@ -1272,6 +1272,7 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
+                'Filter': 'Filter',
             }
         },
         'DescribeInstanceFamilys': {
@@ -1843,22 +1844,6 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'InstanceId': 'String',
-            }
-        },
-        'DescribeMinFlavorCount': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'DescribeMinFlavorCount',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProductType': 'Int',
             }
         },
         'GetVNCAddress': {
