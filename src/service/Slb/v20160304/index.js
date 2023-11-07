@@ -78,6 +78,7 @@ module.exports = class Client extends BaseClient {
                 'CookieType': 'String',
                 'CookieName': 'String',
                 'CertificateId': 'String',
+                'RedirectListenerId': 'String',
             }
         },
         'CreateListeners': {
@@ -487,6 +488,7 @@ module.exports = class Client extends BaseClient {
                 'UnhealthyThreshold': 'Int',
                 'UrlPath': 'String',
                 'Region': 'String',
+                'Type': 'String',
             }
         },
         'DeleteBackendServerGroup': {
@@ -1120,7 +1122,6 @@ module.exports = class Client extends BaseClient {
                 'TlsCipherPolicy': 'String',
                 'AlbListenerAclId': 'String',
                 'AlbListenerState': 'String',
-                'RedirectAlbListenerId': 'String',
                 'SessionState': 'String',
                 'SessionPersistencePeriod': 'Int',
                 'CookieType': 'String',
@@ -1222,6 +1223,8 @@ module.exports = class Client extends BaseClient {
                 'UrlPath': 'String',
                 'HostName': 'String',
                 'AlbRuleSet': 'Array',
+                'RedirectHttpCode': 'String',
+                'RedirectAlbListenerId': 'String',
             }
         },
         'DeleteAlbRuleGroup': {
@@ -1289,6 +1292,8 @@ module.exports = class Client extends BaseClient {
                 'UrlPath': 'String',
                 'HostName': 'String',
                 'AlbRuleSet': 'Array',
+                'RedirectHttpCode': 'String',
+                'RedirectAlbListenerId': 'String',
             }
         },
         'AddAlbRule': {
@@ -1445,6 +1450,24 @@ module.exports = class Client extends BaseClient {
                 'AlbId': 'String',
                 'ProjectName': 'String',
                 'LogpoolName': 'String',
+            }
+        },
+        'CloneLoadBalancer': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CloneLoadBalancer',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+                'LoadBalancerName': 'String',
+                'Type': 'String',
             }
         },
     }

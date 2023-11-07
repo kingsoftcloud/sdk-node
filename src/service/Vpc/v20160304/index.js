@@ -375,6 +375,8 @@ module.exports = class Client extends BaseClient {
                 'PortRangeFrom': 'Int',
                 'PortRangeTo': 'Int',
                 'RuleTag': 'String',
+                'Priority': 'Int',
+                'Policy': 'String',
             }
         },
         'RevokeSecurityGroupEntry': {
@@ -1642,6 +1644,26 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'NatIpId': 'String',
                 'Enabled': 'Boolean',
+            }
+        },
+        'QueryPeerTopVifMonitor': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'QueryPeerTopVifMonitor',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+                'StartTime': 'String',
+                'EndTime': 'String',
+                'SortType': 'String',
+                'Ip': 'String',
             }
         },
     }

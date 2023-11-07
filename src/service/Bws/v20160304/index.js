@@ -125,5 +125,25 @@ module.exports = class Client extends BaseClient {
                 'BandWidthShareId': 'String',
             }
         },
+        'QueryBwsTopEipMonitor': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'QueryBwsTopEipMonitor',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'BandWidthShareId': 'String',
+                'StartTime': 'String',
+                'EndTime': 'String',
+                'SortType': 'String',
+                'PublicIp': 'String',
+            }
+        },
     }
 }
