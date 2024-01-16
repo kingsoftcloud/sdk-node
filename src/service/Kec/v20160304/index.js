@@ -83,6 +83,13 @@ module.exports = class Client extends BaseClient {
                 'AddressProjectId': 'String',
                 'AddressPurchaseTime': 'Int',
                 'KeyId': 'Filter',
+                'keepImageLogin': 'Boolean',
+                'HostName': 'String',
+                'HostNameSuffix': 'Int',
+                'Password': 'String',
+                'FailureAutoDelete': 'Boolean',
+                'Tag': 'Filter',
+                'DataGuardId': 'String',
             }
         },
         'StartInstances': {
@@ -374,6 +381,15 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'InstanceName': 'String',
+                'Marker': 'Int',
+                'MaxResults': 'Int',
+                'LocalVolumeId': 'String',
+                'InstanceState': 'String',
+                'LocalVolumeCategory': 'String',
+                'LocalVolumeSize': 'Int',
+                'BindSnapshotPolicy': 'Boolean',
+                'AutoSnapshotPolicyId': 'String',
+                'InstanceId': 'String',
             }
         },
         'CreateLocalVolumeSnapshot': {
@@ -582,23 +598,6 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'DedicatedHostId': 'Filter',
                 'IsRefund': 'Boolean',
-            }
-        },
-        'RenameDedicatedHost': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'RenameDedicatedHost',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'DedicatedHostId': 'String',
-                'NewDedicatedHostName': 'String',
             }
         },
         'DescribeDedicatedHosts': {
@@ -1325,6 +1324,7 @@ module.exports = class Client extends BaseClient {
                 'StorageType': 'String',
                 'ProtocolType': 'String',
                 'FileSystemName': 'String',
+                'ProjectId': 'Int',
             }
         },
         'DeleteFileSystem': {
@@ -1356,9 +1356,12 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-                'FileSystemId': 'String',
+                'FileSystemId': 'Filter',
                 'MaxResults': 'Int',
                 'Marker': 'Int',
+                'ProjectId': 'Filter',
+                'IncludeDel': 'Boolean',
+                'Filter': 'Filter',
             }
         },
         'ModifyFileSystem': {
@@ -1470,6 +1473,7 @@ module.exports = class Client extends BaseClient {
                 'SystemDisk.DiskType': 'String',
                 'SystemDisk.ResizeType': 'String',
                 'VersionDetail': 'String',
+                'FailureAutoDelete': 'Boolean',
             }
         },
         'TerminateModels': {
@@ -1810,6 +1814,25 @@ module.exports = class Client extends BaseClient {
                 'InstanceId': 'Filter',
             }
         },
+        'CopySnapshot': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CopySnapshot',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SnapshotId': 'Filter',
+                'DestinationRegion': 'Filter',
+                'DestinationSnapshotName': 'String',
+                'DestinationSnapshotDesc': 'String',
+            }
+        },
         'PreMigrateInstance': {
             'url': '/',
             'method': 'GET',
@@ -1860,6 +1883,22 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'InstanceId': 'String',
+            }
+        },
+        'SwitchImageType': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'SwitchImageType',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'Filter',
             }
         },
     }
