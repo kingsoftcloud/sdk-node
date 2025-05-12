@@ -1,13 +1,12 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const BaseClient = require("../../../base/BaseClient.js");
-
 module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
-
     _defineProperty(this, "_baseConfig", {
       'protocol': 'http://',
       'endpoint': 'bill-union.api.ksyun.com',
@@ -23,7 +22,6 @@ module.exports = class Client extends BaseClient {
         }
       }
     });
-
     _defineProperty(this, "_apiList", {
       'DescribeBillSummaryByPayMode': {
         'url': '/',
@@ -37,7 +35,10 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/json'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'BillBeginMonth': 'String',
+          'BillEndMonth': 'String'
+        }
       },
       'DescribeBillSummaryByProduct': {
         'url': '/',
@@ -51,7 +52,10 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/json'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'BillBeginMonth': 'String',
+          'BillEndMonth': 'String'
+        }
       },
       'DescribeBillSummaryByProject': {
         'url': '/',
@@ -82,7 +86,12 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/json'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'BillMonth': 'String',
+          'ProductCode': 'String',
+          'Page': 'Int',
+          'Size': 'Int'
+        }
       },
       'DescribeProductCode': {
         'url': '/',
@@ -110,9 +119,38 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/json'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'CustomerBillMonth': 'Int',
+          'ProductGroupCode': 'String',
+          'StatisticType': 'Int',
+          'PayType': 'Int',
+          'SubAccountId': 'Int',
+          'Page': 'Int',
+          'Size': 'String'
+        }
+      },
+      'DescribeSplitItemDayBillDetails': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-01-01',
+            'Action': 'DescribeSplitItemDayBillDetails'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'CustomerBillMonth': 'Int',
+          'ProductGroupCode': 'String',
+          'StatisticType': 'Int',
+          'PayType': 'Int',
+          'SubAccountId': 'Int',
+          'Page': 'Int',
+          'Size': 'Int'
+        }
       }
     });
   }
-
 };

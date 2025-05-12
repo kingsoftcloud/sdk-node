@@ -1,13 +1,12 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const BaseClient = require("../../../base/BaseClient.js");
-
 module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
-
     _defineProperty(this, "_baseConfig", {
       'protocol': 'http://',
       'endpoint': 'kec.api.ksyun.com',
@@ -23,7 +22,6 @@ module.exports = class Client extends BaseClient {
         }
       }
     });
-
     _defineProperty(this, "_apiList", {
       'DescribeInstances': {
         'url': '/',
@@ -79,9 +77,26 @@ module.exports = class Client extends BaseClient {
           'ProjectId': 'Int',
           'DataDisk': 'Filter',
           'NetworkInterface': 'Filter',
-          'Userdata': 'String',
+          'UserData': 'String',
           'SystemDisk.DiskType': 'String',
-          'SystemDisk.DiskSize': 'Int'
+          'SystemDisk.DiskSize': 'Int',
+          'ModelId': 'String',
+          'ModelVersion': 'Int',
+          'AssembledImageDataDiskType': 'String',
+          'AutoCreateEbs': 'Boolean',
+          'LineId': 'String',
+          'AddressBandWidth': 'Int',
+          'AddressChargeType': 'String',
+          'AddressProjectId': 'String',
+          'AddressPurchaseTime': 'Int',
+          'KeyId': 'Filter',
+          'keepImageLogin': 'Boolean',
+          'HostName': 'String',
+          'HostNameSuffix': 'Int',
+          'Password': 'String',
+          'FailureAutoDelete': 'Boolean',
+          'Tag': 'Filter',
+          'DataGuardId': 'String'
         }
       },
       'StartInstances': {
@@ -179,7 +194,8 @@ module.exports = class Client extends BaseClient {
           'StopInstance': 'Boolean',
           'AutoRestart': 'Boolean',
           'SystemDisk.DiskSize': 'Int',
-          'SystemDisk.ResizeType': 'String'
+          'SystemDisk.ResizeType': 'String',
+          'InstantAccess': 'Boolean'
         }
       },
       'TerminateInstances': {
@@ -255,7 +271,8 @@ module.exports = class Client extends BaseClient {
           'KeyId': 'Filter',
           'KeepImageLogin': 'Boolean',
           'SystemDisk.DiskType': 'String',
-          'SystemDisk.ResizeType': 'String'
+          'SystemDisk.ResizeType': 'String',
+          'UserData': 'String'
         }
       },
       'CreateImage': {
@@ -275,7 +292,8 @@ module.exports = class Client extends BaseClient {
           'Name': 'String',
           'Type': 'String',
           'DataDiskIds': 'Filter',
-          'SnapshotIds': 'Filter'
+          'SnapshotIds': 'Filter',
+          'InstantAccess': 'Boolean'
         }
       },
       'RemoveImages': {
@@ -369,7 +387,16 @@ module.exports = class Client extends BaseClient {
           }
         },
         'paramsType': {
-          'InstanceName': 'String'
+          'InstanceName': 'String',
+          'Marker': 'Int',
+          'MaxResults': 'Int',
+          'LocalVolumeId': 'String',
+          'InstanceState': 'String',
+          'LocalVolumeCategory': 'String',
+          'LocalVolumeSize': 'Int',
+          'BindSnapshotPolicy': 'Boolean',
+          'AutoSnapshotPolicyId': 'String',
+          'InstanceId': 'String'
         }
       },
       'CreateLocalVolumeSnapshot': {
@@ -387,7 +414,8 @@ module.exports = class Client extends BaseClient {
         'paramsType': {
           'LocalVolumeId': 'String',
           'LocalVolumeSnapshotName': 'String',
-          'LocalVolumeSnapshotDesc': 'String'
+          'LocalVolumeSnapshotDesc': 'String',
+          'InstantAccess': 'Boolean'
         }
       },
       'DescribeLocalVolumeSnapshots': {
@@ -561,21 +589,21 @@ module.exports = class Client extends BaseClient {
           'Tag': 'Filter'
         }
       },
-      'RenameDedicatedHost': {
+      'DeleteDedicatedHost': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2016-03-04',
-            'Action': 'RenameDedicatedHost'
+            'Action': 'DeleteDedicatedHost'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
         'paramsType': {
-          'DedicatedHostId': 'String',
-          'NewDedicatedHostName': 'String'
+          'DedicatedHostId': 'Filter',
+          'IsRefund': 'Boolean'
         }
       },
       'DescribeDedicatedHosts': {
@@ -1245,7 +1273,9 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'Filter': 'Filter'
+        }
       },
       'DescribeInstanceFamilys': {
         'url': '/',
@@ -1295,7 +1325,8 @@ module.exports = class Client extends BaseClient {
           'VpcId': 'String',
           'StorageType': 'String',
           'ProtocolType': 'String',
-          'FileSystemName': 'String'
+          'FileSystemName': 'String',
+          'ProjectId': 'Int'
         }
       },
       'DeleteFileSystem': {
@@ -1327,9 +1358,12 @@ module.exports = class Client extends BaseClient {
           }
         },
         'paramsType': {
-          'FileSystemId': 'String',
+          'FileSystemId': 'Filter',
           'MaxResults': 'Int',
-          'Marker': 'Int'
+          'Marker': 'Int',
+          'ProjectId': 'Filter',
+          'IncludeDel': 'Boolean',
+          'Filter': 'Filter'
         }
       },
       'ModifyFileSystem': {
@@ -1439,7 +1473,9 @@ module.exports = class Client extends BaseClient {
           'AddressProjectId': 'String',
           'ModelName': 'String',
           'SystemDisk.DiskType': 'String',
-          'SystemDisk.ResizeType': 'String'
+          'SystemDisk.ResizeType': 'String',
+          'VersionDetail': 'String',
+          'FailureAutoDelete': 'Boolean'
         }
       },
       'TerminateModels': {
@@ -1455,7 +1491,8 @@ module.exports = class Client extends BaseClient {
           }
         },
         'paramsType': {
-          'ModelId': 'Filter'
+          'ModelId': 'String',
+          'ModelVersion': 'Int'
         }
       },
       'DescribeModels': {
@@ -1575,6 +1612,25 @@ module.exports = class Client extends BaseClient {
         'paramsType': {
           'DedicatedClusterId': 'String',
           'DedicatedClusterName': 'String'
+        }
+      },
+      'InstanceMigrate': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'InstanceMigrate'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'DedicatedHostId': 'String',
+          'InstanceId': 'String',
+          'InstanceType': 'String',
+          'DataDisk': 'Filter'
         }
       },
       'ModifyInstanceAutoDeleteTime': {
@@ -1760,6 +1816,25 @@ module.exports = class Client extends BaseClient {
           'InstanceId': 'Filter'
         }
       },
+      'CopySnapshot': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CopySnapshot'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'SnapshotId': 'Filter',
+          'DestinationRegion': 'Filter',
+          'DestinationSnapshotName': 'String',
+          'DestinationSnapshotDesc': 'String'
+        }
+      },
       'PreMigrateInstance': {
         'url': '/',
         'method': 'GET',
@@ -1776,7 +1851,8 @@ module.exports = class Client extends BaseClient {
           'InstanceId': 'String',
           'InstanceType': 'String',
           'SystemDiskType': 'String',
-          'DataDiskType': 'String'
+          'DataDiskType': 'String',
+          'InstantAccess': 'Boolean'
         }
       },
       'CancelPreMigrateInstance': {
@@ -1795,49 +1871,38 @@ module.exports = class Client extends BaseClient {
           'InstanceId': 'String'
         }
       },
-      'DescribeInstanceKmr': {
+      'GetVNCAddress': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2016-03-04',
-            'Action': 'DescribeInstanceKmr'
+            'Action': 'GetVNCAddress'
           },
           'headers': {
             'Content-Type': 'application/json'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'InstanceId': 'String'
+        }
       },
-      'DescribeMinFlavorCount': {
+      'SwitchImageType': {
         'url': '/',
         'method': 'GET',
         'config': {
           'query': {
             'Version': '2016-03-04',
-            'Action': 'DescribeMinFlavorCount'
-          },
-          'headers': {
-            'Content-Type': 'application/json'
-          }
-        },
-        'paramsType': {}
-      },
-      'DescribeProjectMaxNum': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'DescribeProjectMaxNum'
+            'Action': 'SwitchImageType'
           },
           'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'ImageId': 'Filter'
+        }
       }
     });
   }
-
 };

@@ -1,13 +1,12 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const BaseClient = require("../../../base/BaseClient.js");
-
 module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
-
     _defineProperty(this, "_baseConfig", {
       'protocol': 'http://',
       'endpoint': 'slb.api.ksyun.com',
@@ -23,7 +22,6 @@ module.exports = class Client extends BaseClient {
         }
       }
     });
-
     _defineProperty(this, "_apiList", {
       'DescribeListeners': {
         'url': '/',
@@ -42,6 +40,22 @@ module.exports = class Client extends BaseClient {
           'Filter': 'Filter',
           'MaxResults': 'Int',
           'NextToken': 'String'
+        }
+      },
+      'DeleteListeners': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteListeners'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ListenerId': 'String'
         }
       },
       'ModifyListeners': {
@@ -70,7 +84,8 @@ module.exports = class Client extends BaseClient {
           'SessionPersistencePeriod': 'Int',
           'CookieType': 'String',
           'CookieName': 'String',
-          'CertificateId': 'String'
+          'CertificateId': 'String',
+          'RedirectListenerId': 'String'
         }
       },
       'CreateListeners': {
@@ -211,6 +226,22 @@ module.exports = class Client extends BaseClient {
           'HealthCheckExp': 'String'
         }
       },
+      'DeleteHealthCheck': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteHealthCheck'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HealthCheckId': 'String'
+        }
+      },
       'DescribeHealthChecks': {
         'url': '/',
         'method': 'GET',
@@ -276,6 +307,22 @@ module.exports = class Client extends BaseClient {
           'MaxResults': 'Int',
           'NextToken': 'String',
           'State': 'String'
+        }
+      },
+      'DeleteLoadBalancer': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteLoadBalancer'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'LoadBalancerId': 'String'
         }
       },
       'ModifyLoadBalancer': {
@@ -447,7 +494,8 @@ module.exports = class Client extends BaseClient {
           'Timeout': 'Int',
           'UnhealthyThreshold': 'Int',
           'UrlPath': 'String',
-          'Region': 'String'
+          'Region': 'String',
+          'Type': 'String'
         }
       },
       'DeleteBackendServerGroup': {
@@ -966,8 +1014,469 @@ module.exports = class Client extends BaseClient {
           'PrivateLinkServerId': 'String',
           'PrivateLinkId': 'String'
         }
+      },
+      'CreateAlb': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateAlb'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbName': 'String',
+          'AlbVersion': 'String',
+          'AlbType': 'String',
+          'VpcId': 'String',
+          'IpVersion': 'String',
+          'ProjectId': 'String',
+          'AllocationId': 'String',
+          'ChargeType': 'String'
+        }
+      },
+      'DeleteAlb': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteAlb'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbId': 'String'
+        }
+      },
+      'SetAlbName': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'SetAlbName'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbId': 'String',
+          'AlbName': 'String'
+        }
+      },
+      'SetAlbStatus': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'SetAlbStatus'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbId': 'String',
+          'State': 'String'
+        }
+      },
+      'DescribeAlbs': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeAlbs'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbId': 'Filter',
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'CreateAlbListener': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateAlbListener'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbId': 'String',
+          'AlbListenerName': 'String',
+          'Method': 'String',
+          'Protocol': 'String',
+          'Port': 'Int',
+          'CertificateId': 'String',
+          'TlsCipherPolicy': 'String',
+          'AlbListenerAclId': 'String',
+          'AlbListenerState': 'String',
+          'SessionState': 'String',
+          'SessionPersistencePeriod': 'Int',
+          'CookieType': 'String',
+          'CookieName': 'String',
+          'EnableHttp2': 'Boolean',
+          'HttpProtocol': 'String'
+        }
+      },
+      'ModifyAlbListener': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyAlbListener'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerId': 'String',
+          'AlbListenerName': 'String',
+          'AlbListenerState': 'String',
+          'Method': 'String',
+          'CertificateId': 'String',
+          'TlsCipherPolicy': 'String',
+          'AlbListenerAclId': 'String',
+          'HttpProtocol': 'String',
+          'SessionState': 'String',
+          'SessionPersistencePeriod': 'Int',
+          'CookieType': 'String',
+          'CookieName': 'String',
+          'EnableHttp2': 'Boolean'
+        }
+      },
+      'DeleteAlbListener': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteAlbListener'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerId': 'String'
+        }
+      },
+      'DescribeAlbListeners': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeAlbListeners'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerId': 'Filter',
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'CreateAlbRuleGroup': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateAlbRuleGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'AlbRuleGroupName': 'String',
+          'AlbListenerId': 'String',
+          'BackendServerGroupId': 'String',
+          'ListenerSync': 'String',
+          'Method': 'String',
+          'SessionState': 'String',
+          'SessionPersistencePeriod': 'Int',
+          'CookieType': 'String',
+          'CookieName': 'String',
+          'HealthCheckState': 'String',
+          'Timeout': 'Int',
+          'Interval': 'Int',
+          'HealthyThreshold': 'Int',
+          'UnhealthyThreshold': 'Int',
+          'UrlPath': 'String',
+          'HostName': 'String',
+          'AlbRuleSet': 'Array',
+          'RedirectHttpCode': 'String',
+          'RedirectAlbListenerId': 'String'
+        }
+      },
+      'DeleteAlbRuleGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteAlbRuleGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbRuleGroupId': 'String'
+        }
+      },
+      'DescribeAlbRuleGroups': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeAlbRuleGroups'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbRuleGroupId': 'Filter',
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'ModifyAlbRuleGroup': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyAlbRuleGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'AlbRuleGroupId': 'String',
+          'AlbRuleGroupName': 'String',
+          'BackendServerGroupId': 'String',
+          'ListenerSync': 'String',
+          'Method': 'String',
+          'SessionState': 'String',
+          'SessionPersistencePeriod': 'Int',
+          'CookieType': 'String',
+          'CookieName': 'String',
+          'HealthCheckState': 'String',
+          'Timeout': 'Int',
+          'Interval': 'Int',
+          'HealthyThreshold': 'Int',
+          'UnhealthyThreshold': 'Int',
+          'UrlPath': 'String',
+          'HostName': 'String',
+          'AlbRuleSet': 'Array',
+          'RedirectHttpCode': 'String',
+          'RedirectAlbListenerId': 'String'
+        }
+      },
+      'AddAlbRule': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'AddAlbRule'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbRuleGroupId': 'String',
+          'AlbRuleType': 'String',
+          'AlbRuleValue': 'String'
+        }
+      },
+      'DeleteAlbRule': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteAlbRule'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbRuleGroupId': 'String',
+          'AlbRuleType': 'String',
+          'AlbRuleValue': 'String'
+        }
+      },
+      'CreateAlbListenerCertGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateAlbListenerCertGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerId': 'String'
+        }
+      },
+      'DeleteAlbListenerCertGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteAlbListenerCertGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerCertGroupId': 'String'
+        }
+      },
+      'DescribeAlbListenerCertGroups': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeAlbListenerCertGroups'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerCertGroupId': 'Filter',
+          'Filter': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
+      },
+      'AssociateCertificateWithGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'AssociateCertificateWithGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerCertGroupId': 'String',
+          'CertificateId': 'String'
+        }
+      },
+      'DissociateCertificateWithGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DissociateCertificateWithGroup'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbListenerCertGroupId': 'String',
+          'CertificateId': 'String'
+        }
+      },
+      'SetEnableAlbAccessLog': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'SetEnableAlbAccessLog'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AlbId': 'String',
+          'EnabledLog': 'Boolean'
+        }
+      },
+      'SetAlbAccessLog': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'SetAlbAccessLog'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'AlbId': 'String',
+          'ProjectName': 'String',
+          'LogpoolName': 'String'
+        }
+      },
+      'CloneLoadBalancer': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CloneLoadBalancer'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'VpcId': 'String',
+          'LoadBalancerName': 'String',
+          'Type': 'String'
+        }
       }
     });
   }
-
 };

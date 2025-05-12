@@ -1,13 +1,12 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const BaseClient = require("../../../base/BaseClient.js");
-
 module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
-
     _defineProperty(this, "_baseConfig", {
       'protocol': 'http://',
       'endpoint': 'epc.api.ksyun.com',
@@ -23,7 +22,6 @@ module.exports = class Client extends BaseClient {
         }
       }
     });
-
     _defineProperty(this, "_apiList", {
       'CreateEpc': {
         'url': '/',
@@ -85,7 +83,8 @@ module.exports = class Client extends BaseClient {
           'OverclockingAttribute': 'String',
           'GpuImageDriverId': 'String',
           'SystemVolumeType': 'String',
-          'SystemVolumeSize': 'String'
+          'SystemVolumeSize': 'String',
+          'RoceNetwork': 'String'
         }
       },
       'StartEpc': {
@@ -195,40 +194,6 @@ module.exports = class Client extends BaseClient {
           'SecurityGroupId': 'Filter'
         }
       },
-      'ImportKey': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'ImportKey'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'KeyName': 'String',
-          'PublicKey': 'String',
-          'Description': 'String'
-        }
-      },
-      'DeleteKey': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DeleteKey'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'KeyId': 'String'
-        }
-      },
       'CreateKey': {
         'url': '/',
         'method': 'GET',
@@ -244,22 +209,6 @@ module.exports = class Client extends BaseClient {
         'paramsType': {
           'KeyName': 'String',
           'Description': 'String'
-        }
-      },
-      'DescribeKeys': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2015-11-01',
-            'Action': 'DescribeKeys'
-          },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        },
-        'paramsType': {
-          'KeyId': 'Filter'
         }
       },
       'DescribeEpcs': {
@@ -416,7 +365,13 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'NetworkInterfaceId': 'String',
+          'HostId': 'String',
+          'SubnetId': 'String',
+          'IpAddress': 'String',
+          'SecurityGroupIdList': 'Array'
+        }
       },
       'DescribePhysicalMonitor': {
         'url': '/',
@@ -577,7 +532,26 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'RemoteManagementId': 'String'
+        }
+      },
+      'ResetPassword': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ResetPassword'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'HostId': 'String',
+          'Password': 'String'
+        }
       },
       'ModifyHyperThreading': {
         'url': '/',
@@ -773,7 +747,10 @@ module.exports = class Client extends BaseClient {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        'paramsType': {}
+        'paramsType': {
+          'MaxResults': 'Int',
+          'NextToken': 'String'
+        }
       },
       'ReturnEpc': {
         'url': '/',
@@ -1040,5 +1017,4 @@ module.exports = class Client extends BaseClient {
       }
     });
   }
-
 };

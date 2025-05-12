@@ -1,13 +1,12 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const BaseClient = require("../../../base/BaseClient.js");
-
 module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
-
     _defineProperty(this, "_baseConfig", {
       'protocol': 'http://',
       'endpoint': 'vpc.api.ksyun.com',
@@ -23,7 +22,6 @@ module.exports = class Client extends BaseClient {
         }
       }
     });
-
     _defineProperty(this, "_apiList", {
       'CreateVpc': {
         'url': '/',
@@ -383,7 +381,9 @@ module.exports = class Client extends BaseClient {
           'IcmpCode': 'Int',
           'PortRangeFrom': 'Int',
           'PortRangeTo': 'Int',
-          'RuleTag': 'String'
+          'RuleTag': 'String',
+          'Priority': 'Int',
+          'Policy': 'String'
         }
       },
       'RevokeSecurityGroupEntry': {
@@ -1251,6 +1251,24 @@ module.exports = class Client extends BaseClient {
           'NextToken': 'String'
         }
       },
+      'ModifyPrivateIpAddressAttribute': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyPrivateIpAddressAttribute'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'SubnetId': 'String',
+          'PrivateIpAddress': 'String',
+          'Status': 'String'
+        }
+      },
       'DeleteNetworkInterface': {
         'url': '/',
         'method': 'GET',
@@ -1524,8 +1542,136 @@ module.exports = class Client extends BaseClient {
           'NetworkInterfaceId': 'String',
           'PrivateIpAddress': 'Filter'
         }
+      },
+      'DescribeVpnGatewayRoutes': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeVpnGatewayRoutes'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'vpnGatewayId': 'String',
+          'Filter': 'Filter',
+          'maxResults': 'Int',
+          'nextToken': 'String'
+        }
+      },
+      'CreateVpnGatewayRoute': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateVpnGatewayRoute'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'VpnGatewayId': 'String',
+          'DestinationCidrBlock': 'String',
+          'NextHopType': 'String',
+          'NextHopInstanceId': 'String'
+        }
+      },
+      'DeleteVpnGatewayRoute': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteVpnGatewayRoute'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'VpnGatewayRouteId': 'String'
+        }
+      },
+      'DescribeVpnTunnelIpsecStatus': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeVpnTunnelIpsecStatus'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'IsMaster': 'Int',
+          'VpnTunnelId': 'Filter'
+        }
+      },
+      'QueryNatTopVifMonitor': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'QueryNatTopVifMonitor'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'NatId': 'String',
+          'StartTime': 'String',
+          'EndTime': 'String',
+          'SortType': 'String',
+          'InstanceType': 'String',
+          'ip': 'String'
+        }
+      },
+      'ModifyNatIpStatus': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyNatIpStatus'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'NatIpId': 'String',
+          'Enabled': 'Boolean'
+        }
+      },
+      'QueryPeerTopVifMonitor': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'QueryPeerTopVifMonitor'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'VpcId': 'String',
+          'StartTime': 'String',
+          'EndTime': 'String',
+          'SortType': 'String',
+          'Ip': 'String'
+        }
       }
     });
   }
-
 };
