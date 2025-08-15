@@ -39,6 +39,7 @@ module.exports = class Client extends BaseClient {
                 'OpenLoginProtection': 'Int',
                 'OpenSecurityProtection': 'Int',
                 'ViewAllProject': 'Int',
+                'AddProjectId': 'Int',
             }
         },
         'ListUsers': {
@@ -667,6 +668,24 @@ module.exports = class Client extends BaseClient {
                 'ProjectDesc': 'String',
             }
         },
+        'UpdateProjectInfo': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'UpdateProjectInfo',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProjectId': 'Int',
+                'ProjectName': 'String',
+                'ProjectDesc': 'String',
+            }
+        },
         'GetAccountAllProjectList': {
             'url': '/',
             'method': 'GET',
@@ -680,25 +699,6 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-            }
-        },
-        'GetProjectInstanceList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2015-11-01',
-                    'Action': 'GetProjectInstanceList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'ProjectId': 'Int',
-                'ProductLine': 'String',
-                'Ps': 'Int',
-                'Pn': 'Int',
             }
         },
         'UpdateInstanceProjectId': {
@@ -729,7 +729,7 @@ module.exports = class Client extends BaseClient {
                     'Action': 'ListEntitiesForPolicy',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {
@@ -821,6 +821,7 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'PolicyKrn': 'String',
                 'NewDescription': 'String',
+                'NewPolicyName': 'String',
             }
         },
         'CreateGroup': {
@@ -838,6 +839,7 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'GroupName': 'String',
                 'Description': 'String',
+                'GroupRealName': 'String',
             }
         },
         'DeleteGroup': {
@@ -995,6 +997,42 @@ module.exports = class Client extends BaseClient {
                 'UserName': 'String',
             }
         },
+        'UpdateGroup': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'UpdateGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'GroupName': 'String',
+                'Description': 'String',
+                'GroupRealName': 'String',
+            }
+        },
+        'ListUsersForGroup': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ListUsersForGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'GroupName': 'String',
+                'MaxItems': 'Int',
+                'Page': 'Int',
+            }
+        },
         'ListAllUserAccessKeys': {
             'url': '/',
             'method': 'GET',
@@ -1047,6 +1085,76 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'ProductLine': 'String',
                 'InstanceId': 'String',
+            }
+        },
+        'GetAccountAllProjectsByParams': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'GetAccountAllProjectsByParams',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'Ps': 'Int',
+                'Pn': 'Int',
+                'ParamUserName': 'String',
+                'ParamAccessKey': 'String',
+            }
+        },
+        'SetUserSsoSettings': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'SetUserSsoSettings',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'Status': 'Int',
+                'Metadata': 'String',
+                'Domain': 'String',
+            }
+        },
+        'GetUserSsoSettings': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'GetUserSsoSettings',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+            }
+        },
+        'GetEffectivePolicies': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'GetEffectivePolicies',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'PolicyName': 'String',
+                'Page': 'Int',
+                'MaxItems': 'Int',
             }
         },
     }
