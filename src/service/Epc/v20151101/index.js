@@ -44,10 +44,8 @@ module.exports = class Client extends BaseClient {
                 'HostName': 'String',
                 'ProjectId': 'String',
                 'ChargeType': 'String',
-                'Sn': 'String',
                 'PurchaseTime': 'Int',
                 'Password': 'String',
-                'SecurityAgent': 'String',
                 'CloudMonitorAgent': 'String',
                 'ExtensionSubnetId': 'String',
                 'ExtensionPrivateIpAddress': 'String',
@@ -68,7 +66,7 @@ module.exports = class Client extends BaseClient {
                 'NvmeDataFileType': 'String',
                 'NvmeDataDiskCatalogue': 'String',
                 'NvmeDataDiskCatalogueSuffix': 'String',
-                'bondAttribute': 'String',
+                'BondAttribute': 'String',
                 'ContainerAgent': 'String',
                 'KesAgent': 'String',
                 'KmrAgent': 'String',
@@ -78,6 +76,19 @@ module.exports = class Client extends BaseClient {
                 'SystemVolumeType': 'String',
                 'SystemVolumeSize': 'String',
                 'RoceNetwork': 'String',
+                'ZoneId': 'String',
+                'ZoneType': 'String',
+                'UseHotStandby': 'String',
+                'TimedRegularization': 'String',
+                'PasswordInherit': 'String',
+                'DataDiskMount': 'String',
+                'StorageRoceNetworkCardName': 'String',
+                'Anaconda.N': 'String',
+                'Framework.N': 'String',
+                'Engine.N': 'String',
+                'AiModel.N': 'String',
+                'UserData': 'String',
+                'StorageRoceNetworkInterfaceMode': 'String',
             }
         },
         'StartEpc': {
@@ -89,7 +100,7 @@ module.exports = class Client extends BaseClient {
                     'Action': 'StartEpc',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {
@@ -105,7 +116,7 @@ module.exports = class Client extends BaseClient {
                     'Action': 'RebootEpc',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {
@@ -121,7 +132,7 @@ module.exports = class Client extends BaseClient {
                     'Action': 'DeleteEpc',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {
@@ -146,7 +157,6 @@ module.exports = class Client extends BaseClient {
                 'keyId': 'String',
                 'Password': 'String',
                 'NetworkInterfaceMode': 'String',
-                'SecurityAgent': 'String',
                 'CloudMonitorAgent': 'String',
                 'Raid': 'String',
                 'RaidId': 'String',
@@ -159,7 +169,7 @@ module.exports = class Client extends BaseClient {
                 'NvmeDataFileType': 'String',
                 'NvmeDataDiskCatalogue': 'String',
                 'NvmeDataDiskCatalogueSuffix': 'String',
-                'bondAttribute': 'String',
+                'BondAttribute': 'String',
                 'KesAgent': 'String',
                 'KmrAgent': 'String',
                 'ComputerName': 'String',
@@ -167,6 +177,10 @@ module.exports = class Client extends BaseClient {
                 'DelayStart': 'Int',
                 'AvailabilityZone': 'String',
                 'GpuImageDriverId': 'String',
+                'ContainerAgent': 'String',
+                'PasswordInherit': 'String',
+                'DataDiskMount': 'String',
+                'StorageRoceNetworkCardName': 'String',
             }
         },
         'ModifySecurityGroup': {
@@ -178,7 +192,7 @@ module.exports = class Client extends BaseClient {
                     'Action': 'ModifySecurityGroup',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {
@@ -364,6 +378,7 @@ module.exports = class Client extends BaseClient {
                 'SubnetId': 'String',
                 'IpAddress': 'String',
                 'SecurityGroupIdList': 'Array',
+                'SecurityGroupId': 'Filter',
             }
         },
         'DescribePhysicalMonitor': {
@@ -693,6 +708,12 @@ module.exports = class Client extends BaseClient {
                 'Type': 'String',
                 'Confirm': 'String',
                 'ProcessSource': 'Int',
+                'autoNocCase': 'Int',
+                'LogFileName': 'Filter',
+                'LogFile': 'Filter',
+                'LogUrl': 'Filter',
+                'AuthorizeCableReplace': 'Int',
+                'EventId': 'String',
             }
         },
         'DeleteProcess': {
@@ -836,6 +857,21 @@ module.exports = class Client extends BaseClient {
                 'Amount': 'Int',
             }
         },
+        'UpdateConfirm': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'UpdateConfirm',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+            }
+        },
         'ModifyOverclockingAttribute': {
             'url': '/',
             'method': 'GET',
@@ -923,7 +959,7 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'ImageId': 'String',
-                'AccountId.N': 'String',
+                'AccountId': 'Filter',
             }
         },
         'DeleteShareImage': {
@@ -940,7 +976,7 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'ImageId': 'String',
-                'AccountId.N': 'String',
+                'AccountId': 'Filter',
             }
         },
         'DescribeShareImageAccountList': {
@@ -952,7 +988,7 @@ module.exports = class Client extends BaseClient {
                     'Action': 'DescribeShareImageAccountList',
                 },
                 'headers': {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
             },
             'paramsType': {
@@ -1006,6 +1042,887 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'ImageId': 'String',
+            }
+        },
+        'DescribeManagedAccessory': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeManagedAccessory',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+            }
+        },
+        'AutoDeleteEpc': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'AutoDeleteEpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'HostId': 'String',
+                'AutoDeleteTime': 'String',
+                'AutoDeleteEip': 'String',
+            }
+        },
+        'ExportImage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ExportImage',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'String',
+                'Ks3Bucket': 'String',
+                'ObjectName': 'String',
+            }
+        },
+        'QueryBuckets': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'QueryBuckets',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+            }
+        },
+        'CancelImageExport': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'CancelImageExport',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'String',
+            }
+        },
+        'UseHotStandByEpc': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'UseHotStandByEpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'HostId': 'String',
+                'HotStandByHostId': 'String',
+                'RetainInstanceInfo': 'String',
+            }
+        },
+        'ActivateHotStandbyEpc': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ActivateHotStandbyEpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'HostId': 'String',
+            }
+        },
+        'BatchCreateEpc': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'BatchCreateEpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'HostType': 'String',
+                'AvailabilityZone': 'String',
+                'Raid': 'String',
+                'RaidId': 'String',
+                'ImageId': 'String',
+                'NetworkInterfaceMode': 'String',
+                'SubnetId': 'String',
+                'keyId': 'String',
+                'SecurityGroupId': 'Filter',
+                'DNS1': 'String',
+                'DNS2': 'String',
+                'HostName': 'String',
+                'ProjectId': 'String',
+                'ChargeType': 'String',
+                'Sn': 'String',
+                'PurchaseTime': 'Int',
+                'Password': 'String',
+                'CloudMonitorAgent': 'String',
+                'ExtensionSubnetId': 'String',
+                'ExtensionDNS1': 'String',
+                'ExtensionDNS2': 'String',
+                'Description': 'String',
+                'AddressBandWidth': 'String',
+                'LineId': 'String',
+                'BandWidthShareId': 'String',
+                'AddressChargeType': 'String',
+                'AddressPurchaseTime': 'String',
+                'AddressProjectId': 'String',
+                'SystemFileType': 'String',
+                'DataFileType': 'String',
+                'DataDiskCatalogue': 'String',
+                'DataDiskCatalogueSuffix': 'String',
+                'HyperThreading': 'String',
+                'NvmeDataFileType': 'String',
+                'NvmeDataDiskCatalogue': 'String',
+                'NvmeDataDiskCatalogueSuffix': 'String',
+                'BondAttribute': 'String',
+                'ContainerAgent': 'String',
+                'KesAgent': 'String',
+                'KmrAgent': 'String',
+                'ComputerName': 'String',
+                'OverclockingAttribute': 'String',
+                'GpuImageDriverId': 'String',
+                'SystemVolumeType': 'String',
+                'SystemVolumeSize': 'String',
+                'RoceNetwork': 'String',
+                'ZoneId': 'String',
+                'ZoneType': 'String',
+                'HostNameStartNo': 'Int',
+                'ComputerNameStartNo': 'Int',
+                'Amount': 'Int',
+                'TimedRegularization': 'String',
+                'PasswordInherit': 'String',
+                'DataDiskMount': 'String',
+                'StorageRoceNetworkCardName': 'String',
+            }
+        },
+        'DescribeUseHotStandbyRecords': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeUseHotStandbyRecords',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'Filter.N': 'Object',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'DescribeGpuRoceTopology': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeGpuRoceTopology',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SpineName': 'String',
+            }
+        },
+        'ModifyProcess': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ModifyProcess',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'OperationProcessId': 'String',
+                'Confirm': 'String',
+                'Status': 'String',
+                'Content': 'String',
+            }
+        },
+        'ConfirmProcess': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ConfirmProcess',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'OperationProcessId': 'String',
+                'UserConfirmAvailable': 'String',
+            }
+        },
+        'DescribeModelConfig': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeModelConfig',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+                'ImageId': 'String',
+                'HostType': 'String',
+                'GpuImageDriverId': 'String',
+            }
+        },
+        'DescribeRoceEvent': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeRoceEvent',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+                'Filter.N': 'Object',
+                'HostId.N': 'String',
+            }
+        },
+        'DescribeRoceEventDetails': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeRoceEventDetails',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'EventId': 'String',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'BatchCreateProcess': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'BatchCreateProcess',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'Filter',
+                'AvailabilityZone': 'String',
+                'Attribute': 'String',
+                'Content': 'String',
+                'LogFileName': 'Filter',
+                'LogFile': 'Filter',
+                'LogUrl': 'Filter',
+                'MachineCount': 'Int',
+                'Title': 'String',
+                'Type': 'String',
+                'Confirm': 'String',
+                'ProcessSource': 'Int',
+                'AutoNocCase': 'Int',
+            }
+        },
+        'CreateInspectHost': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'CreateInspectHost',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InspectType': 'String',
+                'InspectName': 'String',
+                'HostId': 'Filter',
+            }
+        },
+        'DescribeInspectHostResults': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeInspectHostResults',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InspectId': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'DescribeXidDetails': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeXidDetails',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'StartTime': 'String',
+                'EndTime': 'String',
+                'InstanceId': 'String',
+                'Name': 'String',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'DescribeSoImages': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoImages',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'Filter',
+                'ImageName': 'String',
+                'IsSupportCloudInit': 'Boolean',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+                'OsType': 'String',
+                'Platform': 'String',
+                'Status': 'Filter',
+                'Visibility': 'String',
+            }
+        },
+        'RebootSoInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'RebootSoInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ForceStop': 'Boolean',
+                'InstanceIds': 'Filter',
+            }
+        },
+        'DeleteSoImages': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DeleteSoImages',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageIds': 'Filter',
+            }
+        },
+        'DeleteSoVpc': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DeleteSoVpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+            }
+        },
+        'DescribeSoAvailableResource': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoAvailableResource',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceChargeType': 'String',
+                'InstanceTypeId': 'String',
+                'ZoneId': 'String',
+            }
+        },
+        'DescribeSoInstances': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoInstances',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceChargeType': 'String',
+                'InstanceTypeId': 'Filter',
+                'KeyPairName': 'String',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+                'PrimaryIpAddress': 'String',
+                'Status': 'String',
+                'VpcId': 'String',
+                'ZoneId': 'String',
+                'InstanceIds': 'Filter',
+            }
+        },
+        'DeleteSoInstance': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DeleteSoInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceIds': 'Filter',
+            }
+        },
+        'DescribeSoSecurityGroups': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoSecurityGroups',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+                'SecurityGroupIds': 'Filter',
+                'NextToken': 'String',
+                'MaxResults': 'Int',
+            }
+        },
+        'CreateSoVpc': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'CreateSoVpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcName': 'String',
+                'Description': 'String',
+                'CidrBlock': 'String',
+                'DnsServers': 'Filter',
+                'AttachVpcId': 'String',
+            }
+        },
+        'DeleteSoSubnet': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DeleteSoSubnet',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SubnetId': 'String',
+            }
+        },
+        'DescribeSoKeyPairs': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoKeyPairs',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FingerPrint': 'String',
+                'KeyPairIds': 'Filter',
+                'KeyPairName': 'String',
+                'KeyPairNames': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'StartSoInstance': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'StartSoInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceIds': 'Filter',
+            }
+        },
+        'DescribeSoInstanceTypes': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoInstanceTypes',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'String',
+                'InstanceTypeId': 'Filter',
+            }
+        },
+        'ModifySoSubnetAttributes': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ModifySoSubnetAttributes',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SubnetId': 'String',
+                'SubnetName': 'String',
+                'Description': 'String',
+            }
+        },
+        'DescribeSoSubnet': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoSubnet',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ZoneId': 'String',
+                'SubnetName': 'String',
+                'VpcId': 'String',
+                'SubnetIds': 'Filter',
+                'NextToken': 'String',
+                'MaxResults': 'Int',
+            }
+        },
+        'ModifySoKeyPairAttribute': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ModifySoKeyPairAttribute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'Description': 'String',
+                'KeyPairId': 'String',
+                'KeyPairName': 'String',
+            }
+        },
+        'ModifySoImageAttribute': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ModifySoImageAttribute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'BootMode': 'String',
+                'Description': 'String',
+                'ImageId': 'String',
+                'ImageName': 'String',
+            }
+        },
+        'ModifySoVpcAttributes': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ModifySoVpcAttributes',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+                'Description': 'String',
+                'DnsServers': 'Filter',
+                'VpcName': 'String',
+            }
+        },
+        'ReplaceSoSystemVolume': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ReplaceSoSystemVolume',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'String',
+                'InstanceId': 'String',
+                'KeepImageCredential': 'Boolean',
+                'KeyPairName': 'String',
+                'Password': 'String',
+            }
+        },
+        'CreateSoSubnet': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'CreateSoSubnet',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+                'ZoneId': 'String',
+                'SubnetName': 'String',
+                'Description': 'String',
+                'CidrBlock': 'String',
+            }
+        },
+        'DescribeSoVpcs': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DescribeSoVpcs',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcName': 'String',
+                'VpcIds': 'Filter',
+                'NextToken': 'String',
+                'MaxResults': 'Int',
+            }
+        },
+        'StopSoInstance': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'StopSoInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ForceStop': 'Boolean',
+                'InstanceIds': 'Filter',
+            }
+        },
+        'DeleteSoKeyPairs': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'DeleteSoKeyPairs',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'KeyPairNames': 'Filter',
+            }
+        },
+        'CreateSoImage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'CreateSoImage',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ForceStop': 'Boolean',
+                'InstanceIds': 'Filter',
+            }
+        },
+        'ModifySoInstanceAttribute': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'ModifySoInstanceAttribute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DeletionProtection': 'String',
+                'Description': 'String',
+                'Hostname': 'String',
+                'InstanceId': 'String',
+                'InstanceName': 'String',
+                'Password': 'String',
+            }
+        },
+        'CreateSoKeyPair': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'CreateSoKeyPair',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'KeyPairName': 'String',
+                'Description': 'String',
             }
         },
     }

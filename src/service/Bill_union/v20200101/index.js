@@ -31,6 +31,7 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'BillBeginMonth': 'String',
                 'BillEndMonth': 'String',
+                'SubAccount': 'Int',
             }
         },
         'DescribeBillSummaryByProduct': {
@@ -48,6 +49,8 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'BillBeginMonth': 'String',
                 'BillEndMonth': 'String',
+                'SubAccount': 'Int',
+                'FetchAllFinanceRelationData': 'Boolean',
             }
         },
         'DescribeBillSummaryByProject': {
@@ -65,6 +68,7 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'BillBeginMonth': 'String',
                 'BillEndMonth': 'String',
+                'SubAccount': 'Int',
             }
         },
         'DescribeInstanceSummaryBills': {
@@ -123,6 +127,22 @@ module.exports = class Client extends BaseClient {
                 'Size': 'String',
             }
         },
+        'DescribeMiItemBills': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2020-01-01',
+                    'Action': 'DescribeMiItemBills',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'BillMonth': 'String',
+            }
+        },
         'DescribeSplitItemDayBillDetails': {
             'url': '/',
             'method': 'GET',
@@ -143,6 +163,21 @@ module.exports = class Client extends BaseClient {
                 'SubAccountId': 'Int',
                 'Page': 'Int',
                 'Size': 'Int',
+            }
+        },
+        'ListProductGroups': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2020-01-01',
+                    'Action': 'ListProductGroups',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
             }
         },
     }
