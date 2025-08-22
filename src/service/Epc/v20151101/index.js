@@ -339,6 +339,7 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'MaxResults': 'Int',
                 'NextToken': 'String',
+                'ImageId.N': 'String',
             }
         },
         'ModifyDns': {
