@@ -93,6 +93,7 @@ module.exports = class Client extends BaseClient {
                 'GatewayIp': 'String',
                 'SecondaryCidrId': 'String',
                 'AvailabilityZone': 'String',
+                'VisitInternet': 'Boolean',
             }
         },
         'DeleteSubnet': {
@@ -184,7 +185,13 @@ module.exports = class Client extends BaseClient {
                 'VpcPeeringConnectionId': 'String',
                 'DirectConnectGatewayId': 'String',
                 'VpnTunnelId': 'String',
+                'VpnGatewayId': 'String',
                 'NetworkInterfaceId': 'String',
+                'HaVipId': 'String',
+                'HaVipMasterNetworkInterfaceId': 'String',
+                'CenId': 'String',
+                'Description': 'String',
+                'RouteTableId': 'String',
             }
         },
         'DeleteRoute': {
@@ -472,6 +479,9 @@ module.exports = class Client extends BaseClient {
                 'ProjectId': 'Filter',
                 'NatId': 'Filter',
                 'Filter': 'Filter',
+                'IsContainTag': 'Boolean',
+                'TagKey': 'Filter',
+                'TagKV': 'Filter',
                 'MaxResults': 'Int',
                 'NextToken': 'String',
             }
@@ -491,6 +501,7 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'NatId': 'String',
                 'SubnetId': 'String',
+                'NatIpId': 'Filter',
             }
         },
         'DisassociateNat': {
@@ -545,10 +556,10 @@ module.exports = class Client extends BaseClient {
                 'VpcId': 'String',
                 'PeeringName': 'String',
                 'PeerVpcId': 'String',
-                'Region': 'String',
                 'PeerRegion': 'String',
                 'PeerAccountId': 'String',
                 'BandWidth': 'Int',
+                'PurchaseTime': 'Int',
                 'ProjectId': 'String',
                 'ChargeType': 'String',
             }
@@ -826,6 +837,9 @@ module.exports = class Client extends BaseClient {
                 'ReliabilityMethod': 'String',
                 'BfdConfigId': 'String',
                 'BgpClientToken': 'String',
+                'EnableIpv6': 'Boolean',
+                'CustomerIpv6PeerIp': 'String',
+                'LocalIpv6PeerIp': 'String',
             }
         },
         'DeleteDirectConnectInterface': {
@@ -1001,6 +1015,7 @@ module.exports = class Client extends BaseClient {
                 'ProjectId': 'String',
                 'ChargeType': 'String',
                 'PurchaseTime': 'Int',
+                'VpnGatewayVersion': 'String',
             }
         },
         'ModifyVpnGateway': {
@@ -1078,6 +1093,7 @@ module.exports = class Client extends BaseClient {
                 'IkeAuthenAlgorithm': 'String',
                 'IkeEncryAlgorithm': 'String',
                 'Type': 'String',
+                'OpenHealthCheck': 'Boolean',
                 'PreSharedKey': 'String',
                 'IpsecLifetimeSecond': 'Int',
                 'IpsecLifetimeTraffic': 'Int',
@@ -1087,6 +1103,10 @@ module.exports = class Client extends BaseClient {
                 'HaVpnGreIp': 'String',
                 'CustomerGreIp': 'String',
                 'HaCustomerGreIp': 'String',
+                'HaMode': 'String',
+                'LocalPeerIp': 'String',
+                'CustomerPeerIp': 'String',
+                'IkeVersion': 'String',
             }
         },
         'ModifyVpnTunnel': {
@@ -1245,6 +1265,164 @@ module.exports = class Client extends BaseClient {
                 'NextToken': 'String',
             }
         },
+        'AddNatIp': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AddNatIp',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatId': 'String',
+                'AddNumber': 'Int',
+            }
+        },
+        'DeleteNatIp': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteNatIp',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatId': 'String',
+                'NatIpId': 'String',
+            }
+        },
+        'AssociateVpcCidrBlock': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AssociateVpcCidrBlock',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+            }
+        },
+        'DescribeIpv6PublicIpAddresses': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeIpv6PublicIpAddresses',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'Ipv6PublicIpAddressId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'DescribeIpv6NetworkInterfaces': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeIpv6NetworkInterfaces',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NetworkInterfaceId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'CreateIpv6PublicIp': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateIpv6PublicIp',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NetworkInterfaceId': 'String',
+                'BandWidth': 'Int',
+                'Ipv6PublicIpAddress': 'String',
+                'ChargeType': 'String',
+                'PurchaseTime': 'Int',
+            }
+        },
+        'ReleaseIpv6PublicIp': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ReleaseIpv6PublicIp',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'Ipv6PublicIpAddressId': 'String',
+            }
+        },
+        'AlterIpv6PublicIpState': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AlterIpv6PublicIpState',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'Ipv6PublicIpAddressId': 'String',
+                'State': 'String',
+            }
+        },
+        'ModifyIpv6PublicIp': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyIpv6PublicIp',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'Ipv6PublicIpAddressId': 'String',
+                'BandWidth': 'Int',
+            }
+        },
         'ModifyPrivateIpAddressAttribute': {
             'url': '/',
             'method': 'GET',
@@ -1261,6 +1439,164 @@ module.exports = class Client extends BaseClient {
                 'SubnetId': 'String',
                 'PrivateIpAddress': 'String',
                 'Status': 'String',
+                'AllocateStatus': 'String',
+            }
+        },
+        'DescribeDirectConnectRoutes': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeDirectConnectRoutes',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DirectConnectRouteId': 'Filter',
+                'MaxResults': 'Int',
+                'Filter': 'Filter',
+                'NextToken': 'String',
+            }
+        },
+        'DetachDirectConnectGatewayWithVpc': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DetachDirectConnectGatewayWithVpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DirectConnectGatewayId': 'String',
+                'VpcId': 'String',
+            }
+        },
+        'AttachDirectConnectGatewayWithVpc': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AttachDirectConnectGatewayWithVpc',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DirectConnectGatewayId': 'String',
+                'VpcId': 'String',
+            }
+        },
+        'AllocateSubnetIpv6CidrBlock': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AllocateSubnetIpv6CidrBlock',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SubnetId': 'String',
+            }
+        },
+        'CreateRouteTable': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateRouteTable',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpcId': 'String',
+                'RouteTableName': 'String',
+                'Description': 'String',
+            }
+        },
+        'DeleteRouteTable': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteRouteTable',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'RouteTableId': 'String',
+            }
+        },
+        'ModifyRouteTable': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyRouteTable',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'RouteTableId': 'String',
+                'RouteTableName': 'String',
+                'Description': 'String',
+            }
+        },
+        'DescribeRouteTables': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeRouteTables',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'RouteTableId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'AssociateRouteTable': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AssociateRouteTable',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SubnetId': 'String',
+                'RouteTableId': 'String',
             }
         },
         'DeleteNetworkInterface': {
@@ -1313,6 +1649,192 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'NetworkInterfaceName': 'String',
                 'NetworkInterfaceId': 'String',
+            }
+        },
+        'CreateNatRateLimit': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateNatRateLimit',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NetworkInterfaceId': 'String',
+                'BandwidthLimit': 'Int',
+                'inBandwidthLimit': 'Int',
+            }
+        },
+        'DescribeNatRateLimit': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeNatRateLimit',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatId': 'String',
+                'Filter': 'Filter',
+            }
+        },
+        'ModifyNatRateLimit': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyNatRateLimit',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatRateLimitId': 'String',
+                'BandwidthLimit': 'Int',
+                'InBandwidthLimit': 'Int',
+            }
+        },
+        'DeleteNatRateLimit': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteNatRateLimit',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatRateLimitId': 'String',
+            }
+        },
+        'CreateDnat': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateDnat',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatId': 'String',
+                'NatIp': 'String',
+                'DnatName': 'String',
+                'PublicPort': 'String',
+                'PrivateIpAddress': 'String',
+                'IpProtocol': 'String',
+                'PrivatePort': 'String',
+                'Description': 'String',
+            }
+        },
+        'DeleteDnat': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteDnat',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DnatId': 'String',
+            }
+        },
+        'DescribeDnats': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeDnats',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DnatId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'ModifyDnat': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyDnat',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatId': 'String',
+                'DnatId': 'String',
+                'NatIp': 'String',
+                'DnatName': 'String',
+                'PublicPort': 'String',
+                'PrivateIpAddress': 'String',
+                'IpProtocol': 'String',
+                'PrivatePort': 'String',
+                'Description': 'String',
+            }
+        },
+        'AssociateInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AssociateInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NetworkInterfaceId': 'String',
+                'NatId': 'String',
+                'NatIpId': 'Filter',
+            }
+        },
+        'DisassociateInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DisassociateInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NetworkInterfaceId': 'String',
+                'NatId': 'String',
             }
         },
         'CreateHaVip': {
@@ -1399,6 +1921,27 @@ module.exports = class Client extends BaseClient {
                 'Filter': 'Filter',
                 'MaxResults': 'Int',
                 'NextToken': 'String',
+            }
+        },
+        'CreateDirectConnectGatewayRoute': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateDirectConnectGatewayRoute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'DirectConnectGatewayId': 'String',
+                'DestinationCidrBlock': 'String',
+                'NextHopType': 'String',
+                'Priority': 'Int',
+                'NextHopInstance': 'String',
+                'EnableIpv6': 'Boolean',
             }
         },
         'DeleteDirectConnectGatewayRoute': {
@@ -1537,6 +2080,58 @@ module.exports = class Client extends BaseClient {
                 'PrivateIpAddress': 'Filter',
             }
         },
+        'BatchCreateNatRateLimit': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'BatchCreateNatRateLimit',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'BandwidthLimit': 'Int',
+                'InBandwidthLimit': 'Int',
+                'NetworkInterfaceId': 'Filter',
+            }
+        },
+        'BatchModifyNatRateLimit': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'BatchModifyNatRateLimit',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'BandwidthLimit': 'String',
+                'InBandwidthLimit': 'Int',
+                'NatRateLimitId': 'Filter',
+            }
+        },
+        'BatchDeleteNatRateLimit': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'BatchDeleteNatRateLimit',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NatRateLimitId': 'Filter',
+            }
+        },
         'DescribeVpnGatewayRoutes': {
             'url': '/',
             'method': 'GET',
@@ -1550,10 +2145,10 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-                'vpnGatewayId': 'String',
+                'VpnGatewayId': 'String',
                 'Filter': 'Filter',
-                'maxResults': 'Int',
-                'nextToken': 'String',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
             }
         },
         'CreateVpnGatewayRoute': {
@@ -1571,8 +2166,9 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'VpnGatewayId': 'String',
                 'DestinationCidrBlock': 'String',
-                'NextHopType': 'String',
                 'NextHopInstanceId': 'String',
+                'NextHopType': 'String',
+                'Description': 'String',
             }
         },
         'DeleteVpnGatewayRoute': {
@@ -1659,11 +2255,153 @@ module.exports = class Client extends BaseClient {
                 },
             },
             'paramsType': {
-                'VpcId': 'String',
+                'vpcId': 'String',
                 'StartTime': 'String',
                 'EndTime': 'String',
                 'SortType': 'String',
-                'Ip': 'String',
+                'ip': 'String',
+            }
+        },
+        'ModifyVpnGatewayRoute': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyVpnGatewayRoute',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'VpnGatewayRouteId': 'String',
+                'Description': 'String',
+            }
+        },
+        'DescribeDirectConnectInterfacesBgpStatus': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeDirectConnectInterfacesBgpStatus',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'DirectConnectInterfaceId.N': 'String',
+            }
+        },
+        'DeactiveFlowLog': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeactiveFlowLog',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FlowLogId': 'String',
+            }
+        },
+        'ActiveFlowLog': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ActiveFlowLog',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FlowLogId': 'String',
+            }
+        },
+        'DeleteFlowLog': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteFlowLog',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FlowLogId': 'String',
+            }
+        },
+        'ModifyFlowLog': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyFlowLog',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FlowLogId': 'String',
+                'FlowLogName': 'String',
+                'WindowTime': 'Int',
+                'Description': 'String',
+            }
+        },
+        'DescribeFlowLogs': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeFlowLogs',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FlowLogId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
+        },
+        'CreateFlowLog': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateFlowLog',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FlowLogName': 'String',
+                'ResourceType': 'String',
+                'ResourceId': 'String',
+                'TrafficType': 'String',
+                'ProjectName': 'String',
+                'LogPoolName': 'String',
+                'WindowTime': 'Int',
+                'Description': 'String',
             }
         },
     }

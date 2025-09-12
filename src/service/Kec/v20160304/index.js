@@ -53,8 +53,6 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'ImageId': 'String',
                 'DedicatedHostId': 'String',
-                'InstanceConfigure.VCPU': 'String',
-                'InstanceConfigure.MemoryGb': 'String',
                 'InstanceType': 'String',
                 'DataDiskGb': 'Int',
                 'MaxCount': 'Int',
@@ -63,7 +61,7 @@ module.exports = class Client extends BaseClient {
                 'InstancePassword': 'String',
                 'ChargeType': 'String',
                 'PurchaseTime': 'Int',
-                'SecurityGroupId': 'String',
+                'SecurityGroupId': 'Filter',
                 'PrivateIpAddress': 'String',
                 'InstanceName': 'String',
                 'InstanceNameSuffix': 'String',
@@ -71,8 +69,7 @@ module.exports = class Client extends BaseClient {
                 'DataDisk': 'Filter',
                 'NetworkInterface': 'Filter',
                 'UserData': 'String',
-                'SystemDisk.DiskType': 'String',
-                'SystemDisk.DiskSize': 'Int',
+                'SystemDisk': 'Object',
                 'ModelId': 'String',
                 'ModelVersion': 'Int',
                 'AssembledImageDataDiskType': 'String',
@@ -81,15 +78,24 @@ module.exports = class Client extends BaseClient {
                 'AddressBandWidth': 'Int',
                 'AddressChargeType': 'String',
                 'AddressProjectId': 'String',
+                'BandWidthShareId': 'String',
                 'AddressPurchaseTime': 'Int',
                 'KeyId': 'Filter',
-                'keepImageLogin': 'Boolean',
+                'KeepImageLogin': 'Boolean',
                 'HostName': 'String',
                 'HostNameSuffix': 'Int',
-                'Password': 'String',
                 'FailureAutoDelete': 'Boolean',
                 'Tag': 'Filter',
                 'DataGuardId': 'String',
+                'InstanceConfigure': 'Object',
+                'SriovNetSupport': 'Boolean',
+                'DistributeIpv6': 'Boolean',
+                'LocalVolumeSnapshotId': 'String',
+                'SyncTag': 'Boolean',
+                'IamRoleName': 'String',
+                'AutoDeleteTime': 'String',
+                'AutoDeleteEip': 'Boolean',
+                'IsProtect': 'Boolean',
             }
         },
         'StartInstances': {
@@ -321,7 +327,7 @@ module.exports = class Client extends BaseClient {
                 'InstanceId': 'String',
                 'NetworkInterfaceId': 'String',
                 'SubnetId': 'String',
-                'SecurityGroupId': 'String',
+                'SecurityGroupId': 'Filter',
                 'PrivateIpAddress': 'String',
                 'DNS1': 'String',
                 'DNS2': 'String',
@@ -343,9 +349,8 @@ module.exports = class Client extends BaseClient {
                 'InstanceId': 'String',
                 'NetworkInterfaceId': 'String',
                 'SubnetId': 'String',
-                'SecurityGroupId': 'String',
+                'SecurityGroupId': 'Filter',
                 'PrivateIpAddress': 'String',
-                'SecurityGroupIds': 'Array',
                 'VpcIpv6': 'String',
                 'MacAddress': 'String',
             }
@@ -581,6 +586,9 @@ module.exports = class Client extends BaseClient {
                 'InstanceNameSuffix': 'String',
                 'DedicatedClusterId': 'String',
                 'Tag': 'Filter',
+                'AvailabilityZone': 'String',
+                'ProjectId': 'Int',
+                'EbsClusterMode': 'String',
             }
         },
         'DeleteDedicatedHost': {
@@ -673,6 +681,7 @@ module.exports = class Client extends BaseClient {
                 'Tag': 'Filter',
                 'SystemDisk.DiskType': 'String',
                 'SystemDisk.ResizeType': 'String',
+                'SyncTag': 'Boolean',
             }
         },
         'DeleteScalingConfiguration': {
@@ -1449,7 +1458,6 @@ module.exports = class Client extends BaseClient {
             'paramsType': {
                 'ImageId': 'String',
                 'InstanceType': 'String',
-                'SystemDisk.DiskSize': 'String',
                 'DataDiskGb': 'Int',
                 'SubnetId': 'String',
                 'DataDisk': 'Filter',
@@ -1457,7 +1465,7 @@ module.exports = class Client extends BaseClient {
                 'KeyId': 'String',
                 'ChargeType': 'String',
                 'PurchaseTime': 'Int',
-                'SecurityGroupId': 'String',
+                'SecurityGroupId': 'Filter',
                 'PrivateIpAddress': 'String',
                 'InstanceName': 'String',
                 'InstanceNameSuffix': 'String',
@@ -1470,10 +1478,21 @@ module.exports = class Client extends BaseClient {
                 'AddressPurchaseTime': 'Int',
                 'AddressProjectId': 'String',
                 'ModelName': 'String',
-                'SystemDisk.DiskType': 'String',
-                'SystemDisk.ResizeType': 'String',
-                'VersionDetail': 'String',
                 'FailureAutoDelete': 'Boolean',
+                'SystemDisk': 'Object',
+                'HostName': 'String',
+                'HostNameSuffix': 'String',
+                'UserData': 'String',
+                'NetworkInterface': 'Filter',
+                'Tag': 'Filter',
+                'AllocateAddress': 'Boolean',
+                'IsDistributeIpv6': 'Boolean',
+                'Mem': 'String',
+                'Cpu': 'String',
+                'IamRoleName': 'String',
+                'AssembledImageDataDiskType': 'String',
+                'LocalVolumeSnapshotId': 'String',
+                'SyncTag': 'Boolean',
             }
         },
         'TerminateModels': {
@@ -1688,6 +1707,7 @@ module.exports = class Client extends BaseClient {
                 'InstanceNameRandom': 'Boolean',
                 'SystemDisk.DiskType': 'String',
                 'SystemDisk.ResizeType': 'String',
+                'SyncTag': 'Boolean',
             }
         },
         'DescribeSpotPriceHistory': {
@@ -1869,22 +1889,6 @@ module.exports = class Client extends BaseClient {
                 'InstanceId': 'String',
             }
         },
-        'GetVNCAddress': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2016-03-04',
-                    'Action': 'GetVNCAddress',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
-        },
         'SwitchImageType': {
             'url': '/',
             'method': 'GET',
@@ -1899,6 +1903,39 @@ module.exports = class Client extends BaseClient {
             },
             'paramsType': {
                 'ImageId': 'Filter',
+            }
+        },
+        'SetInstanceResourceProtect': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'SetInstanceResourceProtect',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'Filter',
+                'IsProtection': 'Boolean',
+            }
+        },
+        'DescribeInstanceVncUrl': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeInstanceVncUrl',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
             }
         },
     }

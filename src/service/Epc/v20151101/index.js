@@ -1443,6 +1443,37 @@ module.exports = class Client extends BaseClient {
                 'NextToken': 'String',
             }
         },
+        'RunSoInstances': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2015-11-01',
+                    'Action': 'RunSoInstances',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ImageId': 'String',
+                'InstanceName': 'String',
+                'InstanceTypeId': 'String',
+                'SecurityGroupId': 'Filter',
+                'SubnetId': 'String',
+                'Volumes': 'Object',
+                'ZoneId': 'String',
+                'Description': 'String',
+                'HostName': 'String',
+                'InstanceChargeType': 'String',
+                'KeepImageCredential': 'Boolean',
+                'KeyPairName': 'String',
+                'Password': 'String',
+                'Period': 'Int',
+                'SuffixIndex': 'Int',
+                'UniqueSuffix': 'Boolean',
+            }
+        },
         'DescribeSoImages': {
             'url': '/',
             'method': 'GET',
