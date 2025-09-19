@@ -1472,6 +1472,8 @@ module.exports = class Client extends BaseClient {
                 'Period': 'Int',
                 'SuffixIndex': 'Int',
                 'UniqueSuffix': 'Boolean',
+                'InstallRunCommandAgent': 'Boolean',
+                'Count': 'Int',
             }
         },
         'DescribeSoImages': {
