@@ -16,6 +16,53 @@ module.exports = class Client extends BaseClient {
     },
   };
   _apiList = {
+    GetDomainLogs: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-09-01",
+          Action: "GetDomainLogs",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
+    GetRefreshOrPreloadTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-09-01",
+          Action: "GetRefreshOrPreloadTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DomainIds: "String",
+      },
+    },
+    RefreshCaches: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-09-01",
+          Action: "RefreshCaches",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Files: "String",
+        Dirs: "String",
+      },
+    },
     GetDomainPidDimensionUsageData: {
       url: "/",
       method: "GET",
