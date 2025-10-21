@@ -1471,6 +1471,7 @@ module.exports = class Client extends BaseClient {
         UniqueSuffix: "Boolean",
         InstallRunCommandAgent: "Boolean",
         Count: "Int",
+        SoZoneId: "String",
       },
     },
     DescribeSoImages: {
@@ -1495,6 +1496,7 @@ module.exports = class Client extends BaseClient {
         Platform: "String",
         Status: "Filter",
         Visibility: "String",
+        SoZoneId: "String",
       },
     },
     RebootSoInstance: {
@@ -1512,6 +1514,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         ForceStop: "Boolean",
         InstanceIds: "Filter",
+        SoZoneId: "String",
       },
     },
     DeleteSoImages: {
@@ -1528,6 +1531,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ImageIds: "Filter",
+        SoZoneId: "String",
       },
     },
     DeleteSoVpc: {
@@ -1544,6 +1548,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         VpcId: "String",
+        SoZoneId: "String",
       },
     },
     DescribeSoAvailableResource: {
@@ -1562,6 +1567,7 @@ module.exports = class Client extends BaseClient {
         InstanceChargeType: "String",
         InstanceTypeId: "String",
         ZoneId: "String",
+        SoZoneId: "String",
       },
     },
     DescribeSoInstances: {
@@ -1587,6 +1593,7 @@ module.exports = class Client extends BaseClient {
         VpcId: "String",
         ZoneId: "String",
         InstanceIds: "Filter",
+        SoZoneId: "String",
       },
     },
     DeleteSoInstance: {
@@ -1603,6 +1610,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         InstanceIds: "Filter",
+        SoZoneId: "String",
       },
     },
     DescribeSoSecurityGroups: {
@@ -1622,6 +1630,7 @@ module.exports = class Client extends BaseClient {
         SecurityGroupIds: "Filter",
         NextToken: "String",
         MaxResults: "Int",
+        SoZoneId: "String",
       },
     },
     CreateSoVpc: {
@@ -1642,6 +1651,7 @@ module.exports = class Client extends BaseClient {
         CidrBlock: "String",
         DnsServers: "Filter",
         AttachVpcId: "String",
+        SoZoneId: "String",
       },
     },
     DeleteSoSubnet: {
@@ -1658,6 +1668,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         SubnetId: "String",
+        SoZoneId: "String",
       },
     },
     DescribeSoKeyPairs: {
@@ -1679,6 +1690,7 @@ module.exports = class Client extends BaseClient {
         KeyPairNames: "Filter",
         MaxResults: "Int",
         NextToken: "String",
+        SoZoneId: "String",
       },
     },
     StartSoInstance: {
@@ -1695,6 +1707,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         InstanceIds: "Filter",
+        SoZoneId: "String",
       },
     },
     DescribeSoInstanceTypes: {
@@ -1712,6 +1725,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         ImageId: "String",
         InstanceTypeId: "Filter",
+        SoZoneId: "String",
       },
     },
     ModifySoSubnetAttributes: {
@@ -1730,6 +1744,7 @@ module.exports = class Client extends BaseClient {
         SubnetId: "String",
         SubnetName: "String",
         Description: "String",
+        SoZoneId: "String",
       },
     },
     DescribeSoSubnet: {
@@ -1751,6 +1766,7 @@ module.exports = class Client extends BaseClient {
         SubnetIds: "Filter",
         NextToken: "String",
         MaxResults: "Int",
+        SoZoneId: "String",
       },
     },
     ModifySoKeyPairAttribute: {
@@ -1769,6 +1785,7 @@ module.exports = class Client extends BaseClient {
         Description: "String",
         KeyPairId: "String",
         KeyPairName: "String",
+        SoZoneId: "String",
       },
     },
     ModifySoImageAttribute: {
@@ -1788,6 +1805,7 @@ module.exports = class Client extends BaseClient {
         Description: "String",
         ImageId: "String",
         ImageName: "String",
+        SoZoneId: "String",
       },
     },
     ModifySoVpcAttributes: {
@@ -1807,6 +1825,7 @@ module.exports = class Client extends BaseClient {
         Description: "String",
         DnsServers: "Filter",
         VpcName: "String",
+        SoZoneId: "String",
       },
     },
     ReplaceSoSystemVolume: {
@@ -1827,6 +1846,7 @@ module.exports = class Client extends BaseClient {
         KeepImageCredential: "Boolean",
         KeyPairName: "String",
         Password: "String",
+        SoZoneId: "String",
       },
     },
     CreateSoSubnet: {
@@ -1847,6 +1867,7 @@ module.exports = class Client extends BaseClient {
         SubnetName: "String",
         Description: "String",
         CidrBlock: "String",
+        SoZoneId: "String",
       },
     },
     DescribeSoVpcs: {
@@ -1866,6 +1887,7 @@ module.exports = class Client extends BaseClient {
         VpcIds: "Filter",
         NextToken: "String",
         MaxResults: "Int",
+        SoZoneId: "String",
       },
     },
     StopSoInstance: {
@@ -1883,6 +1905,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         ForceStop: "Boolean",
         InstanceIds: "Filter",
+        SoZoneId: "String",
       },
     },
     DeleteSoKeyPairs: {
@@ -1899,6 +1922,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         KeyPairNames: "Filter",
+        SoZoneId: "String",
       },
     },
     CreateSoImage: {
@@ -1916,6 +1940,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         ForceStop: "Boolean",
         InstanceIds: "Filter",
+        SoZoneId: "String",
       },
     },
     ModifySoInstanceAttribute: {
@@ -1937,6 +1962,7 @@ module.exports = class Client extends BaseClient {
         InstanceId: "String",
         InstanceName: "String",
         Password: "String",
+        SoZoneId: "String",
       },
     },
     CreateSoKeyPair: {
@@ -1954,6 +1980,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         KeyPairName: "String",
         Description: "String",
+        SoZoneId: "String",
       },
     },
   };
