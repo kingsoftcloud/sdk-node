@@ -14,7 +14,8 @@ const clientConfig = {
         method: 'POST', // 请求方法 GET 或者 POST
         timeout: 60, // 请求超时时间秒
         protocol: '', // 协议 http:// 或者 https://
-        endpoint: '' // 接入点域名 如 iam.api.ksyun.com
+        endpoint: '', // 接入点域名 如 iam.api.ksyun.com
+        path: '' // 自定义URL路径 如 /api/v1/xxx
     },
 }
 let client = new Client(clientConfig)

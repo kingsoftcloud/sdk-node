@@ -39,6 +39,25 @@ module.exports = class BaseClient {
             ...(apiConfig.config.headers || {})
         }
 
+        // 处理自定义path
+        let customPath = this.httpProfile.path || ''
+        // 清理path中的?参数
+        if (customPath && customPath.includes('?')) {
+            customPath = customPath.split('?')[0]
+        }
+
+        // 处理path拼接，避免双斜杠
+        let finalPath = apiConfig.url
+        if (customPath) {
+            // 清理endpoint末尾的斜杠
+            endpoint = endpoint.replace(/\/+$/, '')
+            // 确保customPath以/开头
+            if (!customPath.startsWith('/')) {
+                customPath = '/' + customPath
+            }
+            finalPath = customPath
+        }
+
         let query = apiConfig.config.query
         if (['GET', 'OPTION', 'HEAD'].includes(method)) {
             query = {
@@ -50,7 +69,7 @@ module.exports = class BaseClient {
         let body = this.getBody(method, headers['Content-Type'], params)
 
         let signParams = {
-            path: apiConfig.url,
+            path: finalPath,
             query,
             body: body || '',
             headers,
@@ -64,7 +83,7 @@ module.exports = class BaseClient {
 
         let signHeaders = getSignatureHeaders(signParams)
 
-        let url = `${protocol}${endpoint}${apiConfig.url}?${getCanonicalizedQuery(query)}`
+        let url = `${protocol}${endpoint}${finalPath}?${getCanonicalizedQuery(query)}`
 
         let timeoutSecond = this.httpProfile.timeout || this._baseConfig.config.timeout
         return fetch(url, {
