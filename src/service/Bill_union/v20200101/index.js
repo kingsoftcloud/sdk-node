@@ -25,13 +25,14 @@ module.exports = class Client extends BaseClient {
           Action: "DescribeBillSummaryByPayMode",
         },
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       },
       paramsType: {
         BillBeginMonth: "String",
         BillEndMonth: "String",
         SubAccount: "Int",
+        FetchAllFinanceRelationData: "Boolean",
       },
     },
     DescribeBillSummaryByProduct: {
@@ -62,13 +63,14 @@ module.exports = class Client extends BaseClient {
           Action: "DescribeBillSummaryByProject",
         },
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       },
       paramsType: {
         BillBeginMonth: "String",
         BillEndMonth: "String",
         SubAccount: "Int",
+        FetchAllFinanceRelationData: "Boolean",
       },
     },
     DescribeInstanceSummaryBills: {
