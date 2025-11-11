@@ -97,6 +97,8 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
+        ProjectName: "String",
+        Description: "String",
         Page: "Int",
         Size: "Int",
       },
