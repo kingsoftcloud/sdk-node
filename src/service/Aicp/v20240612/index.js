@@ -58,34 +58,30 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         NotebookId: "String",
-        DisplayName: "String",
+        NotebookName: "String",
         Description: "String",
         ImageId: "String",
         QueueName: "String",
         GPUType: "String",
         GPUNumber: "Int",
+        CPUNum: "Int",
+        Memory: "Int",
         AccessType: "String",
-        AllocationId: "String",
-        EnableSsh: "String",
-        SshPort: "Int",
         EnablePublicNetworkSsh: "Boolean",
         SshAuthorizedKeys: "String",
-        CpuNum: "Int",
-        Memory: "Int",
         StorageConfigs: "Array",
         ServiceConfigs: "Array",
         AutoSave: "Boolean",
         RunOnCPU: "String",
-        NotebookName: "String",
+        EnableSSH: "String",
         SSHPort: "Int",
         SSHAuthorizedKeys: "String",
-        CPUNum: "Int",
+        EnablePublicNetworkSSH: "Boolean",
+        AllocationId: "String",
         ImageTagId: "String",
         ImageSource: "String",
         ImageRepoId: "String",
         ImageRegistryId: "String",
-        EnableSSH: "String",
-        EnablePublicNetworkSSH: "Boolean",
       },
     },
     DeleteNotebook: {
@@ -139,35 +135,29 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        DisplayName: "String",
+        NotebookName: "String",
         Description: "String",
-        ImageId: "String",
+        ResourcePoolId: "String",
         QueueName: "String",
         GPUType: "String",
         GPUNumber: "Int",
-        AccessType: "String",
-        EnablePublicNetworkSsh: "Boolean",
-        AllocationId: "String",
-        CpuNum: "Int",
+        CPUNum: "Int",
         Memory: "Int",
-        EnableSsh: "Boolean",
-        SshAuthorizedKeys: "String",
-        SshPort: "Int",
+        AccessType: "String",
         StorageConfigs: "Array",
-        ResourcePoolId: "String",
         AutoSave: "Boolean",
         ServiceConfigs: "Array",
+        ImageSource: "String",
+        ImageId: "String",
         ImageRegistryId: "String",
         ImageRepoId: "String",
-        ImageSource: "String",
         ImageTagId: "String",
-        CPUNum: "Int",
         EnableSSH: "Boolean",
-        NotebookName: "String",
         SSHAuthorizedKeys: "String",
-        RunOnCPU: "String",
         SSHPort: "Int",
         EnablePublicNetworkSSH: "Boolean",
+        AllocationId: "String",
+        RunOnCPU: "String",
       },
     },
     StopNotebook: {
@@ -195,10 +185,12 @@ module.exports = class Client extends BaseClient {
           Action: "StartNotebook",
         },
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       },
-      paramsType: {},
+      paramsType: {
+        NotebookId: "String",
+      },
     },
     GetWebIdeUrl: {
       url: "/",
@@ -261,6 +253,185 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         NotebookId: "String",
+      },
+    },
+    CreateTrainJob: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateTrainJob",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        TrainJobName: "String",
+        Description: "String",
+        ResourcePoolId: "String",
+        QueueName: "String",
+        Priority: "String",
+        Command: "String",
+        Framework: "String",
+        ImageSource: "String",
+        FrameworkReplicas: "Object",
+        Envs: "Array",
+        SupportTensorboard: "Boolean",
+        ImageId: "String",
+        ImageRegistryId: "String",
+        ImageRepoId: "String",
+        ImageTagId: "String",
+        GPUType: "String",
+        GPUNumber: "Int",
+        CpuNum: "Int",
+        Memory: "Int",
+        StorageConfigs: "Array",
+        AccessType: "String",
+        MaxRuntime: "Int",
+        SelfHealing: "Boolean",
+        RunOnCpu: "Boolean",
+      },
+    },
+    DescribeTrainJobEvents: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTrainJobEvents",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        TrainJobId: "String",
+      },
+    },
+    StopTrainJob: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "StopTrainJob",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TrainJobId: "String",
+      },
+    },
+    DescribeTrainJob: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTrainJob",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TrainJobId: "Filter",
+        Filter: "Filter",
+        Marker: "Int",
+        MaxResults: "Int",
+      },
+    },
+    StartTrainJob: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "StartTrainJob",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TrainJobId: "String",
+      },
+    },
+    DeleteTrainJob: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteTrainJob",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TrainJobId: "String",
+      },
+    },
+    ModifyTrainJob: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyTrainJob",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        TrainJobId: "String",
+        Priority: "String",
+      },
+    },
+    DescribeTrainJobPodLogs: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTrainJobPodLogs",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        TrainJobId: "String",
+        PodName: "String",
+        SinceSeconds: "Int",
+        TailLines: "Int",
+      },
+    },
+    DescribeTrainJobPods: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTrainJobPods",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Marker: "String",
+        MaxResults: "String",
+        TrainJobId: "String",
+        Filter: "Filter",
       },
     },
   };
