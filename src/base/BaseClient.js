@@ -150,7 +150,7 @@ module.exports = class BaseClient {
         }
         // 目前只有下面这两种
         if (contentType == 'application/x-www-form-urlencoded') {
-            return qs.stringify(params)
+            return qs.stringify(params, { allowDots: true })
         }
         if (contentType == 'application/json') {
             return JSON.stringify(params)
