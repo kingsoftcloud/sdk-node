@@ -435,5 +435,49 @@ module.exports = class Client extends BaseClient {
         Filter: "Filter",
       },
     },
+    DescribeResourcePools: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeResourcePools",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Sort: "String",
+        Page: "Int",
+        PageSize: "Int",
+        ResourcePoolName: "String",
+        Component: "String",
+        ResourcePoolId: "Filter",
+        Filter: "Filter",
+      },
+    },
+    DescribeResourcePoolInstances: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeResourcePoolInstances",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        PageSize: "Int",
+        Page: "Int",
+        InstanceName: "String",
+        InstanceId: "Filter",
+        ProjectId: "Filter",
+        Filter: "Filter",
+      },
+    },
   };
 };
