@@ -351,7 +351,6 @@ module.exports = class Client extends BaseClient {
         SubnetId: "String",
         SecurityGroupId: "Filter",
         PrivateIpAddress: "String",
-        VpcIpv6: "String",
         MacAddress: "String",
       },
     },
@@ -1661,6 +1660,26 @@ module.exports = class Client extends BaseClient {
         InstanceId: "Filter",
         AutoDeleteTime: "String",
         AutoDeleteEip: "Boolean",
+      },
+    },
+    DescribeKecInventory: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeKecInventory",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceType: "String",
+        DataDiskGb: "Int",
+        "SystemDisk.DiskSize": "Int",
+        "SystemDisk.DiskType": "String",
+        AvailabilityZone: "String",
       },
     },
     ModifyScalingConfiguration: {
