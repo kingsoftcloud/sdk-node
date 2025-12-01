@@ -624,6 +624,114 @@ module.exports = class Client extends BaseClient {
         ProjectId: "Filter",
       },
     },
+    CreateAutoSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CreateAutoSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyName: "String",
+        AutoSnapshotTime: "String",
+        AutoSnapshotDate: "Filter",
+        SnapshotType: "String",
+        RetentionTime: "Int",
+      },
+    },
+    DeleteAutoSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DeleteAutoSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "Filter",
+      },
+    },
+    ModifyAutoSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ModifyAutoSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "String",
+        AutoSnapshotPolicyName: "String",
+        AutoSnapshotTime: "String",
+        AutoSnapshotDate: "Filter",
+        SnapshotType: "String",
+        RetentionTime: "Int",
+      },
+    },
+    DescribeAutoSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeAutoSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyName: "String",
+        AutoSnapshotPolicyId: "Filter",
+      },
+    },
+    ApplyAutoSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ApplyAutoSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "String",
+        AttachVolumeId: "Filter",
+      },
+    },
+    CancelAutoSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CancelAutoSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "String",
+        AttachVolumeId: "Filter",
+      },
+    },
     DescribeScalingConfiguration: {
       url: "/",
       method: "GET",
