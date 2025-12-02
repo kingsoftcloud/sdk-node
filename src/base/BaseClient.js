@@ -111,7 +111,7 @@ module.exports = class BaseClient {
             if (['String', 'Int', 'Double', 'Long', 'Boolean', 'Array'].includes(type) && params[key] != null) {
                 res[key] = params[key]
             }
-            if (type == 'Filter') {
+            if (type == 'Filter' || type == 'Object') {
                 res = {
                     ...res,
                     ...this.formatFilter(key, params[key])
@@ -150,7 +150,10 @@ module.exports = class BaseClient {
         }
         // 目前只有下面这两种
         if (contentType == 'application/x-www-form-urlencoded') {
-            return qs.stringify(params, { allowDots: true })
+            return qs.stringify(params, {
+                allowDots: true,      // 对象转成a.b.c
+                arrayFormat: 'indices' // 数组转成a[0]=b&a[1]=c
+            })
         }
         if (contentType == 'application/json') {
             return JSON.stringify(params)
