@@ -6,26 +6,56 @@ name: tag/release/publish
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  # 也可以在推送到 main/master 分支时自动触发（可选）
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # 获取完整的 git 历史
+
       - uses: actions/setup-node@v2
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm i
-      - run: npm run test
-      - run: git config --global user.email "autotag@ksyun.com"
-      - run: git config --global user.name "autotag"
-      - run: npm run build
-      - run: git add . && git commit -m 'build'
-      - run: npm version patch
-      - run: gh release create $(git describe --tags `git rev-list --tags --max-count=1`) --generate-notes
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure git
+        run: |
+          git config --global user.email "autotag@ksyun.com"
+          git config --global user.name "autotag"
+
+      - name: Commit build files
+        run: git add . && git commit -m 'build' || echo "No changes to commit"
+
+      - name: Get version from package.json
+        id: package-version
+        run: echo "version=v$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.package-version.outputs.version }}
+          git push origin ${{ steps.package-version.outputs.version }}
+
+      - name: Create GitHub Release
+        run: gh release create ${{ steps.package-version.outputs.version }} --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: npm publish
+
+      - name: Publish to npm
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
