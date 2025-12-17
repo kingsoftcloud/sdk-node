@@ -8,843 +8,843 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'kcrs.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "kcrs.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'kcrs'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "kcrs"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'CreateNamespace': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'CreateNamespace'
+      CreateNamespace: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "CreateNamespace"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'Public': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Public: "String"
         }
       },
-      'DescribeNamespace': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeNamespace'
+      DescribeNamespace: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeNamespace"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'Public': 'String',
-          'MaxResults': 'String',
-          'Marker': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Public: "String",
+          MaxResults: "String",
+          Marker: "String"
         }
       },
-      'ModifyNamespaceType': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'ModifyNamespaceType'
+      ModifyNamespaceType: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "ModifyNamespaceType"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'Public': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Public: "String"
         }
       },
-      'DescribeNamespaceExist': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeNamespaceExist'
+      DescribeNamespaceExist: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeNamespaceExist"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String"
         }
       },
-      'DeleteNamespace': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteNamespace'
+      DeleteNamespace: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteNamespace"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String"
         }
       },
-      'DescribeImages': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeImages'
+      DescribeImages: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeImages"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'String',
-          'ImageId': 'String',
-          'MaxResults': 'String',
-          'Marker': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "String",
+          ImageId: "String",
+          MaxResults: "String",
+          Marker: "String"
         }
       },
-      'DeleteImages': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteImages'
+      DeleteImages: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteImages"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'String',
-          'ImageId': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "String",
+          ImageId: "String"
         }
       },
-      'DeleteRepoTag': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteRepoTag'
+      DeleteRepoTag: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteRepoTag"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'String',
-          'TagName': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "String",
+          TagName: "String"
         }
       },
-      'DescribeRepository': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeRepository'
+      DescribeRepository: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeRepository"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'Filter',
-          'MaxResults': 'String',
-          'Marker': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "Filter",
+          MaxResults: "String",
+          Marker: "String"
         }
       },
-      'ModifyRepoDesc': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'ModifyRepoDesc'
+      ModifyRepoDesc: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "ModifyRepoDesc"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'String',
-          'Desc': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "String",
+          Desc: "String"
         }
       },
-      'DeleteRepository': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteRepository'
+      DeleteRepository: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteRepository"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "String"
         }
       },
-      'StartImageScan': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'StartImageScan'
+      StartImageScan: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "StartImageScan"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'String',
-          'ImageId': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "String",
+          ImageId: "String"
         }
       },
-      'DescribeImageScan': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeImageScan'
+      DescribeImageScan: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeImageScan"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'RepoName': 'String',
-          'ImageId': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          RepoName: "String",
+          ImageId: "String"
         }
       },
-      'CreateInstanceToken': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'CreateInstanceToken'
+      CreateInstanceToken: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "CreateInstanceToken"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'TokenType': 'String',
-          'TokenTime': 'String',
-          'Desc': 'String'
+        paramsType: {
+          InstanceId: "String",
+          TokenType: "String",
+          TokenTime: "String",
+          Desc: "String"
         }
       },
-      'DescribeInternalEndpoint': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeInternalEndpoint'
+      DescribeInternalEndpoint: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeInternalEndpoint"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String'
+        paramsType: {
+          InstanceId: "String"
         }
       },
-      'DescribeInstanceToken': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeInstanceToken'
+      DescribeInstanceToken: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeInstanceToken"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Marker': 'String',
-          'MaxResults': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Marker: "String",
+          MaxResults: "String"
         }
       },
-      'CreateInternalEndpoint': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'CreateInternalEndpoint'
+      CreateInternalEndpoint: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "CreateInternalEndpoint"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'VpcId': 'String',
-          'ReserveSubnetId': 'String'
+        paramsType: {
+          InstanceId: "String",
+          VpcId: "String",
+          ReserveSubnetId: "String"
         }
       },
-      'ModifyInstanceTokenStatus': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'ModifyInstanceTokenStatus'
+      ModifyInstanceTokenStatus: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "ModifyInstanceTokenStatus"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'TokenId': 'String',
-          'Enable': 'String'
+        paramsType: {
+          InstanceId: "String",
+          TokenId: "String",
+          Enable: "String"
         }
       },
-      'DeleteInternalEndpoint': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteInternalEndpoint'
+      DeleteInternalEndpoint: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteInternalEndpoint"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'VpcId': 'String',
-          'EniLBIp': 'String'
+        paramsType: {
+          InstanceId: "String",
+          VpcId: "String",
+          EniLBIp: "String"
         }
       },
-      'ModifyInstanceTokenInformation': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'ModifyInstanceTokenInformation'
+      ModifyInstanceTokenInformation: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "ModifyInstanceTokenInformation"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'TokenId': 'String',
-          'TokenType': 'String',
-          'TokenTime': 'String',
-          'Desc': 'String'
+        paramsType: {
+          InstanceId: "String",
+          TokenId: "String",
+          TokenType: "String",
+          TokenTime: "String",
+          Desc: "String"
         }
       },
-      'DescribeInternalEndpointDns': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeInternalEndpointDns'
+      DescribeInternalEndpointDns: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeInternalEndpointDns"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'VpcId': 'String',
-          'EniLBIp': 'String',
-          'InternalEndpointDns': 'String'
+        paramsType: {
+          InstanceId: "String",
+          VpcId: "String",
+          EniLBIp: "String",
+          InternalEndpointDns: "String"
         }
       },
-      'DeleteInstanceToken': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteInstanceToken'
+      DeleteInstanceToken: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteInstanceToken"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'TokenId': 'String'
+        paramsType: {
+          InstanceId: "String",
+          TokenId: "String"
         }
       },
-      'CreateInternalEndpointDns': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'CreateInternalEndpointDns'
+      CreateInternalEndpointDns: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "CreateInternalEndpointDns"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'VpcId': 'String',
-          'EniLBIp': 'String',
-          'InternalEndpointDns': 'String'
+        paramsType: {
+          InstanceId: "String",
+          VpcId: "String",
+          EniLBIp: "String",
+          InternalEndpointDns: "String"
         }
       },
-      'DeleteInternalEndpointDns': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteInternalEndpointDns'
+      DeleteInternalEndpointDns: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteInternalEndpointDns"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'VpcId': 'String',
-          'EniLBIp': 'String',
-          'InternalEndpointDns': 'String'
+        paramsType: {
+          InstanceId: "String",
+          VpcId: "String",
+          EniLBIp: "String",
+          InternalEndpointDns: "String"
         }
       },
-      'CreateInstance': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'CreateInstance'
+      CreateInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "CreateInstance"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceName': 'String',
-          'ChargeType': 'String',
-          'InstanceType': 'String',
-          'PurchaseTime': 'String',
-          'ProjectId': 'String'
+        paramsType: {
+          InstanceName: "String",
+          ChargeType: "String",
+          InstanceType: "String",
+          PurchaseTime: "String",
+          ProjectId: "String"
         }
       },
-      'DeleteInstance': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteInstance'
+      DeleteInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteInstance"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'DeleteBucket': 'String'
+        paramsType: {
+          InstanceId: "String",
+          DeleteBucket: "String"
         }
       },
-      'DescribeInstanceUsage': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeInstanceUsage'
+      DescribeInstanceUsage: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeInstanceUsage"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String'
+        paramsType: {
+          InstanceId: "String"
         }
       },
-      'DescribeInstance': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeInstance'
+      DescribeInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeInstance"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'Filter',
-          'Marker': 'String',
-          'MaxResults': 'String',
-          'ProjectId': 'Filter',
-          'InstanceName': 'String'
+        paramsType: {
+          InstanceId: "Filter",
+          Marker: "String",
+          MaxResults: "String",
+          ProjectId: "Filter",
+          InstanceName: "String"
         }
       },
-      'CreateWebhookTrigger': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'CreateWebhookTrigger'
+      CreateWebhookTrigger: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "CreateWebhookTrigger"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'Trigger': 'String',
-          'TriggerName': 'String',
-          'EventType': 'Filter',
-          'TriggerUrl': 'String',
-          'Header': 'Filter',
-          'Enabled': 'String',
-          'Key': 'String',
-          'Value': 'Filter'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Trigger: "String",
+          TriggerName: "String",
+          EventType: "Filter",
+          TriggerUrl: "String",
+          Header: "Filter",
+          Enabled: "String",
+          Key: "String",
+          Value: "Filter"
         }
       },
-      'DescribeWebhookTrigger': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeWebhookTrigger'
+      DescribeWebhookTrigger: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeWebhookTrigger"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'TriggerId': 'String',
-          'Marker': 'String',
-          'MaxResults': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          TriggerId: "String",
+          Marker: "String",
+          MaxResults: "String"
         }
       },
-      'ModifyWebhookTrigger': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'ModifyWebhookTrigger'
+      ModifyWebhookTrigger: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "ModifyWebhookTrigger"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'Trigger': 'String',
-          'TriggerId': 'String',
-          'TriggerName': 'String',
-          'EventType': 'Filter',
-          'TriggerUrl': 'String',
-          'Header': 'Filter',
-          'Enabled': 'String',
-          'Key': 'String',
-          'Value': 'Filter'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Trigger: "String",
+          TriggerId: "String",
+          TriggerName: "String",
+          EventType: "Filter",
+          TriggerUrl: "String",
+          Header: "Filter",
+          Enabled: "String",
+          Key: "String",
+          Value: "Filter"
         }
       },
-      'DescribeWebhookTriggerLog': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeWebhookTriggerLog'
+      DescribeWebhookTriggerLog: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeWebhookTriggerLog"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'TriggerId': 'String',
-          'Marker': 'String',
-          'MaxResults': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          TriggerId: "String",
+          Marker: "String",
+          MaxResults: "String"
         }
       },
-      'DeleteWebhookTrigger': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteWebhookTrigger'
+      DeleteWebhookTrigger: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteWebhookTrigger"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Namespace': 'String',
-          'TriggerId': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          TriggerId: "String"
         }
       },
-      'DescribeAllRepository': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeAllRepository'
+      DescribeAllRepository: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeAllRepository"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'GetMetadata': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'GetMetadata'
+      GetMetadata: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "GetMetadata"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'CreateRetentionRule': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'CreateRetentionRule'
+      CreateRetentionRule: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "CreateRetentionRule"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'UpdateRetentionRule': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'UpdateRetentionRule'
+      UpdateRetentionRule: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "UpdateRetentionRule"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'DeleteRetentionRule': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DeleteRetentionRule'
+      DeleteRetentionRule: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DeleteRetentionRule"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'DescribeRetentionRule': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'DescribeRetentionRule'
+      DescribeRetentionRule: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "DescribeRetentionRule"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'RunRetentionPolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'RunRetentionPolicy'
+      RunRetentionPolicy: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "RunRetentionPolicy"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'GetRetentionPolicyLogs': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'GetRetentionPolicyLogs'
+      GetRetentionPolicyLogs: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "GetRetentionPolicyLogs"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'GetRetentionPolicyLogDetail': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'GetRetentionPolicyLogDetail'
+      GetRetentionPolicyLogDetail: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "GetRetentionPolicyLogDetail"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'GetRetentionPolicyLog': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'GetRetentionPolicyLog'
+      GetRetentionPolicyLog: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "GetRetentionPolicyLog"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'GetRetentionTrigger': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'GetRetentionTrigger'
+      GetRetentionTrigger: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "GetRetentionTrigger"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'UpdateRetentionTrigger': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'UpdateRetentionTrigger'
+      UpdateRetentionTrigger: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "UpdateRetentionTrigger"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'GetNamespacePolicy': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'GetNamespacePolicy'
+      GetNamespacePolicy: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "GetNamespacePolicy"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'Schedule': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-11-09',
-            'Action': 'Schedule'
+      Schedule: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-11-09",
+            Action: "Schedule"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       }
     });
   }

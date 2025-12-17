@@ -28,17 +28,7 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       },
-      paramsType: {
-        PolicyName: "String",
-        ProductType: "Int",
-        PolicyType: "Int",
-        ResourceBindType: "Int",
-        ProjectId: "Int",
-        InstanceIds: "Array",
-        TriggerRules: "Array",
-        UserNotice: "Array",
-        URLNotice: "Array",
-      },
+      paramsType: {},
     },
     DeleteAlarmPolicy: {
       url: "/",

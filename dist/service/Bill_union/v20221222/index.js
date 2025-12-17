@@ -8,133 +8,133 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'bill-union.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "bill-union.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'bill-union'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "bill-union"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'QueryInstanceConsume': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2022-12-22',
-            'Action': 'QueryInstanceConsume'
+      QueryInstanceConsume: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2022-12-22",
+            Action: "QueryInstanceConsume"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'StartDay': 'String',
-          'EndDay': 'String',
-          'ProductCode': 'String',
-          'Page': 'Int',
-          'Size': 'Int'
+        paramsType: {
+          StartDay: "String",
+          EndDay: "String",
+          ProductCode: "String",
+          Page: "Int",
+          Size: "Int"
         }
       },
-      'QueryProjectConsume': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2022-12-22',
-            'Action': 'QueryProjectConsume'
+      QueryProjectConsume: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2022-12-22",
+            Action: "QueryProjectConsume"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'StartDay': 'String',
-          'EndDay': 'String',
-          'Page': 'Int',
-          'Size': 'Int'
+        paramsType: {
+          StartDay: "String",
+          EndDay: "String",
+          Page: "Int",
+          Size: "Int"
         }
       },
-      'QueryProductConsume': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2022-12-22',
-            'Action': 'QueryProductConsume'
+      QueryProductConsume: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2022-12-22",
+            Action: "QueryProductConsume"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'StartDay': 'String',
-          'EndDay': 'String',
-          'Page': 'Int',
-          'Size': 'Int'
+        paramsType: {
+          StartDay: "String",
+          EndDay: "String",
+          Page: "Int",
+          Size: "Int"
         }
       },
-      'QueryFinanceUnitConsume': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2022-12-22',
-            'Action': 'QueryFinanceUnitConsume'
+      QueryFinanceUnitConsume: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2022-12-22",
+            Action: "QueryFinanceUnitConsume"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'StartDay': 'String',
-          'EndDay': 'String',
-          'Page': 'Int',
-          'Size': 'Int'
+        paramsType: {
+          StartDay: "String",
+          EndDay: "String",
+          Page: "Int",
+          Size: "Int"
         }
       },
-      'QueryFinanceUnitConsumeOfMonth': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2022-12-22',
-            'Action': 'QueryFinanceUnitConsumeOfMonth'
+      QueryFinanceUnitConsumeOfMonth: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2022-12-22",
+            Action: "QueryFinanceUnitConsumeOfMonth"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'CustomerBillMonth': 'String',
-          'Page': 'Int',
-          'Size': 'Int'
+        paramsType: {
+          CustomerBillMonth: "String",
+          Page: "Int",
+          Size: "Int"
         }
       },
-      'QueryUserConsume': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2022-12-22',
-            'Action': 'QueryUserConsume'
+      QueryUserConsume: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2022-12-22",
+            Action: "QueryUserConsume"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'StartDay': 'String',
-          'EndDay': 'String',
-          'Page': 'Int',
-          'Size': 'Int'
+        paramsType: {
+          StartDay: "String",
+          EndDay: "String",
+          Page: "Int",
+          Size: "Int"
         }
       }
     });

@@ -8,121 +8,121 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'kad.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "kad.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'kad'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "kad"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'CreateForwardConf': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2016-11-22',
-            'Action': 'CreateForwardConf'
+      CreateForwardConf: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "CreateForwardConf"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'KadId': 'String',
-          'Protocol': 'String',
-          'ServicePort': 'Int'
+        paramsType: {
+          KadId: "String",
+          Protocol: "String",
+          ServicePort: "Int"
         }
       },
-      'DeleteForwardConf': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2016-11-22',
-            'Action': 'DeleteForwardConf'
+      DeleteForwardConf: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "DeleteForwardConf"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'ForwardConfId': 'String'
+        paramsType: {
+          ForwardConfId: "String"
         }
       },
-      'DescribeForwardConf': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-11-22',
-            'Action': 'DescribeForwardConf'
+      DescribeForwardConf: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "DescribeForwardConf"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'KadId': 'String',
-          'ForwardConfId': 'Filter'
+        paramsType: {
+          KadId: "String",
+          ForwardConfId: "Filter"
         }
       },
-      'CreateForwardSource': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2016-11-22',
-            'Action': 'CreateForwardSource'
+      CreateForwardSource: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "CreateForwardSource"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'ForwardConfId': 'String',
-          'SourceIp': 'String',
-          'SourcePort': 'String'
+        paramsType: {
+          ForwardConfId: "String",
+          SourceIp: "String",
+          SourcePort: "String"
         }
       },
-      'DeleteForwardSource': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2016-11-22',
-            'Action': 'DeleteForwardSource'
+      DeleteForwardSource: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "DeleteForwardSource"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'ForwardSourceId': 'String'
+        paramsType: {
+          ForwardSourceId: "String"
         }
       },
-      'DescribeForwardSource': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-11-22',
-            'Action': 'DescribeForwardSource'
+      DescribeForwardSource: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "DescribeForwardSource"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'ForwardConfId': 'String',
-          'ForwardSourceId': 'Filter'
+        paramsType: {
+          ForwardConfId: "String",
+          ForwardSourceId: "Filter"
         }
       }
     });

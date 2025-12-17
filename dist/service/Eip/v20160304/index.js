@@ -8,145 +8,145 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'eip.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "eip.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'eip'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "eip"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'GetLines': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'GetLines'
+      GetLines: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "GetLines"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       },
-      'DescribeAddresses': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'DescribeAddresses'
+      DescribeAddresses: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeAddresses"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'ProjectId': 'Filter',
-          'AllocationId': 'Filter',
-          'Filter': 'Filter',
-          'MaxResults': 'Int',
-          'NextToken': 'String',
-          'State': 'String',
-          'IpVersion': 'String'
+        paramsType: {
+          ProjectId: "Filter",
+          AllocationId: "Filter",
+          Filter: "Filter",
+          MaxResults: "Int",
+          NextToken: "String",
+          State: "String",
+          IpVersion: "String"
         }
       },
-      'AllocateAddress': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'AllocateAddress'
+      AllocateAddress: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "AllocateAddress"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'LineId': 'String',
-          'BandWidth': 'Int',
-          'ProjectId': 'String',
-          'ChargeType': 'String',
-          'PurchaseTime': 'Int'
+        paramsType: {
+          LineId: "String",
+          BandWidth: "Int",
+          ProjectId: "String",
+          ChargeType: "String",
+          PurchaseTime: "Int"
         }
       },
-      'ReleaseAddress': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'ReleaseAddress'
+      ReleaseAddress: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ReleaseAddress"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'AllocationId': 'String'
+        paramsType: {
+          AllocationId: "String"
         }
       },
-      'AssociateAddress': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'AssociateAddress'
+      AssociateAddress: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "AssociateAddress"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'AllocationId': 'String',
-          'InstanceType': 'String',
-          'InstanceId': 'String',
-          'NetworkInterfaceId': 'String',
-          'Mode': 'String',
-          'PrivateIpAddress': 'String'
+        paramsType: {
+          AllocationId: "String",
+          InstanceType: "String",
+          InstanceId: "String",
+          NetworkInterfaceId: "String",
+          Mode: "String",
+          PrivateIpAddress: "String"
         }
       },
-      'DisassociateAddress': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'DisassociateAddress'
+      DisassociateAddress: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DisassociateAddress"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'AllocationId': 'String'
+        paramsType: {
+          AllocationId: "String"
         }
       },
-      'ModifyAddress': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2016-03-04',
-            'Action': 'ModifyAddress'
+      ModifyAddress: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyAddress"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'AllocationId': 'String',
-          'BandWidth': 'Int'
+        paramsType: {
+          AllocationId: "String",
+          BandWidth: "Int"
         }
       }
     });

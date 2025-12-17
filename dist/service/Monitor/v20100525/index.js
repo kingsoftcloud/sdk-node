@@ -8,61 +8,61 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'monitor.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "monitor.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'monitor'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "monitor"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'GetMetricStatistics': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2010-05-25',
-            'Action': 'GetMetricStatistics'
+      GetMetricStatistics: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2010-05-25",
+            Action: "GetMetricStatistics"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'Namespace': 'String',
-          'InstanceID': 'String',
-          'MetricName': 'String',
-          'StartTime': 'String',
-          'EndTime': 'String',
-          'Aggregate': 'String',
-          'Period': 'Int'
+        paramsType: {
+          Namespace: "String",
+          InstanceID: "String",
+          MetricName: "String",
+          StartTime: "String",
+          EndTime: "String",
+          Aggregate: "String",
+          Period: "Int"
         }
       },
-      'ListMetrics': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2010-05-25',
-            'Action': 'ListMetrics'
+      ListMetrics: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2010-05-25",
+            Action: "ListMetrics"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'Namespace': 'String',
-          'InstanceID': 'String',
-          'MetricName': 'String',
-          'PageIndex': 'Int',
-          'PageSize': 'Int'
+        paramsType: {
+          Namespace: "String",
+          InstanceID: "String",
+          MetricName: "String",
+          PageIndex: "Int",
+          PageSize: "Int"
         }
       }
     });

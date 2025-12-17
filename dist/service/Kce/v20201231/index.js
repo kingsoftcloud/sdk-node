@@ -8,54 +8,54 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'kce.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "kce.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'kce'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "kce"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'CreateCluster': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2020-12-31',
-            'Action': 'CreateCluster'
+      CreateCluster: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2020-12-31",
+            Action: "CreateCluster"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'ClusterName': 'String',
-          'ClusterType': 'String',
-          'ClusterManageMode': 'String',
-          'ClusterDesc': 'String',
-          'VpcId': 'String',
-          'PodCidr': 'String',
-          'ServiceCidr': 'String',
-          'NetworkType': 'String',
-          'K8sVersion': 'String',
-          'ReserveSubnetId': 'String',
-          'PublicApiServer': 'String',
-          'MaxPodPerNode': 'String',
-          'MasterEtcdSeparate': 'Boolean',
-          'ManagedClusterMultiMaster': 'Filter',
-          'InstanceForNode': 'Filter',
-          'ExistedInstanceForEpc': 'Filter',
-          'Component': 'Filter',
-          'ControlPlaneLog': 'Object',
-          'ServerlessClusterMaster': 'Object',
-          'ExposePublicApiServer': 'Boolean'
+        paramsType: {
+          ClusterName: "String",
+          ClusterType: "String",
+          ClusterManageMode: "String",
+          ClusterDesc: "String",
+          VpcId: "String",
+          PodCidr: "String",
+          ServiceCidr: "String",
+          NetworkType: "String",
+          K8sVersion: "String",
+          ReserveSubnetId: "String",
+          PublicApiServer: "String",
+          MaxPodPerNode: "String",
+          MasterEtcdSeparate: "Boolean",
+          ManagedClusterMultiMaster: "Filter",
+          InstanceForNode: "Filter",
+          ExistedInstanceForEpc: "Filter",
+          Component: "Filter",
+          ControlPlaneLog: "Object",
+          ServerlessClusterMaster: "Object",
+          ExposePublicApiServer: "Boolean"
         }
       }
     });

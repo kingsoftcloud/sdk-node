@@ -42,6 +42,25 @@ module.exports = class BaseClient {
       ...(this._baseConfig.config.headers || {}),
       ...(apiConfig.config.headers || {})
     };
+
+    // 处理自定义path
+    let customPath = this.httpProfile.path || '';
+    // 清理path中的?参数
+    if (customPath && customPath.includes('?')) {
+      customPath = customPath.split('?')[0];
+    }
+
+    // 处理path拼接，避免双斜杠
+    let finalPath = apiConfig.url;
+    if (customPath) {
+      // 清理endpoint末尾的斜杠
+      endpoint = endpoint.replace(/\/+$/, '');
+      // 确保customPath以/开头
+      if (!customPath.startsWith('/')) {
+        customPath = '/' + customPath;
+      }
+      finalPath = customPath;
+    }
     let query = apiConfig.config.query;
     if (['GET', 'OPTION', 'HEAD'].includes(method)) {
       query = {
@@ -51,7 +70,7 @@ module.exports = class BaseClient {
     }
     let body = this.getBody(method, headers['Content-Type'], params);
     let signParams = {
-      path: apiConfig.url,
+      path: finalPath,
       query,
       body: body || '',
       headers,
@@ -63,8 +82,11 @@ module.exports = class BaseClient {
       secret_key: this.sk
     };
     let signHeaders = getSignatureHeaders(signParams);
-    let url = `${protocol}${endpoint}${apiConfig.url}?${getCanonicalizedQuery(query)}`;
+    let url = `${protocol}${endpoint}${finalPath}?${getCanonicalizedQuery(query)}`;
     let timeoutSecond = this.httpProfile.timeout || this._baseConfig.config.timeout;
+
+    // 打印 curl 命令
+    this.printCurl(url, method, signHeaders, body);
     return fetch(url, {
       method: method,
       timeout: timeoutSecond * 1000,
@@ -90,7 +112,7 @@ module.exports = class BaseClient {
       if (['String', 'Int', 'Double', 'Long', 'Boolean', 'Array'].includes(type) && params[key] != null) {
         res[key] = params[key];
       }
-      if (type == 'Filter') {
+      if (type == 'Filter' || type == 'Object') {
         res = {
           ...res,
           ...this.formatFilter(key, params[key])
@@ -129,11 +151,35 @@ module.exports = class BaseClient {
     }
     // 目前只有下面这两种
     if (contentType == 'application/x-www-form-urlencoded') {
-      return qs.stringify(params);
+      return qs.stringify(params, {
+        allowDots: true,
+        // 对象转成a.b.c
+        arrayFormat: 'indices' // 数组转成a[0]=b&a[1]=c
+      });
     }
     if (contentType == 'application/json') {
       return JSON.stringify(params);
     }
     return JSON.stringify(params);
+  }
+
+  /**
+   * 打印 curl 命令
+   */
+  printCurl(url, method, headers, body) {
+    let curlCmd = `curl -X ${method} '${url}'`;
+
+    // 添加 headers
+    Object.keys(headers).forEach(key => {
+      curlCmd += ` \\\n  -H '${key}: ${headers[key]}'`;
+    });
+
+    // 添加 body
+    if (body) {
+      curlCmd += ` \\\n  -d '${body}'`;
+    }
+    console.log('\n========== CURL 请求 ==========');
+    console.log(curlCmd);
+    console.log('================================\n');
   }
 };

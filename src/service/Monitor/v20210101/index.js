@@ -167,5 +167,42 @@ module.exports = class Client extends BaseClient {
         UserStatus: "Int",
       },
     },
+    DescribeSysEventGroupList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2021-01-01",
+          Action: "DescribeSysEventGroupList",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Namespace: "String",
+        StartTime: "Int",
+        EndTime: "Int",
+        EventName: "String",
+        InstanceId: "Array",
+        Order: "Boolean",
+        PageIndex: "Int",
+        PageSize: "Int",
+      },
+    },
+    DescribeMonitorProductList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2021-01-01",
+          Action: "DescribeMonitorProductList",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
   };
 };

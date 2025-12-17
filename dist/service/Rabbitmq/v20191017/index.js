@@ -8,233 +8,233 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'rabbitmq.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "rabbitmq.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'rabbitmq'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "rabbitmq"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'CreateInstance': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'CreateInstance'
+      CreateInstance: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "CreateInstance"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'ProjectId': 'String',
-          'InstanceName': 'String',
-          'InstancePassword': 'String',
-          'VpcId': 'String',
-          'SubnetId': 'String',
-          'EngineVersion': 'String',
-          'BillType': 'Int',
-          'Duration': 'Int',
-          'Mode': 'String',
-          'InstanceType': 'String',
-          'SsdDisk': 'Int',
-          'NodeNum': 'Int'
+        paramsType: {
+          ProjectId: "String",
+          InstanceName: "String",
+          InstancePassword: "String",
+          VpcId: "String",
+          SubnetId: "String",
+          EngineVersion: "String",
+          BillType: "Int",
+          Duration: "Int",
+          Mode: "String",
+          InstanceType: "String",
+          SsdDisk: "Int",
+          NodeNum: "Int"
         }
       },
-      'DeleteInstance': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DeleteInstance'
+      DeleteInstance: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DeleteInstance"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String'
+        paramsType: {
+          InstanceId: "String"
         }
       },
-      'DescribeInstances': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DescribeInstances'
+      DescribeInstances: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DescribeInstances"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'InstanceName': 'String',
-          'VpcId': 'String',
-          'SubnetId': 'String',
-          'Offset': 'Int',
-          'Limit': 'Int',
-          'OrderBy': 'String',
-          'ProjectId': 'String'
+        paramsType: {
+          InstanceId: "String",
+          InstanceName: "String",
+          VpcId: "String",
+          SubnetId: "String",
+          Offset: "Int",
+          Limit: "Int",
+          OrderBy: "String",
+          ProjectId: "String"
         }
       },
-      'DescribeInstance': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DescribeInstance'
+      DescribeInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DescribeInstance"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String'
+        paramsType: {
+          InstanceId: "String"
         }
       },
-      'DescribeInstanceNodes': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DescribeInstanceNodes'
+      DescribeInstanceNodes: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DescribeInstanceNodes"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String'
+        paramsType: {
+          InstanceId: "String"
         }
       },
-      'DescribeValidRegion': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DescribeValidRegion'
+      DescribeValidRegion: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DescribeValidRegion"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'Action': 'String'
+        paramsType: {
+          Action: "String"
         }
       },
-      'DescribeRegions': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DescribeRegions'
+      DescribeRegions: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DescribeRegions"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'Action': 'String'
+        paramsType: {
+          Action: "String"
         }
       },
-      'DescribeSecurityGroupRules': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DescribeSecurityGroupRules'
+      DescribeSecurityGroupRules: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DescribeSecurityGroupRules"
           },
-          'headers': {
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String'
+        paramsType: {
+          InstanceId: "String"
         }
       },
-      'AddSecurityGroupRule': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'AddSecurityGroupRule'
+      AddSecurityGroupRule: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "AddSecurityGroupRule"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Cidrs': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Cidrs: "String"
         }
       },
-      'DeleteSecurityGroupRules': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'DeleteSecurityGroupRules'
+      DeleteSecurityGroupRules: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DeleteSecurityGroupRules"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'Cidrs': 'String'
+        paramsType: {
+          InstanceId: "String",
+          Cidrs: "String"
         }
       },
-      'ResetPassword': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'ResetPassword'
+      ResetPassword: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "ResetPassword"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'InstancePassword': 'String'
+        paramsType: {
+          InstanceId: "String",
+          InstancePassword: "String"
         }
       },
-      'Rename': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2019-10-17',
-            'Action': 'Rename'
+      Rename: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "Rename"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'InstanceId': 'String',
-          'InstanceName': 'String'
+        paramsType: {
+          InstanceId: "String",
+          InstanceName: "String"
         }
       }
     });

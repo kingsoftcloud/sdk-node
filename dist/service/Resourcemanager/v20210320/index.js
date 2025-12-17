@@ -8,160 +8,160 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      'protocol': 'http://',
-      'endpoint': 'resourcemanager.api.ksyun.com',
-      'config': {
-        'timeout': 60,
+      protocol: "http://",
+      endpoint: "resourcemanager.api.ksyun.com",
+      config: {
+        timeout: 60,
         //设置timeout
-        'headers': {
-          'Accept': 'application/json'
+        headers: {
+          Accept: "application/json"
         },
-        'credentials': {
-          'region': 'cn-shanghai-3',
-          'service': 'resourcemanager'
+        credentials: {
+          region: "cn-shanghai-3",
+          service: "resourcemanager"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      'CreateFolder': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'CreateFolder'
+      CreateFolder: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "CreateFolder"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'ParentId': 'String',
-          'Name': 'String',
-          'Desc': 'String'
+        paramsType: {
+          ParentId: "String",
+          Name: "String",
+          Desc: "String"
         }
       },
-      'DeleteFolder': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'DeleteFolder'
+      DeleteFolder: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "DeleteFolder"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'FolderId': 'String'
+        paramsType: {
+          FolderId: "String"
         }
       },
-      'UpdateFolder': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'UpdateFolder'
+      UpdateFolder: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "UpdateFolder"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'FolderId': 'String',
-          'ParentId': 'String',
-          'Name': 'String',
-          'Desc': 'String'
+        paramsType: {
+          FolderId: "String",
+          ParentId: "String",
+          Name: "String",
+          Desc: "String"
         }
       },
-      'ListAccountsForParent': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'ListAccountsForParent'
+      ListAccountsForParent: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "ListAccountsForParent"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'FolderId': 'String',
-          'Search': 'String',
-          'Page': 'Int',
-          'PageSize': 'Int'
+        paramsType: {
+          FolderId: "String",
+          Search: "String",
+          Page: "Int",
+          PageSize: "Int"
         }
       },
-      'MoveAccount': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'MoveAccount'
+      MoveAccount: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "MoveAccount"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'Ids': 'String',
-          'FromFolderId': 'String',
-          'ToFolderId': 'String'
+        paramsType: {
+          Ids: "String",
+          FromFolderId: "String",
+          ToFolderId: "String"
         }
       },
-      'UpdateAccount': {
-        'url': '/',
-        'method': 'POST',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'UpdateAccount'
+      UpdateAccount: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "UpdateAccount"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'MemberId': 'Int',
-          'NewDisplayName': 'String',
-          'FolderId': 'String'
+        paramsType: {
+          MemberId: "Int",
+          NewDisplayName: "String",
+          FolderId: "String"
         }
       },
-      'ListAccounts': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'ListAccounts'
+      ListAccounts: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "ListAccounts"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {
-          'PageNumber': 'Int',
-          'PageSize': 'Int',
-          'IsAll': 'Int'
+        paramsType: {
+          PageNumber: "Int",
+          PageSize: "Int",
+          IsAll: "Int"
         }
       },
-      'ListFolders': {
-        'url': '/',
-        'method': 'GET',
-        'config': {
-          'query': {
-            'Version': '2021-03-20',
-            'Action': 'ListFolders'
+      ListFolders: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-03-20",
+            Action: "ListFolders"
           },
-          'headers': {
-            'Content-Type': 'application/x-www-form-urlencoded'
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        'paramsType': {}
+        paramsType: {}
       }
     });
   }

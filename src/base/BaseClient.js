@@ -86,6 +86,10 @@ module.exports = class BaseClient {
         let url = `${protocol}${endpoint}${finalPath}?${getCanonicalizedQuery(query)}`
 
         let timeoutSecond = this.httpProfile.timeout || this._baseConfig.config.timeout
+
+        // 打印 curl 命令
+        this.printCurl(url, method, signHeaders, body)
+
         return fetch(url, {
             method: method,
             timeout: timeoutSecond * 1000,
@@ -159,5 +163,26 @@ module.exports = class BaseClient {
             return JSON.stringify(params)
         }
         return JSON.stringify(params)
+    }
+
+    /**
+     * 打印 curl 命令
+     */
+    printCurl(url, method, headers, body) {
+        let curlCmd = `curl -X ${method} '${url}'`
+
+        // 添加 headers
+        Object.keys(headers).forEach(key => {
+            curlCmd += ` \\\n  -H '${key}: ${headers[key]}'`
+        })
+
+        // 添加 body
+        if (body) {
+            curlCmd += ` \\\n  -d '${body}'`
+        }
+
+        console.log('\n========== CURL 请求 ==========')
+        console.log(curlCmd)
+        console.log('================================\n')
     }
 }
