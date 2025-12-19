@@ -23,34 +23,47 @@ module.exports = class Client extends BaseClient {
       }
     });
     _defineProperty(this, "_apiList", {
-      CreateAlarmPolicy: {
+      DescribeAlertingResources: {
         url: "/",
-        method: "POST",
+        method: "GET",
         config: {
           query: {
-            Version: "2022-01-01",
-            Action: "CreateAlarmPolicy"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {}
-      },
-      DeleteAlarmPolicy: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2022-01-01",
-            Action: "DeleteAlarmPolicy"
+            Version: "2025-01-01",
+            Action: "DescribeAlertingResources"
           },
           headers: {
             "Content-Type": "application/json"
           }
         },
         paramsType: {
-          PolicyIds: "Array"
+          Namespace: "String",
+          StartTime: "Int",
+          EndTime: "Int"
+        }
+      },
+      DescribeSystemEventAttributes: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2025-01-01",
+            Action: "DescribeSystemEventAttributes"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          StartTime: "Int",
+          EndTime: "Int",
+          Namespace: "String",
+          EventType: "String",
+          EventName: "String",
+          Level: "String",
+          Status: "String",
+          SearchKeywords: "String",
+          PageIndex: "Int",
+          PageSize: "Int"
         }
       }
     });
