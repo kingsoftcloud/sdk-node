@@ -479,25 +479,5 @@ module.exports = class Client extends BaseClient {
         Filter: "Filter",
       },
     },
-    DescribeModelChats: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "DescribeModelChats",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        ChatId: "String",
-        CreateTimeStart: "Int",
-        CreateTimeEnd: "Int",
-        Marker: "Int",
-        MaxResults: "Int",
-      },
-    },
   };
 };

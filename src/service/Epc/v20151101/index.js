@@ -89,6 +89,9 @@ module.exports = class Client extends BaseClient {
         "AiModel.N": "String",
         UserData: "String",
         StorageRoceNetworkInterfaceMode: "String",
+        RoceCluster: "String",
+        SRoceCluster: "String",
+        UserDefinedData: "String",
       },
     },
     StartEpc: {
@@ -181,6 +184,7 @@ module.exports = class Client extends BaseClient {
         PasswordInherit: "String",
         DataDiskMount: "String",
         StorageRoceNetworkCardName: "String",
+        UserDefinedData: "String",
       },
     },
     ModifySecurityGroup: {
@@ -340,6 +344,7 @@ module.exports = class Client extends BaseClient {
         MaxResults: "Int",
         NextToken: "String",
         "ImageId.N": "String",
+        Filter: "Filter",
       },
     },
     ModifyDns: {
@@ -1472,6 +1477,7 @@ module.exports = class Client extends BaseClient {
         InstallRunCommandAgent: "Boolean",
         Count: "Int",
         SoZoneId: "String",
+        UserData: "String",
       },
     },
     DescribeSoImages: {
@@ -1963,6 +1969,7 @@ module.exports = class Client extends BaseClient {
         InstanceName: "String",
         Password: "String",
         SoZoneId: "String",
+        UserData: "String",
       },
     },
     CreateSoKeyPair: {
@@ -1981,6 +1988,80 @@ module.exports = class Client extends BaseClient {
         KeyPairName: "String",
         Description: "String",
         SoZoneId: "String",
+      },
+    },
+    InstallAgent: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2015-11-01",
+          Action: "InstallAgent",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        HostId: "String",
+        AgentId: "String",
+        Username: "String",
+        Password: "String",
+        Key: "String",
+      },
+    },
+    DescribeAgent: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2015-11-01",
+          Action: "DescribeAgent",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentName: "String",
+        AgentId: "String",
+        AgentType: "String",
+      },
+    },
+    DescribeAgentInstallStatus: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2015-11-01",
+          Action: "DescribeAgentInstallStatus",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        HostId: "Filter",
+        AgentId: "String",
+        Status: "String",
+        NextToken: "String",
+        MaxResults: "Int",
+      },
+    },
+    DescribeSoUserData: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2015-11-01",
+          Action: "DescribeSoUserData",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
       },
     },
   };

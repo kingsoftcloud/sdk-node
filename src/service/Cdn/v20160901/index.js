@@ -16,20 +16,6 @@ module.exports = class Client extends BaseClient {
     },
   };
   _apiList = {
-    GetDomainLogs: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-09-01",
-          Action: "GetDomainLogs",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {},
-    },
     GetRefreshOrPreloadTask: {
       url: "/",
       method: "GET",
