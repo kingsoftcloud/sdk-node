@@ -9,7 +9,7 @@ module.exports = class Client extends BaseClient {
     super(...args);
     _defineProperty(this, "_baseConfig", {
       protocol: "http://",
-      endpoint: "monitor.api.ksyun.com",
+      endpoint: "aicp.api.ksyun.com",
       config: {
         timeout: 60,
         //设置timeout
@@ -18,39 +18,57 @@ module.exports = class Client extends BaseClient {
         },
         credentials: {
           region: "cn-shanghai-3",
-          service: "monitor"
+          service: "aicp"
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      CreateAlarmPolicy: {
+      CreateTrainJob: {
         url: "/",
         method: "POST",
         config: {
           query: {
-            Version: "2022-01-01",
-            Action: "CreateAlarmPolicy"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {}
-      },
-      DeleteAlarmPolicy: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2022-01-01",
-            Action: "DeleteAlarmPolicy"
+            Version: "2025-12-12",
+            Action: "CreateTrainJob"
           },
           headers: {
             "Content-Type": "application/json"
           }
         },
         paramsType: {
-          PolicyIds: "Array"
+          TrainJobName: "String",
+          Description: "String",
+          ResourcePoolId: "String",
+          Priority: "String",
+          QueueName: "String",
+          Framework: "String",
+          AccessType: "String",
+          SelfHealing: "Boolean",
+          MaxRuntimeHour: "Int",
+          JobRunOnCPU: "Boolean",
+          SupportTensorboard: "Boolean",
+          StorageConfigs: "Array",
+          Roles: "Array"
+        }
+      },
+      DescribeTrainJobs: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2025-12-12",
+            Action: "DescribeTrainJobs"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          TrainJobId: "Filter",
+          Filter: "Filter",
+          PageSize: "Int",
+          Page: "Int",
+          TrainJobName: "String"
         }
       }
     });
