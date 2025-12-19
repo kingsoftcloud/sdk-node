@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(node example/res.js:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm view:*)",
+      "Bash(npm whoami:*)"
     ],
     "deny": [],
     "ask": []
