@@ -1,362 +1,362 @@
 const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
-  _baseConfig = {
-    protocol: "http://",
-    endpoint: "kmr.api.ksyun.com",
-    config: {
-      timeout: 60, //设置timeout
-      headers: {
-        Accept: "application/json",
-      },
-      credentials: {
-        region: "cn-shanghai-3",
-        service: "kmr",
-      },
-    },
-  };
-  _apiList = {
-    DetailWorkspace: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "DetailWorkspace",
+    _baseConfig = {
+        'protocol': 'http://',
+        'endpoint': 'kmr.api.ksyun.com',
+        'config': {
+            'timeout': 60,  //设置timeout
+            'headers': {
+                'Accept': 'application/json'
+            },
+            'credentials': {
+                'region': 'cn-shanghai-3',
+                'service': 'kmr',
+            },
         },
-        headers: {
-          "Content-Type": "application/json",
+    }
+    _apiList = {
+        'DetailWorkspace': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'DetailWorkspace',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-      },
-    },
-    ListWorkspaces: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "ListWorkspaces",
+        'ListWorkspaces': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'ListWorkspaces',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'NameOrId': 'String',
+                'Status': 'Array',
+                'PageNumber': 'Int',
+                'PageSize': 'Int',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'StartJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'StartJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'AccessKeyId': 'String',
+                'AccessKeySecret': 'String',
+                'ReleaseVersion': 'String',
+                'SparkSubmitData': 'Object',
+            }
         },
-      },
-      paramsType: {
-        NameOrId: "String",
-        Status: "Array",
-        PageNumber: "Int",
-        PageSize: "Int",
-      },
-    },
-    StartJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "StartJobRun",
+        'GetJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'GetJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'ListJobRuns': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'ListJobRuns',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'MaxResults': 'Int',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        AccessKeyId: "String",
-        AccessKeySecret: "String",
-        ReleaseVersion: "String",
-        SparkSubmitData: "Object",
-      },
-    },
-    GetJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "GetJobRun",
+        'CancelJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'CancelJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunIds': 'Array',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'ListExecutor': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'ListExecutor',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunId': 'String',
+                'PageNumber': 'Int',
+                'PageSize': 'Int',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunId: "String",
-      },
-    },
-    ListJobRuns: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "ListJobRuns",
+        'StartRayJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'StartRayJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'AccessKeyId': 'String',
+                'AccessKeySecret': 'String',
+                'ReleaseVersion': 'String',
+                'RaySubmitData': 'Object',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'GetRayJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'GetRayJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunId': 'String',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        MaxResults: "Int",
-      },
-    },
-    CancelJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "CancelJobRun",
+        'ListRayJobRuns': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'ListRayJobRuns',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'NameOrId': 'String',
+                'Status': 'Array',
+                'PageNumber': 'Int',
+                'PageSize': 'Int',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'CancelRayJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'CancelRayJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunIds': 'Array',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunIds: "Array",
-      },
-    },
-    ListExecutor: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "ListExecutor",
+        'StartFlinkJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'StartFlinkJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'AccessKeyId': 'String',
+                'AccessKeySecret': 'String',
+                'ReleaseVersion': 'String',
+                'SubmitData': 'Object',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'GetFlinkJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'GetFlinkJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunId': 'String',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunId: "String",
-        PageNumber: "Int",
-        PageSize: "Int",
-      },
-    },
-    StartRayJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "StartRayJobRun",
+        'ListFlinkJobRuns': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'ListFlinkJobRuns',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'NameOrId': 'String',
+                'Status': 'Array',
+                'PageNumber': 'Int',
+                'PageSize': 'Int',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'CancelFlinkJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'CancelFlinkJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunIds': 'Array',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        AccessKeyId: "String",
-        AccessKeySecret: "String",
-        ReleaseVersion: "String",
-        RaySubmitData: "Object",
-      },
-    },
-    GetRayJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "GetRayJobRun",
+        'SuspendFlinkJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'SuspendFlinkJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'RestartFlinkJobRun': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'RestartFlinkJobRun',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'JobRunId': 'String',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunId: "String",
-      },
-    },
-    ListRayJobRuns: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "ListRayJobRuns",
+        'DescribeMetricList': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'DescribeMetricList',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'ProductType': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'QueryMetrics': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2024-08-14',
+                    'Action': 'QueryMetrics',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'WorkspaceId': 'String',
+                'ProductType': 'String',
+                'QueryData': 'Object',
+            }
         },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        NameOrId: "String",
-        Status: "Array",
-        PageNumber: "Int",
-        PageSize: "Int",
-      },
-    },
-    CancelRayJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "CancelRayJobRun",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunIds: "Array",
-      },
-    },
-    StartFlinkJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "StartFlinkJobRun",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        AccessKeyId: "String",
-        AccessKeySecret: "String",
-        ReleaseVersion: "String",
-        SubmitData: "Object",
-      },
-    },
-    GetFlinkJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "GetFlinkJobRun",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunId: "String",
-      },
-    },
-    ListFlinkJobRuns: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "ListFlinkJobRuns",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        NameOrId: "String",
-        Status: "Array",
-        PageNumber: "Int",
-        PageSize: "Int",
-      },
-    },
-    CancelFlinkJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "CancelFlinkJobRun",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunIds: "Array",
-      },
-    },
-    SuspendFlinkJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "SuspendFlinkJobRun",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunId: "String",
-      },
-    },
-    RestartFlinkJobRun: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "RestartFlinkJobRun",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        JobRunId: "String",
-      },
-    },
-    DescribeMetricList: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "DescribeMetricList",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        ProductType: "String",
-      },
-    },
-    QueryMetrics: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-08-14",
-          Action: "QueryMetrics",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        WorkspaceId: "String",
-        ProductType: "String",
-        QueryData: "Object",
-      },
-    },
-  };
-};
+    }
+}

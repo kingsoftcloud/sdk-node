@@ -1,452 +1,496 @@
 const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
-  _baseConfig = {
-    protocol: "http://",
-    endpoint: "cen.api.ksyun.com",
-    config: {
-      timeout: 60, //设置timeout
-      headers: {
-        Accept: "application/json",
-      },
-      credentials: {
-        region: "cn-shanghai-3",
-        service: "cen",
-      },
-    },
-  };
-  _apiList = {
-    CreateCen: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "CreateCen",
+    _baseConfig = {
+        'protocol': 'http://',
+        'endpoint': 'cen.api.ksyun.com',
+        'config': {
+            'timeout': 60,  //设置timeout
+            'headers': {
+                'Accept': 'application/json'
+            },
+            'credentials': {
+                'region': 'cn-shanghai-3',
+                'service': 'cen',
+            },
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+    }
+    _apiList = {
+        'CreateCen': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateCen',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenName': 'String',
+                'Description': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenName: "String",
-      },
-    },
-    ModifyCen: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "ModifyCen",
+        'ModifyCen': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyCen',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenId': 'String',
+                'CenName': 'String',
+                'Description': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DeleteCen': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteCen',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenId': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenId: "String",
-        CenName: "String",
-      },
-    },
-    DeleteCen: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DeleteCen",
+        'DescribeCens': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeCens',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenId': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DeleteCenGrant': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteCenGrant',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenGrantId': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenId: "String",
-      },
-    },
-    DescribeCens: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCens",
+        'DescribeCenGrants': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeCenGrants',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenGrantId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'CreateCenBandWidthPackage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateCenBandWidthPackage',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenId': 'String',
+                'CenBandWidthPackageName': 'String',
+                'LocalAreaId': 'String',
+                'RemoteAreaId': 'String',
+                'PackageBandWidth': 'Int',
+                'ProjectId': 'String',
+                'ChargeType': 'String',
+                'PurchaseTime': 'Int',
+            }
         },
-      },
-      paramsType: {
-        CenId: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
-      },
-    },
-    AttachCenInstance: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "AttachCenInstance",
+        'ModifyCenBandWidthPackage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyCenBandWidthPackage',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenBandWidthPackageId': 'String',
+                'PackageBandWidth': 'Int',
+                'CenBandWidthPackageName': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DeleteCenBandWidthPackage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteCenBandWidthPackage',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenBandWidthPackageId': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenId: "String",
-        InstanceType: "String",
-        CenRegion: "String",
-        CenInstanceId: "String",
-        InstanceAccountId: "String",
-      },
-    },
-    DetachCenInstance: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DetachCenInstance",
+        'AttachCenBandWidthPackage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AttachCenBandWidthPackage',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenBandWidthPackageId': 'String',
+                'CenId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DetachCenBandWidthPackage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DetachCenBandWidthPackage',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenBandWidthPackageId': 'String',
+                'CenId': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenId: "String",
-        CenInstanceId: "String",
-      },
-    },
-    DescribeCenInstances: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCenInstances",
+        'DescribeCenBandWidthPackages': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeCenBandWidthPackages',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'ProjectId': 'Filter',
+                'CenBandWidthPackageId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+                'TagKey': 'Filter',
+                'TagKV': 'Filter',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'CreateCenRegionBandwidth': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateCenRegionBandwidth',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'LocalRegion': 'String',
+                'RemoteRegion': 'String',
+                'CenBandWidthPackageId': 'String',
+                'InterBandWidth': 'Int',
+            }
         },
-      },
-      paramsType: {
-        CenInstanceId: "Filter",
-        MaxResults: "Int",
-        Filter: "Filter",
-        NextToken: "String",
-      },
-    },
-    CreatCenGrant: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "CreatCenGrant",
+        'DeleteCenRegionBandwidth': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DeleteCenRegionBandwidth',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenRegionBandwidthId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'ModifyCenRegionBandwidth': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'ModifyCenRegionBandwidth',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenRegionBandwidthId': 'String',
+                'InterBandWidth': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenId: "String",
-        InstanceType: "String",
-        CenInstanceId: "String",
-        CenAccountId: "String",
-      },
-    },
-    DeleteCenGrant: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DeleteCenGrant",
+        'DescribeCenRegionBandwidths': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeCenRegionBandwidths',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'CenRegionBandwidthId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DescribeCenRoutes': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeCenRoutes',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenRouteId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenGrantId: "String",
-      },
-    },
-    DescribeCenGrants: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCenGrants",
+        'DescribeCenBandWidthPackageUsage': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeCenBandWidthPackageUsage',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'CenBandWidthPackageId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DescribeNetworkInstances': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeNetworkInstances',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'NetworkInstanceId': 'Filter',
+                'MaxResults': 'Int',
+                'Filter': 'Filter',
+                'NextToken': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenGrantId: "Filter",
-        Filter: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
-      },
-    },
-    DescribeRegionGroups: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeRegionGroups",
+        'CreateCenGrant': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CreateCenGrant',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenId': 'String',
+                'InstanceType': 'String',
+                'NetworkInstanceId': 'String',
+                'CenAccountId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DescribeInterAreas': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeInterAreas',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InterAreaId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
         },
-      },
-      paramsType: {
-        RegionGroupId: "Filter",
-        Filter: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
-      },
-    },
-    CreateCenBandWidthPackage: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "CreateCenBandWidthPackage",
+        'DescribeInterRegions': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DescribeInterRegions',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InterRegionId': 'Filter',
+                'Filter': 'Filter',
+                'MaxResults': 'Int',
+                'NextToken': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'AttachNetworkInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'AttachNetworkInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenId': 'String',
+                'InstanceType': 'String',
+                'InstanceRegion': 'String',
+                'NetworkInstanceId': 'String',
+                'InstanceAccountId': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenId: "String",
-        Name: "String",
-        RegionAGroupId: "String",
-        RegionBGroupId: "String",
-        BandWidth: "Int",
-        ProjectId: "String",
-        ChargeType: "String",
-        PurchaseTime: "Int",
-      },
-    },
-    ModifyCenBandWidthPackage: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "ModifyCenBandWidthPackage",
+        'DetachNetworkInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'DetachNetworkInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'CenId': 'String',
+                'NetworkInstanceId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'CenCidrPublish': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CenCidrPublish',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NetworkInstanceId': 'String',
+                'InstanceType': 'String',
+                'NetworkRouteId': 'Filter',
+                'SelfDefineCidr': 'Filter',
+                'CenId': 'String',
+            }
         },
-      },
-      paramsType: {
-        CenBandWidthPackageId: "String",
-        BandWidth: "Int",
-      },
-    },
-    DeleteCenBandWidthPackage: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DeleteCenBandWidthPackage",
+        'CenCidrDelete': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2016-03-04',
+                    'Action': 'CenCidrDelete',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'NetworkInstanceId': 'String',
+                'InstanceType': 'String',
+                'NetworkRouteId': 'Filter',
+                'SelfRouteId': 'Filter',
+                'CenId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenBandWidthPackageId: "String",
-      },
-    },
-    AttachCenBandWidthPackage: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "AttachCenBandWidthPackage",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenBandWidthPackageId: "String",
-        CenId: "String",
-      },
-    },
-    DetachCenBandWidthPackage: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DetachCenBandWidthPackage",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenBandWidthPackageId: "String",
-        CenId: "String",
-      },
-    },
-    DescribeCenBandWidthPackages: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCenBandWidthPackages",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        ProjectId: "Filter",
-        CenBandWidthPackageId: "Filter",
-        Filter: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
-      },
-    },
-    CreateCenRegionBandwidth: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "CreateCenRegionBandwidth",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenId: "String",
-        RegionA: "String",
-        RegionB: "String",
-        CenBandWidthPackageId: "String",
-        BandWidth: "Int",
-      },
-    },
-    DeleteCenRegionBandwidth: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DeleteCenRegionBandwidth",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenRegionBandwidthId: "String",
-      },
-    },
-    ModifyCenRegionBandwidth: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "ModifyCenRegionBandwidth",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenRegionBandwidthId: "String",
-        BandWidth: "String",
-      },
-    },
-    DescribeCenRegionBandwidths: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCenRegionBandwidths",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenRegionBandwidthId: "Filter",
-        Filter: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
-      },
-    },
-    DescribeCenRoutes: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCenRoutes",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenRouteId: "Filter",
-        Filter: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
-      },
-    },
-    DescribeCenRegions: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCenRegions",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenRegionId: "Filter",
-        Filter: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
-      },
-    },
-    DescribeCenBandWidthPackageUsage: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-03-04",
-          Action: "DescribeCenBandWidthPackageUsage",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        CenBandWidthPackageId: "String",
-      },
-    },
-  };
-};
+    }
+}

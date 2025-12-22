@@ -1,538 +1,725 @@
 const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
-  _baseConfig = {
-    protocol: "http://",
-    endpoint: "clickhouse.api.ksyun.com",
-    config: {
-      timeout: 60, //设置timeout
-      headers: {
-        Accept: "application/json",
-      },
-      credentials: {
-        region: "cn-shanghai-3",
-        service: "clickhouse",
-      },
-    },
-  };
-  _apiList = {
-    ListInstance: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ListInstance",
+    _baseConfig = {
+        'protocol': 'http://',
+        'endpoint': 'clickhouse.api.ksyun.com',
+        'config': {
+            'timeout': 60,  //设置timeout
+            'headers': {
+                'Accept': 'application/json'
+            },
+            'credentials': {
+                'region': 'cn-shanghai-3',
+                'service': 'clickhouse',
+            },
         },
-        headers: {
-          "Content-Type": "application/json",
+    }
+    _apiList = {
+        'ListInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ListInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'String',
+                'TagId': 'String',
+                'ProjectIds': 'Filter',
+                'FuzzySearch': 'String',
+                'OrderBy': 'Filter',
+                'Offset': 'Int',
+                'Limit': 'Int',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "String",
-        TagId: "String",
-        ProjectIds: "Filter",
-        FuzzySearch: "String",
-        OrderBy: "Filter",
-        Offset: "Int",
-        Limit: "Int",
-      },
-    },
-    DescribeInstance: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DescribeInstance",
+        'DescribeInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'CreateInstance': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'CreateInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'String',
+                'InstanceName': 'String',
+                'InstanceType': 'String',
+                'AdminUser': 'String',
+                'AdminPassword': 'String',
+                'VpcId': 'String',
+                'SubnetId': 'String',
+                'Engine': 'String',
+                'EngineVersion': 'String',
+                'ProjectId': 'String',
+                'BillType': 'Int',
+                'Duration': 'Int',
+                'EbsSize': 'Int',
+                'EbsType': 'String',
+                'Mem': 'Int',
+                'Cpu': 'Int',
+                'TcpPort': 'Int',
+                'HttpPort': 'Int',
+                'Az': 'String',
+                'NodeNum': 'Int',
+                'PreferredBackupTime': 'String',
+                'SecurityGroupId': 'String',
+                'ProductWhat': 'Int',
+            }
         },
-      },
-      paramsType: {
-        InstanceId: "String",
-      },
-    },
-    CreateInstance: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "CreateInstance",
+        'DeleteInstance': {
+            'url': '/',
+            'method': 'DELETE',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DeleteInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceIds': 'Filter',
+                'DeleteDirectly': 'Boolean',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'RestartInstance': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'RestartInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'instanceIds': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "String",
-        InstanceName: "String",
-        InstanceType: "String",
-        AdminUser: "String",
-        AdminPassword: "String",
-        VpcId: "String",
-        SubnetId: "String",
-        Engine: "String",
-        EngineVersion: "String",
-        ProjectId: "String",
-        BillType: "Int",
-        Duration: "Int",
-        EbsSize: "Int",
-        EbsType: "String",
-        Mem: "Int",
-        Cpu: "Int",
-        TcpPort: "Int",
-        HttpPort: "Int",
-        Az: "String",
-        NodeNum: "Int",
-        PreferredBackupTime: "String",
-        SecurityGroupId: "String",
-      },
-    },
-    DeleteInstance: {
-      url: "/",
-      method: "DELETE",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DeleteInstance",
+        'RenameInstance': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'RenameInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'InstanceName': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'ListSecurityGroup': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ListSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+            }
         },
-      },
-      paramsType: {
-        InstanceIds: "Filter",
-        DeleteDirectly: "Boolean",
-      },
-    },
-    RenameInstance: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "RenameInstance",
+        'DescribeSecurityGroup': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'CreateSecurityGroup': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'CreateSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupName': 'String',
+                'Description': 'String',
+            }
         },
-      },
-      paramsType: {
-        InstanceId: "String",
-        InstanceName: "String",
-      },
-    },
-    ListSecurityGroup: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ListSecurityGroup",
+        'DeleteSecurityGroup': {
+            'url': '/',
+            'method': 'DELETE',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DeleteSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SecurityGroupIds': 'String',
+                'ProductType': 'Int',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'RenameSecurityGroup': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'RenameSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupId': 'String',
+                'SecurityGroupName': 'String',
+                'Description': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-      },
-    },
-    DescribeSecurityGroup: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DescribeSecurityGroup",
+        'CloneSecurityGroup': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'CloneSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SrcSecurityGroupId': 'String',
+                'SecurityGroupName': 'String',
+                'Description': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'BindSecurityGroup': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'BindSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupIds': 'Array',
+                'InstanceIds': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupId: "String",
-      },
-    },
-    CreateSecurityGroup: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "CreateSecurityGroup",
+        'UnbindSecurityGroup': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'UnbindSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupId': 'String',
+                'InstanceIds': 'Array',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'CreateSecurityRule': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'CreateSecurityRule',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupId': 'String',
+                'Cidrs': 'Array',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupName: "String",
-        Description: "String",
-      },
-    },
-    DeleteSecurityGroup: {
-      url: "/",
-      method: "DELETE",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DeleteSecurityGroup",
+        'DeleteSecurityRule': {
+            'url': '/',
+            'method': 'DELETE',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DeleteSecurityRule',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupId': 'String',
+                'RuleIds': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'ListSecuredInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ListSecuredInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'SecurityGroupId': 'String',
+                'ProjectIds': 'Filter',
+                'FuzzySearch': 'String',
+                'Offset': 'Int',
+                'Limit': 'Int',
+                'OrderBy': 'Filter',
+            }
         },
-      },
-      paramsType: {
-        SecurityGroupIds: "String",
-        ProductType: "Int",
-      },
-    },
-    RenameSecurityGroup: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "RenameSecurityGroup",
+        'ListUnsecuredInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ListUnsecuredInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'FuzzySearch': 'String',
+                'Offset': 'Int',
+                'Limit': 'Int',
+                'OrderBy': 'Filter',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'ListRecycledInstance': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ListRecycledInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'String',
+                'ProjectIds': 'Filter',
+                'FuzzySearch': 'String',
+                'OrderBy': 'Filter',
+                'Offset': 'Int',
+                'Limit': 'Int',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupId: "String",
-        SecurityGroupName: "String",
-        Description: "String",
-      },
-    },
-    CloneSecurityGroup: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "CloneSecurityGroup",
+        'RecoverRecycledInstance': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'RecoverRecycledInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceIds': 'Array',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DropRecycledInstance': {
+            'url': '/',
+            'method': 'DELETE',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DropRecycledInstance',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceIds': 'Filter',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SrcSecurityGroupId: "String",
-        SecurityGroupName: "String",
-        Description: "String",
-      },
-    },
-    BindSecurityGroup: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "BindSecurityGroup",
+        'ListRegion': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ListRegion',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DescRegion': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescRegion',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'RegionCode': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupIds: "Array",
-        InstanceIds: "String",
-      },
-    },
-    UnbindSecurityGroup: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "UnbindSecurityGroup",
+        'UpdateSecurityRule': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'UpdateSecurityRule',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'RuleId': 'String',
+                'Description': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'RebindSecurityGroup': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'RebindSecurityGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'ProductType': 'Int',
+                'SecurityGroupId': 'String',
+                'InstanceId': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupId: "String",
-        InstanceIds: "Array",
-      },
-    },
-    CreateSecurityRule: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "CreateSecurityRule",
+        'DescribeEngineDefaultParameters': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeEngineDefaultParameters',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'EngineVersion': 'String',
+                'ConfigType': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'ModifyDBParameterGroup': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ModifyDBParameterGroup',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'Parameters': 'String',
+                'ConfigType': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupId: "String",
-        Cidrs: "Array",
-      },
-    },
-    DeleteSecurityRule: {
-      url: "/",
-      method: "DELETE",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DeleteSecurityRule",
+        'DescribeDBInstanceParameters': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeDBInstanceParameters',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'ConfigType': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'ResetDBParameter': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ResetDBParameter',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'ConfigType': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupId: "String",
-        RuleIds: "String",
-      },
-    },
-    ListSecuredInstance: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ListSecuredInstance",
+        'DescribeBuckets': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeBuckets',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'OperateHotAndColdSeparation': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'OperateHotAndColdSeparation',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+            }
         },
-      },
-      paramsType: {
-        SecurityGroupId: "String",
-        ProjectIds: "Filter",
-        FuzzySearch: "String",
-        Offset: "Int",
-        Limit: "Int",
-        OrderBy: "Filter",
-      },
-    },
-    ListUnsecuredInstance: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ListUnsecuredInstance",
+        'CreateInstanceAccount': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'CreateInstanceAccount',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'Name': 'String',
+                'Password': 'String',
+                'InstanceId': 'String',
+                'Description': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'ModifyInstanceAccountPrivileges': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ModifyInstanceAccountPrivileges',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'InstanceAccountName': 'String',
+                'InstanceAccountPrivileges': 'Filter',
+            }
         },
-      },
-      paramsType: {
-        FuzzySearch: "String",
-        Offset: "Int",
-        Limit: "Int",
-        OrderBy: "Filter",
-      },
-    },
-    ListRecycledInstance: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ListRecycledInstance",
+        'DeleteInstanceAccount': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DeleteInstanceAccount',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'InstanceAccountName': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'DescribeInstanceAccounts': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeInstanceAccounts',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+            }
         },
-      },
-      paramsType: {
-        ProductType: "String",
-        ProjectIds: "Filter",
-        FuzzySearch: "String",
-        OrderBy: "Filter",
-        Offset: "Int",
-        Limit: "Int",
-      },
-    },
-    RecoverRecycledInstance: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "RecoverRecycledInstance",
+        'DescribeInstanceDatabases': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeInstanceDatabases',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'ModifyInstanceAccountInfo': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'ModifyInstanceAccountInfo',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'InstanceAccountName': 'String',
+                'InstanceAccountPassword': 'String',
+                'InstanceAccountDescription': 'String',
+            }
         },
-      },
-      paramsType: {
-        InstanceIds: "Array",
-      },
-    },
-    DropRecycledInstance: {
-      url: "/",
-      method: "DELETE",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DropRecycledInstance",
+        'DescribeInstanceShardInfo': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'DescribeInstanceShardInfo',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'UpdateInstanceTrialOrder': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2021-01-01',
+                    'Action': 'UpdateInstanceTrialOrder',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'InstanceId': 'String',
+                'OperateType': 'String',
+                'Duration': 'Int',
+                'BillType': 'Int',
+            }
         },
-      },
-      paramsType: {
-        InstanceIds: "Filter",
-      },
-    },
-    ListRegion: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ListRegion",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        ProductType: "Int",
-      },
-    },
-    DescRegion: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DescRegion",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        ProductType: "Int",
-        RegionCode: "String",
-      },
-    },
-    UpdateSecurityRule: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "UpdateSecurityRule",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        ProductType: "Int",
-        RuleId: "String",
-        Description: "String",
-      },
-    },
-    RebindSecurityGroup: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "RebindSecurityGroup",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        ProductType: "Int",
-        SecurityGroupId: "String",
-        InstanceId: "String",
-      },
-    },
-    DescribeEngineDefaultParameters: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DescribeEngineDefaultParameters",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        EngineVersion: "String",
-        ConfigType: "String",
-      },
-    },
-    ModifyDBParameterGroup: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ModifyDBParameterGroup",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        InstanceId: "String",
-        Parameters: "Filter",
-        ConfigType: "String",
-      },
-    },
-    DescribeDBInstanceParameters: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "DescribeDBInstanceParameters",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        InstanceId: "String",
-        ConfigType: "String",
-      },
-    },
-    ResetDBParameter: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2021-01-01",
-          Action: "ResetDBParameter",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        InstanceId: "String",
-        ConfigType: "String",
-      },
-    },
-  };
-};
+    }
+}

@@ -1,133 +1,175 @@
 const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
-  _baseConfig = {
-    protocol: "http://",
-    endpoint: "ket.api.ksyun.com",
-    config: {
-      timeout: 60, //设置timeout
-      headers: {
-        Accept: "application/json",
-      },
-      credentials: {
-        region: "cn-shanghai-3",
-        service: "ket",
-      },
-    },
-  };
-  _apiList = {
-    Preset: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2017-01-01",
-          Action: "Preset",
+    _baseConfig = {
+        'protocol': 'http://',
+        'endpoint': 'ket.api.ksyun.com',
+        'config': {
+            'timeout': 60,  //设置timeout
+            'headers': {
+                'Accept': 'application/json'
+            },
+            'credentials': {
+                'region': 'cn-shanghai-3',
+                'service': 'ket',
+            },
         },
-        headers: {
-          "Content-Type": "application/json",
+    }
+    _apiList = {
+        'Preset': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'Preset',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+                'Preset': 'String',
+                'Description': 'String',
+                'Output': 'String',
+                'Video': 'String',
+            }
         },
-      },
-      paramsType: {
-        UniqName: "String",
-        App: "String",
-        Preset: "String",
-        Description: "String",
-        Output: "String",
-        Video: "String",
-      },
-    },
-    UpdatePreset: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2017-01-01",
-          Action: "UpdatePreset",
+        'UpdatePreset': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'UpdatePreset',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+                'Preset': 'String',
+                'Description': 'String',
+                'Output': 'String',
+                'Video': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'DelPreset': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'DelPreset',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+                'Preset': 'String',
+            }
         },
-      },
-      paramsType: {
-        UniqName: "String",
-        App: "String",
-        Preset: "String",
-        Description: "String",
-        Output: "String",
-        Video: "String",
-      },
-    },
-    DelPreset: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2017-01-01",
-          Action: "DelPreset",
+        'GetPresetList': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'GetPresetList',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/json",
+        'GetPresetDetail': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'GetPresetDetail',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+                'Preset': 'String',
+            }
         },
-      },
-      paramsType: {
-        UniqName: "String",
-        App: "String",
-        Preset: "String",
-      },
-    },
-    GetPresetList: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2017-01-01",
-          Action: "GetPresetList",
+        'GetStreamTranList': {
+            'url': '/',
+            'method': 'GET',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'GetStreamTranList',
+                },
+                'headers': {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+                'StreamID': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+        'StartLoop': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'StartLoop',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+                'Preset': 'String',
+                'StreamID': 'String',
+                'SrcInfo': 'Array',
+                'PubDomain': 'String',
+                'TaskStartTime': 'String',
+                'TaskStopTime': 'String',
+                'LoopTimes': 'Int',
+            }
         },
-      },
-      paramsType: {
-        UniqName: "String",
-        App: "String",
-      },
-    },
-    GetPresetDetail: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2017-01-01",
-          Action: "GetPresetDetail",
+        'StopLoop': {
+            'url': '/',
+            'method': 'POST',
+            'config': {
+                'query': {
+                    'Version': '2017-01-01',
+                    'Action': 'StopLoop',
+                },
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+            },
+            'paramsType': {
+                'UniqName': 'String',
+                'App': 'String',
+                'StreamID': 'String',
+            }
         },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        UniqName: "String",
-        App: "String",
-        Preset: "String",
-      },
-    },
-    GetStreamTranList: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2017-01-01",
-          Action: "GetStreamTranList",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        UniqName: "String",
-        App: "String",
-        StreamID: "String",
-      },
-    },
-  };
-};
+    }
+}
