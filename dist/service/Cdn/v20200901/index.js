@@ -8,153 +8,153 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "cdn.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'cdn.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "cdn"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'cdn'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      CreateUserUsageDataExportTask: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2020-09-01",
-            Action: "CreateUserUsageDataExportTask"
+      'CreateUserUsageDataExportTask': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-09-01',
+            'Action': 'CreateUserUsageDataExportTask'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          StartTime: "String",
-          EndTime: "String",
-          CdnType: "String",
-          TaskName: "String",
-          Language: "String"
+        'paramsType': {
+          'StartTime': 'String',
+          'EndTime': 'String',
+          'CdnType': 'String',
+          'TaskName': 'String',
+          'Language': 'String'
         }
       },
-      GetUserUsageDataExportTask: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2020-09-01",
-            Action: "GetUserUsageDataExportTask"
+      'GetUserUsageDataExportTask': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-09-01',
+            'Action': 'GetUserUsageDataExportTask'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PageSize: "String",
-          PageNumber: "String"
+        'paramsType': {
+          'PageSize': 'String',
+          'PageNumber': 'String'
         }
       },
-      DeleteUserUsageDataExportTask: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2020-09-01",
-            Action: "DeleteUserUsageDataExportTask"
+      'DeleteUserUsageDataExportTask': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-09-01',
+            'Action': 'DeleteUserUsageDataExportTask'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          TaskID: "String"
+        'paramsType': {
+          'TaskID': 'String'
         }
       },
-      GetDomainUsageData: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2020-09-01",
-            Action: "GetDomainUsageData"
+      'GetDomainUsageData': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-09-01',
+            'Action': 'GetDomainUsageData'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          StartTime: "String",
-          EndTime: "String",
-          Metric: "String",
-          CdnType: "String",
-          Domains: "String",
-          Areas: "String",
-          Interval: "String",
-          RequestId: "String",
-          PeakTime: "String",
-          Time: "String",
-          Value: "String"
+        'paramsType': {
+          'StartTime': 'String',
+          'EndTime': 'String',
+          'Metric': 'String',
+          'CdnType': 'String',
+          'Domains': 'String',
+          'Areas': 'String',
+          'Interval': 'String',
+          'RequestId': 'String',
+          'PeakTime': 'String',
+          'Time': 'String',
+          'Value': 'String'
         }
       },
-      CreateUsageDetailDataExportTask: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2020-09-01",
-            Action: "CreateUsageDetailDataExportTask"
+      'CreateUsageDetailDataExportTask': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-09-01',
+            'Action': 'CreateUsageDetailDataExportTask'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          StartTime: "String",
-          EndTime: "String",
-          Type: "String",
-          CdnType: "String",
-          Domains: "String",
-          TaskName: "String",
-          Language: "String"
+        'paramsType': {
+          'StartTime': 'String',
+          'EndTime': 'String',
+          'Type': 'String',
+          'CdnType': 'String',
+          'Domains': 'String',
+          'TaskName': 'String',
+          'Language': 'String'
         }
       },
-      GetUsageDetailDataExportTask: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2020-09-01",
-            Action: "GetUsageDetailDataExportTask"
+      'GetUsageDetailDataExportTask': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-09-01',
+            'Action': 'GetUsageDetailDataExportTask'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PageSize: "String",
-          PageNumber: "String"
+        'paramsType': {
+          'PageSize': 'String',
+          'PageNumber': 'String'
         }
       },
-      DeleteUsageDetailDataExportTask: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2020-09-01",
-            Action: "DeleteUsageDetailDataExportTask"
+      'DeleteUsageDetailDataExportTask': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2020-09-01',
+            'Action': 'DeleteUsageDetailDataExportTask'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          TaskID: "String"
+        'paramsType': {
+          'TaskID': 'String'
         }
       }
     });

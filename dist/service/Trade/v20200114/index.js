@@ -8,35 +8,35 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "trade.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'trade.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "trade"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'trade'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      DescribeInstances: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2020-01-14",
-            Action: "DescribeInstances"
+      'DescribeInstances': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2020-01-14',
+            'Action': 'DescribeInstances'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceIds: "String"
+        'paramsType': {
+          'InstanceIds': 'String'
         }
       }
     });

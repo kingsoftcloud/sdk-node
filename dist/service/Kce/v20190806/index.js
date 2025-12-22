@@ -8,473 +8,664 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "kce.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'kce.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "kce"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'kce'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      DescribeCluster: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeCluster"
+      'DescribeClusterInstance': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeClusterInstance'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          Marker: "Int",
-          MaxResults: "String",
-          Search: "String",
-          Filter: "Filter"
+        'paramsType': {
+          'ClusterId': 'String',
+          'MaxResults': 'Int',
+          'Marker': 'Int',
+          'Filter': 'Filter',
+          'Search': 'String'
         }
       },
-      DescribeClusterInstance: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeClusterInstance"
+      'DeleteCluster': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DeleteCluster'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          MaxResults: "Int",
-          Marker: "Int",
-          Filter: "Filter",
-          Search: "String"
+        'paramsType': {
+          'ClusterId': 'String',
+          'InstanceDeleteMode': 'String'
         }
       },
-      DeleteCluster: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DeleteCluster"
+      'DownloadClusterConfig': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DownloadClusterConfig'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          InstanceDeleteMode: "String"
+        'paramsType': {
+          'ClusterId': 'String',
+          'IsPublic': 'Boolean'
         }
       },
-      DownloadClusterConfig: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DownloadClusterConfig"
+      'ModifyClusterInfo': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'ModifyClusterInfo'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          IsPublic: "Boolean"
+        'paramsType': {
+          'ClusterId': 'String',
+          'ClusterName': 'String',
+          'ClusterDesc': 'String',
+          'EnableKMSE': 'Boolean',
+          'ControlPlaneLog': 'Object'
         }
       },
-      ModifyClusterInfo: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ModifyClusterInfo"
+      'DescribeInstanceImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeInstanceImage'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          ClusterName: "String",
-          ClusterDesc: "String",
-          EnableKMSE: "Boolean",
-          ControlPlaneLog: "Object"
+        'paramsType': {}
+      },
+      'AddClusterInstances': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'AddClusterInstances'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'InstanceSet': 'Filter'
         }
       },
-      DescribeInstanceImage: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeInstanceImage"
+      'DeleteClusterInstances': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DeleteClusterInstances'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ImageId: "Filter"
+        'paramsType': {
+          'ClusterId': 'String',
+          'InstanceId': 'Filter',
+          'InstanceDeleteMode': 'String'
         }
       },
-      AddClusterInstances: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "AddClusterInstances"
+      'DescribeEpcForCluster': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeEpcForCluster'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          InstanceSet: "Filter"
+        'paramsType': {
+          'ClusterId': 'String',
+          'InstanceId': 'Filter',
+          'Filter': 'Filter',
+          'Marker': 'Int',
+          'MaxResults': 'Int',
+          'OperatorType': 'String'
         }
       },
-      DeleteClusterInstances: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DeleteClusterInstances"
+      'AddClusterEpcInstances': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'AddClusterEpcInstances'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          InstanceId: "Filter",
-          InstanceDeleteMode: "String"
+        'paramsType': {
+          'ClusterId': 'String',
+          'InstanceId': 'Filter',
+          'EpcPara': 'Filter',
+          'AdvancedSetting': 'Object'
         }
       },
-      DescribeEpcForCluster: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeEpcForCluster"
+      'DescribeExistedInstances': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeExistedInstances'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          InstanceId: "Filter",
-          Filter: "Filter",
-          Marker: "Int",
-          MaxResults: "String"
+        'paramsType': {
+          'ClusterId': 'String',
+          'InstanceId': 'Filter',
+          'Marker': 'Int',
+          'MaxResults': 'String',
+          'Filter': 'Filter',
+          'Search': 'String'
         }
       },
-      AddClusterEpcInstances: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "AddClusterEpcInstances"
+      'AddExistedInstances': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'AddExistedInstances'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          InstanceId: "Filter",
-          EpcPara: "Filter",
-          AdvancedSetting: "Object"
+        'paramsType': {
+          'ClusterId': 'String',
+          'ExistedInstanceKecSet': 'Filter'
         }
       },
-      DescribeExistedInstances: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeExistedInstances"
+      'CreateNodePool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'CreateNodePool'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          InstanceId: "Filter",
-          Marker: "Int",
-          MaxResults: "String",
-          Filter: "Filter",
-          Search: "String"
+        'paramsType': {
+          'NodePoolName': 'String',
+          'ClusterId': 'String',
+          'EnableAutoScale': 'Boolean',
+          'NodeTemplate': 'Object',
+          'Label': 'Filter',
+          'Taint': 'Filter',
+          'MinSize': 'Int',
+          'MaxSize': 'Int',
+          'DesiredCapacity': 'Int',
+          'EnableDelProtection': 'Boolean',
+          'FailureAutoDelete': 'Boolean'
         }
       },
-      AddExistedInstances: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "AddExistedInstances"
+      'DescribeNodePool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeNodePool'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          ExistedInstanceKecSet: "Filter"
+        'paramsType': {
+          'ClusterId': 'String',
+          'NodePoolId': 'Filter',
+          'Marker': 'Int',
+          'MaxResults': 'Int',
+          'NodePoolName': 'String'
         }
       },
-      ForceRemoveClusterInstance: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ForceRemoveClusterInstance"
+      'DeleteNodePool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DeleteNodePool'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          InstanceId: "Filter"
+        'paramsType': {
+          'ClusterId': 'String',
+          'NodePoolId': 'Filter',
+          'InstanceDeleteMode': 'String'
         }
       },
-      CreateNodePool: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "CreateNodePool"
+      'ModifyNodePool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'ModifyNodePool'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          NodePoolName: "String",
-          ClusterId: "String",
-          EnableAutoScale: "Boolean",
-          NodeTemplate: "Object",
-          Label: "Filter",
-          Taint: "Filter",
-          MinSize: "Int",
-          MaxSize: "Int",
-          DesiredCapacity: "Int"
+        'paramsType': {
+          'ClusterId': 'String',
+          'NodePoolId': 'String',
+          'NodePoolName': 'String',
+          'EnableAutoScale': 'Boolean',
+          'MinSize': 'Int',
+          'MaxSize': 'Int',
+          'DesiredCapacity': 'Int',
+          'Label': 'Filter',
+          'Taint': 'Filter',
+          'UpdateExistingNodes': 'Boolean'
         }
       },
-      DescribeNodePool: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeNodePool"
+      'ModifyNodeTemplate': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'ModifyNodeTemplate'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          NodePoolId: "Filter",
-          Marker: "Int",
-          MaxResults: "Int",
-          NodePoolName: "String"
+        'paramsType': {
+          'ClusterId': 'String',
+          'NodePoolId': 'String',
+          'NodeTemplate': 'Object'
         }
       },
-      DeleteNodePool: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DeleteNodePool"
+      'ModifyNodePoolScaleUpPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'ModifyNodePoolScaleUpPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          NodePoolId: "Filter",
-          InstanceDeleteMode: "Boolean"
+        'paramsType': {
+          'ClusterId': 'String',
+          'ScaleUpPolicy': 'String'
         }
       },
-      ModifyNodePool: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ModifyNodePool"
+      'ModifyNodePoolScaleDownPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'ModifyNodePoolScaleDownPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          NodePoolId: "String",
-          NodePoolName: "String",
-          EnableAutoScale: "Boolean",
-          MinSize: "Int",
-          MaxSize: "Int",
-          DesiredCapacity: "Int",
-          Label: "Filter",
-          Taint: "Filter",
-          UpdateExistingNodes: "Boolean"
+        'paramsType': {
+          'ClusterId': 'String',
+          'MaxEmptyBulkDelete': 'Int',
+          'ScaleDownDelayAfterAdd': 'Int',
+          'ScaleDownEnabled': 'Boolean',
+          'ScaleDownUnneededTime': 'Int',
+          'ScaleDownUtilizationThreshold': 'Int'
         }
       },
-      ModifyNodeTemplate: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ModifyNodeTemplate"
+      'AddClusterInstanceToNodePool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'AddClusterInstanceToNodePool'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          NodePoolId: "String",
-          NodeTemplate: "Object"
+        'paramsType': {
+          'ClusterId': 'String',
+          'NodePoolId': 'String',
+          'InstanceIds': 'Filter'
         }
       },
-      ModifyNodePoolScaleUpPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ModifyNodePoolScaleUpPolicy"
+      'ProtectedFromScaleDown': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'ProtectedFromScaleDown'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          ScaleUpPolicy: "String"
+        'paramsType': {
+          'ClusterId': 'String',
+          'NodePoolId': 'String',
+          'InstanceIds': 'Filter',
+          'ProtectedFromScaleDown': 'Boolean'
         }
       },
-      ModifyNodePoolScaleDownPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ModifyNodePoolScaleDownPolicy"
+      'DeleteClusterInstancesFromNodePool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DeleteClusterInstancesFromNodePool'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          MaxEmptyBulkDelete: "Int",
-          ScaleDownDelayAfterAdd: "Int",
-          ScaleDownEnabled: "Boolean",
-          ScaleDownUnneededTime: "Int",
-          ScaleDownUtilizationThreshold: "Int"
+        'paramsType': {
+          'ClusterId': 'String',
+          'NodePoolId': 'String',
+          'InstanceIds': 'Filter',
+          'InstanceDeleteMode': 'Boolean'
         }
       },
-      AddClusterInstanceToNodePool: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "AddClusterInstanceToNodePool"
+      'DescribeEpcImage': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeEpcImage'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          NodePoolId: "String",
-          InstanceIds: "Filter"
+        'paramsType': {
+          'ImageId': 'Filter'
         }
       },
-      ProtectedFromScaleDown: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ProtectedFromScaleDown"
+      'EditEventCollecting': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'EditEventCollecting'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          NodePoolId: "String",
-          InstanceIds: "Filter",
-          ProtectedFromScaleDown: "Boolean"
+        'paramsType': {
+          'ClusterId': 'String',
+          'EnableEventCollecting': 'Boolean'
         }
       },
-      DeleteClusterInstancesFromNodePool: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DeleteClusterInstancesFromNodePool"
+      'DescribeNodePoolSummary': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeNodePoolSummary'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ClusterId: "String",
-          NodePoolId: "String",
-          InstanceIds: "Filter",
-          InstanceDeleteMode: "Boolean"
+        'paramsType': {
+          'ClusterId': 'String'
         }
       },
-      DescribeEpcImage: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeEpcImage"
+      'CreateLogRule': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'CreateLogRule'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ImageId: "Filter"
+        'paramsType': {
+          'ClusterId': 'String',
+          'RuleName': 'String',
+          'InputConfig': 'Object',
+          'OutputConfig': 'Object'
+        }
+      },
+      'DescribeClusterSummary': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeClusterSummary'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'UpdateNodePoolDelProtection': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'UpdateNodePoolDelProtection'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'NodePoolId': 'String',
+          'EnableDelProtection': 'Boolean'
+        }
+      },
+      'DescribeRelease': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeRelease'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'Filter': 'String'
+        }
+      },
+      'DescribeReleaseHistory': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeReleaseHistory'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'ReleaseName': 'String',
+          'Namespace': 'String'
+        }
+      },
+      'DescribeReleaseDetail': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DescribeReleaseDetail'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'ReleaseName': 'String',
+          'Namespace': 'String'
+        }
+      },
+      'DeleteRelease': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'DeleteRelease'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'ReleaseName': 'String',
+          'Namespace': 'String'
+        }
+      },
+      'RollbackRelease': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'RollbackRelease'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'ReleaseName': 'String',
+          'Namespace': 'String',
+          'ReleaseVersion': 'Int'
+        }
+      },
+      'InstallRelease': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'InstallRelease'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'Namespace': 'String',
+          'ReleaseName': 'String',
+          'ChartSource': 'String',
+          'ChartNamespace': 'String',
+          'ChartName': 'String',
+          'ChartVersion': 'String',
+          'ChartUrl': 'String',
+          'ChartRepoType': 'String',
+          'ChartRepoUsername': 'String',
+          'ChartRepoPassword': 'String',
+          'Values': 'String'
+        }
+      },
+      'UpgradeRelease': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2019-08-06',
+            'Action': 'UpgradeRelease'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'ClusterId': 'String',
+          'Namespace': 'String',
+          'ReleaseName': 'String',
+          'ChartSource': 'String',
+          'ChartNamespace': 'String',
+          'ChartName': 'String',
+          'ChartVersion': 'String',
+          'ChartUrl': 'String',
+          'ChartRepoType': 'String',
+          'ChartRepoUsername': 'String',
+          'ChartRepoPassword': 'String',
+          'Values': 'String'
         }
       }
     });

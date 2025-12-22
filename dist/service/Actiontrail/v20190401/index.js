@@ -8,46 +8,46 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "actiontrail.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'actiontrail.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "actiontrail"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'actiontrail'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      ListOperateLogs: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-04-01",
-            Action: "ListOperateLogs"
+      'ListOperateLogs': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2019-04-01',
+            'Action': 'ListOperateLogs'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          EventName: "String",
-          EventRw: "String",
-          ServiceName: "String",
-          UserName: "String",
-          AccessKey: "String",
-          EventBeginDate: "String",
-          EventEndDate: "String",
-          ResourceType: "String",
-          ResourceName: "String",
-          Page: "String",
-          PageSize: "String",
-          SearchAfter: "String"
+        'paramsType': {
+          'EventName': 'String',
+          'EventRw': 'String',
+          'ServiceName': 'String',
+          'UserName': 'String',
+          'AccessKey': 'String',
+          'EventBeginDate': 'String',
+          'EventEndDate': 'String',
+          'ResourceType': 'String',
+          'ResourceName': 'String',
+          'Page': 'String',
+          'PageSize': 'String',
+          'SearchAfter': 'String'
         }
       }
     });

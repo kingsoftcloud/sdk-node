@@ -8,145 +8,145 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "kmr.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'kmr.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "kmr"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'kmr'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      ListInstances: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2023-12-31",
-            Action: "ListInstances"
+      'ListInstances': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2023-12-31',
+            'Action': 'ListInstances'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          PageNumber: "Int",
-          PageSize: "Int",
-          InstanceStatus: "Array",
-          InstanceNameOrId: "String"
+        'paramsType': {
+          'PageNumber': 'Int',
+          'PageSize': 'Int',
+          'InstanceStatus': 'Array',
+          'InstanceNameOrId': 'String'
         }
       },
-      GetInstanceDetail: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2023-12-31",
-            Action: "GetInstanceDetail"
+      'GetInstanceDetail': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2023-12-31',
+            'Action': 'GetInstanceDetail'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceId: "String"
+        'paramsType': {
+          'InstanceId': 'String'
         }
       },
-      ModifyHosts: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2023-12-31",
-            Action: "ModifyHosts"
+      'ModifyHosts': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2023-12-31',
+            'Action': 'ModifyHosts'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          InstanceId: "String",
-          TunaHosts: "Array"
+        'paramsType': {
+          'InstanceId': 'String',
+          'TunaHosts': 'Array'
         }
       },
-      ListAutoScaleHistory: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2023-12-31",
-            Action: "ListAutoScaleHistory"
+      'ListAutoScaleHistory': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2023-12-31',
+            'Action': 'ListAutoScaleHistory'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceId: "String",
-          ExecAtStart: "String",
-          ExecAtEnd: "String",
-          PolicyName: "String",
-          PageNumber: "Int",
-          PageSize: "Int"
+        'paramsType': {
+          'InstanceId': 'String',
+          'ExecAtStart': 'String',
+          'ExecAtEnd': 'String',
+          'PolicyName': 'String',
+          'PageNumber': 'Int',
+          'PageSize': 'Int'
         }
       },
-      CreateAutoScalePolicy: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2023-12-31",
-            Action: "CreateAutoScalePolicy"
+      'CreateAutoScalePolicy': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2023-12-31',
+            'Action': 'CreateAutoScalePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceId: "String",
-          PolicyName: "String",
-          ChargeType: "String",
-          ExecuteCycle: "String",
-          ExecuteRules: "Object"
+        'paramsType': {
+          'InstanceId': 'String',
+          'PolicyName': 'String',
+          'ChargeType': 'String',
+          'ExecuteCycle': 'String',
+          'ExecuteRules': 'Object'
         }
       },
-      ListAutoScalePolicy: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2023-12-31",
-            Action: "ListAutoScalePolicy"
+      'ListAutoScalePolicy': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2023-12-31',
+            'Action': 'ListAutoScalePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceId: "String"
+        'paramsType': {
+          'InstanceId': 'String'
         }
       },
-      DeleteAutoScalePolicy: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2023-12-31",
-            Action: "DeleteAutoScalePolicy"
+      'DeleteAutoScalePolicy': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2023-12-31',
+            'Action': 'DeleteAutoScalePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceId: "String",
-          PolicyId: "String"
+        'paramsType': {
+          'InstanceId': 'String',
+          'PolicyId': 'String'
         }
       }
     });

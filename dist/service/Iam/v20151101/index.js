@@ -8,1157 +8,1157 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "iam.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'iam.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "iam"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'iam'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      CreateUser: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "CreateUser"
+      'CreateUser': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateUser'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String",
-          RealName: "String",
-          Phone: "String",
-          Email: "String",
-          Remark: "String",
-          Password: "String",
-          PasswordResetRequired: "Int",
-          OpenLoginProtection: "Int",
-          OpenSecurityProtection: "Int",
-          ViewAllProject: "Int",
-          AddProjectId: "Int"
+        'paramsType': {
+          'UserName': 'String',
+          'RealName': 'String',
+          'Phone': 'String',
+          'Email': 'String',
+          'Remark': 'String',
+          'Password': 'String',
+          'PasswordResetRequired': 'Int',
+          'OpenLoginProtection': 'Int',
+          'OpenSecurityProtection': 'Int',
+          'ViewAllProject': 'Int',
+          'AddProjectId': 'Int'
         }
       },
-      ListUsers: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListUsers"
+      'ListUsers': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListUsers'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          Marker: "String",
-          MaxItems: "Int",
-          AccessKey: "String"
+        'paramsType': {
+          'Marker': 'String',
+          'MaxItems': 'Int',
+          'AccessKey': 'String'
         }
       },
-      UpdateUser: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateUser"
+      'UpdateUser': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateUser'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String",
-          NewUserName: "String",
-          NewRealName: "String",
-          NewEmail: "String",
-          NewPhone: "String",
-          IsInternational: "Int",
-          NewRemark: "String"
+        'paramsType': {
+          'UserName': 'String',
+          'NewUserName': 'String',
+          'NewRealName': 'String',
+          'NewEmail': 'String',
+          'NewPhone': 'String',
+          'IsInternational': 'Int',
+          'NewRemark': 'String'
         }
       },
-      GetUser: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetUser"
+      'GetUser': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetUser'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String"
+        'paramsType': {
+          'UserName': 'String'
         }
       },
-      DeleteUser: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeleteUser"
+      'DeleteUser': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteUser'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String"
+        'paramsType': {
+          'UserName': 'String'
         }
       },
-      DetachUserPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DetachUserPolicy"
+      'DetachUserPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DetachUserPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          UserName: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'UserName': 'String'
         }
       },
-      ListAttachedUserPolicies: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListAttachedUserPolicies"
+      'ListAttachedUserPolicies': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListAttachedUserPolicies'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String",
-          Marker: "String",
-          MaxItems: "String"
+        'paramsType': {
+          'UserName': 'String',
+          'Marker': 'String',
+          'MaxItems': 'String'
         }
       },
-      ListPolicyVersions: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListPolicyVersions"
+      'ListPolicyVersions': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListPolicyVersions'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String"
+        'paramsType': {
+          'PolicyKrn': 'String'
         }
       },
-      SetDefaultPolicyVersion: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "SetDefaultPolicyVersion"
+      'SetDefaultPolicyVersion': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'SetDefaultPolicyVersion'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          VersionId: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'VersionId': 'String'
         }
       },
-      AttachUserPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "AttachUserPolicy"
+      'AttachUserPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AttachUserPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          UserName: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'UserName': 'String'
         }
       },
-      DeletePolicyVersion: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeletePolicyVersion"
+      'DeletePolicyVersion': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeletePolicyVersion'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          VersionId: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'VersionId': 'String'
         }
       },
-      GetPolicyVersion: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetPolicyVersion"
+      'GetPolicyVersion': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetPolicyVersion'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          VersionId: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'VersionId': 'String'
         }
       },
-      CreatePolicyVersion: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "CreatePolicyVersion"
+      'CreatePolicyVersion': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreatePolicyVersion'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          PolicyDocument: "String",
-          SetAsDefault: "String",
-          PolicyStruct: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'PolicyDocument': 'String',
+          'SetAsDefault': 'String',
+          'PolicyStruct': 'String'
         }
       },
-      ListPolicies: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListPolicies"
+      'ListPolicies': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListPolicies'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          Marker: "String",
-          MaxItems: "String",
-          OnlyAttached: "Boolean",
-          Scope: "String"
+        'paramsType': {
+          'Marker': 'String',
+          'MaxItems': 'String',
+          'OnlyAttached': 'Boolean',
+          'Scope': 'String'
         }
       },
-      GetPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetPolicy"
+      'GetPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String"
+        'paramsType': {
+          'PolicyKrn': 'String'
         }
       },
-      DeletePolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeletePolicy"
+      'DeletePolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeletePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String"
+        'paramsType': {
+          'PolicyKrn': 'String'
         }
       },
-      CreatePolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "CreatePolicy"
+      'CreatePolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreatePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyName: "String",
-          Description: "String",
-          PolicyDocument: "String",
-          PolicyStruct: "String",
-          CreateMode: "String"
+        'paramsType': {
+          'PolicyName': 'String',
+          'Description': 'String',
+          'PolicyDocument': 'String',
+          'PolicyStruct': 'String',
+          'CreateMode': 'String'
         }
       },
-      ChangePassword: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ChangePassword"
+      'ChangePassword': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ChangePassword'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          OldPassword: "String",
-          NewPassword: "String"
+        'paramsType': {
+          'OldPassword': 'String',
+          'NewPassword': 'String'
         }
       },
-      UpdateLoginProfile: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateLoginProfile"
+      'UpdateLoginProfile': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateLoginProfile'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String",
-          Password: "String",
-          PasswordResetRequired: "Boolean",
-          OpenLoginProtection: "Boolean",
-          OpenSecurityProtection: "Boolean",
-          ViewAllProject: "Boolean"
+        'paramsType': {
+          'UserName': 'String',
+          'Password': 'String',
+          'PasswordResetRequired': 'Boolean',
+          'OpenLoginProtection': 'Boolean',
+          'OpenSecurityProtection': 'Boolean',
+          'ViewAllProject': 'Boolean'
         }
       },
-      GetLoginProfile: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetLoginProfile"
+      'GetLoginProfile': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetLoginProfile'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String",
-          NotCheckPassword: "Int"
+        'paramsType': {
+          'UserName': 'String',
+          'NotCheckPassword': 'Int'
         }
       },
-      CreateAccessKey: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "CreateAccessKey"
+      'CreateAccessKey': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateAccessKey'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String"
+        'paramsType': {
+          'UserName': 'String'
         }
       },
-      ListAccessKeys: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListAccessKeys"
+      'ListAccessKeys': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListAccessKeys'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String"
+        'paramsType': {
+          'UserName': 'String'
         }
       },
-      UpdateAccessKey: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateAccessKey"
+      'UpdateAccessKey': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateAccessKey'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AccessKeyId: "String",
-          UserName: "String",
-          Status: "String"
+        'paramsType': {
+          'AccessKeyId': 'String',
+          'UserName': 'String',
+          'Status': 'String'
         }
       },
-      DeleteAccessKey: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeleteAccessKey"
+      'DeleteAccessKey': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteAccessKey'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String",
-          AccessKeyId: "String"
+        'paramsType': {
+          'UserName': 'String',
+          'AccessKeyId': 'String'
         }
       },
-      ListVirtualMFADevices: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListVirtualMFADevices"
+      'ListVirtualMFADevices': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListVirtualMFADevices'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AssignmentStatus: "String",
-          Marker: "String",
-          MaxItems: "Int"
+        'paramsType': {
+          'AssignmentStatus': 'String',
+          'Marker': 'String',
+          'MaxItems': 'Int'
         }
       },
-      EnableMFADevice: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "EnableMFADevice"
+      'EnableMFADevice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'EnableMFADevice'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AuthenticationCode1: "String",
-          AuthenticationCode2: "String",
-          SerialNumber: "String",
-          UserName: "String"
+        'paramsType': {
+          'AuthenticationCode1': 'String',
+          'AuthenticationCode2': 'String',
+          'SerialNumber': 'String',
+          'UserName': 'String'
         }
       },
-      DeactivateMFADevice: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeactivateMFADevice"
+      'DeactivateMFADevice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeactivateMFADevice'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          SerialNumber: "String",
-          UserName: "String"
+        'paramsType': {
+          'SerialNumber': 'String',
+          'UserName': 'String'
         }
       },
-      GetVirtualMFADevice: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetVirtualMFADevice"
+      'GetVirtualMFADevice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetVirtualMFADevice'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String"
+        'paramsType': {
+          'UserName': 'String'
         }
       },
-      CreateRole: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "CreateRole"
+      'CreateRole': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateRole'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String",
-          TrustAccounts: "String",
-          Description: "String"
+        'paramsType': {
+          'RoleName': 'String',
+          'TrustAccounts': 'String',
+          'Description': 'String'
         }
       },
-      DeleteRole: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeleteRole"
+      'DeleteRole': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteRole'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String"
+        'paramsType': {
+          'RoleName': 'String'
         }
       },
-      GetRole: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetRole"
+      'GetRole': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetRole'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String"
+        'paramsType': {
+          'RoleName': 'String'
         }
       },
-      ListRoles: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListRoles"
+      'ListRoles': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListRoles'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          Marker: "String",
-          MaxItems: "Int"
+        'paramsType': {
+          'Marker': 'String',
+          'MaxItems': 'Int'
         }
       },
-      AttachRolePolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "AttachRolePolicy"
+      'AttachRolePolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AttachRolePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String",
-          PolicyKrn: "String"
+        'paramsType': {
+          'RoleName': 'String',
+          'PolicyKrn': 'String'
         }
       },
-      DetachRolePolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DetachRolePolicy"
+      'DetachRolePolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DetachRolePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String",
-          PolicyKrn: "String"
+        'paramsType': {
+          'RoleName': 'String',
+          'PolicyKrn': 'String'
         }
       },
-      ListAttachedRolePolicies: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListAttachedRolePolicies"
+      'ListAttachedRolePolicies': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListAttachedRolePolicies'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String",
-          Marker: "String",
-          MaxItems: "Int"
+        'paramsType': {
+          'RoleName': 'String',
+          'Marker': 'String',
+          'MaxItems': 'Int'
         }
       },
-      UpdateRoleTrustAccounts: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateRoleTrustAccounts"
+      'UpdateRoleTrustAccounts': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateRoleTrustAccounts'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String",
-          NewTrustAccounts: "String"
+        'paramsType': {
+          'RoleName': 'String',
+          'NewTrustAccounts': 'String'
         }
       },
-      CreateProject: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "CreateProject"
+      'CreateProject': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateProject'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProjectName: "String",
-          ProjectDesc: "String"
+        'paramsType': {
+          'ProjectName': 'String',
+          'ProjectDesc': 'String'
         }
       },
-      UpdateProjectInfo: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateProjectInfo"
+      'UpdateProjectInfo': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateProjectInfo'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProjectId: "Int",
-          ProjectName: "String",
-          ProjectDesc: "String"
+        'paramsType': {
+          'ProjectId': 'Int',
+          'ProjectName': 'String',
+          'ProjectDesc': 'String'
         }
       },
-      GetAccountAllProjectList: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetAccountAllProjectList"
+      'GetAccountAllProjectList': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetAccountAllProjectList'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {}
+        'paramsType': {}
       },
-      UpdateInstanceProjectId: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateInstanceProjectId"
+      'UpdateInstanceProjectId': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateInstanceProjectId'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProjectId: "Int",
-          InstanceId: "String",
-          Action: "String",
-          Version: "String"
+        'paramsType': {
+          'ProjectId': 'Int',
+          'InstanceId': 'String',
+          'Action': 'String',
+          'Version': 'String'
         }
       },
-      ListEntitiesForPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListEntitiesForPolicy"
+      'ListEntitiesForPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListEntitiesForPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          MaxItems: "Int",
-          Marker: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'MaxItems': 'Int',
+          'Marker': 'String'
         }
       },
-      ListProjectMember: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListProjectMember"
+      'ListProjectMember': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListProjectMember'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProjectId: "Int"
+        'paramsType': {
+          'ProjectId': 'Int'
         }
       },
-      DeleteProjectMember: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeleteProjectMember"
+      'DeleteProjectMember': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteProjectMember'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProjectId: "Int",
-          MemberIds: "String"
+        'paramsType': {
+          'ProjectId': 'Int',
+          'MemberIds': 'String'
         }
       },
-      AddProjectMember: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "AddProjectMember"
+      'AddProjectMember': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AddProjectMember'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProjectId: "Int",
-          IdentityId: "String",
-          IdentityType: "Int"
+        'paramsType': {
+          'ProjectId': 'Int',
+          'IdentityId': 'String',
+          'IdentityType': 'Int'
         }
       },
-      UpdateRole: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateRole"
+      'UpdateRole': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateRole'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleName: "String",
-          NewDescription: "String"
+        'paramsType': {
+          'RoleName': 'String',
+          'NewDescription': 'String'
         }
       },
-      UpdatePolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdatePolicy"
+      'UpdatePolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdatePolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyKrn: "String",
-          NewDescription: "String",
-          NewPolicyName: "String"
+        'paramsType': {
+          'PolicyKrn': 'String',
+          'NewDescription': 'String',
+          'NewPolicyName': 'String'
         }
       },
-      CreateGroup: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "CreateGroup"
+      'CreateGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'CreateGroup'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          Description: "String",
-          GroupRealName: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'Description': 'String',
+          'GroupRealName': 'String'
         }
       },
-      DeleteGroup: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DeleteGroup"
+      'DeleteGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DeleteGroup'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String"
+        'paramsType': {
+          'GroupName': 'String'
         }
       },
-      DetachGroupPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DetachGroupPolicy"
+      'DetachGroupPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DetachGroupPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          PolicyKrn: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'PolicyKrn': 'String'
         }
       },
-      AttachGroupPolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "AttachGroupPolicy"
+      'AttachGroupPolicy': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AttachGroupPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          PolicyKrn: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'PolicyKrn': 'String'
         }
       },
-      ListGroupPolicies: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListGroupPolicies"
+      'ListGroupPolicies': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListGroupPolicies'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          MaxItems: "String",
-          Marker: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'MaxItems': 'String',
+          'Marker': 'String'
         }
       },
-      AddUserToGroup: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "AddUserToGroup"
+      'AddUserToGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AddUserToGroup'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          UserName: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'UserName': 'String'
         }
       },
-      GetGroup: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetGroup"
+      'GetGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetGroup'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          MaxItems: "String",
-          Marker: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'MaxItems': 'String',
+          'Marker': 'String'
         }
       },
-      ListGroupsForUser: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListGroupsForUser"
+      'ListGroupsForUser': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListGroupsForUser'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          UserName: "String",
-          MaxItems: "String",
-          Marker: "String"
+        'paramsType': {
+          'UserName': 'String',
+          'MaxItems': 'String',
+          'Marker': 'String'
         }
       },
-      ListGroups: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListGroups"
+      'ListGroups': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListGroups'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          MaxItems: "String",
-          Marker: "String"
+        'paramsType': {
+          'MaxItems': 'String',
+          'Marker': 'String'
         }
       },
-      RemoveUserFromGroup: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "RemoveUserFromGroup"
+      'RemoveUserFromGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'RemoveUserFromGroup'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          UserName: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'UserName': 'String'
         }
       },
-      UpdateGroup: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "UpdateGroup"
+      'UpdateGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'UpdateGroup'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          Description: "String",
-          GroupRealName: "String"
+        'paramsType': {
+          'GroupName': 'String',
+          'Description': 'String',
+          'GroupRealName': 'String'
         }
       },
-      ListUsersForGroup: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListUsersForGroup"
+      'ListUsersForGroup': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListUsersForGroup'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          GroupName: "String",
-          MaxItems: "Int",
-          Page: "Int"
+        'paramsType': {
+          'GroupName': 'String',
+          'MaxItems': 'Int',
+          'Page': 'Int'
         }
       },
-      ListAllUserAccessKeys: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "ListAllUserAccessKeys"
+      'ListAllUserAccessKeys': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'ListAllUserAccessKeys'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {}
+        'paramsType': {}
       },
-      InsertInstanceToES: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "InsertInstanceToES"
+      'InsertInstanceToES': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'InsertInstanceToES'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProjectId: "Int",
-          ProductLine: "String",
-          ProductGroup: "Int",
-          ResourceType: "String",
-          InstanceId: "String",
-          RegionEn: "String",
-          InstanceName: "String"
+        'paramsType': {
+          'ProjectId': 'Int',
+          'ProductLine': 'String',
+          'ProductGroup': 'Int',
+          'ResourceType': 'String',
+          'InstanceId': 'String',
+          'RegionEn': 'String',
+          'InstanceName': 'String'
         }
       },
-      DelInstanceFromES: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "DelInstanceFromES"
+      'DelInstanceFromES': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'DelInstanceFromES'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          ProductLine: "String",
-          InstanceId: "String"
+        'paramsType': {
+          'ProductLine': 'String',
+          'InstanceId': 'String'
         }
       },
-      GetAccountAllProjectsByParams: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetAccountAllProjectsByParams"
+      'GetAccountAllProjectsByParams': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetAccountAllProjectsByParams'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          Ps: "Int",
-          Pn: "Int",
-          ParamUserName: "String",
-          ParamAccessKey: "String"
+        'paramsType': {
+          'Ps': 'Int',
+          'Pn': 'Int',
+          'ParamUserName': 'String',
+          'ParamAccessKey': 'String'
         }
       },
-      SetUserSsoSettings: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "SetUserSsoSettings"
+      'SetUserSsoSettings': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'SetUserSsoSettings'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          Status: "Int",
-          Metadata: "String",
-          Domain: "String"
+        'paramsType': {
+          'Status': 'Int',
+          'Metadata': 'String',
+          'Domain': 'String'
         }
       },
-      GetUserSsoSettings: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetUserSsoSettings"
+      'GetUserSsoSettings': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetUserSsoSettings'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {}
+        'paramsType': {}
       },
-      GetEffectivePolicies: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "GetEffectivePolicies"
+      'GetEffectivePolicies': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'GetEffectivePolicies'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyName: "String",
-          Page: "Int",
-          MaxItems: "Int"
+        'paramsType': {
+          'PolicyName': 'String',
+          'Page': 'Int',
+          'MaxItems': 'Int'
         }
       }
     });

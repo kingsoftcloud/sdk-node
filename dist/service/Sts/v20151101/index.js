@@ -8,38 +8,57 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "sts.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'sts.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "sts"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'sts'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      AssumeRole: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2015-11-01",
-            Action: "AssumeRole"
+      'AssumeRole': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AssumeRole'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          RoleKrn: "String",
-          RoleSessionName: "String",
-          DurationSeconds: "String",
-          Policy: "String"
+        'paramsType': {
+          'RoleKrn': 'String',
+          'RoleSessionName': 'String',
+          'DurationSeconds': 'String',
+          'Policy': 'String'
+        }
+      },
+      'AssumeRoleTemporarySAML': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2015-11-01',
+            'Action': 'AssumeRoleTemporarySAML'
+          },
+          'headers': {
+            'Content-Type': 'application/json'
+          }
+        },
+        'paramsType': {
+          'RoleKrn': 'String',
+          'RoleSessionName': 'String',
+          'DurationSeconds': 'String',
+          'Policy': 'String'
         }
       }
     });

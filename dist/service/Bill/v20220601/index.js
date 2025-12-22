@@ -8,55 +8,55 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "bill.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'bill.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "bill"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'bill'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      GetMonthConsume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2022-06-01",
-            Action: "GetMonthConsume"
+      'GetMonthConsume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2022-06-01',
+            'Action': 'GetMonthConsume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          BillMonth: "String"
+        'paramsType': {
+          'BillMonth': 'String'
         }
       },
-      GetPostpayDetailConsume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2022-06-01",
-            Action: "GetPostpayDetailConsume"
+      'GetPostpayDetailConsume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2022-06-01',
+            'Action': 'GetPostpayDetailConsume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          BillMonth: "String",
-          ProductCode: "String",
-          ProjectId: "String",
-          PageNo: "Int",
-          PageSize: "Int"
+        'paramsType': {
+          'BillMonth': 'String',
+          'ProductCode': 'String',
+          'ProjectId': 'String',
+          'PageNo': 'Int',
+          'PageSize': 'Int'
         }
       }
     });

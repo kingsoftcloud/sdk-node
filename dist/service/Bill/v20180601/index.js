@@ -8,70 +8,70 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "bill.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'bill.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "bill"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'bill'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      GetMonthBill: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2018-06-01",
-            Action: "GetMonthBill"
+      'GetMonthBill': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2018-06-01',
+            'Action': 'GetMonthBill'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          BillStartMonth: "String",
-          BillEndMonth: "String"
+        'paramsType': {
+          'BillStartMonth': 'String',
+          'BillEndMonth': 'String'
         }
       },
-      GetPostpayDetailBill: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2018-06-01",
-            Action: "GetPostpayDetailBill"
+      'GetPostpayDetailBill': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2018-06-01',
+            'Action': 'GetPostpayDetailBill'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          BillStartMonth: "String",
-          BillEndMonth: "String",
-          ProductCode: "String",
-          ProjectId: "String"
+        'paramsType': {
+          'BillStartMonth': 'String',
+          'BillEndMonth': 'String',
+          'ProductCode': 'String',
+          'ProjectId': 'String'
         }
       },
-      GetProductCode: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2018-06-01",
-            Action: "GetProductCode"
+      'GetProductCode': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2018-06-01',
+            'Action': 'GetProductCode'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {}
+        'paramsType': {}
       }
     });
   }

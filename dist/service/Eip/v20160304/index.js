@@ -8,146 +8,224 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "eip.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'eip.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "eip"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'eip'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      GetLines: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "GetLines"
+      'GetLines': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'GetLines'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {}
-      },
-      DescribeAddresses: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeAddresses"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          ProjectId: "Filter",
-          AllocationId: "Filter",
-          Filter: "Filter",
-          MaxResults: "Int",
-          NextToken: "String",
-          State: "String",
-          IpVersion: "String"
+        'paramsType': {
+          'Uuid': 'String',
+          'Name': 'String',
+          'IpVersion': 'String',
+          'Type': 'String'
         }
       },
-      AllocateAddress: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "AllocateAddress"
+      'DescribeAddresses': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeAddresses'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          LineId: "String",
-          BandWidth: "Int",
-          ProjectId: "String",
-          ChargeType: "String",
-          PurchaseTime: "Int"
+        'paramsType': {
+          'ProjectId': 'Filter',
+          'AllocationId': 'Filter',
+          'Filter': 'Filter',
+          'IsContainTag': 'Boolean',
+          'TagKey': 'Filter',
+          'TagKV': 'Filter',
+          'MaxResults': 'Int',
+          'NextToken': 'String',
+          'State': 'String',
+          'IpVersion': 'String'
         }
       },
-      ReleaseAddress: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "ReleaseAddress"
+      'AllocateAddress': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'AllocateAddress'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AllocationId: "String"
+        'paramsType': {
+          'LineId': 'String',
+          'BandWidth': 'Int',
+          'ProjectId': 'String',
+          'ChargeType': 'String',
+          'PurchaseTime': 'Int'
         }
       },
-      AssociateAddress: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "AssociateAddress"
+      'ReleaseAddress': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ReleaseAddress'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AllocationId: "String",
-          InstanceType: "String",
-          InstanceId: "String",
-          NetworkInterfaceId: "String",
-          Mode: "String",
-          PrivateIpAddress: "String"
+        'paramsType': {
+          'AllocationId': 'String'
         }
       },
-      DisassociateAddress: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DisassociateAddress"
+      'AssociateAddress': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'AssociateAddress'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AllocationId: "String"
+        'paramsType': {
+          'AllocationId': 'String',
+          'InstanceType': 'String',
+          'InstanceId': 'String',
+          'NetworkInterfaceId': 'String',
+          'Mode': 'String',
+          'PrivateIpAddress': 'String'
         }
       },
-      ModifyAddress: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "ModifyAddress"
+      'DisassociateAddress': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DisassociateAddress'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AllocationId: "String",
-          BandWidth: "Int"
+        'paramsType': {
+          'AllocationId': 'String'
         }
+      },
+      'ModifyAddress': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyAddress'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AllocationId': 'String',
+          'BandWidth': 'Int'
+        }
+      },
+      'CreateEipPool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateEipPool'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'DeleteEipPool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteEipPool'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'ModifyEipPool': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyEipPool'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'DescribeEipPools': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeEipPools'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'DescribeIpExistEipPoolUse': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeIpExistEipPoolUse'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
       }
     });
   }

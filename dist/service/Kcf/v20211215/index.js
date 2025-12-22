@@ -8,194 +8,194 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "kcf.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'kcf.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "kcf"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'kcf'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      GetLogDate: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "GetLogDate"
+      'GetLogDate': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'GetLogDate'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          id: "Int"
+        'paramsType': {
+          'id': 'Int'
         }
       },
-      CreateFunction: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "CreateFunction"
+      'CreateFunction': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'CreateFunction'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          Id: "String",
-          Name: "String",
-          Namespace: "String",
-          Runtime: "String",
-          CaPort: "Int",
-          StartupCommand: "Array",
-          Description: "String",
-          Timeout: "Int",
-          MemorySize: "Int",
-          SingleInstanceConcurrency: "Int",
-          InternetAccess: "Boolean",
-          Code: "Object",
-          Environment: "Object",
-          VpcConfig: "Object",
-          LogConfig: "Object",
-          LivenessProbeConfig: "Object",
-          ReadinessProbeConfig: "Object",
-          Layers: "Array"
+        'paramsType': {
+          'Id': 'String',
+          'Name': 'String',
+          'Namespace': 'String',
+          'Runtime': 'String',
+          'CaPort': 'Int',
+          'StartupCommand': 'Array',
+          'Description': 'String',
+          'Timeout': 'Int',
+          'MemorySize': 'Int',
+          'SingleInstanceConcurrency': 'Int',
+          'InternetAccess': 'Boolean',
+          'Code': 'Object',
+          'Environment': 'Object',
+          'VpcConfig': 'Object',
+          'LogConfig': 'Object',
+          'LivenessProbeConfig': 'Object',
+          'ReadinessProbeConfig': 'Object',
+          'Layers': 'Array'
         }
       },
-      CheckFunctionService: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "CheckFunctionService"
+      'CheckFunctionService': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'CheckFunctionService'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {}
+        'paramsType': {}
       },
-      OpenFunctionService: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "OpenFunctionService"
+      'OpenFunctionService': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'OpenFunctionService'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {}
+        'paramsType': {}
       },
-      DeleteFunction: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "DeleteFunction"
+      'DeleteFunction': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'DeleteFunction'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          Id: "String"
+        'paramsType': {
+          'Id': 'String'
         }
       },
-      CreateTrigger: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "CreateTrigger"
+      'CreateTrigger': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'CreateTrigger'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          FunctionId: "String",
-          TriggerName: "String",
-          Type: "String",
-          Enable: "Boolean",
-          TriggerDesc: "Object"
+        'paramsType': {
+          'FunctionId': 'String',
+          'TriggerName': 'String',
+          'Type': 'String',
+          'Enable': 'Boolean',
+          'TriggerDesc': 'Object'
         }
       },
-      DeleteTrigger: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "DeleteTrigger"
+      'DeleteTrigger': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'DeleteTrigger'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          Id: "String"
+        'paramsType': {
+          'Id': 'String'
         }
       },
-      ModifyFunction: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "ModifyFunction"
+      'ModifyFunction': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'ModifyFunction'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          Id: "String",
-          Runtime: "String",
-          CaPort: "Int",
-          StartupCommand: "Array",
-          Timeout: "Int",
-          MemorySize: "Int",
-          SingleInstanceConcurrency: "Int",
-          InternetAccess: "Boolean",
-          Code: "Object",
-          Environment: "Object",
-          VpcConfig: "Object",
-          LogConfig: "Object",
-          LivenessProbeConfig: "Object",
-          ReadinessProbeConfig: "Object",
-          Layers: "Array"
+        'paramsType': {
+          'Id': 'String',
+          'Runtime': 'String',
+          'CaPort': 'Int',
+          'StartupCommand': 'Array',
+          'Timeout': 'Int',
+          'MemorySize': 'Int',
+          'SingleInstanceConcurrency': 'Int',
+          'InternetAccess': 'Boolean',
+          'Code': 'Object',
+          'Environment': 'Object',
+          'VpcConfig': 'Object',
+          'LogConfig': 'Object',
+          'LivenessProbeConfig': 'Object',
+          'ReadinessProbeConfig': 'Object',
+          'Layers': 'Array'
         }
       },
-      DescribeTriggers: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-12-15",
-            Action: "DescribeTriggers"
+      'DescribeTriggers': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2021-12-15',
+            'Action': 'DescribeTriggers'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          FunctionId: "String"
+        'paramsType': {
+          'FunctionId': 'String'
         }
       }
     });

@@ -8,81 +8,67 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "cdn.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'cdn.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "cdn"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'cdn'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      GetDomainLogs: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-09-01",
-            Action: "GetDomainLogs"
+      'GetRefreshOrPreloadTask': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-09-01',
+            'Action': 'GetRefreshOrPreloadTask'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {}
-      },
-      GetRefreshOrPreloadTask: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-09-01",
-            Action: "GetRefreshOrPreloadTask"
-          },
-          headers: {
-            "Content-Type": "application/json"
-          }
-        },
-        paramsType: {
-          DomainIds: "String"
+        'paramsType': {
+          'DomainIds': 'String'
         }
       },
-      RefreshCaches: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-09-01",
-            Action: "RefreshCaches"
+      'RefreshCaches': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-09-01',
+            'Action': 'RefreshCaches'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          Files: "String",
-          Dirs: "String"
+        'paramsType': {
+          'Files': 'String',
+          'Dirs': 'String'
         }
       },
-      GetDomainPidDimensionUsageData: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-09-01",
-            Action: "GetDomainPidDimensionUsageData"
+      'GetDomainPidDimensionUsageData': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-09-01',
+            'Action': 'GetDomainPidDimensionUsageData'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {}
+        'paramsType': {}
       }
     });
   }

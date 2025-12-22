@@ -8,59 +8,49 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "monitor.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'monitor.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "monitor"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'monitor'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      CreateAlarmPolicy: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2022-01-01",
-            Action: "CreateAlarmPolicy"
+      'CreateAlarmPolicy': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2022-01-01',
+            'Action': 'CreateAlarmPolicy'
           },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          PolicyName: "String",
-          ProductType: "Int",
-          PolicyType: "Int",
-          ResourceBindType: "Int",
-          ProjectId: "Int",
-          InstanceIds: "Array",
-          TriggerRules: "Array",
-          UserNotice: "Array",
-          URLNotice: "Array"
-        }
+        'paramsType': {}
       },
-      DeleteAlarmPolicy: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2022-01-01",
-            Action: "DeleteAlarmPolicy"
+      'DeleteAlarmPolicy': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2022-01-01',
+            'Action': 'DeleteAlarmPolicy'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          PolicyIds: "Array"
+        'paramsType': {
+          'PolicyIds': 'Array'
         }
       }
     });

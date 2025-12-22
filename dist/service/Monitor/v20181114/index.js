@@ -8,40 +8,40 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "monitor.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'monitor.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "monitor"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'monitor'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      GetMetricStatisticsBatch: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2018-11-14",
-            Action: "GetMetricStatisticsBatch"
+      'GetMetricStatisticsBatch': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2018-11-14',
+            'Action': 'GetMetricStatisticsBatch'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          Namespace: "String",
-          StartTime: "String",
-          EndTime: "String",
-          Aggregate: "Array",
-          Period: "Int",
-          Metrics: "Array"
+        'paramsType': {
+          'Namespace': 'String',
+          'StartTime': 'String',
+          'EndTime': 'String',
+          'Aggregate': 'Array',
+          'Period': 'Int',
+          'Metrics': 'Array'
         }
       }
     });

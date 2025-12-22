@@ -8,367 +8,530 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "ebs.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'ebs.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "ebs"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'ebs'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      CreateVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "CreateVolume"
+      'CreateVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateVolume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeName: "String",
-          VolumeType: "String",
-          VolumeDesc: "String",
-          Size: "Int",
-          AvailabilityZone: "String",
-          ChargeType: "String",
-          PurchaseTime: "Int",
-          ProjectId: "String",
-          SubOrderId: "String"
+        'paramsType': {
+          'VolumeName': 'String',
+          'VolumeType': 'String',
+          'VolumeDesc': 'String',
+          'Size': 'Int',
+          'AvailabilityZone': 'String',
+          'ChargeType': 'String',
+          'PurchaseTime': 'Int',
+          'ProjectId': 'String',
+          'SubOrderId': 'String',
+          'SnapshotId': 'String',
+          'ClusterId': 'String',
+          'Tag': 'Filter',
+          'ProvisionedIops': 'Int'
         }
       },
-      AttachVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "AttachVolume"
+      'AttachVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'AttachVolume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          InstanceId: "String",
-          DeleteWithInstance: "String"
+        'paramsType': {
+          'VolumeId': 'String',
+          'InstanceId': 'String',
+          'DeleteWithInstance': 'String'
         }
       },
-      DetachVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DetachVolume"
+      'DetachVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DetachVolume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceId: "String",
-          VolumeId: "String"
+        'paramsType': {
+          'InstanceId': 'String',
+          'VolumeId': 'String'
         }
       },
-      DeleteVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DeleteVolume"
+      'DeleteVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteVolume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          ForceDelete: "Boolean"
+        'paramsType': {
+          'VolumeId': 'String',
+          'ForceDelete': 'Boolean'
         }
       },
-      ResizeVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "ResizeVolume"
+      'ResizeVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ResizeVolume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          Size: "String",
-          OnlineResize: "Boolean",
-          SubOrderId: "String"
+        'paramsType': {
+          'VolumeId': 'String',
+          'Size': 'String',
+          'OnlineResize': 'Boolean',
+          'SubOrderId': 'String'
         }
       },
-      DescribeVolumes: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeVolumes"
+      'DescribeVolumes': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeVolumes'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "Filter",
-          VolumeCategory: "String",
-          VolumeStatus: "String",
-          VolumeType: "String",
-          VolumeCreateDate: "String",
-          Marker: "Int",
-          MaxResults: "Int"
+        'paramsType': {
+          'VolumeId': 'Filter',
+          'VolumeCategory': 'String',
+          'VolumeStatus': 'String',
+          'VolumeType': 'String',
+          'VolumeCreateDate': 'String',
+          'Marker': 'Int',
+          'MaxResults': 'Int',
+          'Tag.N.Key': 'String',
+          'Tag.N.Value': 'String',
+          'VolumeCreateEndDate': 'String',
+          'VolumeCreateStartDate': 'String',
+          'SourceSnapshotId': 'String'
         }
       },
-      ModifyVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "ModifyVolume"
+      'ModifyVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyVolume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          VolumeName: "String",
-          VolumeDesc: "String",
-          DeleteWithInstance: "String"
+        'paramsType': {
+          'VolumeId': 'String',
+          'VolumeName': 'String',
+          'VolumeDesc': 'String',
+          'DeleteWithInstance': 'String'
         }
       },
-      DescribeEbsInstances: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeEbsInstances"
+      'DescribeEbsInstances': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeEbsInstances'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          AvailabilityZone: "String",
-          VolumeType: "String"
+        'paramsType': {
+          'AvailabilityZone': 'String',
+          'VolumeType': 'String'
         }
       },
-      DescribeInstanceVolumes: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeInstanceVolumes"
+      'DescribeInstanceVolumes': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeInstanceVolumes'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          InstanceId: "String"
+        'paramsType': {
+          'InstanceId': 'String'
         }
       },
-      RenewVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "RenewVolume"
+      'RenewVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'RenewVolume'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          PurchaseTime: "Int"
+        'paramsType': {
+          'VolumeId': 'String',
+          'PurchaseTime': 'Int'
         }
       },
-      UpdateVolumeProject: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "UpdateVolumeProject"
+      'UpdateVolumeProject': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'UpdateVolumeProject'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "Filter",
-          ProjectId: "String"
+        'paramsType': {
+          'VolumeId': 'Filter',
+          'ProjectId': 'String'
         }
       },
-      DescribeSnapshots: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeSnapshots"
+      'DescribeSnapshots': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeSnapshots'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          VolumeCategory: "String",
-          SnapshotId: "String",
-          AvailabilityZone: "String",
-          SnapshotName: "String",
-          PageNumber: "Int",
-          PageSize: "Int"
+        'paramsType': {
+          'VolumeId': 'String',
+          'VolumeCategory': 'String',
+          'SnapshotId': 'String',
+          'AvailabilityZone': 'String',
+          'SnapshotName': 'String',
+          'PageNumber': 'Int',
+          'PageSize': 'Int'
         }
       },
-      CreateSnapshot: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "CreateSnapshot"
+      'CreateSnapshot': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateSnapshot'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          SnapshotName: "String",
-          SnapshotDesc: "String",
-          SnapshotType: "String"
+        'paramsType': {
+          'VolumeId': 'String',
+          'SnapshotName': 'String',
+          'SnapshotDesc': 'String',
+          'SnapshotType': 'String',
+          'ScheduledDeleteTime': 'String'
         }
       },
-      DeleteSnapshot: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DeleteSnapshot"
+      'DeleteSnapshot': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DeleteSnapshot'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          SnapshotId: "String"
+        'paramsType': {}
+      },
+      'RollbackSnapshot': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'RollbackSnapshot'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'ModifySnapshot': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifySnapshot'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {}
+      },
+      'RecoveryVolume': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'RecoveryVolume'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'VolumeId': 'String'
         }
       },
-      RollbackSnapshot: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "RollbackSnapshot"
+      'ValidateAttachInstance': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ValidateAttachInstance'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          SnapshotId: "String"
+        'paramsType': {
+          'VolumeType': 'String',
+          'InstanceId': 'String'
         }
       },
-      ModifySnapshot: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "ModifySnapshot"
+      'DescribeAvailabilityZones': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeAvailabilityZones'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          SnapshotId: "String",
-          SnapshotName: "String",
-          SnapshotDesc: "String"
+        'paramsType': {
+          'VolumeType': 'String'
         }
       },
-      RecoveryVolume: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "RecoveryVolume"
+      'DescribeCreateVolumePrice': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeCreateVolumePrice'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeId: "String"
+        'paramsType': {
+          'VolumeType': 'String',
+          'Size': 'Int',
+          'AvailabilityZone': 'String',
+          'ChargeType': 'String',
+          'PurchaseTime': 'Int'
         }
       },
-      ValidateAttachInstance: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "ValidateAttachInstance"
+      'ModifySnapshotType': {
+        'url': '/',
+        'method': 'POST',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifySnapshotType'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeType: "String",
-          InstanceId: "String"
+        'paramsType': {
+          'SnapshotIds': 'Array',
+          'SnapshotId': 'String'
         }
       },
-      DescribeCreateVolumePrice: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeCreateVolumePrice"
+      'ModifyVolumeType': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyVolumeType'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
         },
-        paramsType: {
-          VolumeType: "String",
-          Size: "Int",
-          AvailabilityZone: "String",
-          ChargeType: "String",
-          PurchaseTime: "Int"
+        'paramsType': {
+          'VolumeId': 'String',
+          'PerformanceVolumeSize': 'String',
+          'PerformanceLevelVolumeCategory': 'String'
+        }
+      },
+      'ModifyDedicatedBlockStorageClusterAttribute': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyDedicatedBlockStorageClusterAttribute'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'DbscId': 'String',
+          'DbscName': 'String',
+          'AvailabilityZone': 'String',
+          'DbscDesc': 'String'
+        }
+      },
+      'ResizeDedicatedBlockStorageClusters': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ResizeDedicatedBlockStorageClusters'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'DbscId': 'String',
+          'Size': 'Int',
+          'AvailabilityZone': 'String'
+        }
+      },
+      'DescribeDedicatedBlockStorageClusters': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'DescribeDedicatedBlockStorageClusters'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'AvailabilityZone': 'String',
+          'DbscName': 'String',
+          'Marker': 'Int',
+          'MaxResults': 'Int',
+          'DbscCreateDate': 'String',
+          'DbscId': 'Filter'
+        }
+      },
+      'CreateDedicatedBlockStorageCluster': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'CreateDedicatedBlockStorageCluster'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'DbscName': 'String',
+          'DbscType': 'String',
+          'Size': 'Int',
+          'AvailabilityZone': 'String',
+          'PurchaseTime': 'Int'
+        }
+      },
+      'ModifyVolumePreset': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'ModifyVolumePreset'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'VolumeId': 'String',
+          'ProvisionedIops': 'Int'
+        }
+      },
+      'GetUpgradeVolumeTypeProcessInfo': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2016-03-04',
+            'Action': 'GetUpgradeVolumeTypeProcessInfo'
+          },
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        },
+        'paramsType': {
+          'VolumeId': 'Filter'
         }
       }
     });

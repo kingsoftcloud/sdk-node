@@ -8,38 +8,38 @@ module.exports = class Client extends BaseClient {
   constructor(...args) {
     super(...args);
     _defineProperty(this, "_baseConfig", {
-      protocol: "http://",
-      endpoint: "iam.api.ksyun.com",
-      config: {
-        timeout: 60,
+      'protocol': 'http://',
+      'endpoint': 'iam.api.ksyun.com',
+      'config': {
+        'timeout': 60,
         //设置timeout
-        headers: {
-          Accept: "application/json"
+        'headers': {
+          'Accept': 'application/json'
         },
-        credentials: {
-          region: "cn-shanghai-3",
-          service: "iam"
+        'credentials': {
+          'region': 'cn-shanghai-3',
+          'service': 'iam'
         }
       }
     });
     _defineProperty(this, "_apiList", {
-      GetProjectInstanceListNew: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2024-05-13",
-            Action: "GetProjectInstanceListNew"
+      'GetProjectInstanceListNew': {
+        'url': '/',
+        'method': 'GET',
+        'config': {
+          'query': {
+            'Version': '2024-05-13',
+            'Action': 'GetProjectInstanceListNew'
           },
-          headers: {
-            "Content-Type": "application/json"
+          'headers': {
+            'Content-Type': 'application/json'
           }
         },
-        paramsType: {
-          ProjectId: "Int",
-          ProductLine: "String",
-          Ps: "Int",
-          Pn: "Int"
+        'paramsType': {
+          'ProjectId': 'Int',
+          'ProductLine': 'String',
+          'Ps': 'Int',
+          'Pn': 'Int'
         }
       }
     });
