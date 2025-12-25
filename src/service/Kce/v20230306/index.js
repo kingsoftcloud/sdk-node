@@ -1,426 +1,426 @@
 const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
-    _baseConfig = {
-        'protocol': 'http://',
-        'endpoint': 'kce.api.ksyun.com',
-        'config': {
-            'timeout': 60,  //设置timeout
-            'headers': {
-                'Accept': 'application/json'
-            },
-            'credentials': {
-                'region': 'cn-shanghai-3',
-                'service': 'kce',
-            },
+  _baseConfig = {
+    protocol: "http://",
+    endpoint: "kce.api.ksyun.com",
+    config: {
+      timeout: 60, //设置timeout
+      headers: {
+        Accept: "application/json",
+      },
+      credentials: {
+        region: "cn-shanghai-3",
+        service: "kce",
+      },
+    },
+  };
+  _apiList = {
+    CreatePrometheusInstance: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "CreatePrometheusInstance",
         },
-    }
-    _apiList = {
-        'CreatePrometheusInstance': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'CreatePrometheusInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceName': 'String',
-                'ChargeType': 'String',
-                'DataRetentionTime': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribePrometheusInstance': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribePrometheusInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'Filter',
-                'Marker': 'Int',
-                'MaxResults': 'Int',
-                'Search': 'String',
-            }
+      },
+      paramsType: {
+        InstanceName: "String",
+        ChargeType: "String",
+        DataRetentionTime: "Int",
+      },
+    },
+    DescribePrometheusInstance: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribePrometheusInstance",
         },
-        'UpdatePrometheusInstance': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'UpdatePrometheusInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'InstanceName': 'String',
-                'DataRetentionTime': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DeletePrometheusInstance': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DeletePrometheusInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "Filter",
+        Marker: "Int",
+        MaxResults: "Int",
+        Search: "String",
+      },
+    },
+    UpdatePrometheusInstance: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "UpdatePrometheusInstance",
         },
-        'EnableGrafana': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'EnableGrafana',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'EnableGrafana': 'Boolean',
-                'Password': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'UpdateGrafanaPassword': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'UpdateGrafanaPassword',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'Password': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        InstanceName: "String",
+        DataRetentionTime: "Int",
+      },
+    },
+    DeletePrometheusInstance: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DeletePrometheusInstance",
         },
-        'EnableGrafanaInternet': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'EnableGrafanaInternet',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'EnableInternet': 'Boolean',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeGrafanaWhiteList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribeGrafanaWhiteList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    EnableGrafana: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "EnableGrafana",
         },
-        'UpdateGrafanaWhiteList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'UpdateGrafanaWhiteList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'WhiteList': 'Filter',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'AssociateCluster': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'AssociateCluster',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        EnableGrafana: "Boolean",
+        Password: "String",
+      },
+    },
+    UpdateGrafanaPassword: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "UpdateGrafanaPassword",
         },
-        'DisassociateCluster': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DisassociateCluster',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeAssociateClusterList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribeAssociateClusterList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'Marker': 'Int',
-                'MaxResults': 'Int',
-                'ClusterId': 'Filter',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        Password: "String",
+      },
+    },
+    EnableGrafanaInternet: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "EnableGrafanaInternet",
         },
-        'DescribeMonitorList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribeMonitorList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorSource': 'String',
-                'Marker': 'Int',
-                'MaxResults': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeMonitorCollectionConfig': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribeMonitorCollectionConfig',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorName': 'String',
-                'Type': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        EnableInternet: "Boolean",
+      },
+    },
+    DescribeGrafanaWhiteList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribeGrafanaWhiteList",
         },
-        'UpdateMonitorCollectionConfig': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'UpdateMonitorCollectionConfig',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorName': 'String',
-                'Type': 'String',
-                'ConfigYaml': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeMonitorMetricsList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribeMonitorMetricsList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorName': 'String',
-                'Type': 'String',
-                'IsCollect': 'Boolean',
-                'Marker': 'Int',
-                'MaxResults': 'Int',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    UpdateGrafanaWhiteList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "UpdateGrafanaWhiteList",
         },
-        'DescribeTargetsList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribeTargetsList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorName': 'String',
-                'Type': 'String',
-                'Marker': 'Int',
-                'MaxResults': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeAgentStatus': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DescribeAgentStatus',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        WhiteList: "Filter",
+      },
+    },
+    AssociateCluster: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "AssociateCluster",
         },
-        'CreateMonitorCollectionConfig': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'CreateMonitorCollectionConfig',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'Type': 'String',
-                'ConfigYaml': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DeleteMonitorCollectionConfig': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DeleteMonitorCollectionConfig',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorName': 'String',
-                'Type': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+      },
+    },
+    DisassociateCluster: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DisassociateCluster",
         },
-        'EnableMetrics': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'EnableMetrics',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorName': 'String',
-                'Type': 'String',
-                'MetricsName': 'Filter',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DropMetrics': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2023-03-06',
-                    'Action': 'DropMetrics',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ClusterId': 'String',
-                'MonitorName': 'String',
-                'Type': 'String',
-                'MetricsName': 'Filter',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+      },
+    },
+    DescribeAssociateClusterList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribeAssociateClusterList",
         },
-    }
-}
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        Marker: "Int",
+        MaxResults: "Int",
+        ClusterId: "Filter",
+      },
+    },
+    DescribeMonitorList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribeMonitorList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorSource: "String",
+        Marker: "Int",
+        MaxResults: "Int",
+      },
+    },
+    DescribeMonitorCollectionConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribeMonitorCollectionConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorName: "String",
+        Type: "String",
+      },
+    },
+    UpdateMonitorCollectionConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "UpdateMonitorCollectionConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorName: "String",
+        Type: "String",
+        ConfigYaml: "String",
+      },
+    },
+    DescribeMonitorMetricsList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribeMonitorMetricsList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorName: "String",
+        Type: "String",
+        IsCollect: "Boolean",
+        Marker: "Int",
+        MaxResults: "Int",
+      },
+    },
+    DescribeTargetsList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribeTargetsList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorName: "String",
+        Type: "String",
+        Marker: "Int",
+        MaxResults: "Int",
+      },
+    },
+    DescribeAgentStatus: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DescribeAgentStatus",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+      },
+    },
+    CreateMonitorCollectionConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "CreateMonitorCollectionConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        Type: "String",
+        ConfigYaml: "String",
+      },
+    },
+    DeleteMonitorCollectionConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DeleteMonitorCollectionConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorName: "String",
+        Type: "String",
+      },
+    },
+    EnableMetrics: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "EnableMetrics",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorName: "String",
+        Type: "String",
+        MetricsName: "Filter",
+      },
+    },
+    DropMetrics: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2023-03-06",
+          Action: "DropMetrics",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ClusterId: "String",
+        MonitorName: "String",
+        Type: "String",
+        MetricsName: "Filter",
+      },
+    },
+  };
+};

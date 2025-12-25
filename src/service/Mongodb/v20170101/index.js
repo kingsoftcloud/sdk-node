@@ -1,828 +1,825 @@
 const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
-    _baseConfig = {
-        'protocol': 'http://',
-        'endpoint': 'mongodb.api.ksyun.com',
-        'config': {
-            'timeout': 60,  //设置timeout
-            'headers': {
-                'Accept': 'application/json'
-            },
-            'credentials': {
-                'region': 'cn-shanghai-3',
-                'service': 'mongodb',
-            },
+  _baseConfig = {
+    protocol: "http://",
+    endpoint: "mongodb.api.ksyun.com",
+    config: {
+      timeout: 60, //设置timeout
+      headers: {
+        Accept: "application/json",
+      },
+      credentials: {
+        region: "cn-shanghai-3",
+        service: "mongodb",
+      },
+    },
+  };
+  _apiList = {
+    CreateMongoDBInstance: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "CreateMongoDBInstance",
         },
-    }
-    _apiList = {
-        'CreateMongoDBInstance': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'CreateMongoDBInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'PayType': 'String',
-                'AvailabilityZone': 'Filter',
-                'Name': 'String',
-                'DbVersion': 'String',
-                'NodeNum': 'Int',
-                'Storage': 'Int',
-                'Duration': 'Int',
-                'IamProjectId': 'String',
-                'VpcId': 'String',
-                'VnetId': 'String',
-                'InstancePassword': 'String',
-                'InstanceClass': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DeleteMongoDBInstance': {
-            'url': '/',
-            'method': 'DELETE',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DeleteMongoDBInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        PayType: "String",
+        AvailabilityZone: "Filter",
+        Name: "String",
+        DbVersion: "String",
+        NodeNum: "Int",
+        Storage: "Int",
+        Duration: "Int",
+        IamProjectId: "String",
+        VpcId: "String",
+        VnetId: "String",
+        InstancePassword: "String",
+        InstanceClass: "String",
+      },
+    },
+    DeleteMongoDBInstance: {
+      url: "/",
+      method: "DELETE",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DeleteMongoDBInstance",
         },
-        'DescribeMongoDBInstance': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeMongoDBInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DescribeMongoDBInstances': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeMongoDBInstances',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'Area': 'String',
-                'Vip': 'String',
-                'VpcId': 'String',
-                'VnetId': 'String',
-                'IamProjectId': 'String',
-                'InstanceId': 'String',
-                'Name': 'String',
-                'Mode': 'String',
-                'DbVersion': 'String',
-                'Status': 'String',
-                'FuzzySearch': 'String',
-                'TagKey': 'String',
-                'TagValue': 'String',
-                'Offset': 'Int',
-                'Limit': 'Int',
-                'OrderBy': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    DescribeMongoDBInstance: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeMongoDBInstance",
         },
-        'DescribeMongoDBInstanceNode': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeMongoDBInstanceNode',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'RenameMongoDBInstance': {
-            'url': '/',
-            'method': 'PUT',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'RenameMongoDBInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'Name': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    DescribeMongoDBInstances: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeMongoDBInstances",
         },
-        'ResetPasswordMongoDBInstance': {
-            'url': '/',
-            'method': 'PUT',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'ResetPasswordMongoDBInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'InstancePassword': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'RestartMongoDBInstance': {
-            'url': '/',
-            'method': 'PUT',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'RestartMongoDBInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        Area: "String",
+        Vip: "String",
+        VpcId: "String",
+        VnetId: "String",
+        IamProjectId: "String",
+        InstanceId: "String",
+        Name: "String",
+        Mode: "String",
+        DbVersion: "String",
+        Status: "String",
+        FuzzySearch: "String",
+        TagKey: "String",
+        TagValue: "String",
+        Offset: "Int",
+        Limit: "Int",
+        OrderBy: "String",
+      },
+    },
+    DescribeMongoDBInstanceNode: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeMongoDBInstanceNode",
         },
-        'CreateMongoDBSnapshot': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'CreateMongoDBSnapshot',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'Name': 'String',
-                'BackupMode': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'SetMongoDBTimingSnapshot': {
-            'url': '/',
-            'method': 'PUT',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'SetMongoDBTimingSnapshot',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'TimingSwitch': 'String',
-                'Timezone': 'String',
-                'TimeCycle': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeId: "String",
+      },
+    },
+    RenameMongoDBInstance: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "RenameMongoDBInstance",
         },
-        'DescribeMongoDBSnapshot': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeMongoDBSnapshot',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DeleteMongoDBSnapshot': {
-            'url': '/',
-            'method': 'DELETE',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DeleteMongoDBSnapshot',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'SnapshotId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        Name: "String",
+      },
+    },
+    ResetPasswordMongoDBInstance: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "ResetPasswordMongoDBInstance",
         },
-        'RenameMongoDBSnapshot': {
-            'url': '/',
-            'method': 'PUT',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'RenameMongoDBSnapshot',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'SnapshotId': 'String',
-                'Name': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'AddSecurityGroupRule': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'AddSecurityGroupRule',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'Cidrs': 'String',
-                'Type': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        InstancePassword: "String",
+      },
+    },
+    RestartMongoDBInstance: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "RestartMongoDBInstance",
         },
-        'DeleteSecurityGroupRules': {
-            'url': '/',
-            'method': 'DELETE',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DeleteSecurityGroupRules',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'Cidrs': 'String',
-                'InstanceId': 'String',
-                'Type': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'ListSecurityGroupRules': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'ListSecurityGroupRules',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    CreateMongoDBSnapshot: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "CreateMongoDBSnapshot",
         },
-        'UpdateMongoDBInstance': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'UpdateMongoDBInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'InstanceClass': 'String',
-                'Storage': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'AddSecondaryInstance': {
-            'url': '/',
-            'method': 'PUT',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'AddSecondaryInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeNum': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        Name: "String",
+        BackupMode: "String",
+      },
+    },
+    SetMongoDBTimingSnapshot: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "SetMongoDBTimingSnapshot",
         },
-        'DescribeMongoDBShardNode': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeMongoDBShardNode',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DescribeValidRegion': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeValidRegion',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        TimingSwitch: "String",
+        Timezone: "String",
+        TimeCycle: "String",
+      },
+    },
+    DescribeMongoDBSnapshot: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeMongoDBSnapshot",
         },
-        'AllocateEip': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'AllocateEip',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'Type': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DeallocateEip': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DeallocateEip',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    DeleteMongoDBSnapshot: {
+      url: "/",
+      method: "DELETE",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DeleteMongoDBSnapshot",
         },
-        'DescribeRegions': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeRegions',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'CreateMongoDBShardInstance': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'CreateMongoDBShardInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'PayType': 'String',
-                'AvailabilityZone': 'Filter',
-                'Name': 'String',
-                'DbVersion': 'String',
-                'Storage': 'String',
-                'Duration': 'Int',
-                'IamProjectId': 'String',
-                'VpcId': 'String',
-                'VnetId': 'String',
-                'InstancePassword': 'String',
-                'ShardClass': 'String',
-                'ShardNum': 'Int',
-                'MongosNum': 'Int',
-                'MongosClass': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        SnapshotId: "String",
+      },
+    },
+    RenameMongoDBSnapshot: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "RenameMongoDBSnapshot",
         },
-        'DownloadSnapshot': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DownloadSnapshot',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'SnapshotId': 'String',
-                'InstanceId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'CloneInstance': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'CloneInstance',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'PayType': 'String',
-                'AvailabilityZone': 'String',
-                'Name': 'String',
-                'Duration': 'Int',
-                'IamProjectId': 'String',
-                'VpcId': 'String',
-                'VnetId': 'String',
-                'InstancePassword': 'String',
-                'SnapshotId': 'String',
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        SnapshotId: "String",
+        Name: "String",
+      },
+    },
+    AddSecurityGroupRule: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "AddSecurityGroupRule",
         },
-        'DescribeShardNode': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeShardNode',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeInstanceStatistic': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeInstanceStatistic',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        Cidrs: "String",
+        Type: "String",
+      },
+    },
+    DeleteSecurityGroupRules: {
+      url: "/",
+      method: "DELETE",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DeleteSecurityGroupRules",
         },
-        'AddClusterNode': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'AddClusterNode',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeType': 'String',
-                'NodeClass': 'String',
-                'NodeStorage': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DeleteClusterNode': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DeleteClusterNode',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeId': 'String',
-            }
+      },
+      paramsType: {
+        Cidrs: "String",
+        InstanceId: "String",
+        Type: "String",
+      },
+    },
+    ListSecurityGroupRules: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "ListSecurityGroupRules",
         },
-        'DescribeSlowLogDetail': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeSlowLogDetail',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeId': 'String',
-                'InstanceType': 'String',
-                'Database': 'String',
-                'StartTime': 'String',
-                'EndTime': 'String',
-                'Marker': 'Int',
-                'MaxRecords': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DescribeSlowLogStatistics': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeSlowLogStatistics',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeId': 'String',
-                'InstanceType': 'String',
-                'StartTime': 'String',
-                'EndTime': 'String',
-                'Marker': 'Int',
-                'MaxRecords': 'Int',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    UpdateMongoDBInstance: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "UpdateMongoDBInstance",
         },
-        'DescribeSlowLogDatabase': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeSlowLogDatabase',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeId': 'String',
-                'InstanceType': 'String',
-                'StartTime': 'String',
-                'EndTime': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeSlowLogLineChart': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeSlowLogLineChart',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'NodeId': 'String',
-                'InstanceType': 'String',
-                'StartTime': 'String',
-                'EndTime': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        InstanceClass: "String",
+        Storage: "Int",
+      },
+    },
+    AddSecondaryInstance: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "AddSecondaryInstance",
         },
-        'UpdateMongoDBInstanceCluster': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'UpdateMongoDBInstanceCluster',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'InstanceClass': 'String',
-                'NodeType': 'String',
-                'NodeId': 'String',
-                'Storage': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DescribeClusterForRestore': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeClusterForRestore',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-                'ResetTimePoint': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeNum: "String",
+      },
+    },
+    DescribeMongoDBShardNode: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeMongoDBShardNode",
         },
-        'DescribeDefaultParams': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeDefaultParams',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'DbVersion': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'CreateParamGroup': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'CreateParamGroup',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ParamGroupName': 'String',
-                'Description': 'String',
-                'DbVersion': 'Double',
-                'Params': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    DescribeValidRegion: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeValidRegion",
         },
-        'DescribeParamGroupList': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeParamGroupList',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'DbVersion': 'String',
-                'NameSearch': 'String',
-                'Offset': 'String',
-                'Limit': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DescribeParamGroupInfo': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeParamGroupInfo',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'ParamGroupId': 'String',
-            }
+      },
+      paramsType: {},
+    },
+    AllocateEip: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "AllocateEip",
         },
-        'DescribeModifyHistory': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeModifyHistory',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'ParamName': 'String',
-                'Offset': 'Int',
-                'Limit': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DescribeInstanceParams': {
-            'url': '/',
-            'method': 'GET',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DescribeInstanceParams',
-                },
-                'headers': {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            },
-            'paramsType': {
-                'InstanceId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+        Type: "String",
+      },
+    },
+    DeallocateEip: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DeallocateEip",
         },
-        'ModifyParamGroup': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'ModifyParamGroup',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'NewParamGroupName': 'String',
-                'NewDescription': 'String',
-            }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        'DeleteParamGroup': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2017-01-01',
-                    'Action': 'DeleteParamGroup',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ParamGroupId': 'String',
-            }
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    DescribeRegions: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeRegions",
         },
-    }
-}
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
+    CreateMongoDBShardInstance: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "CreateMongoDBShardInstance",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PayType: "String",
+        AvailabilityZone: "Filter",
+        Name: "String",
+        DbVersion: "String",
+        Storage: "String",
+        Duration: "Int",
+        IamProjectId: "String",
+        VpcId: "String",
+        VnetId: "String",
+        InstancePassword: "String",
+        ShardClass: "String",
+        ShardNum: "Int",
+        MongosNum: "Int",
+        MongosClass: "String",
+      },
+    },
+    DownloadSnapshot: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DownloadSnapshot",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SnapshotId: "String",
+        InstanceId: "String",
+      },
+    },
+    CloneInstance: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "CloneInstance",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PayType: "String",
+        AvailabilityZone: "String",
+        Name: "String",
+        Duration: "Int",
+        IamProjectId: "String",
+        VpcId: "String",
+        VnetId: "String",
+        InstancePassword: "String",
+        SnapshotId: "String",
+        InstanceId: "String",
+      },
+    },
+    DescribeShardNode: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeShardNode",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    DescribeInstanceStatistic: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeInstanceStatistic",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
+    AddClusterNode: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "AddClusterNode",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeType: "String",
+        NodeClass: "String",
+        NodeStorage: "Int",
+      },
+    },
+    DeleteClusterNode: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DeleteClusterNode",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeId: "String",
+      },
+    },
+    DescribeSlowLogDetail: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeSlowLogDetail",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeId: "String",
+        InstanceType: "String",
+        Database: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Marker: "Int",
+        MaxRecords: "Int",
+      },
+    },
+    DescribeSlowLogStatistics: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeSlowLogStatistics",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeId: "String",
+        InstanceType: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Marker: "Int",
+        MaxRecords: "Int",
+      },
+    },
+    DescribeSlowLogDatabase: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeSlowLogDatabase",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeId: "String",
+        InstanceType: "String",
+        StartTime: "String",
+        EndTime: "String",
+      },
+    },
+    DescribeSlowLogLineChart: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeSlowLogLineChart",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        NodeId: "String",
+        InstanceType: "String",
+        StartTime: "String",
+        EndTime: "String",
+      },
+    },
+    UpdateMongoDBInstanceCluster: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "UpdateMongoDBInstanceCluster",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        InstanceClass: "String",
+        NodeType: "String",
+        NodeId: "String",
+        Storage: "Int",
+      },
+    },
+    DescribeClusterForRestore: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeClusterForRestore",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        ResetTimePoint: "String",
+      },
+    },
+    DescribeDefaultParams: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeDefaultParams",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DbVersion: "String",
+      },
+    },
+    CreateParamGroup: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "CreateParamGroup",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ParamGroupName: "String",
+        Description: "String",
+        DbVersion: "Double",
+        Params: "String",
+      },
+    },
+    DescribeParamGroupList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeParamGroupList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        DbVersion: "String",
+        NameSearch: "String",
+        Offset: "String",
+        Limit: "String",
+      },
+    },
+    DescribeParamGroupInfo: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeParamGroupInfo",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ParamGroupId: "String",
+      },
+    },
+    DescribeModifyHistory: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeModifyHistory",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ParamName: "String",
+        Offset: "Int",
+        Limit: "Int",
+      },
+    },
+    DescribeInstanceParams: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DescribeInstanceParams",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+      },
+    },
+    ModifyParamGroup: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "ModifyParamGroup",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        NewParamGroupName: "String",
+        NewDescription: "String",
+      },
+    },
+    DeleteParamGroup: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2017-01-01",
+          Action: "DeleteParamGroup",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ParamGroupId: "String",
+      },
+    },
+  };
+};

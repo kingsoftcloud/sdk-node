@@ -1,323 +1,323 @@
 const BaseClient = require("../../../base/BaseClient.js");
 
 module.exports = class Client extends BaseClient {
-    _baseConfig = {
-        'protocol': 'http://',
-        'endpoint': 'klog.api.ksyun.com',
-        'config': {
-            'timeout': 60,  //设置timeout
-            'headers': {
-                'Accept': 'application/json'
-            },
-            'credentials': {
-                'region': 'cn-shanghai-3',
-                'service': 'klog',
-            },
+  _baseConfig = {
+    protocol: "http://",
+    endpoint: "klog.api.ksyun.com",
+    config: {
+      timeout: 60, //设置timeout
+      headers: {
+        Accept: "application/json",
+      },
+      credentials: {
+        region: "cn-shanghai-3",
+        service: "klog",
+      },
+    },
+  };
+  _apiList = {
+    CreateProject: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "CreateProject",
         },
-    }
-    _apiList = {
-        'CreateProject': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'CreateProject',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'Description': 'String',
-                'IamProjectId': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DescribeProject': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'DescribeProject',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+        Description: "String",
+        IamProjectId: "Int",
+      },
+    },
+    DescribeProject: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "DescribeProject",
         },
-        'UpdateProject': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'UpdateProject',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'Description': 'String',
-                'IamProjectId': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DeleteProject': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'DeleteProject',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+      },
+    },
+    UpdateProject: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "UpdateProject",
         },
-        'ListProjects': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'ListProjects',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'Description': 'String',
-                'Page': 'Int',
-                'Size': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'CreateLogPool': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'CreateLogPool',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-                'RetentionDays': 'Int',
-                'Partitions': 'Int',
-                'Description': 'String',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+        Description: "String",
+        IamProjectId: "Int",
+      },
+    },
+    DeleteProject: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "DeleteProject",
         },
-        'DescribeLogPool': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'DescribeLogPool',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'UpdateLogPool': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'UpdateLogPool',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-                'LogPoolId': 'String',
-                'RetentionDays': 'Int',
-                'Partitions': 'Int',
-                'Description': 'String',
-                'Config': 'Object',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+      },
+    },
+    ListProjects: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "ListProjects",
         },
-        'DeleteLogPool': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'DeleteLogPool',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolId': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'ListLogPools': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'ListLogPools',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-                'Page': 'Int',
-                'Size': 'Int',
-                'Tags': 'Object',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+        Description: "String",
+        Page: "Int",
+        Size: "Int",
+      },
+    },
+    CreateLogPool: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "CreateLogPool",
         },
-        'GetLogs': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'GetLogs',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-                'LogPoolId': 'String',
-                'From': 'Int',
-                'To': 'Int',
-                'Query': 'String',
-                'Offset': 'Int',
-                'Size': 'Int',
-                'HitsOpen': 'Boolean',
-                'Interval': 'String',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'CreateQuickSearch': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'CreateQuickSearch',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-                'QuickSearchName': 'String',
-                'Query': 'String',
-                'Description': 'String',
-                'TimeRange': 'String',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        RetentionDays: "Int",
+        Partitions: "Int",
+        Description: "String",
+      },
+    },
+    DescribeLogPool: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "DescribeLogPool",
         },
-        'ListQuickSearchs': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'ListQuickSearchs',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-                'Filter': 'String',
-                'Page': 'Int',
-                'Size': 'Int',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'DeleteQuickSearchs': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'DeleteQuickSearchs',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolName': 'String',
-                'QuickSearchName': 'String',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+      },
+    },
+    UpdateLogPool: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "UpdateLogPool",
         },
-        'CreateDownloadTask': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'CreateDownloadTask',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'LogPoolNames': 'String',
-                'Config': 'Object',
-            }
+        headers: {
+          "Content-Type": "application/json",
         },
-        'ListDownloadTasks': {
-            'url': '/',
-            'method': 'POST',
-            'config': {
-                'query': {
-                    'Version': '2020-07-31',
-                    'Action': 'ListDownloadTasks',
-                },
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-            },
-            'paramsType': {
-                'ProjectName': 'String',
-                'Page': 'String',
-                'Size': 'String',
-            }
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        LogPoolId: "String",
+        RetentionDays: "Int",
+        Partitions: "Int",
+        Description: "String",
+        Config: "Object",
+      },
+    },
+    DeleteLogPool: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "DeleteLogPool",
         },
-    }
-}
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolId: "String",
+      },
+    },
+    ListLogPools: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "ListLogPools",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        Page: "Int",
+        Size: "Int",
+        Tags: "Object",
+      },
+    },
+    GetLogs: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "GetLogs",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        LogPoolId: "String",
+        From: "Int",
+        To: "Int",
+        Query: "String",
+        Offset: "Int",
+        Size: "Int",
+        HitsOpen: "Boolean",
+        Interval: "String",
+      },
+    },
+    CreateQuickSearch: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "CreateQuickSearch",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        QuickSearchName: "String",
+        Query: "String",
+        Description: "String",
+        TimeRange: "String",
+      },
+    },
+    ListQuickSearchs: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "ListQuickSearchs",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        Filter: "String",
+        Page: "Int",
+        Size: "Int",
+      },
+    },
+    DeleteQuickSearchs: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "DeleteQuickSearchs",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        QuickSearchName: "String",
+      },
+    },
+    CreateDownloadTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "CreateDownloadTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolNames: "String",
+        Config: "Object",
+      },
+    },
+    ListDownloadTasks: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2020-07-31",
+          Action: "ListDownloadTasks",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        Page: "String",
+        Size: "String",
+      },
+    },
+  };
+};
