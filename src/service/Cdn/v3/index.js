@@ -588,5 +588,77 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {},
     },
+    GetBandwidthData: {
+      url: "/",
+      method: "POST|GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "GetBandwidthData",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StartTime: "String",
+        EndTime: "String",
+        CdnType: "String",
+        DomainIds: "String",
+        Regions: "String",
+        ResultType: "Int",
+        Granularity: "Int",
+        DataType: "String",
+        ProtocolType: "String",
+      },
+    },
+    GetFlowData: {
+      url: "/",
+      method: "POST|GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "GetFlowData",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StartTime: "String",
+        EndTime: "String",
+        CdnType: "String",
+        DomainIds: "String",
+        Regions: "String",
+        ResultType: "Int",
+        Granularity: "Int",
+        DataType: "String",
+        ProtocolType: "String",
+      },
+    },
+    GetPvData: {
+      url: "/",
+      method: "POST|GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "GetPvData",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StartTime: "String",
+        EndTime: "String",
+        CdnType: "String",
+        DomainIds: "String",
+        Regions: "String",
+        ResultType: "Int",
+        Granularity: "Int",
+        DataType: "String",
+        ProtocolType: "String",
+      },
+    },
   };
 };

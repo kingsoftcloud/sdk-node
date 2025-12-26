@@ -59,5 +59,24 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
       },
     },
+    ListAlarmEffectInstance: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-01-01",
+          Action: "ListAlarmEffectInstance",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StartTime: "Int",
+        EndTime: "Int",
+        PageIndex: "Int",
+        PageSize: "Int",
+      },
+    },
   };
 };
