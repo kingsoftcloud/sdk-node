@@ -30,6 +30,10 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         DomainId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        PageSize: "Int",
+        PageNumber: "Int",
       },
     },
     GetClientRequestData: {
