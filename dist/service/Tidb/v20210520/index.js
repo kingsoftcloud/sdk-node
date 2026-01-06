@@ -32,13 +32,13 @@ module.exports = class Client extends BaseClient {
             Action: "CreateInstance"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
           InstanceName: "String",
           EnableModules: "String",
-          ModuleConfigs: "Array",
+          ModuleConfigs: "Filter",
           AdminUser: "String",
           AdminPassword: "String",
           VpcId: "String",
@@ -47,15 +47,16 @@ module.exports = class Client extends BaseClient {
           Duration: "String",
           ProductType: "Int",
           ProjectId: "String",
-          "BackupConfig.MaxBackups": "Int",
-          "BackupConfig.MaxReservedHours": "Int",
-          "BackupConfig.PreferredBackupTime": "String",
           EnableAutoBackup: "Boolean",
           Engine: "String",
           EngineVersion: "String",
           ClientPort: "Int",
           Az: "String",
-          SecurityGroupId: "String"
+          SecurityGroupId: "String",
+          BackupConfig: "Object",
+          backupId: "String",
+          backupRestoreInstanceId: "String",
+          backupRestoreTime: "String"
         }
       },
       ListInstance: {
@@ -76,7 +77,8 @@ module.exports = class Client extends BaseClient {
           FuzzySearch: "String",
           Offset: "Int",
           Limit: "Int",
-          OrderBy: "String"
+          OrderBy: "String",
+          ProductType: "Int"
         }
       },
       DescribeInstance: {
@@ -95,6 +97,22 @@ module.exports = class Client extends BaseClient {
           InstanceId: "String"
         }
       },
+      DeleteInstance: {
+        url: "/",
+        method: "DELETE",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DeleteInstance"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceIds: "String"
+        }
+      },
       RenameInstance: {
         url: "/",
         method: "POST",
@@ -104,7 +122,7 @@ module.exports = class Client extends BaseClient {
             Action: "RenameInstance"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -121,7 +139,7 @@ module.exports = class Client extends BaseClient {
             Action: "ListRegion"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -137,7 +155,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescRegion"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -154,7 +172,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -192,11 +210,29 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeSecurityGroup"
           },
           headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupId: "String",
+          RuleFuzzySearch: "String",
+          InstanceFuzzySearch: "String"
+        }
+      },
+      DeleteSecurityGroup: {
+        url: "/",
+        method: "DELETE",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DeleteSecurityGroup"
+          },
+          headers: {
             "Content-Type": "application/json"
           }
         },
         paramsType: {
-          SecurityGroupId: "String"
+          SecurityGroupIds: "String"
         }
       },
       UpdateSecurityGroup: {
@@ -208,7 +244,7 @@ module.exports = class Client extends BaseClient {
             Action: "UpdateSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -226,7 +262,7 @@ module.exports = class Client extends BaseClient {
             Action: "CloneSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -244,7 +280,7 @@ module.exports = class Client extends BaseClient {
             Action: "BindSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -261,7 +297,7 @@ module.exports = class Client extends BaseClient {
             Action: "UnbindSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -278,7 +314,7 @@ module.exports = class Client extends BaseClient {
             Action: "RebindSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -295,12 +331,12 @@ module.exports = class Client extends BaseClient {
             Action: "CreateSecurityRule"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
-          Rules: "Array",
-          SecurityGroupId: "String"
+          SecurityGroupId: "String",
+          Rules: "Object"
         }
       },
       UpdateSecurityRule: {
@@ -312,13 +348,51 @@ module.exports = class Client extends BaseClient {
             Action: "UpdateSecurityRule"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
           RuleId: "String",
           Description: "String",
           Cidr: "String"
+        }
+      },
+      DeleteSecurityRule: {
+        url: "/",
+        method: "DELETE",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DeleteSecurityRule"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          SecurityGroupId: "String",
+          RuleIds: "String"
+        }
+      },
+      ListSecuredInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "ListSecuredInstance"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          SecurityGroupId: "String",
+          ProjectIds: "String",
+          FuzzySearch: "String",
+          Offset: "Int",
+          Limit: "Int",
+          OrderBy: "String"
         }
       },
       ListUnsecuredInstance: {
@@ -356,6 +430,326 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           InstanceId: "String",
           Keyword: "String"
+        }
+      },
+      CreateBackup: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "CreateBackup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          BackupName: "String"
+        }
+      },
+      UpdateBackupRule: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "UpdateBackupRule"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          PreferredBackupTime: "String",
+          EnableAutobackup: "Boolean",
+          EnableIncremental: "Boolean"
+        }
+      },
+      DeleteBackup: {
+        url: "/",
+        method: "DELETE",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DeleteBackup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          BackupIds: "String"
+        }
+      },
+      CreateRestore: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "CreateRestore"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          BackupId: "String"
+        }
+      },
+      OpenTiMonitor: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "OpenTiMonitor"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      CreateTask: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "CreateTask"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          TaskName: "String",
+          TargetId: "String",
+          VpcId: "String",
+          VnetId: "String",
+          TargetType: "String",
+          TargetMySQL: "Object",
+          TargetKafka: "Object"
+        }
+      },
+      OperationTasks: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "OperationTasks"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          TaskList: "String",
+          Operation: "String"
+        }
+      },
+      CheckTaskName: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "CheckTaskName"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      DescribeTask: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DescribeTask"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          TaskName: "String"
+        }
+      },
+      ListTasks: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "ListTasks"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      DescribeDatabases: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DescribeDatabases"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      DescribeAccounts: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DescribeAccounts"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      CreateAccount: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "CreateAccount"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          AccountName: "String",
+          AccountPassword: "String",
+          Describe: "String",
+          Privileges: "String"
+        }
+      },
+      DeleteAccount: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "DeleteAccount"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          AccountName: "String"
+        }
+      },
+      ModifyAccountInfo: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "ModifyAccountInfo"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          AccountName: "String",
+          AccountPassword: "String",
+          AccountType: "String"
+        }
+      },
+      ModifyAccountPrivileges: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "ModifyAccountPrivileges"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          AccountName: "String",
+          OldPrivileges: "String",
+          NewPrivileges: "String"
+        }
+      },
+      ConfigurationInstanceEip: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "ConfigurationInstanceEip"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          Operation: "String",
+          EipPort: "Int"
+        }
+      },
+      UpdateInstanceTrialOrder: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2021-05-20",
+            Action: "UpdateInstanceTrialOrder"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          OperateType: "String",
+          BillType: "Int",
+          Duration: "Int"
         }
       }
     });

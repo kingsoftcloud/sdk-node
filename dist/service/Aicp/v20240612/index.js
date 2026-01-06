@@ -262,6 +262,30 @@ module.exports = class Client extends BaseClient {
           NotebookId: "String"
         }
       },
+      QueryTokenData: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "QueryTokenData"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          StartTimestamp: "Int",
+          EndTimestamp: "Int",
+          MaxResults: "Int",
+          ModelKeyword: "String",
+          Keyword: "String",
+          GroupBy: "String",
+          ReasoningType: "String",
+          Marker: "Int",
+          IsGlobalServer: "Boolean"
+        }
+      },
       CreateTrainJob: {
         url: "/",
         method: "POST",
@@ -484,26 +508,6 @@ module.exports = class Client extends BaseClient {
           InstanceId: "Filter",
           ProjectId: "Filter",
           Filter: "Filter"
-        }
-      },
-      DescribeModelChats: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2024-06-12",
-            Action: "DescribeModelChats"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          ChatId: "String",
-          CreateTimeStart: "Int",
-          CreateTimeEnd: "Int",
-          Marker: "Int",
-          MaxResults: "Int"
         }
       }
     });

@@ -1467,6 +1467,38 @@ module.exports = class Client extends BaseClient {
           NextToken: "String"
         }
       },
+      PublishDirectConnectRouteToBgp: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "PublishDirectConnectRouteToBgp"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DirectConnectRouteId: "String"
+        }
+      },
+      CancelDirectConnectRouteToBgp: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CancelDirectConnectRouteToBgp"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DirectConnectRouteId: "String"
+        }
+      },
       DetachDirectConnectGatewayWithVpc: {
         url: "/",
         method: "GET",
