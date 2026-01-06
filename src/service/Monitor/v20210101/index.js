@@ -204,5 +204,27 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {},
     },
+    DescribeAlertHistories: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2021-01-01",
+          Action: "DescribeAlertHistories",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StartTime: "Int",
+        EndTime: "Int",
+        ProductType: "Int",
+        PolicyId: "Int",
+        InstanceId: "String",
+        PageIndex: "Int",
+        PageSize: "Int",
+      },
+    },
   };
 };

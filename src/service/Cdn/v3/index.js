@@ -664,5 +664,165 @@ module.exports = class Client extends BaseClient {
         ProtocolType: "String",
       },
     },
+    SetDomainLogService: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "SetDomainLogService",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ActionType: "String",
+        DomainIds: "String",
+        Granularity: "String",
+      },
+    },
+    SetCertificate: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "SetCertificate",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        CertificateId: "String",
+        CertificateName: "String",
+        ServerCertificate: "String",
+        PrivateKey: "String",
+      },
+    },
+    RemoveCertificates: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "RemoveCertificates",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        CertificateIds: "String",
+      },
+    },
+    AssociateCertificateConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "AssociateCertificateConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Enable: "String",
+        DomainIds: "String",
+        CertificateId: "String",
+        CertificateName: "String",
+        ServerCertificate: "String",
+        PrivateKey: "String",
+      },
+    },
+    ValidateIP: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "ValidateIP",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Ip: "String",
+      },
+    },
+    SetCdnBlockDomainUrl: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "SetCdnBlockDomainUrl",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        BlockType: "String",
+        Urls: "Array",
+        RefreshOnUnblock: "String",
+      },
+    },
+    SyncRefreshCaches: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "SyncRefreshCaches",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Files: "Array",
+        Dirs: "Array",
+      },
+    },
+    InsertPreloadCaches: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "InsertPreloadCaches",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Urls: "Array",
+      },
+    },
+    GetCntvRefreshOrPreloadTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "GetCntvRefreshOrPreloadTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StartTime: "String",
+        EndTime: "String",
+        Type: "String",
+        TaskId: "String",
+      },
+    },
   };
 };
