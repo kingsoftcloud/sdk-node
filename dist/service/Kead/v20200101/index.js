@@ -23,6 +23,42 @@ module.exports = class Client extends BaseClient {
       }
     });
     _defineProperty(this, "_apiList", {
+      DescribeKead: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-01-01",
+            Action: "DescribeKead"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          KeadId: "Filter",
+          ProjectId: "Filter"
+        }
+      },
+      DescribeKeadIp: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-01-01",
+            Action: "DescribeKeadIp"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          Ip: "String",
+          ProjectId: "Filter",
+          PageSize: "Int",
+          OffSet: "Int"
+        }
+      },
       DescribeBlockIp: {
         url: "/",
         method: "GET",
@@ -35,14 +71,7 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/json"
           }
         },
-        paramsType: {
-          SearchStr: "String",
-          Status: "String",
-          InstanceType: "String",
-          RegionCode: "String",
-          StartTime: "String",
-          endTime: "String"
-        }
+        paramsType: {}
       }
     });
   }
