@@ -2064,5 +2064,21 @@ module.exports = class Client extends BaseClient {
         InstanceId: "String",
       },
     },
+    DescribeUserData: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2015-11-01",
+          Action: "DescribeUserData",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        HostId: "String",
+      },
+    },
   };
 };
