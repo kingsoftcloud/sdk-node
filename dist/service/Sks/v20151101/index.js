@@ -52,7 +52,8 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           KeyName: "String",
           PublicKey: "String",
-          Description: "String"
+          Description: "String",
+          IsCheck: "Boolean"
         }
       },
       DeleteKey: {
