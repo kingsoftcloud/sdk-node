@@ -401,6 +401,7 @@ module.exports = class Client extends BaseClient {
         Status: "Filter",
         Namekeyword: "String",
         DefaultKey: "Boolean",
+        KeyId: "Filter",
       },
     },
     QueryTokenData: {
@@ -424,6 +425,7 @@ module.exports = class Client extends BaseClient {
         ReasoningType: "String",
         Marker: "Int",
         IsGlobalServer: "Boolean",
+        ModelName: "String",
       },
     },
     DisableApikeyStatus: {
@@ -933,6 +935,43 @@ module.exports = class Client extends BaseClient {
         Filter: "Array",
       },
     },
+    EnableEndpointRateLimit: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "EnableEndpointRateLimit",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        EndpointId: "String",
+        RateLimit: "Object",
+      },
+    },
+    UpdateInferenceEndpoint: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "UpdateInferenceEndpoint",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        EndpointName: "String",
+        ProjectId: "String",
+        ModelName: "String",
+        "RateLimit ": "Object",
+        EndpointId: "String",
+      },
+    },
     StartInferenceEndpoint: {
       url: "/",
       method: "POST",
@@ -946,10 +985,22 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        EndpointName: "String",
-        ProjectId: "String",
-        ModelName: "String",
-        "RateLimit ": "Object",
+        EndpointId: "String",
+      },
+    },
+    StopInferenceEndpoint: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "StopInferenceEndpoint",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
         EndpointId: "String",
       },
     },
