@@ -262,6 +262,421 @@ module.exports = class Client extends BaseClient {
           NotebookId: "String"
         }
       },
+      EnableApikeyStatus: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "EnableApikeyStatus"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          KeyId: "String",
+          Status: "String"
+        }
+      },
+      ModifyApikey: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "ModifyApikey"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          KeyId: "String",
+          Name: "String",
+          Description: "String",
+          AssociatedModelIds: "Array",
+          AllAssociatedModel: "Boolean"
+        }
+      },
+      ActivateApiService: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "ActivateApiService"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          Status: "String"
+        }
+      },
+      DeleteApikey: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DeleteApikey"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          KeyId: "String"
+        }
+      },
+      DescribeModels: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DescribeModels"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Marker: "Int",
+          MaxResults: "Int",
+          ModelCategory: "Filter",
+          Provider: "Filter",
+          ContextLength: "Filter",
+          ModelName: "String"
+        }
+      },
+      CreateApikey: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "CreateApikey"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          Name: "String",
+          Description: "String",
+          ProjectId: "Int",
+          AssociatedModelIds: "Array",
+          AllAssociatedModel: "Boolean",
+          AllowedIps: "Array"
+        }
+      },
+      GetModelDetail: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "GetModelDetail"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ModelId: "String"
+        }
+      },
+      DescribeApikeys: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DescribeApikeys"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Marker: "Int",
+          MaxResults: "Int",
+          AssociatedModelId: "Filter",
+          Status: "Filter",
+          Namekeyword: "String",
+          DefaultKey: "Boolean",
+          KeyId: "Filter"
+        }
+      },
+      QueryTokenData: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "QueryTokenData"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          StartTimestamp: "Int",
+          EndTimestamp: "Int",
+          MaxResults: "Int",
+          Keyword: "String",
+          GroupBy: "String",
+          ReasoningType: "String",
+          Marker: "Int",
+          IsGlobalServer: "Boolean",
+          ModelName: "String"
+        }
+      },
+      DisableApikeyStatus: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DisableApikeyStatus"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          KeyId: "String",
+          Status: "String"
+        }
+      },
+      GetApiService: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "GetApiService"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      GetBatchInferenceJobsFinalResultDownloadUrl: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "GetBatchInferenceJobsFinalResultDownloadUrl"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          BatchId: "String"
+        }
+      },
+      DescribeInferenceJobsKs3AuthInfo: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DescribeInferenceJobsKs3AuthInfo"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      StopBatchInferenceJob: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "StopBatchInferenceJob"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          BatchId: "String"
+        }
+      },
+      CreateBatchInferenceJob: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "CreateBatchInferenceJob"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          JobName: "String",
+          JobDesc: "String",
+          ApikeyId: "String",
+          Model: "String",
+          ExecuteTimeoutMs: "Int",
+          InputDataType: "String",
+          Ks3Region: "String",
+          Ks3Ak: "String",
+          Ks3Sk: "String",
+          InBucket: "String",
+          OutBucket: "String",
+          InObjectName: "String",
+          OutObjectName: "String"
+        }
+      },
+      ModifyBatchInferenceJob: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "ModifyBatchInferenceJob"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          BatchId: "String",
+          JobName: "String",
+          JobDesc: "String"
+        }
+      },
+      DescribeBatchInferenceJobs: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DescribeBatchInferenceJobs"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Marker: "Int",
+          MaxResults: "Int",
+          JobNameKeyword: "String",
+          Status: "Filter",
+          BatchId: "String"
+        }
+      },
+      DeleteBatchInferenceJob: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DeleteBatchInferenceJob"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          BatchId: "String"
+        }
+      },
+      EnableModels: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "EnableModels"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          ModelIds: "Array"
+        }
+      },
+      DescribeModelQuotas: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DescribeModelQuotas"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Marker: "Int",
+          MaxResults: "Int",
+          Keyword: "String",
+          Type: "String"
+        }
+      },
+      DisableModels: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DisableModels"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          ModelIds: "Array"
+        }
+      },
+      EnableOverFreeLimit: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "EnableOverFreeLimit"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          ModelIds: "Array"
+        }
+      },
+      DisableOverFreeLimit: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DisableOverFreeLimit"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          ModelIds: "Array"
+        }
+      },
       CreateTrainJob: {
         url: "/",
         method: "POST",
@@ -486,24 +901,146 @@ module.exports = class Client extends BaseClient {
           Filter: "Filter"
         }
       },
-      DescribeModelChats: {
+      CreateInferenceEndpoint: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "CreateInferenceEndpoint"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          EndpointName: "String",
+          ProjectId: "String",
+          ModelName: "String",
+          "RateLimit ": "Object",
+          ModelId: "String"
+        }
+      },
+      DescribeInferenceEndpoints: {
         url: "/",
         method: "GET",
         config: {
           query: {
             Version: "2024-06-12",
-            Action: "DescribeModelChats"
+            Action: "DescribeInferenceEndpoints"
           },
           headers: {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
-          ChatId: "String",
-          CreateTimeStart: "Int",
-          CreateTimeEnd: "Int",
+          EndpointId: "Filter",
+          EndpointName: "String",
           Marker: "Int",
-          MaxResults: "Int"
+          MaxResults: "Int",
+          ProjectId: "Filter",
+          Filter: "Array"
+        }
+      },
+      EnableEndpointRateLimit: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "EnableEndpointRateLimit"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          EndpointId: "String",
+          RateLimit: "Object"
+        }
+      },
+      UpdateInferenceEndpoint: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "UpdateInferenceEndpoint"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          EndpointName: "String",
+          ProjectId: "String",
+          ModelName: "String",
+          "RateLimit ": "Object",
+          EndpointId: "String"
+        }
+      },
+      StartInferenceEndpoint: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "StartInferenceEndpoint"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          EndpointId: "String"
+        }
+      },
+      StopInferenceEndpoint: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "StopInferenceEndpoint"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          EndpointId: "String"
+        }
+      },
+      DeleteInferenceEndpoint: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DeleteInferenceEndpoint"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          EndpointId: "String"
+        }
+      },
+      DisableEndpointRateLimit: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2024-06-12",
+            Action: "DisableEndpointRateLimit"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          EndpointId: "String"
         }
       }
     });
