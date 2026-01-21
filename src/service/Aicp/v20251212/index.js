@@ -37,7 +37,7 @@ module.exports = class Client extends BaseClient {
         Framework: "String",
         AccessType: "String",
         SelfHealing: "Boolean",
-        MaxRuntimeHour: "Int",
+        MaxRuntimeHour: "Long",
         JobRunOnCPU: "Boolean",
         SupportTensorboard: "Boolean",
         StorageConfigs: "Array",
