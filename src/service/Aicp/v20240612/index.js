@@ -160,6 +160,90 @@ module.exports = class Client extends BaseClient {
         RunOnCPU: "String",
       },
     },
+    CreateImage: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateImage",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ImageName: "String",
+        Description: "String",
+        ImageType: "String",
+        Namespace: "String",
+        NamespacePermission: "String",
+        ImageRepo: "String",
+        ImageVersion: "String",
+        OfficialInstance: "String",
+        UserName: "String",
+        Password: "String",
+        ImagePermission: "String",
+      },
+    },
+    DeleteImage: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteImage",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ImageId: "String",
+      },
+    },
+    ModifyImage: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyImage",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ImageId: "String",
+        ImageName: "String",
+        ImagePermission: "String",
+      },
+    },
+    DescribeImages: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeImages",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Page: "Int",
+        PageSize: "Int",
+        ImageSource: "String",
+        ImageStatus: "String",
+        ImageType: "String",
+        ApplicationScenario: "String",
+        ImageId: "Filter",
+        ImageName: "String",
+        Filter: "Filter",
+      },
+    },
     StopNotebook: {
       url: "/",
       method: "GET",
@@ -1034,6 +1118,23 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         EndpointId: "String",
+      },
+    },
+    SetKcrPersonalToken: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "SetKcrPersonalToken",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        UserName: "String",
+        Password: "String",
       },
     },
   };
