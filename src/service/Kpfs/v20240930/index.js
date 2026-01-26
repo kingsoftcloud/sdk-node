@@ -16,102 +16,187 @@ module.exports = class Client extends BaseClient {
     },
   };
   _apiList = {
-    UpdatePerformanceOnePosixAcl: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "UpdatePerformanceOnePosixAcl",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        PosixAclId: "String",
-        FileSystemList: "Array",
-        Ips: "Array",
-        AutoMount: "Boolean",
-        Desc: "String",
-      },
-    },
-    DescribePerformanceOnePosixAclList: {
+    DescribeDirQuotaList: {
       url: "/",
       method: "GET",
       config: {
         query: {
           Version: "2024-09-30",
-          Action: "DescribePerformanceOnePosixAclList",
+          Action: "DescribeDirQuotaList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
+        FuzzySearch: "Boolean",
+        PageSize: "Int",
+        PageNum: "Int",
+      },
+    },
+    DeleteDirQuota: {
+      url: "/",
+      method: "DELETE",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteDirQuota",
         },
         headers: {
           "Content-Type": "application/json",
         },
       },
       paramsType: {
-        PosixAclId: "String",
         FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
         FileSystemName: "String",
-        Ip: "String",
+        DirPath: "String",
+      },
+    },
+    UpdateDirQuota: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "UpdateDirQuota",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
+        LogicalHardThreshold: "Long",
+      },
+    },
+    CreateDirQuota: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateDirQuota",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
+        LogicalHardThreshold: "Long",
+      },
+    },
+    DescribeSubDirList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeSubDirList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
+        Name: "String",
         PageNum: "Int",
         PageSize: "Int",
       },
     },
-    ManageDataFlowTask: {
+    DeleteDir: {
+      url: "/",
+      method: "DELETE",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteDir",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
+      },
+    },
+    UpdateDir: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "UpdateDir",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
+        FileSysPosixPermission: "Int",
+        FileSysOwnerUserId: "Int",
+        FileSysOwnerGroupId: "Int",
+      },
+    },
+    CreateDir: {
       url: "/",
       method: "POST",
       config: {
         query: {
           Version: "2024-09-30",
-          Action: "ManageDataFlowTask",
+          Action: "CreateDir",
         },
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       },
       paramsType: {
         FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
+        FileSysOwnerUserId: "Int",
+        FileSysOwnerGroupId: "Int",
+        FileSysPosixPermission: "Int",
       },
     },
-    CreateDataFlowStrategy: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "CreateDataFlowStrategy",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
-      },
-    },
-    ModifyDataFlowTask: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "ModifyDataFlowTask",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
-      },
-    },
-    DescribeDataFlowTaskList: {
+    DescribeDirQuota: {
       url: "/",
       method: "GET",
       config: {
         query: {
           Version: "2024-09-30",
-          Action: "DescribeDataFlowTaskList",
+          Action: "DescribeDirQuota",
         },
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -119,54 +204,10 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         FileSystemId: "String",
-      },
-    },
-    ActivateDataFlowTask: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "ActivateDataFlowTask",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
-      },
-    },
-    DeleteDataFlowStrategy: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "DeleteDataFlowStrategy",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
-      },
-    },
-    DescribeDataFlowStrategyList: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "DescribeDataFlowStrategyList",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
+        StoreClass: "String",
+        ClusterName: "String",
+        FileSystemName: "String",
+        DirPath: "String",
       },
     },
   };
