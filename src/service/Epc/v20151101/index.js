@@ -30,11 +30,13 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         HostType: "String",
+        GroupSubType: "String",
         AvailabilityZone: "String",
         Raid: "String",
         RaidId: "String",
         ImageId: "String",
         NetworkInterfaceMode: "String",
+        BondAttribute: "String",
         SubnetId: "String",
         PrivateIpAddress: "String",
         keyId: "String",
@@ -66,7 +68,6 @@ module.exports = class Client extends BaseClient {
         NvmeDataFileType: "String",
         NvmeDataDiskCatalogue: "String",
         NvmeDataDiskCatalogueSuffix: "String",
-        BondAttribute: "String",
         ContainerAgent: "String",
         KesAgent: "String",
         KmrAgent: "String",
@@ -92,7 +93,6 @@ module.exports = class Client extends BaseClient {
         RoceCluster: "String",
         SRoceCluster: "String",
         UserDefinedData: "String",
-        GroupSubType: "String",
       },
     },
     StartEpc: {
@@ -1179,6 +1179,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         HostType: "String",
+        GroupSubType: "String",
         AvailabilityZone: "String",
         Raid: "String",
         RaidId: "String",
@@ -1235,7 +1236,6 @@ module.exports = class Client extends BaseClient {
         StorageRoceNetworkCardName: "String",
         SRoceCluster: "String",
         RoceCluster: "String",
-        GroupSubType: "String",
       },
     },
     DescribeUseHotStandbyRecords: {
