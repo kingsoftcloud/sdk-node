@@ -92,6 +92,7 @@ module.exports = class Client extends BaseClient {
         RoceCluster: "String",
         SRoceCluster: "String",
         UserDefinedData: "String",
+        GroupSubType: "String",
       },
     },
     StartEpc: {
@@ -1234,6 +1235,7 @@ module.exports = class Client extends BaseClient {
         StorageRoceNetworkCardName: "String",
         SRoceCluster: "String",
         RoceCluster: "String",
+        GroupSubType: "String",
       },
     },
     DescribeUseHotStandbyRecords: {
