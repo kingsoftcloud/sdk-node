@@ -16,6 +16,88 @@ module.exports = class Client extends BaseClient {
     },
   };
   _apiList = {
+    CreateStorageConfig: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateStorageConfig",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StorageConfigName: "String",
+        Description: "String",
+        Type: "String",
+        MountPath: "String",
+        KpfsInfo: "Object",
+        Ks3Info: "Object",
+        Users: "Array",
+        Ak: "String",
+        Sk: "String",
+      },
+    },
+    ModifyStorageConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyStorageConfig",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StorageConfigId: "String",
+        StorageConfigName: "String",
+        Description: "String",
+        MountPath: "String",
+        Ks3Info: "Object",
+        Users: "Array",
+        Ak: "String",
+        Sk: "String",
+      },
+    },
+    DescribeStorageConfigs: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeStorageConfigs",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StorageConfigId: "Filter",
+        Filter: "Filter",
+        PageSize: "Int",
+        Page: "Int",
+      },
+    },
+    DeleteStorageConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteStorageConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StorageConfigId: "String",
+      },
+    },
     SaveNotebookImage: {
       url: "/",
       method: "POST",
@@ -115,9 +197,8 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         NotebookId: "Filter",
         Name: "String",
-        Marker: "Int",
-        MaxResults: "Int",
-        State: "String",
+        Page: "Int",
+        PageSize: "Int",
         Filter: "Filter",
         QueueId: "String",
       },
@@ -169,7 +250,7 @@ module.exports = class Client extends BaseClient {
           Action: "CreateImage",
         },
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       },
       paramsType: {
@@ -253,7 +334,7 @@ module.exports = class Client extends BaseClient {
           Action: "StopNotebook",
         },
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       },
       paramsType: {
@@ -293,22 +374,6 @@ module.exports = class Client extends BaseClient {
         ExpirationMinute: "String",
       },
     },
-    DescribeNotebookEvents: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "DescribeNotebookEvents",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        NotebookId: "String",
-      },
-    },
     DescribeNotebookLog: {
       url: "/",
       method: "GET",
@@ -321,7 +386,11 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       },
-      paramsType: {},
+      paramsType: {
+        NotebookId: "String",
+        SinceSeconds: "Int",
+        TailLines: "String",
+      },
     },
     StopNotebookSavingImage: {
       url: "/",
@@ -486,30 +555,6 @@ module.exports = class Client extends BaseClient {
         Namekeyword: "String",
         DefaultKey: "Boolean",
         KeyId: "Filter",
-      },
-    },
-    QueryTokenData: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "QueryTokenData",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        StartTimestamp: "Long",
-        EndTimestamp: "Long",
-        MaxResults: "Int",
-        Keyword: "String",
-        GroupBy: "String",
-        ReasoningType: "String",
-        Marker: "Int",
-        IsGlobalServer: "Boolean",
-        ModelName: "String",
       },
     },
     DisableApikeyStatus: {
@@ -1120,6 +1165,26 @@ module.exports = class Client extends BaseClient {
         EndpointId: "String",
       },
     },
+    DescribeResourcePoolInstanceTasks: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeResourcePoolInstanceTasks",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        InstanceId: "String",
+        TaskType: "String",
+        PageSize: "Int",
+        Page: "Int",
+      },
+    },
     SetKcrPersonalToken: {
       url: "/",
       method: "POST",
@@ -1135,6 +1200,25 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         UserName: "String",
         Password: "String",
+      },
+    },
+    DescribeQueues: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeQueues",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        QueueId: "Filter",
+        Page: "Int",
+        PageSize: "Int",
+        Filter: "Filter",
       },
     },
   };
