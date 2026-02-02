@@ -717,27 +717,6 @@ module.exports = class Client extends BaseClient {
         CertificateIds: "String",
       },
     },
-    AssociateCertificateConfig: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "V3",
-          Action: "AssociateCertificateConfig",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        Enable: "String",
-        DomainIds: "String",
-        CertificateId: "String",
-        CertificateName: "String",
-        ServerCertificate: "String",
-        PrivateKey: "String",
-      },
-    },
     ValidateIP: {
       url: "/",
       method: "GET",
@@ -770,39 +749,6 @@ module.exports = class Client extends BaseClient {
         BlockType: "String",
         Urls: "Array",
         RefreshOnUnblock: "String",
-      },
-    },
-    SyncRefreshCaches: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "V3",
-          Action: "SyncRefreshCaches",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        Files: "Array",
-        Dirs: "Array",
-      },
-    },
-    InsertPreloadCaches: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "V3",
-          Action: "InsertPreloadCaches",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        Urls: "Array",
       },
     },
     GetCntvRefreshOrPreloadTask: {
