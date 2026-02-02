@@ -16,6 +16,28 @@ module.exports = class Client extends BaseClient {
     },
   };
   _apiList = {
+    DescribeFileSystemList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeFileSystemList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Region: "String",
+        FileSystemName: "String",
+        FileSystemIds: "String",
+        StoreClasses: "String",
+        ProjectId: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
     DescribeDirQuotaList: {
       url: "/",
       method: "GET",
