@@ -93,6 +93,7 @@ module.exports = class Client extends BaseClient {
         RoceCluster: "String",
         SRoceCluster: "String",
         UserDefinedData: "String",
+        ClientToken: "String",
       },
     },
     StartEpc: {
@@ -109,6 +110,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         HostId: "String",
+        ClientToken: "String",
       },
     },
     RebootEpc: {
@@ -125,6 +127,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         HostId: "String",
+        ClientToken: "String",
       },
     },
     DeleteEpc: {
@@ -141,6 +144,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         HostId: "String",
+        ClientToken: "String",
       },
     },
     ReinstallEpc: {
@@ -186,6 +190,7 @@ module.exports = class Client extends BaseClient {
         DataDiskMount: "String",
         StorageRoceNetworkCardName: "String",
         UserDefinedData: "String",
+        ClientToken: "String",
       },
     },
     ModifySecurityGroup: {
@@ -456,6 +461,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         HostId: "String",
+        ClientToken: "String",
       },
     },
     ModifyEpc: {
@@ -474,6 +480,7 @@ module.exports = class Client extends BaseClient {
         HostId: "String",
         HostName: "String",
         Description: "String",
+        ClientToken: "String",
       },
     },
     ModifyRemoteManagement: {
@@ -1236,6 +1243,7 @@ module.exports = class Client extends BaseClient {
         StorageRoceNetworkCardName: "String",
         SRoceCluster: "String",
         RoceCluster: "String",
+        ClientToken: "String",
       },
     },
     DescribeUseHotStandbyRecords: {

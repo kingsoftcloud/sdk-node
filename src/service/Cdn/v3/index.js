@@ -32,8 +32,8 @@ module.exports = class Client extends BaseClient {
         DomainId: "String",
         StartTime: "String",
         EndTime: "String",
-        PageSize: "Int",
-        PageNumber: "Int",
+        PageSize: "Long",
+        PageNumber: "Long",
       },
     },
     GetClientRequestData: {
@@ -76,10 +76,10 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        PageSize: "Int",
-        PageNumber: "Int",
+        PageSize: "Long",
+        PageNumber: "Long",
         DomainName: "String",
-        ProjectId: "Int",
+        ProjectId: "Long",
         DomainStatus: "String",
         CdnType: "String",
         FuzzyMatch: "String",
@@ -610,8 +610,8 @@ module.exports = class Client extends BaseClient {
         CdnType: "String",
         DomainIds: "String",
         Regions: "String",
-        ResultType: "Int",
-        Granularity: "Int",
+        ResultType: "Long",
+        Granularity: "Long",
         DataType: "String",
         ProtocolType: "String",
       },
@@ -634,8 +634,8 @@ module.exports = class Client extends BaseClient {
         CdnType: "String",
         DomainIds: "String",
         Regions: "String",
-        ResultType: "Int",
-        Granularity: "Int",
+        ResultType: "Long",
+        Granularity: "Long",
         DataType: "String",
         ProtocolType: "String",
       },
@@ -658,8 +658,8 @@ module.exports = class Client extends BaseClient {
         CdnType: "String",
         DomainIds: "String",
         Regions: "String",
-        ResultType: "Int",
-        Granularity: "Int",
+        ResultType: "Long",
+        Granularity: "Long",
         DataType: "String",
         ProtocolType: "String",
       },
@@ -822,6 +822,60 @@ module.exports = class Client extends BaseClient {
         EndTime: "String",
         Type: "String",
         TaskId: "String",
+      },
+    },
+    SubmitRefreshCaches: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "SubmitRefreshCaches",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Files: "Array",
+        Dirs: "Array",
+      },
+    },
+    SubmitPreloadCaches: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "SubmitPreloadCaches",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Urls: "Array",
+      },
+    },
+    SetCertificateConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "SetCertificateConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Enable: "String",
+        DomainIds: "String",
+        CertificateId: "String",
+        CertificateName: "String",
+        ServerCertificate: "String",
+        PrivateKey: "String",
       },
     },
   };
