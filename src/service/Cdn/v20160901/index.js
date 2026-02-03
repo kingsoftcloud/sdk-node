@@ -49,19 +49,5 @@ module.exports = class Client extends BaseClient {
         Dirs: "String",
       },
     },
-    GetDomainPidDimensionUsageData: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2016-09-01",
-          Action: "GetDomainPidDimensionUsageData",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {},
-    },
   };
 };

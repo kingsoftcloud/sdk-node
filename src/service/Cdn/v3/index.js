@@ -751,25 +751,6 @@ module.exports = class Client extends BaseClient {
         RefreshOnUnblock: "String",
       },
     },
-    GetCntvRefreshOrPreloadTask: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "V3",
-          Action: "GetCntvRefreshOrPreloadTask",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        StartTime: "String",
-        EndTime: "String",
-        Type: "String",
-        TaskId: "String",
-      },
-    },
     SubmitRefreshCaches: {
       url: "/",
       method: "GET",
