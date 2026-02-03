@@ -124,6 +124,38 @@ module.exports = class Client extends BaseClient {
           ForwardConfId: "String",
           ForwardSourceId: "Filter"
         }
+      },
+      GetAttackLog: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "GetAttackLog"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {}
+      },
+      DescribeOverview: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-11-22",
+            Action: "DescribeOverview"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          KadId: "String",
+          StartTime: "String",
+          EndTime: "String"
+        }
       }
     });
   }
