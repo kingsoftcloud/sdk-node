@@ -232,5 +232,110 @@ module.exports = class Client extends BaseClient {
         DirPath: "String",
       },
     },
+    UpdatePerformanceNfsAclIp: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "UpdatePerformanceNfsAclIp",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        NfsAclId: "String",
+        Ips: "Array",
+      },
+    },
+    RemovePerformanceNfsAclClient: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "RemovePerformanceNfsAclClient",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        NfsAclId: "String",
+        Ips: "Array",
+      },
+    },
+    AddPerformanceNfsAclClient: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "AddPerformanceNfsAclClient",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        NfsAclId: "String",
+        Ips: "Array",
+      },
+    },
+    DeletePerformanceOneNfsAcl: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeletePerformanceOneNfsAcl",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        NfsAclId: "String",
+      },
+    },
+    SetPerformanceOneNfsAcl: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "SetPerformanceOneNfsAcl",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        ExportPath: "String",
+        Ips: "Array",
+        Desc: "String",
+      },
+    },
+    DescribePerformanceOneNfsAclList: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribePerformanceOneNfsAclList",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemName: "String",
+        NfsAclId: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
   };
 };
