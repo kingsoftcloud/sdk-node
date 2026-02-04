@@ -36,8 +36,15 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          Action: "String",
-          Version: "String"
+          StartTime: "String",
+          EndTime: "String",
+          TaskId: "String",
+          DomainName: "String",
+          Urls: "Array",
+          Type: "String",
+          SubType: "String",
+          PageSize: "Long",
+          PageNumber: "Long"
         }
       }
     });

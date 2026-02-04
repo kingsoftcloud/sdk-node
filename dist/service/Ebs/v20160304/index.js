@@ -32,7 +32,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -44,7 +44,11 @@ module.exports = class Client extends BaseClient {
           ChargeType: "String",
           PurchaseTime: "Int",
           ProjectId: "String",
-          SubOrderId: "String"
+          SubOrderId: "String",
+          SnapshotId: "String",
+          ClusterId: "String",
+          Tag: "Filter",
+          ProvisionedIops: "Int"
         }
       },
       AttachVolume: {
@@ -56,7 +60,7 @@ module.exports = class Client extends BaseClient {
             Action: "AttachVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -74,7 +78,7 @@ module.exports = class Client extends BaseClient {
             Action: "DetachVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -91,7 +95,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -108,7 +112,7 @@ module.exports = class Client extends BaseClient {
             Action: "ResizeVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -127,7 +131,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeVolumes"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -137,7 +141,12 @@ module.exports = class Client extends BaseClient {
           VolumeType: "String",
           VolumeCreateDate: "String",
           Marker: "Int",
-          MaxResults: "Int"
+          MaxResults: "Int",
+          "Tag.N.Key": "String",
+          "Tag.N.Value": "String",
+          VolumeCreateEndDate: "String",
+          VolumeCreateStartDate: "String",
+          SourceSnapshotId: "String"
         }
       },
       ModifyVolume: {
@@ -149,7 +158,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -168,7 +177,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeEbsInstances"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -185,7 +194,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInstanceVolumes"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -201,7 +210,7 @@ module.exports = class Client extends BaseClient {
             Action: "RenewVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -218,7 +227,7 @@ module.exports = class Client extends BaseClient {
             Action: "UpdateVolumeProject"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -235,7 +244,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeSnapshots"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -257,14 +266,15 @@ module.exports = class Client extends BaseClient {
             Action: "CreateSnapshot"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           VolumeId: "String",
           SnapshotName: "String",
           SnapshotDesc: "String",
-          SnapshotType: "String"
+          SnapshotType: "String",
+          ScheduledDeleteTime: "String"
         }
       },
       DeleteSnapshot: {
@@ -276,12 +286,10 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteSnapshot"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {
-          SnapshotId: "String"
-        }
+        paramsType: {}
       },
       RollbackSnapshot: {
         url: "/",
@@ -292,13 +300,10 @@ module.exports = class Client extends BaseClient {
             Action: "RollbackSnapshot"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {
-          VolumeId: "String",
-          SnapshotId: "String"
-        }
+        paramsType: {}
       },
       ModifySnapshot: {
         url: "/",
@@ -309,14 +314,10 @@ module.exports = class Client extends BaseClient {
             Action: "ModifySnapshot"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {
-          SnapshotId: "String",
-          SnapshotName: "String",
-          SnapshotDesc: "String"
-        }
+        paramsType: {}
       },
       RecoveryVolume: {
         url: "/",
@@ -327,7 +328,7 @@ module.exports = class Client extends BaseClient {
             Action: "RecoveryVolume"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -343,12 +344,28 @@ module.exports = class Client extends BaseClient {
             Action: "ValidateAttachInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           VolumeType: "String",
           InstanceId: "String"
+        }
+      },
+      DescribeAvailabilityZones: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeAvailabilityZones"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          VolumeType: "String"
         }
       },
       DescribeCreateVolumePrice: {
@@ -360,7 +377,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCreateVolumePrice"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -369,6 +386,152 @@ module.exports = class Client extends BaseClient {
           AvailabilityZone: "String",
           ChargeType: "String",
           PurchaseTime: "Int"
+        }
+      },
+      ModifySnapshotType: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifySnapshotType"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SnapshotIds: "Array",
+          SnapshotId: "String"
+        }
+      },
+      ModifyVolumeType: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyVolumeType"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          VolumeId: "String",
+          PerformanceVolumeSize: "String",
+          PerformanceLevelVolumeCategory: "String"
+        }
+      },
+      ModifyDedicatedBlockStorageClusterAttribute: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyDedicatedBlockStorageClusterAttribute"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DbscId: "String",
+          DbscName: "String",
+          AvailabilityZone: "String",
+          DbscDesc: "String"
+        }
+      },
+      ResizeDedicatedBlockStorageClusters: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ResizeDedicatedBlockStorageClusters"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DbscId: "String",
+          Size: "Int",
+          AvailabilityZone: "String"
+        }
+      },
+      DescribeDedicatedBlockStorageClusters: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeDedicatedBlockStorageClusters"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          AvailabilityZone: "String",
+          DbscName: "String",
+          Marker: "Int",
+          MaxResults: "Int",
+          DbscCreateDate: "String",
+          DbscId: "Filter"
+        }
+      },
+      CreateDedicatedBlockStorageCluster: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CreateDedicatedBlockStorageCluster"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DbscName: "String",
+          DbscType: "String",
+          Size: "Int",
+          AvailabilityZone: "String",
+          PurchaseTime: "Int"
+        }
+      },
+      ModifyVolumePreset: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyVolumePreset"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          VolumeId: "String",
+          ProvisionedIops: "Int"
+        }
+      },
+      GetUpgradeVolumeTypeProcessInfo: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "GetUpgradeVolumeTypeProcessInfo"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          VolumeId: "Filter"
         }
       }
     });
