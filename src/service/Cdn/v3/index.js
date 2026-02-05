@@ -753,7 +753,7 @@ module.exports = class Client extends BaseClient {
     },
     SubmitRefreshCaches: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "V3",
@@ -770,7 +770,7 @@ module.exports = class Client extends BaseClient {
     },
     SubmitPreloadCaches: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "V3",
@@ -803,6 +803,30 @@ module.exports = class Client extends BaseClient {
         CertificateName: "String",
         ServerCertificate: "String",
         PrivateKey: "String",
+      },
+    },
+    GetRefreshOrPreloadTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "V3",
+          Action: "GetRefreshOrPreloadTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StartTime: "String",
+        EndTime: "String",
+        TaskId: "String",
+        DomainName: "String",
+        Urls: "Array",
+        Type: "String",
+        SubType: "String",
+        PageSize: "Long",
+        PageNumber: "Long",
       },
     },
   };

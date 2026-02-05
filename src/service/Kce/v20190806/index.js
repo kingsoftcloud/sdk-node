@@ -661,5 +661,26 @@ module.exports = class Client extends BaseClient {
         Values: "String",
       },
     },
+    CreateWebSocketPublicUri: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2019-08-06",
+          Action: "CreateWebSocketPublicUri",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ClusterId: "String",
+        Namespace: "String",
+        PodName: "String",
+        ContainerName: "String",
+        Command: "String",
+        Tty: "Boolean",
+      },
+    },
   };
 };
