@@ -85,7 +85,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCacheCluster"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -102,7 +102,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCacheClusters"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -154,7 +154,6 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          AvailableZone: "String",
           CacheId: "String",
           Name: "String"
         }
@@ -226,7 +225,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCacheDefaultParameters"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -248,7 +247,7 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           AvailableZone: "String",
-          CacheParameterGroupId: "String",
+          CacheParameterGroupIds: "String",
           CacheId: "String"
         }
       },
@@ -474,7 +473,8 @@ module.exports = class Client extends BaseClient {
           AvailableZone: "String",
           SnapshotId: "String",
           BucketName: "String",
-          ObjectName: "String"
+          ObjectName: "String",
+          CacheId: "String"
         }
       },
       DescribeRegions: {
@@ -617,7 +617,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInstances"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -710,7 +710,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -730,7 +730,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeSecurityGroups"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -815,6 +815,39 @@ module.exports = class Client extends BaseClient {
           Description: "String"
         }
       },
+      DescribeCacheReadonlyNode: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeCacheReadonlyNode"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          CacheId: "String"
+        }
+      },
+      AddCacheSlaveNode: {
+        url: "/",
+        method: "PUT",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "AddCacheSlaveNode"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          CacheId: "String",
+          SlaveVip: "String"
+        }
+      },
       DescribeHotKeys: {
         url: "/",
         method: "GET",
@@ -824,7 +857,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeHotKeys"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -845,7 +878,7 @@ module.exports = class Client extends BaseClient {
             Action: "AnalyzeHotKeys"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -862,7 +895,7 @@ module.exports = class Client extends BaseClient {
             Action: "CloseDirectAccessToCluster"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -879,7 +912,7 @@ module.exports = class Client extends BaseClient {
             Action: "OpenDirectAccessToCluster"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -898,7 +931,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeParentBackUpsSnapshots"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -914,7 +947,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeBackUpsSnapshotsDetail"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -931,7 +964,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteLevelSnapshots"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -965,7 +998,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeBigKeys"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -981,7 +1014,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteBigKeysAnalyseResult"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -998,7 +1031,7 @@ module.exports = class Client extends BaseClient {
             Action: "AnalyzeBigKeys"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1015,12 +1048,10 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCreateSnapshotStatus"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {
-          CacheId: "String"
-        }
+        paramsType: {}
       },
       GetDailyAnalyzeSwitchState: {
         url: "/",
@@ -1099,6 +1130,117 @@ module.exports = class Client extends BaseClient {
           CacheId: "String",
           ServiceLog: "Boolean",
           SlowLog: "Boolean"
+        }
+      },
+      RestoreByTimePointSwitch: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "RestoreByTimePointSwitch"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CacheId: "String",
+          RestoreSwitch: "String"
+        }
+      },
+      DescribeRestoreTimePoints: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeRestoreTimePoints"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CacheId: "String"
+        }
+      },
+      DescribeBigHotKeys: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeBigHotKeys"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CacheId: "String",
+          NodeId: "String",
+          QueryType: "String",
+          KeyType: "Int",
+          KeyName: "String",
+          StartQueryTime: "String",
+          EndQueryTime: "String",
+          PageSize: "Int",
+          PageNum: "Int"
+        }
+      },
+      DescribePlugins: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribePlugins"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CacheId: "String",
+          Installed: "Boolean",
+          FuzzySearch: "String",
+          Offset: "Int",
+          Limit: "Int"
+        }
+      },
+      InstallPlugins: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "InstallPlugins"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          CacheId: "String",
+          Plugins: "Array"
+        }
+      },
+      UninstallPlugins: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "UninstallPlugins"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          CacheId: "String",
+          PluginNames: "Array"
         }
       }
     });
