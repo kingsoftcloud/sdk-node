@@ -69,7 +69,9 @@ module.exports = class Client extends BaseClient {
           LogConfig: "Object",
           LivenessProbeConfig: "Object",
           ReadinessProbeConfig: "Object",
-          Layers: "Array"
+          Layers: "Array",
+          CodeType: "String",
+          CustomContainerConfig: "Object"
         }
       },
       CheckFunctionService: {
@@ -179,7 +181,8 @@ module.exports = class Client extends BaseClient {
           LogConfig: "Object",
           LivenessProbeConfig: "Object",
           ReadinessProbeConfig: "Object",
-          Layers: "Array"
+          Layers: "Array",
+          CustomContainerConfig: "Object"
         }
       },
       DescribeTriggers: {
