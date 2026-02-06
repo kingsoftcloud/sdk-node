@@ -34,7 +34,7 @@ module.exports = class Client extends BaseClient {
     },
     CreateFunction: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "2021-12-15",
@@ -97,14 +97,14 @@ module.exports = class Client extends BaseClient {
     },
     DeleteFunction: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "2021-12-15",
           Action: "DeleteFunction",
         },
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       },
       paramsType: {
@@ -113,7 +113,7 @@ module.exports = class Client extends BaseClient {
     },
     CreateTrigger: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "2021-12-15",
@@ -133,23 +133,55 @@ module.exports = class Client extends BaseClient {
     },
     DeleteTrigger: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "2021-12-15",
           Action: "DeleteTrigger",
         },
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       },
       paramsType: {
         Id: "String",
       },
     },
+    DescribeFunctions: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "DescribeFunctions",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Namespace: "String",
+      },
+    },
+    DescribeFunction: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "DescribeFunction",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        id: "String",
+      },
+    },
     ModifyFunction: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "2021-12-15",
@@ -180,14 +212,14 @@ module.exports = class Client extends BaseClient {
     },
     DescribeTriggers: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "2021-12-15",
           Action: "DescribeTriggers",
         },
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       },
       paramsType: {

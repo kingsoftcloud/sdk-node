@@ -38,6 +38,208 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
       },
     },
+    GetTotalSize: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetTotalSize",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+      },
+    },
+    GetInodeCount: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetInodeCount",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+      },
+    },
+    GetCapacityAvailable: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetCapacityAvailable",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+      },
+    },
+    GetCapacityTotal: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetCapacityTotal",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+      },
+    },
+    GetLatencyWrite: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetLatencyWrite",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        ClientNm: "String",
+        VpcIp: "String",
+      },
+    },
+    GetLatencyRead: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetLatencyRead",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        ClientNm: "String",
+        VpcIp: "String",
+      },
+    },
+    GetIopsWrite: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetIopsWrite",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        ClientNm: "String",
+        VpcIp: "String",
+      },
+    },
+    GetIopsRead: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetIopsRead",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        ClientNm: "String",
+        VpcIp: "String",
+      },
+    },
+    GetBandwidthWrite: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetBandwidthWrite",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        ClientNm: "String",
+        VpcIp: "String",
+      },
+    },
+    GetBandwidthRead: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetBandwidthRead",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        ClientNm: "String",
+        VpcIp: "String",
+      },
+    },
     DescribeDirQuotaList: {
       url: "/",
       method: "GET",
@@ -335,6 +537,26 @@ module.exports = class Client extends BaseClient {
         NfsAclId: "String",
         PageNum: "Int",
         PageSize: "Int",
+      },
+    },
+    DescribeFileSystemNfsClientInfo: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeFileSystemNfsClientInfo",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+        Action: "String",
+        Version: "String",
       },
     },
   };
