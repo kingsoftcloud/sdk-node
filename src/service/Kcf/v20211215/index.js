@@ -147,6 +147,113 @@ module.exports = class Client extends BaseClient {
         Id: "String",
       },
     },
+    CreateOrModifyAutoScalingConfig: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "CreateOrModifyAutoScalingConfig",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FunctionId: "String",
+        IdleReplicaCount: "Int",
+        MaxReplicaCount: "Int",
+        MinReplicaCount: "Int",
+        CooldownPeriod: "Int",
+        StabilizationWindowSeconds: "Int",
+      },
+    },
+    DescribeAutoScalingConfig: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "DescribeAutoScalingConfig",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FunctionId: "String",
+      },
+    },
+    CreateAutoScaledTrigger: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "CreateAutoScaledTrigger",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FunctionId: "String",
+        Triggers: "Array",
+      },
+    },
+    ModifyAutoScaledTrigger: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "ModifyAutoScaledTrigger",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FucntionId: "String",
+        Name: "String",
+        TriggerConfig: "Object",
+      },
+    },
+    DescribeAutoScaledTriggers: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "DescribeAutoScaledTriggers",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FunctionId: "String",
+        Name: "String",
+        Type: "String",
+      },
+    },
+    DeleteAutoScaledTrigger: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2021-12-15",
+          Action: "DeleteAutoScaledTrigger",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Functionid: "String",
+        TriggerName: "String",
+      },
+    },
     DescribeFunctions: {
       url: "/",
       method: "POST",

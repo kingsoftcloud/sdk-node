@@ -62,6 +62,9 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
         Page: "Int",
         TrainJobName: "String",
+        GPUType: "String",
+        SortKey: "String",
+        Sort: "String",
       },
     },
     ModifyModelAccess: {
