@@ -40,7 +40,8 @@ module.exports = class BaseClient {
     let region = this.region || this._baseConfig.config.credentials.region;
     let headers = {
       ...(this._baseConfig.config.headers || {}),
-      ...(apiConfig.config.headers || {})
+      ...(apiConfig.config.headers || {}),
+      ...(this.httpProfile.headers || {})
     };
 
     // 处理自定义path
