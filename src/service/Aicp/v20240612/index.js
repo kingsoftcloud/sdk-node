@@ -408,23 +408,6 @@ module.exports = class Client extends BaseClient {
         NotebookId: "String",
       },
     },
-    EnableApikeyStatus: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "EnableApikeyStatus",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        KeyId: "String",
-        Status: "String",
-      },
-    },
     ModifyApikey: {
       url: "/",
       method: "POST",
