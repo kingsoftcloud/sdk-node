@@ -94,6 +94,8 @@ module.exports = class Client extends BaseClient {
         SRoceCluster: "String",
         UserDefinedData: "String",
         ClientToken: "String",
+        NetworkCardNameFormat: "String",
+        NetworkCardPriority: "String",
       },
     },
     StartEpc: {
@@ -191,6 +193,8 @@ module.exports = class Client extends BaseClient {
         StorageRoceNetworkCardName: "String",
         UserDefinedData: "String",
         ClientToken: "String",
+        NetworkCardNameFormat: "String",
+        NetworkCardPriority: "String",
       },
     },
     ModifySecurityGroup: {
@@ -1244,6 +1248,8 @@ module.exports = class Client extends BaseClient {
         SRoceCluster: "String",
         RoceCluster: "String",
         ClientToken: "String",
+        NetworkCardNameFormat: "String",
+        NetworkCardPriority: "String",
       },
     },
     DescribeUseHotStandbyRecords: {
