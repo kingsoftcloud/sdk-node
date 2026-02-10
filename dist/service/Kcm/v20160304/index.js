@@ -23,6 +23,79 @@ module.exports = class Client extends BaseClient {
       }
     });
     _defineProperty(this, "_apiList", {
+      CreateCertificate: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CreateCertificate"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CertificateName: "String",
+          PrivateKey: "String",
+          PublicKey: "String",
+          CertificateType: "String",
+          Source: "String",
+          SslCertificateId: "String",
+          Description: "String"
+        }
+      },
+      DeleteCertificate: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DeleteCertificate"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CertificateId: "String"
+        }
+      },
+      ModifyCertificate: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyCertificate"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CertificateId: "String",
+          CertificateName: "String",
+          PrivateKey: "String",
+          PublicKey: "String"
+        }
+      },
+      DescribeCertificates: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeCertificates"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CertificateId: "Filter"
+        }
+      },
       ApplyCertificate: {
         url: "/",
         method: "POST",
@@ -43,7 +116,8 @@ module.exports = class Client extends BaseClient {
           WildcardCount: "Int",
           ProductId: "String",
           SubOrderId: "String",
-          ProjectId: "Int"
+          ProjectId: "Int",
+          BillType: "Int"
         }
       },
       UpdateCertificate: {
@@ -78,7 +152,41 @@ module.exports = class Client extends BaseClient {
           IsSubmit: "String",
           BusinessLicence: "String",
           CsrSource: "String",
-          Algorithm: "String"
+          Algorithm: "String",
+          CertSignature: "String"
+        }
+      },
+      ReIssueCertificate: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ReIssueCertificate"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CertificateId: "String",
+          CsrSource: "String"
+        }
+      },
+      CancelTransaction: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CancelTransaction"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CertificateId: "String"
         }
       },
       ListCertificates: {
@@ -96,7 +204,9 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           CertificateId: "Filter",
           ProjectId: "Filter",
-          Filter: "Filter"
+          Filter: "Filter",
+          Page: "Int",
+          PageSize: "Int"
         }
       },
       GetCertificateDetail: {
