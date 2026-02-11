@@ -559,5 +559,103 @@ module.exports = class Client extends BaseClient {
         Version: "String",
       },
     },
+    DeleteDataFlow: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteDataFlow",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        DataFlowId: "String",
+      },
+    },
+    DescribeDataFlowTasks: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeDataFlowTasks",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        DataFlowId: "String",
+        TaskIds: "String",
+        PageSize: "Int",
+        PageNum: "Int",
+      },
+    },
+    DescribeDataFlows: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeDataFlows",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        DataFlowId: "String",
+        PageSize: "Int",
+        PageNum: "Int",
+      },
+    },
+    CreateDataFlowTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateDataFlowTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DataFlowId: "String",
+        TaskAction: "String",
+        SrcDirectory: "String",
+        DstDirectory: "String",
+        EntryList: "Array",
+        Bandwidth: "Int",
+      },
+    },
+    CreateDataFlow: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateDataFlow",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        FileSystemId: "String",
+        DirPath: "String",
+        Bucket: "String",
+        BucketPrefix: "String",
+        Description: "String",
+      },
+    },
   };
 };

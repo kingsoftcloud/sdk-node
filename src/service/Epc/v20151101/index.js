@@ -96,6 +96,8 @@ module.exports = class Client extends BaseClient {
         ClientToken: "String",
         NetworkCardNameFormat: "String",
         NetworkCardPriority: "String",
+        FileSystemId: "String",
+        PosixAclId: "String",
       },
     },
     StartEpc: {
@@ -195,6 +197,8 @@ module.exports = class Client extends BaseClient {
         ClientToken: "String",
         NetworkCardNameFormat: "String",
         NetworkCardPriority: "String",
+        FileSystemId: "String",
+        PosixAclId: "String",
       },
     },
     ModifySecurityGroup: {
@@ -1250,6 +1254,8 @@ module.exports = class Client extends BaseClient {
         ClientToken: "String",
         NetworkCardNameFormat: "String",
         NetworkCardPriority: "String",
+        FileSystemId: "String",
+        PosixAclId: "String",
       },
     },
     DescribeUseHotStandbyRecords: {
