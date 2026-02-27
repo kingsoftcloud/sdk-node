@@ -325,6 +325,102 @@ module.exports = class Client extends BaseClient {
         Filter: "Filter",
       },
     },
+    CreateInference: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateInference",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InferenceName: "String",
+        Description: "String",
+        ResourcePoolId: "String",
+        QueueName: "String",
+        Replicas: "Int",
+        AccessType: "String",
+        DeploymentType: "String",
+        Engine: "String",
+        ModelName: "String",
+        CmdOptions: "Array",
+        ModelStorageEnabled: "Boolean",
+        ModelStoragePath: "String",
+        EntryPoint: "String",
+        ImageSource: "String",
+        ImageId: "String",
+        ImageRegistryId: "String",
+        ImageRepoId: "String",
+        ImageTagId: "String",
+        SubnetId: "String",
+        Port: "Int",
+        Env: "Array",
+        GPUType: "String",
+        GPUNum: "String",
+        CPUNum: "Int",
+        Memory: "Int",
+        AutoScaleEnable: "Boolean",
+        AutoScaleStrategy: "Object",
+        RunOnCPU: "Boolean",
+        Distributed: "Boolean",
+        NodeNum: "Boolean",
+        StorageConfigs: "Array",
+      },
+    },
+    GetInferenceModels: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetInferenceModels",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
+    GetInferencePods: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetInferencePods",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+        State: "String",
+      },
+    },
+    GetInferenceLogs: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetInferenceLogs",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+        PodName: "String",
+        SinceSeconds: "Int",
+        TailLines: "Int",
+      },
+    },
     StopNotebook: {
       url: "/",
       method: "GET",
@@ -390,6 +486,22 @@ module.exports = class Client extends BaseClient {
         NotebookId: "String",
         SinceSeconds: "Int",
         TailLines: "String",
+      },
+    },
+    GetInferenceAutoScaleStrategy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetInferenceAutoScaleStrategy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
       },
     },
     StopNotebookSavingImage: {
@@ -799,46 +911,6 @@ module.exports = class Client extends BaseClient {
         ModelIds: "Array",
       },
     },
-    CreateTrainJob: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "CreateTrainJob",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        TrainJobName: "String",
-        Description: "String",
-        ResourcePoolId: "String",
-        QueueName: "String",
-        Priority: "String",
-        Command: "String",
-        Framework: "String",
-        ImageSource: "String",
-        FrameworkReplicas: "Object",
-        RestartPolicy: "String",
-        Envs: "Array",
-        SupportTensorboard: "Boolean",
-        ImageId: "String",
-        ImageRegistryId: "String",
-        ImageRepoId: "String",
-        ImageTagId: "String",
-        GPUType: "String",
-        GPUNumber: "Int",
-        CPUNum: "Int",
-        Memory: "Int",
-        StorageConfigs: "Array",
-        AccessType: "String",
-        MaxRuntime: "Int",
-        SelfHealing: "Boolean",
-        RunOnCPU: "Boolean",
-      },
-    },
     DescribeTrainJobEvents: {
       url: "/",
       method: "GET",
@@ -870,25 +942,6 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         TrainJobId: "String",
-      },
-    },
-    DescribeTrainJob: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "DescribeTrainJob",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        TrainJobId: "Filter",
-        Filter: "Filter",
-        Marker: "Int",
-        MaxResults: "Int",
       },
     },
     StartTrainJob: {
@@ -977,6 +1030,151 @@ module.exports = class Client extends BaseClient {
         MaxResults: "String",
         TrainJobId: "String",
         Filter: "Filter",
+      },
+    },
+    DescribeInferences: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeInferences",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "Filter",
+        Filter: "Filter",
+        PageSize: "Int",
+        Page: "Int",
+      },
+    },
+    SetInferenceAutoScaleStrategy: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "SetInferenceAutoScaleStrategy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+        AutoScaleEnable: "Boolean",
+        AutoScaleStrategy: "Object",
+      },
+    },
+    DeleteInference: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteInference",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+      },
+    },
+    StopInference: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "StopInference",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+      },
+    },
+    GetInferenceDetail: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetInferenceDetail",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+      },
+    },
+    StartInference: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "StartInference",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+      },
+    },
+    ModifyInference: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyInference",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+        InferenceName: "String",
+        Description: "String",
+        EntryPoint: "String",
+        ImageSource: "String",
+        ImageId: "String",
+        ImageRegistryId: "String",
+        ImageRepoId: "String",
+        ImageTagId: "String",
+        Env: "Array",
+        CmdOptions: "Array",
+        HostNetworkEnabled: "Boolean",
+      },
+    },
+    SetInferenceReplicas: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "SetInferenceReplicas",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+        Replicas: "Int",
       },
     },
     DescribeResourcePools: {

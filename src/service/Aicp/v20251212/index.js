@@ -63,6 +63,7 @@ module.exports = class Client extends BaseClient {
         Page: "Int",
         TrainJobName: "String",
         GPUType: "String",
+        QueueId: "String",
         SortKey: "String",
         Sort: "String",
       },
