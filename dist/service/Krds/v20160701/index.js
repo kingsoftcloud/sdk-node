@@ -32,7 +32,7 @@ module.exports = class Client extends BaseClient {
             Action: "RebootDBInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -48,7 +48,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyDBParameterGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -67,7 +67,7 @@ module.exports = class Client extends BaseClient {
             Action: "ResetDBParameterGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -83,7 +83,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeDBParameterGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -103,7 +103,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeEngineDefaultParameters"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -120,7 +120,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateDBParameterGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -141,7 +141,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteDBParameterGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -157,7 +157,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateDBInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -192,7 +192,7 @@ module.exports = class Client extends BaseClient {
             Action: "RestoreDBInstanceFromDBBackup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -203,7 +203,8 @@ module.exports = class Client extends BaseClient {
           AvailabilityZone: "String",
           Duration: "Int",
           DurationUnit: "String",
-          Port: "Int"
+          Port: "Int",
+          BillType: "String"
         }
       },
       DeleteDBInstance: {
@@ -215,7 +216,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteDBInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -231,7 +232,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateDBInstanceReadReplica"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -257,7 +258,7 @@ module.exports = class Client extends BaseClient {
             Action: "RestoreDBInstanceToPointInTime"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -274,7 +275,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeDBInstanceRestorableTime"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -290,7 +291,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyDBInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -309,7 +310,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeDBLogFiles"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -328,7 +329,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeDBBackups"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -348,7 +349,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyDBInstanceSpec"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -366,7 +367,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeDBInstances"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -381,7 +382,7 @@ module.exports = class Client extends BaseClient {
           DBInstanceIdentifierIn: "Filter",
           DBInstanceNameIn: "Filter",
           VipIn: "Filter",
-          EIPIn: "String",
+          EIPIn: "Filter",
           ExpiryDateLessThan: "Int"
         }
       },
@@ -394,7 +395,7 @@ module.exports = class Client extends BaseClient {
             Action: "OverrideDBInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -411,7 +412,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeDBEngineVersions"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {}
@@ -425,7 +426,7 @@ module.exports = class Client extends BaseClient {
             Action: "UpgradeDBInstanceEngineVersion"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -443,7 +444,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyDBInstanceType"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -464,7 +465,45 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeDBInstanceParameters"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String"
+        }
+      },
+      ModifyDBBackupPolicy: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifyDBBackupPolicy"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          PreferredBackupTime: "String",
+          ExpireAfter: "Int",
+          IncrementalBackupCycle: "String",
+          FullBackupCycle: "String",
+          BinlogExpireAfter: "Int",
+          HighFrequencyBackup: "Boolean"
+        }
+      },
+      DescribeDBBackupPolicy: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeDBBackupPolicy"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -480,7 +519,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteDBBackup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -496,33 +535,13 @@ module.exports = class Client extends BaseClient {
             Action: "CreateDBBackup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           DBInstanceIdentifier: "String",
           DBBackupName: "String",
           Description: "String"
-        }
-      },
-      RenewDBInstance: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-07-01",
-            Action: "RenewDBInstance"
-          },
-          headers: {
-            "Content-Type": "application/json"
-          }
-        },
-        paramsType: {
-          DBInstanceIdentifier: "String",
-          Duration: "Int",
-          DurationUnit: "String",
-          BillType: "String",
-          EndTime: "String"
         }
       },
       SwitchDBInstanceHA: {
@@ -534,7 +553,7 @@ module.exports = class Client extends BaseClient {
             Action: "SwitchDBInstanceHA"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -550,27 +569,11 @@ module.exports = class Client extends BaseClient {
             Action: "GenerateDBAdminURL"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           DBInstanceIdentifier: "String"
-        }
-      },
-      StatisticDBInstances: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-07-01",
-            Action: "StatisticDBInstances"
-          },
-          headers: {
-            "Content-Type": "application/json"
-          }
-        },
-        paramsType: {
-          ExpiryDateLessThan: "Int"
         }
       },
       AllocateDBInstanceEip: {
@@ -582,7 +585,7 @@ module.exports = class Client extends BaseClient {
             Action: "AllocateDBInstanceEip"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -599,7 +602,7 @@ module.exports = class Client extends BaseClient {
             Action: "ReleaseDBInstanceEip"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -615,7 +618,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyDBInstanceAvailabilityZone"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -624,34 +627,147 @@ module.exports = class Client extends BaseClient {
           "AvailabilityZone.2": "String"
         }
       },
-      DescribeDBInstanceRegions: {
+      CreateSecurityGroup: {
         url: "/",
         method: "GET",
         config: {
           query: {
             Version: "2016-07-01",
-            Action: "DescribeDBInstanceRegions"
+            Action: "CreateSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/json"
-          }
-        },
-        paramsType: {}
-      },
-      DescribeDBInstancePackages: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-07-01",
-            Action: "DescribeDBInstancePackages"
-          },
-          headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
-          RegionCode: "String"
+          SecurityGroupName: "String",
+          SecurityGroupRule: "Filter",
+          DBInstanceIdentifier: "String",
+          SecurityGroupDescription: "String"
+        }
+      },
+      DescribeSecurityGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeSecurityGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupId: "String",
+          Type: "String"
+        }
+      },
+      DeleteSecurityGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DeleteSecurityGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupIdList: "String"
+        }
+      },
+      ModifySecurityGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifySecurityGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupId: "String",
+          SecurityGroupName: "String",
+          SecurityGroupDescription: "String"
+        }
+      },
+      CloneSecurityGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "CloneSecurityGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupId: "String",
+          SecurityGroupName: "String",
+          SecurityGroupDescription: "String"
+        }
+      },
+      ModifySecurityGroupRule: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifySecurityGroupRule"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupRuleAction: "String",
+          SecurityGroupId: "String",
+          "SecurityGroupRule.SecurityGroupRuleId.N": "String",
+          "SecurityGroupRule.SecurityGroupRuleName.N": "String",
+          "SecurityGroupRule.SecurityGroupRuleCidr.N": "String"
+        }
+      },
+      SecurityGroupRelation: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "SecurityGroupRelation"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupId: "String",
+          RelationAction: "String",
+          DBInstanceIdentifier: "Filter"
+        }
+      },
+      ModifySecurityGroupRuleName: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifySecurityGroupRuleName"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          SecurityGroupRuleId: "String",
+          SecurityGroupRuleName: "String"
         }
       },
       DescribeLastLog: {
@@ -663,7 +779,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeLastLog"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -712,7 +828,7 @@ module.exports = class Client extends BaseClient {
             Action: "ListAudit"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -741,13 +857,29 @@ module.exports = class Client extends BaseClient {
             Action: "AuditStatistic"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           DBInstanceIdentifier: "String",
           AuditStatisticBeginTime: "String",
           AuditStatisticEndTime: "String"
+        }
+      },
+      GetCurrentDatabaseInfo: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "GetCurrentDatabaseInfo"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String"
         }
       },
       GetTableRestorableTime: {
@@ -759,7 +891,7 @@ module.exports = class Client extends BaseClient {
             Action: "GetTableRestorableTime"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -775,7 +907,7 @@ module.exports = class Client extends BaseClient {
             Action: "GetHistoryDatabaseInfo"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -793,7 +925,7 @@ module.exports = class Client extends BaseClient {
             Action: "OverrideDBInstanceByPointInTime"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -818,8 +950,8 @@ module.exports = class Client extends BaseClient {
           DBInstanceIdentifier: "String",
           DBBackupIdentifier: "String",
           RestorableTime: "String",
-          SrcDatabases: "Array",
-          DstDatabases: "Array"
+          SrcDatabases: "Filter",
+          DstDatabases: "Filter"
         }
       },
       RestoreToSgInstance: {
@@ -838,8 +970,8 @@ module.exports = class Client extends BaseClient {
           DBInstanceIdentifier: "String",
           DBBackupIdentifier: "String",
           RestorableTime: "String",
-          SrcDatabases: "Array",
-          DstDatabases: "Array"
+          SrcDatabases: "Filter",
+          DstDatabases: "Filter"
         }
       },
       DescribeAuditHotCount: {
@@ -851,7 +983,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeAuditHotCount"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -870,7 +1002,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeAuditHotDuration"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -932,7 +1064,7 @@ module.exports = class Client extends BaseClient {
             Action: "SlowLogReport"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -955,7 +1087,7 @@ module.exports = class Client extends BaseClient {
             Action: "SlowLogLineChart"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -973,7 +1105,7 @@ module.exports = class Client extends BaseClient {
             Action: "SlowLogDetail"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -996,7 +1128,7 @@ module.exports = class Client extends BaseClient {
             Action: "StartAuditDetailExportTask"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1015,13 +1147,32 @@ module.exports = class Client extends BaseClient {
             Action: "ListAuditDetailExportTask"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           DBInstanceIdentifier: "String",
           Marker: "String",
           MaxRecords: "String"
+        }
+      },
+      CreateInstanceAccount: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "CreateInstanceAccount"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          InstanceAccountName: "String",
+          InstanceAccountPassword: "String",
+          InstanceAccountDescription: "String"
         }
       },
       DescribeInstanceAccounts: {
@@ -1033,7 +1184,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInstanceAccounts"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1050,7 +1201,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyInstanceAccountInfo"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1058,6 +1209,41 @@ module.exports = class Client extends BaseClient {
           InstanceAccountName: "String",
           InstanceAccountPassword: "String",
           InstanceAccountDescription: "String"
+        }
+      },
+      ModifyInstanceAccountPrivileges: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifyInstanceAccountPrivileges"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          InstanceAccountName: "String",
+          InstanceAccountPrivileges: "Filter"
+        }
+      },
+      DeleteInstanceAccount: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DeleteInstanceAccount"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          InstanceAccountName: "String"
         }
       },
       DescribeCollations: {
@@ -1069,7 +1255,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCollations"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1085,7 +1271,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateInstanceDatabase"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1104,7 +1290,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyInstanceDatabasePrivileges"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1122,7 +1308,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInstanceDatabases"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1140,7 +1326,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyInstanceDatabaseInfo"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1158,7 +1344,7 @@ module.exports = class Client extends BaseClient {
             Action: "StartSlowLogDetailExportTask"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1177,7 +1363,7 @@ module.exports = class Client extends BaseClient {
             Action: "ListSlowLogDetailExportTask"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -1195,7 +1381,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateInstanceAccountAction"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -1215,7 +1401,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyInstanceAccountPrivilegesAction"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -1233,7 +1419,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteInstanceAccountAction"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -1250,7 +1436,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteInstanceDatabaseAction"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -1267,7 +1453,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyDBNetwork"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -1276,6 +1462,39 @@ module.exports = class Client extends BaseClient {
           SubnetId: "String",
           Vip: "String",
           Port: "String"
+        }
+      },
+      DescribeDBInstanceMonitorPeriod: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeDBInstanceMonitorPeriod"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String"
+        }
+      },
+      ModifyDBInstanceMonitorPeriod: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifyDBInstanceMonitorPeriod"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          Period: "String"
         }
       },
       DescribeEngineParametersModifyHistory: {
@@ -1295,6 +1514,196 @@ module.exports = class Client extends BaseClient {
           Name: "String",
           MaxRecords: "Int",
           Marker: "Int"
+        }
+      },
+      BatchApplyDBParameterGroup: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "BatchApplyDBParameterGroup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          DBParameterGroupId: "String"
+        }
+      },
+      UpgradeDBInstanceLatesVersion: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "UpgradeDBInstanceLatesVersion"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String"
+        }
+      },
+      DescribeProxyInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeProxyInstance"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String"
+        }
+      },
+      SetUpProxyInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "SetUpProxyInstance"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          ReadOnlyInstanceList: "Filter"
+        }
+      },
+      TemporaryCloseSwitchover: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "TemporaryCloseSwitchover"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          AutoSwitch: "Boolean",
+          ExpireTime: "String"
+        }
+      },
+      DescribeBackupOverview: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeBackupOverview"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      DescribeStatisticBackupDetails: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "DescribeStatisticBackupDetails"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DataType: "String",
+          BackupType: "String",
+          Marker: "Int",
+          MaxRecords: "Int"
+        }
+      },
+      ModifyMaintenanceTime: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifyMaintenanceTime"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          StartTime: "String",
+          Duration: "Double"
+        }
+      },
+      ModifyInstanceDatabasePrivilegesAction: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "ModifyInstanceDatabasePrivilegesAction"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          InstanceDatabaseName: "String",
+          InstanceDatabasePrivileges: "Filter"
+        }
+      },
+      UpdateDBInstanceOrder: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "UpdateDBInstanceOrder"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          UpdateUse: "String",
+          Duration: "Int",
+          BillType: "String"
+        }
+      },
+      UpdateResourceProtection: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-07-01",
+            Action: "UpdateResourceProtection"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DBInstanceIdentifier: "String",
+          ProtectionSwitch: "String",
+          ProtectionReason: "String"
         }
       }
     });

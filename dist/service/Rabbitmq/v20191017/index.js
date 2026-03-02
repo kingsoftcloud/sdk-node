@@ -133,9 +133,7 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/json"
           }
         },
-        paramsType: {
-          Action: "String"
-        }
+        paramsType: {}
       },
       DescribeRegions: {
         url: "/",
@@ -149,9 +147,7 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/json"
           }
         },
-        paramsType: {
-          Action: "String"
-        }
+        paramsType: {}
       },
       DescribeSecurityGroupRules: {
         url: "/",
@@ -235,6 +231,111 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           InstanceId: "String",
           InstanceName: "String"
+        }
+      },
+      AllocateEip: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "AllocateEip"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      DeallocateEip: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DeallocateEip"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      SupportPlugins: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "SupportPlugins"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {}
+      },
+      RestartInstance: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "RestartInstance"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      ListInstancePlugins: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "ListInstancePlugins"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {}
+      },
+      EnableInstancePlugins: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "EnableInstancePlugins"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      DisableInstancePlugins: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-10-17",
+            Action: "DisableInstancePlugins"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          DisablePlugins: "Array"
         }
       }
     });

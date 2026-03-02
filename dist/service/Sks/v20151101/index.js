@@ -35,7 +35,11 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          projectId: "String",
+          KeyName: "String",
+          Description: "String"
+        }
       },
       ImportKey: {
         url: "/",
@@ -52,7 +56,8 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           KeyName: "String",
           PublicKey: "String",
-          Description: "String"
+          Description: "String",
+          IsCheck: "Boolean"
         }
       },
       DeleteKey: {
@@ -104,7 +109,8 @@ module.exports = class Client extends BaseClient {
           MaxResults: "Int",
           NextToken: "String",
           KeyId: "Filter",
-          Filter: "Filter"
+          Filter: "Filter",
+          ProjectId: "Filter"
         }
       }
     });
