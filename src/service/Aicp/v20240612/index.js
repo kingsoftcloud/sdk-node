@@ -669,6 +669,31 @@ module.exports = class Client extends BaseClient {
         KeyId: "Filter",
       },
     },
+    QueryTokenData: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "QueryTokenData",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StartTimestamp: "Long",
+        EndTimestamp: "Long",
+        LastKey: "String",
+        MaxResults: "Int",
+        ModelKeyword: "String",
+        Keyword: "String",
+        GroupBy: "String",
+        ReasoningType: "String",
+        Marker: "Int",
+        ModelName: "String",
+      },
+    },
     DisableApikeyStatus: {
       url: "/",
       method: "POST",

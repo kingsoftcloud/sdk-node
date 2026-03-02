@@ -294,5 +294,51 @@ module.exports = class Client extends BaseClient {
         RetrievalModel: "Object",
       },
     },
+    CreateMemorySdk: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "CreateMemorySdk",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Namespace: "String",
+        UserId: "String",
+        AgentId: "String",
+        SessionId: "String",
+        SceneId: "String",
+        DataType: "String",
+        Data: "Object",
+      },
+    },
+    QueryMemorySdk: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QueryMemorySdk",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Namespace: "String",
+        UserId: "String",
+        Query: "String",
+        SceneId: "String",
+        OccurredAfter: "Long",
+        OccurredBefore: "Long",
+        Mode: "String",
+        ReturnCitations: "Boolean",
+        Limit: "Int",
+      },
+    },
   };
 };
