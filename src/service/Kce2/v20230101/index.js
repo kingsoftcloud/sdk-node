@@ -131,7 +131,6 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ClusterId: "String",
-        NodeIds: "Array",
         InstanceDelete: "Boolean",
         KceNodeIds: "String",
         InstanceIds: "Array",
@@ -189,64 +188,6 @@ module.exports = class Client extends BaseClient {
         ClusterName: "String",
         NodeNames: "Array",
         NodeIds: "String",
-        Marker: "Int",
-        MaxResults: "Int",
-      },
-    },
-    DescribeNetwork: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2023-01-01",
-          Action: "DescribeNetwork",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        ClusterId: "String",
-        ClusterName: "String",
-      },
-    },
-    DescribeComponentParams: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2023-01-01",
-          Action: "DescribeComponentParams",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        ClusterId: "String",
-        Components: "Array",
-        Marker: "Int",
-        MaxResults: "Int",
-      },
-    },
-    DescribeEventLogs: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2023-01-01",
-          Action: "DescribeEventLogs",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        ClusterId: "String",
-        ClusterName: "String",
-        NodeId: "String",
-        NodeName: "String",
-        Inner: "Boolean",
         Marker: "Int",
         MaxResults: "Int",
       },
