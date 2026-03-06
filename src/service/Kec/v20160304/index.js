@@ -65,13 +65,13 @@ module.exports = class Client extends BaseClient {
         PrivateIpAddress: "String",
         InstanceName: "String",
         InstanceNameSuffix: "String",
-        ProjectId: "Int",
+        ProjectId: "Long",
         DataDisk: "Filter",
         NetworkInterface: "Filter",
         UserData: "String",
         SystemDisk: "Object",
         ModelId: "String",
-        ModelVersion: "Int",
+        ModelVersion: "Long",
         AssembledImageDataDiskType: "String",
         AutoCreateEbs: "Boolean",
         LineId: "String",
@@ -270,8 +270,6 @@ module.exports = class Client extends BaseClient {
         KeyId: "Filter",
         KeepImageLogin: "Boolean",
         "SystemDisk.DiskType": "String",
-        "SystemDisk.ResizeType": "String",
-        UserData: "String",
       },
     },
     CreateImage: {
@@ -585,7 +583,7 @@ module.exports = class Client extends BaseClient {
         DedicatedClusterId: "String",
         Tag: "Filter",
         AvailabilityZone: "String",
-        ProjectId: "Int",
+        ProjectId: "Long",
         EbsClusterMode: "String",
       },
     },
@@ -1435,7 +1433,11 @@ module.exports = class Client extends BaseClient {
         StorageType: "String",
         ProtocolType: "String",
         FileSystemName: "String",
-        ProjectId: "Int",
+        ProjectId: "Long",
+        IsTrashEnable: "Boolean",
+        IsTrashVisible: "Boolean",
+        IntervalTrash: "Int",
+        RecycleOpPermission: "Int",
       },
     },
     DeleteFileSystem: {
@@ -1508,6 +1510,7 @@ module.exports = class Client extends BaseClient {
         FileSystemId: "String",
         SubnetId: "String",
         IpVersion: "String",
+        AccessGroupId: "String",
       },
     },
     DeleteMountTarget: {
@@ -1572,7 +1575,7 @@ module.exports = class Client extends BaseClient {
         InstanceName: "String",
         InstanceNameSuffix: "String",
         SriovNetSupport: "String",
-        ProjectId: "Int",
+        ProjectId: "Long",
         DataGuardId: "String",
         AddressBandWidth: "Int",
         LineId: "String",
@@ -1611,7 +1614,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ModelId: "String",
-        ModelVersion: "Int",
+        ModelVersion: "Long",
       },
     },
     DescribeModels: {
@@ -1784,9 +1787,6 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         InstanceType: "String",
-        DataDiskGb: "Int",
-        "SystemDisk.DiskSize": "Int",
-        "SystemDisk.DiskType": "String",
         AvailabilityZone: "String",
       },
     },
@@ -1975,6 +1975,41 @@ module.exports = class Client extends BaseClient {
         DestinationSnapshotDesc: "String",
       },
     },
+    ExportImage: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ExportImage",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ImageId: "String",
+        Ks3Bucket: "String",
+        ObjectName: "String",
+        ImageExportType: "String",
+      },
+    },
+    CancelImageExport: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CancelImageExport",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ImageId: "String",
+      },
+    },
     PreMigrateInstance: {
       url: "/",
       method: "GET",
@@ -2058,6 +2093,394 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         InstanceId: "String",
+      },
+    },
+    CreateSnapshot: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CreateSnapshot",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        SnapshotName: "String",
+        Description: "String",
+        AliveDays: "Int",
+      },
+    },
+    UpdateSnapshot: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "UpdateSnapshot",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        SnapshotId: "String",
+        SnapshotName: "String",
+        Description: "String",
+        AliveDays: "Int",
+      },
+    },
+    DeleteSnapshot: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DeleteSnapshot",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SnapshotId: "Filter",
+      },
+    },
+    RevertSnapshot: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "RevertSnapshot",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        SnapshotId: "String",
+      },
+    },
+    DescribeSnapshotList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeSnapshotList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "Filter",
+        SnapshotId: "Filter",
+        SnapshotName: "String",
+        SnapshotType: "String",
+        Sort: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    CreateSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CreateSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyName: "String",
+        FrequencyUnit: "String",
+        IndexOfFrequency: "Filter",
+        SnapshotTimePoint: "Filter",
+        AliveDays: "Int",
+      },
+    },
+    UpdateSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "UpdateSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "String",
+        AutoSnapshotPolicyName: "String",
+        FrequencyUnit: "String",
+        IndexOfFrequency: "Filter",
+        SnapshotTimePoint: "Filter",
+        AliveDays: "Int",
+      },
+    },
+    DeleteSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DeleteSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "Filter",
+      },
+    },
+    ApplySnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ApplySnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "String",
+        FileSystemId: "String",
+      },
+    },
+    CancelSnapshotPolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CancelSnapshotPolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AutoSnapshotPolicyId: "String",
+        FileSystemId: "String",
+      },
+    },
+    DescribeSnapshotPolicyList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeSnapshotPolicyList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        AutoSnapshotPolicyId: "Filter",
+        AutoSnapshotPolicyName: "String",
+        Sort: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    ModifyRecycleBinAttribute: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ModifyRecycleBinAttribute",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        IsTrashEnable: "Boolean",
+        IsTrashVisible: "Boolean",
+        IntervalTrash: "Int",
+        RecycleOpPermission: "Int",
+      },
+    },
+    DescribeAccessGroups: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeAccessGroups",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        PageSize: "Int",
+        PageNumber: "Int",
+      },
+    },
+    CreateAccessGroup: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CreateAccessGroup",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupName: "String",
+        Description: "String",
+      },
+    },
+    ModifyAccessGroup: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ModifyAccessGroup",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        AccessGroupName: "String",
+        Description: "String",
+      },
+    },
+    DeleteAccessGroup: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DeleteAccessGroup",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+      },
+    },
+    DescribeAccessRules: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeAccessRules",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        AccessRuleId: "String",
+        PageSize: "Int",
+        PageNumber: "Int",
+      },
+    },
+    CreateAccessRule: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CreateAccessRule",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        SourceCidrIp: "Filter",
+        RwAccessType: "String",
+        UserAccessType: "String",
+      },
+    },
+    ModifyAccessRule: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ModifyAccessRule",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        AccessRuleId: "String",
+        SourceCidrIp: "String",
+        RwAccessType: "String",
+        UserAccessType: "String",
+      },
+    },
+    DeleteAccessRule: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DeleteAccessRule",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        AccessRuleId: "Filter",
+      },
+    },
+    ModifyMountTarget: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ModifyMountTarget",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        MountTargetId: "String",
+        AccessGroupId: "String",
       },
     },
   };
