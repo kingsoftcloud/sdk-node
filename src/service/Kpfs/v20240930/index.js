@@ -55,6 +55,7 @@ module.exports = class Client extends BaseClient {
         StartTime: "String",
         EndTime: "String",
         Interval: "String",
+        DirPath: "String",
       },
     },
     GetInodeCount: {
@@ -74,6 +75,7 @@ module.exports = class Client extends BaseClient {
         StartTime: "String",
         EndTime: "String",
         Interval: "String",
+        DirPath: "String",
       },
     },
     GetCapacityAvailable: {
@@ -301,7 +303,10 @@ module.exports = class Client extends BaseClient {
         ClusterName: "String",
         FileSystemName: "String",
         DirPath: "String",
+        LogicalCapacityType: "String",
         LogicalHardThreshold: "Long",
+        LogicalInodesType: "String",
+        LogicalHardInodes: "Long",
       },
     },
     CreateDirQuota: {
@@ -322,7 +327,10 @@ module.exports = class Client extends BaseClient {
         ClusterName: "String",
         FileSystemName: "String",
         DirPath: "String",
+        LogicalCapacityType: "String",
         LogicalHardThreshold: "Long",
+        LogicalInodesType: "String",
+        LogicalHardInodes: "Long",
       },
     },
     DescribeSubDirList: {
