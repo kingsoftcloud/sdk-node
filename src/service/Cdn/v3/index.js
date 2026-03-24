@@ -684,7 +684,7 @@ module.exports = class Client extends BaseClient {
     },
     SetCertificate: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "V3",
