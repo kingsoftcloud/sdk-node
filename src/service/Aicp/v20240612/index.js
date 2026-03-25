@@ -667,6 +667,7 @@ module.exports = class Client extends BaseClient {
         Namekeyword: "String",
         DefaultKey: "Boolean",
         KeyId: "Filter",
+        ExcludeTypes: "Filter",
       },
     },
     QueryTokenData: {
@@ -1246,6 +1247,23 @@ module.exports = class Client extends BaseClient {
         Filter: "Filter",
       },
     },
+    EnableKpfsComponent: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "EnableKpfsComponent",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        FileSystemId: "String",
+      },
+    },
     CreateInferenceEndpoint: {
       url: "/",
       method: "POST",
@@ -1442,6 +1460,171 @@ module.exports = class Client extends BaseClient {
         Page: "Int",
         PageSize: "Int",
         Filter: "Filter",
+      },
+    },
+    CreateQueue: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateQueue",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        QueueName: "String",
+        Capability: "Object",
+        AllowBorrowing: "Boolean",
+        Description: "String",
+        AccessList: "Array",
+        WorkloadType: "Array",
+      },
+    },
+    ModifyQueue: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyQueue",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+        Capability: "Object",
+        AllowBorrowing: "Boolean",
+        Description: "String",
+        AccessList: "Array",
+        WorkloadType: "Array",
+      },
+    },
+    DeleteQueue: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteQueue",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+      },
+    },
+    AddQueueAccessUser: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "AddQueueAccessUser",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+        SubAccountId: "String",
+        Permission: "String",
+      },
+    },
+    RemoveQueueAccessUser: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RemoveQueueAccessUser",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+        SubAccountId: "String",
+      },
+    },
+    DescribeModelTypes: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeModelTypes",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
+    EnableEndpointQuotaLimit: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "EnableEndpointQuotaLimit",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        EndpointId: "String",
+        QuotaLimitCycle: "String",
+        CustomCycle: "Int",
+        QuotaLimitAmount: "Long",
+      },
+    },
+    DisableEndpointQuotaLimit: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DisableEndpointQuotaLimit",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        EndpointId: "String",
+        QuotaLimitCycle: "String",
+        CustomCycle: "String",
+        QuotaLimitAmount: "String",
+      },
+    },
+    GetQueueMember: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetQueueMember",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+        SubAccountId: "String",
+        Page: "Int",
+        PageSize: "Int",
       },
     },
   };

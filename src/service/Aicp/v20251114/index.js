@@ -340,5 +340,278 @@ module.exports = class Client extends BaseClient {
         Limit: "Int",
       },
     },
+    CreateMemoryCollection: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "CreateMemoryCollection",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        Description: "String",
+      },
+    },
+    GetMemoryCollection: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetMemoryCollection",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+      },
+    },
+    ListMemoryCollections: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ListMemoryCollections",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        CreateTimeAfter: "Long",
+        CreateTimeBefore: "Long",
+        UpdateTimeAfter: "Long",
+        UpdateTimeBefore: "Long",
+        MemoryCollectionId: "String",
+        Name: "String",
+        NameKeyword: "String",
+        Status: "String",
+        Marker: "Long",
+        MaxResults: "Long",
+      },
+    },
+    DeleteMemoryCollection: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DeleteMemoryCollection",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+      },
+    },
+    GetMemoryBaseService: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetMemoryBaseService",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
+    ActivateMemoryBaseService: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ActivateMemoryBaseService",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
+    UpdateMemoryCollection: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "UpdateMemoryCollection",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        Description: "String",
+        Name: "String",
+      },
+    },
+    DeleteMcpServer: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DeleteMcpServer",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+      },
+    },
+    ModifyMcpServer: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ModifyMcpServer",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+        McpServerName: "String",
+        Description: "String",
+        Introduction: "String",
+        OutboundAuthFieldValue: "String",
+        HttpApiConfig: "String",
+        HttpApiConfigUpdateType: "String",
+      },
+    },
+    CreateMcpServer: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "CreateMcpServer",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        McpServerName: "String",
+        McpServerNameEn: "String",
+        Description: "String",
+        Introduction: "String",
+        ServiceProtocol: "String",
+        BackendServiceUrl: "String",
+        AllowCustomAuth: "Boolean",
+        ServiceCustomHeaders: "String",
+        OutboundAuthLocation: "String",
+        OutboundAuthFieldName: "String",
+        OutboundAuthFieldValue: "String",
+        McpRuntimeConfig: "Object",
+        HttpApiConfig: "String",
+        McpType: "String",
+      },
+    },
+    DescribeMcpServers: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMcpServers",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        McpServerIds: "Array",
+        NameKeyword: "String",
+        Region: "String",
+      },
+    },
+    DescribeMcpOfficialServers: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMcpOfficialServers",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        McpServerIds: "Array",
+        NameKeyword: "String",
+        Region: "String",
+      },
+    },
+    DeactivateMcpOfficialServer: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DeactivateMcpOfficialServer",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+      },
+    },
+    ActivateMcpOfficialServer: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ActivateMcpOfficialServer",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+        AuthFieldValue: "String",
+      },
+    },
+    DescribeMcpSquares: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMcpSquares",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        McpServerIds: "Array",
+        NameKeyword: "String",
+      },
+    },
   };
 };

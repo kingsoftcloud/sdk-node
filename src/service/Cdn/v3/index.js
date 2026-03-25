@@ -703,7 +703,7 @@ module.exports = class Client extends BaseClient {
     },
     RemoveCertificates: {
       url: "/",
-      method: "GET",
+      method: "POST",
       config: {
         query: {
           Version: "V3",
