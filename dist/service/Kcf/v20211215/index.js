@@ -41,7 +41,7 @@ module.exports = class Client extends BaseClient {
       },
       CreateFunction: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2021-12-15",
@@ -69,7 +69,9 @@ module.exports = class Client extends BaseClient {
           LogConfig: "Object",
           LivenessProbeConfig: "Object",
           ReadinessProbeConfig: "Object",
-          Layers: "Array"
+          Layers: "Array",
+          CodeType: "String",
+          CustomContainerConfig: "Object"
         }
       },
       CheckFunctionService: {
@@ -102,14 +104,14 @@ module.exports = class Client extends BaseClient {
       },
       DeleteFunction: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2021-12-15",
             Action: "DeleteFunction"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -118,7 +120,7 @@ module.exports = class Client extends BaseClient {
       },
       CreateTrigger: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2021-12-15",
@@ -138,23 +140,162 @@ module.exports = class Client extends BaseClient {
       },
       DeleteTrigger: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2021-12-15",
             Action: "DeleteTrigger"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
           Id: "String"
         }
       },
+      CreateOrModifyAutoScalingConfig: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "CreateOrModifyAutoScalingConfig"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          FunctionId: "String",
+          IdleReplicaCount: "Int",
+          MaxReplicaCount: "Int",
+          MinReplicaCount: "Int",
+          CooldownPeriod: "Int",
+          StabilizationWindowSeconds: "Int"
+        }
+      },
+      DescribeAutoScalingConfig: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "DescribeAutoScalingConfig"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          FunctionId: "String"
+        }
+      },
+      CreateAutoScaledTrigger: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "CreateAutoScaledTrigger"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          FunctionId: "String",
+          Triggers: "Array"
+        }
+      },
+      ModifyAutoScaledTrigger: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "ModifyAutoScaledTrigger"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          FucntionId: "String",
+          Name: "String",
+          TriggerConfig: "Object"
+        }
+      },
+      DescribeAutoScaledTriggers: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "DescribeAutoScaledTriggers"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          FunctionId: "String",
+          Name: "String",
+          Type: "String"
+        }
+      },
+      DeleteAutoScaledTrigger: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "DeleteAutoScaledTrigger"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          Functionid: "String",
+          TriggerName: "String"
+        }
+      },
+      DescribeFunctions: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "DescribeFunctions"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          Namespace: "String"
+        }
+      },
+      DescribeFunction: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2021-12-15",
+            Action: "DescribeFunction"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          id: "String"
+        }
+      },
       ModifyFunction: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2021-12-15",
@@ -179,19 +320,20 @@ module.exports = class Client extends BaseClient {
           LogConfig: "Object",
           LivenessProbeConfig: "Object",
           ReadinessProbeConfig: "Object",
-          Layers: "Array"
+          Layers: "Array",
+          CustomContainerConfig: "Object"
         }
       },
       DescribeTriggers: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2021-12-15",
             Action: "DescribeTriggers"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
