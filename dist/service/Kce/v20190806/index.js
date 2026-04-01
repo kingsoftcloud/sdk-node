@@ -23,26 +23,6 @@ module.exports = class Client extends BaseClient {
       }
     });
     _defineProperty(this, "_apiList", {
-      DescribeCluster: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "DescribeCluster"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          ClusterId: "String",
-          Marker: "Int",
-          MaxResults: "String",
-          Search: "String",
-          Filter: "Filter"
-        }
-      },
       DescribeClusterInstance: {
         url: "/",
         method: "GET",
@@ -129,9 +109,7 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {
-          ImageId: "Filter"
-        }
+        paramsType: {}
       },
       AddClusterInstances: {
         url: "/",
@@ -185,7 +163,8 @@ module.exports = class Client extends BaseClient {
           InstanceId: "Filter",
           Filter: "Filter",
           Marker: "Int",
-          MaxResults: "String"
+          MaxResults: "Int",
+          OperatorType: "String"
         }
       },
       AddClusterEpcInstances: {
@@ -245,23 +224,6 @@ module.exports = class Client extends BaseClient {
           ExistedInstanceKecSet: "Filter"
         }
       },
-      ForceRemoveClusterInstance: {
-        url: "/",
-        method: "POST",
-        config: {
-          query: {
-            Version: "2019-08-06",
-            Action: "ForceRemoveClusterInstance"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          ClusterId: "String",
-          InstanceId: "Filter"
-        }
-      },
       CreateNodePool: {
         url: "/",
         method: "GET",
@@ -283,7 +245,9 @@ module.exports = class Client extends BaseClient {
           Taint: "Filter",
           MinSize: "Int",
           MaxSize: "Int",
-          DesiredCapacity: "Int"
+          DesiredCapacity: "Int",
+          EnableDelProtection: "Boolean",
+          FailureAutoDelete: "Boolean"
         }
       },
       DescribeNodePool: {
@@ -321,7 +285,7 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           ClusterId: "String",
           NodePoolId: "Filter",
-          InstanceDeleteMode: "Boolean"
+          InstanceDeleteMode: "String"
         }
       },
       ModifyNodePool: {
@@ -475,6 +439,254 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           ImageId: "Filter"
+        }
+      },
+      EditEventCollecting: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "EditEventCollecting"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          EnableEventCollecting: "Boolean"
+        }
+      },
+      DescribeNodePoolSummary: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "DescribeNodePoolSummary"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String"
+        }
+      },
+      CreateLogRule: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "CreateLogRule"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          RuleName: "String",
+          InputConfig: "Object",
+          OutputConfig: "Object"
+        }
+      },
+      DescribeClusterSummary: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "DescribeClusterSummary"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      UpdateNodePoolDelProtection: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "UpdateNodePoolDelProtection"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          NodePoolId: "String",
+          EnableDelProtection: "Boolean"
+        }
+      },
+      DescribeRelease: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "DescribeRelease"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          Filter: "String"
+        }
+      },
+      DescribeReleaseHistory: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "DescribeReleaseHistory"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          ReleaseName: "String",
+          Namespace: "String"
+        }
+      },
+      DescribeReleaseDetail: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "DescribeReleaseDetail"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          ReleaseName: "String",
+          Namespace: "String"
+        }
+      },
+      DeleteRelease: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "DeleteRelease"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          ReleaseName: "String",
+          Namespace: "String"
+        }
+      },
+      RollbackRelease: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "RollbackRelease"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          ReleaseName: "String",
+          Namespace: "String",
+          ReleaseVersion: "Int"
+        }
+      },
+      InstallRelease: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "InstallRelease"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          Namespace: "String",
+          ReleaseName: "String",
+          ChartSource: "String",
+          ChartNamespace: "String",
+          ChartName: "String",
+          ChartVersion: "String",
+          ChartUrl: "String",
+          ChartRepoType: "String",
+          ChartRepoUsername: "String",
+          ChartRepoPassword: "String",
+          Values: "String"
+        }
+      },
+      UpgradeRelease: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "UpgradeRelease"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          Namespace: "String",
+          ReleaseName: "String",
+          ChartSource: "String",
+          ChartNamespace: "String",
+          ChartName: "String",
+          ChartVersion: "String",
+          ChartUrl: "String",
+          ChartRepoType: "String",
+          ChartRepoUsername: "String",
+          ChartRepoPassword: "String",
+          Values: "String"
+        }
+      },
+      CreateWebSocketPublicUri: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2019-08-06",
+            Action: "CreateWebSocketPublicUri"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ClusterId: "String",
+          Namespace: "String",
+          PodName: "String",
+          ContainerName: "String",
+          Command: "String",
+          Tty: "Boolean"
         }
       }
     });
