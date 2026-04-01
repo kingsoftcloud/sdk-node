@@ -385,23 +385,6 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {},
     },
-    GetInferencePods: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "GetInferencePods",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        InferenceId: "String",
-        State: "String",
-      },
-    },
     GetInferenceLogs: {
       url: "/",
       method: "GET",
@@ -502,6 +485,83 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         InferenceId: "String",
+      },
+    },
+    ModifyTerminatePolicy: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyTerminatePolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        InstanceIds: "Array",
+        UseRatePolicy: "Object",
+        TerminatePolicyId: "String",
+      },
+    },
+    DescribeTerminatePolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTerminatePolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+        TerminatePolicyId: "Filter",
+        CreateUser: "String",
+        Filter: "Filter",
+        PageSize: "Int",
+        Page: "Int",
+      },
+    },
+    CreateTerminatePolicy: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateTerminatePolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        QueueId: "String",
+        TerminatePolicyType: "String",
+        TerminatePolicyTarget: "String",
+        InstanceIds: "Array",
+        UseRatePolicy: "Object",
+      },
+    },
+    DeleteTerminatePolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteTerminatePolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TerminatePolicyId: "String",
       },
     },
     StopNotebookSavingImage: {
@@ -1282,6 +1342,7 @@ module.exports = class Client extends BaseClient {
         ModelName: "String",
         "RateLimit ": "Object",
         ModelId: "String",
+        QuotaLimit: "Object",
       },
     },
     DescribeInferenceEndpoints: {
@@ -1623,6 +1684,25 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         QueueId: "String",
         SubAccountId: "String",
+        Page: "Int",
+        PageSize: "Int",
+      },
+    },
+    DescribeInferencePods: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeInferencePods",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+        Filter: "Filter",
         Page: "Int",
         PageSize: "Int",
       },

@@ -613,5 +613,53 @@ module.exports = class Client extends BaseClient {
         NameKeyword: "String",
       },
     },
+    GetMcpOfficialServerDetail: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetMcpOfficialServerDetail",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+      },
+    },
+    GetMcpServerDetail: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetMcpServerDetail",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+      },
+    },
+    GetMcpSquareDetail: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetMcpSquareDetail",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+      },
+    },
   };
 };
