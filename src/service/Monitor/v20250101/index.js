@@ -47,8 +47,8 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        StartTime: "Int",
-        EndTime: "Int",
+        StartTime: "Long",
+        EndTime: "Long",
         Namespace: "String",
         EventType: "String",
         EventName: "String",
@@ -76,6 +76,38 @@ module.exports = class Client extends BaseClient {
         EndTime: "Int",
         PageIndex: "Int",
         PageSize: "Int",
+      },
+    },
+    GetPrometheusToken: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-01-01",
+          Action: "GetPrometheusToken",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ControllerID: "String",
+      },
+    },
+    PutDefaultEventPolicy: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2025-01-01",
+          Action: "PutDefaultEventPolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        PolicyName: "String",
       },
     },
   };

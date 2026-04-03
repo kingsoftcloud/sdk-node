@@ -289,7 +289,7 @@ module.exports = class Client extends BaseClient {
         DBLogType: "String",
         StartTime: "String",
         EndTime: "String",
-        MaxFileSize: "Int",
+        MaxFileSize: "Long",
         Marker: "Int",
         MaxRecords: "Int",
       },
