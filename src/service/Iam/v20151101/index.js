@@ -686,20 +686,6 @@ module.exports = class Client extends BaseClient {
         ProjectDesc: "String",
       },
     },
-    GetAccountAllProjectList: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2015-11-01",
-          Action: "GetAccountAllProjectList",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {},
-    },
     UpdateInstanceProjectId: {
       url: "/",
       method: "GET",
@@ -1152,6 +1138,23 @@ module.exports = class Client extends BaseClient {
         PolicyName: "String",
         Page: "Int",
         MaxItems: "Int",
+      },
+    },
+    BatchUpdateInstanceProjectId: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2015-11-01",
+          Action: "BatchUpdateInstanceProjectId",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ProjectId: "Int",
+        InstanceIds: "Array",
       },
     },
   };
