@@ -665,5 +665,22 @@ module.exports = class Client extends BaseClient {
         Description: "String",
       },
     },
+    SetFileSystemResourceProtect: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "SetFileSystemResourceProtect",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemIds: "Array",
+        IsProtection: "Boolean",
+      },
+    },
   };
 };
