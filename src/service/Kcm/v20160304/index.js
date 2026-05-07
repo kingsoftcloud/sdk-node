@@ -71,6 +71,8 @@ module.exports = class Client extends BaseClient {
         CertificateName: "String",
         PrivateKey: "String",
         PublicKey: "String",
+        SslCertificateId: "String",
+        Description: "String",
       },
     },
     DescribeCertificates: {
@@ -216,6 +218,23 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         CertificateId: "String",
+      },
+    },
+    DescribeCompany: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeCompany",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Page: "Int",
+        PageSize: "Int",
       },
     },
   };
