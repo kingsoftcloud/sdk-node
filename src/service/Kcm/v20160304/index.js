@@ -220,6 +220,27 @@ module.exports = class Client extends BaseClient {
         CertificateId: "String",
       },
     },
+    ExtendCertificate: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ExtendCertificate",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        CertificateId: "String",
+        CertificateCode: "String",
+        YearLength: "Int",
+        DomainCount: "Int",
+        WildcardCount: "Int",
+        BillType: "Int",
+      },
+    },
     DescribeCompany: {
       url: "/",
       method: "GET",
