@@ -40,7 +40,7 @@ module.exports = class Client extends BaseClient {
           ProductGroupCode: "String",
           PayType: "Int",
           InstanceId: "String",
-          SubAccountId: "Int",
+          SubAccountId: "Long",
           Size: "Int",
           LastSortValue: "String"
         }
