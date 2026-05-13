@@ -75,7 +75,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeMongoDBInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -226,7 +226,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeMongoDBSnapshot"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -242,7 +242,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteMongoDBSnapshot"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -283,6 +283,24 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           InstanceId: "String",
           Cidrs: "String",
+          Type: "String"
+        }
+      },
+      DeleteSecurityGroupRules: {
+        url: "/",
+        method: "DELETE",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "DeleteSecurityGroupRules"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Cidrs: "String",
+          InstanceId: "String",
           Type: "String"
         }
       },
@@ -365,9 +383,7 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/json"
           }
         },
-        paramsType: {
-          Action: "String"
-        }
+        paramsType: {}
       },
       AllocateEip: {
         url: "/",
@@ -414,9 +430,7 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/json"
           }
         },
-        paramsType: {
-          Action: "String"
-        }
+        paramsType: {}
       },
       CreateMongoDBShardInstance: {
         url: "/",
@@ -460,7 +474,8 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          SnapshotId: "String"
+          SnapshotId: "String",
+          InstanceId: "String"
         }
       },
       CloneInstance: {
@@ -516,9 +531,7 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/json"
           }
         },
-        paramsType: {
-          Action: "String"
-        }
+        paramsType: {}
       },
       AddClusterNode: {
         url: "/",
@@ -676,6 +689,143 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           InstanceId: "String",
           ResetTimePoint: "String"
+        }
+      },
+      DescribeDefaultParams: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "DescribeDefaultParams"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          DbVersion: "String"
+        }
+      },
+      CreateParamGroup: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "CreateParamGroup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          ParamGroupName: "String",
+          Description: "String",
+          DbVersion: "Double",
+          Params: "String"
+        }
+      },
+      DescribeParamGroupList: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "DescribeParamGroupList"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DbVersion: "String",
+          NameSearch: "String",
+          Offset: "String",
+          Limit: "String"
+        }
+      },
+      DescribeParamGroupInfo: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "DescribeParamGroupInfo"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ParamGroupId: "String"
+        }
+      },
+      DescribeModifyHistory: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "DescribeModifyHistory"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ParamName: "String",
+          Offset: "Int",
+          Limit: "Int"
+        }
+      },
+      DescribeInstanceParams: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "DescribeInstanceParams"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      ModifyParamGroup: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "ModifyParamGroup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          NewParamGroupName: "String",
+          NewDescription: "String"
+        }
+      },
+      DeleteParamGroup: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "DeleteParamGroup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          ParamGroupId: "String"
         }
       }
     });
