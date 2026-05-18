@@ -339,5 +339,38 @@ module.exports = class Client extends BaseClient {
         UserName: "String",
       },
     },
+    DescribeSharedOrganizationTree: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V1",
+          Action: "DescribeSharedOrganizationTree",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
+    DescribeSharedUserPointUsage: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "V1",
+          Action: "DescribeSharedUserPointUsage",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StartTime: "String",
+        EndTime: "String",
+        UserName: "String",
+        Department: "String",
+      },
+    },
   };
 };
