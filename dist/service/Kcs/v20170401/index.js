@@ -23,41 +23,6 @@ module.exports = class Client extends BaseClient {
       }
     });
     _defineProperty(this, "_apiList", {
-      DescribeCacheReadonlyNode: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2017-04-01",
-            Action: "DescribeCacheReadonlyNode"
-          },
-          headers: {
-            "Content-Type": "application/json"
-          }
-        },
-        paramsType: {
-          CacheId: "String",
-          AvailableZone: "String"
-        }
-      },
-      AddCacheSlaveNode: {
-        url: "/",
-        method: "PUT",
-        config: {
-          query: {
-            Version: "2017-04-01",
-            Action: "AddCacheSlaveNode"
-          },
-          headers: {
-            "Content-Type": "application/json"
-          }
-        },
-        paramsType: {
-          AvailableZone: "String",
-          CacheId: "String",
-          SlaveVip: "String"
-        }
-      },
       DeleteCacheSlaveNode: {
         url: "/",
         method: "PUT",
@@ -67,7 +32,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteCacheSlaveNode"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
