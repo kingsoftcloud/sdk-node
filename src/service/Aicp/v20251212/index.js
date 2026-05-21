@@ -42,6 +42,7 @@ module.exports = class Client extends BaseClient {
         SupportTensorboard: "Boolean",
         StorageConfigs: "Array",
         Roles: "Array",
+        HoldingTimeMinutes: "Int",
       },
     },
     DescribeTrainJobs: {

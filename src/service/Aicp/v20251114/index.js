@@ -307,13 +307,13 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        Namespace: "String",
-        UserId: "String",
         AgentId: "String",
         SessionId: "String",
         SceneId: "String",
         DataType: "String",
         Data: "Object",
+        AgentUserId: "String",
+        MemoryCollectionId: "String",
       },
     },
     QueryMemorySdk: {
@@ -329,8 +329,6 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        Namespace: "String",
-        UserId: "String",
         Query: "String",
         SceneId: "String",
         OccurredAfter: "Long",
@@ -338,6 +336,9 @@ module.exports = class Client extends BaseClient {
         Mode: "String",
         ReturnCitations: "Boolean",
         Limit: "Int",
+        SceneIds: "Array",
+        MemoryCollectionId: "String",
+        AgentUserId: "String",
       },
     },
     CreateMemoryCollection: {
@@ -659,6 +660,130 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         McpServerId: "String",
+      },
+    },
+    ListSessions: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ListSessions",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        AgentUserId: "String",
+        Query: "String",
+        Page: "Int",
+        PageSize: "Int",
+        CreatedAfter: "Int",
+        CreatedBefore: "Int",
+      },
+    },
+    AddSession: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "AddSession",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
+    QueryMemoryCollectionMetrics: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QueryMemoryCollectionMetrics",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        StartTime: "Long",
+        EndTime: "Long",
+      },
+    },
+    QuerySessionMemories: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QuerySessionMemories",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        SessionId: "String",
+      },
+    },
+    RetrieveHistories: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "RetrieveHistories",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        Page: "Int",
+        Limit: "Int",
+      },
+    },
+    ReindexDocuments: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ReindexDocuments",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        DocumentIds: "Array",
+      },
+    },
+    ModifyDocumentStatus: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ModifyDocumentStatus",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        DocumentId: "String",
+        Status: "String",
       },
     },
   };

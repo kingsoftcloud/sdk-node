@@ -16,6 +16,32 @@ module.exports = class Client extends BaseClient {
     },
   };
   _apiList = {
+    CreateResourcePool: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateResourcePool",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ResourcePoolName: "String",
+        Description: "String",
+        VpcId: "String",
+        ResourcePoolType: "String",
+        ClusterId: "String",
+        EnableKPFSPerformance: "Boolean",
+        FileSystemId: "String",
+        EnableKlog: "String",
+        LogProjectName: "String",
+        Overallocate: "Boolean",
+        Components: "Array",
+      },
+    },
     CreateStorageConfig: {
       url: "/",
       method: "POST",
@@ -38,6 +64,7 @@ module.exports = class Client extends BaseClient {
         Users: "Array",
         Ak: "String",
         Sk: "String",
+        Prefetch: "Boolean",
       },
     },
     ModifyStorageConfig: {
@@ -61,6 +88,7 @@ module.exports = class Client extends BaseClient {
         Users: "Array",
         Ak: "String",
         Sk: "String",
+        Prefetch: "Boolean",
       },
     },
     DescribeStorageConfigs: {
@@ -239,6 +267,24 @@ module.exports = class Client extends BaseClient {
         EnablePublicNetworkSSH: "Boolean",
         AllocationId: "String",
         RunOnCPU: "String",
+      },
+    },
+    EnableKlog: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "EnableKlog",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        EnableKlog: "Boolean",
+        LogProjectName: "String",
       },
     },
     CreateImage: {
@@ -469,6 +515,23 @@ module.exports = class Client extends BaseClient {
         NotebookId: "String",
         SinceSeconds: "Int",
         TailLines: "String",
+      },
+    },
+    ModifyComponents: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyComponents",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        Components: "Array",
       },
     },
     GetInferenceAutoScaleStrategy: {
@@ -753,6 +816,9 @@ module.exports = class Client extends BaseClient {
         ReasoningType: "String",
         Marker: "Int",
         ModelName: "String",
+        SortField: "String",
+        SortOrder: "String",
+        KeyId: "String",
       },
     },
     DisableApikeyStatus: {
@@ -1077,6 +1143,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         TrainJobId: "String",
         Priority: "String",
+        HoldingTimeMinutes: "Int",
       },
     },
     DescribeTrainJobPodLogs: {
@@ -1383,26 +1450,6 @@ module.exports = class Client extends BaseClient {
         RateLimit: "Object",
       },
     },
-    UpdateInferenceEndpoint: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "UpdateInferenceEndpoint",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        EndpointName: "String",
-        ProjectId: "String",
-        ModelName: "String",
-        "RateLimit ": "Object",
-        EndpointId: "String",
-      },
-    },
     StartInferenceEndpoint: {
       url: "/",
       method: "POST",
@@ -1705,6 +1752,24 @@ module.exports = class Client extends BaseClient {
         Filter: "Filter",
         Page: "Int",
         PageSize: "Int",
+      },
+    },
+    ModifyResourcePool: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyResourcePool",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        ResourcePoolName: "String",
+        Overallocate: "Boolean",
       },
     },
   };
