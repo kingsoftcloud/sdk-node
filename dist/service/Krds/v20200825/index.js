@@ -32,7 +32,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -57,7 +57,7 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          "SecurityGroupId.N": "String",
+          SecurityGroupId: "Filter",
           SecurityGroupType: "String"
         }
       },
@@ -70,7 +70,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -86,7 +86,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifySecurityGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -104,7 +104,7 @@ module.exports = class Client extends BaseClient {
             Action: "CloneSecurityGroup"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -122,7 +122,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifySecurityGroupRule"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -142,12 +142,13 @@ module.exports = class Client extends BaseClient {
             Action: "SecurityGroupRelation"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           RelationAction: "String",
           SecurityGroupId: "String",
+          SecurityGroupIds: "String",
           DBInstanceIdentifier: "String"
         }
       },
@@ -160,13 +161,52 @@ module.exports = class Client extends BaseClient {
             Action: "ModifySecurityGroupRuleName"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           SecurityGroupId: "String",
           SecurityGroupRuleId: "String",
           SecurityGroupRuleName: "String"
+        }
+      },
+      CreateDBParameterGroup: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2020-08-25",
+            Action: "CreateDBParameterGroup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          DBParameterGroupName: "String",
+          Engine: "String",
+          EngineVersion: "String",
+          Description: "String",
+          Parameters: "Object"
+        }
+      },
+      ModifyDBParameterGroup: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2020-08-25",
+            Action: "ModifyDBParameterGroup"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          DBParameterGroupId: "String",
+          DBParameterGroupName: "String",
+          Description: "String",
+          Parameters: "Object"
         }
       }
     });
