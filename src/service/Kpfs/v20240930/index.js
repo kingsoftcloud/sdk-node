@@ -78,6 +78,27 @@ module.exports = class Client extends BaseClient {
         DirPath: "String",
       },
     },
+    DescribeFileSystemClientInfo: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeFileSystemClientInfo",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        CacheGroup: "String",
+        CacheGroupRole: "String",
+        HostNamePrefix: "String",
+        PageSize: "Int",
+        PageNum: "Int",
+      },
+    },
     GetCapacityAvailable: {
       url: "/",
       method: "GET",
@@ -680,6 +701,138 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         FileSystemIds: "Array",
         IsProtection: "Boolean",
+      },
+    },
+    GetRemoteCachePutLatency: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetRemoteCachePutLatency",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        CacheGroup: "String",
+        CacheGroupRole: "String",
+        ClientNm: "String",
+      },
+    },
+    GetRemoteCacheGetLatency: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetRemoteCacheGetLatency",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        CacheGroup: "String",
+        CacheGroupRole: "String",
+        ClientNm: "String",
+      },
+    },
+    GetRemoteCachePutThroughput: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetRemoteCachePutThroughput",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        CacheGroup: "String",
+        CacheGroupRole: "String",
+        ClientNm: "String",
+      },
+    },
+    GetRemoteCacheGetThroughput: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetRemoteCacheGetThroughput",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        CacheGroup: "String",
+        CacheGroupRole: "String",
+        ClientNm: "String",
+      },
+    },
+    GetRemoteCacheIOPSSend: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetRemoteCacheIOPSSend",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        CacheGroup: "String",
+        CacheGroupRole: "String",
+        ClientNm: "String",
+      },
+    },
+    GetRemoteCacheIOPSGet: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetRemoteCacheIOPSGet",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        Interval: "String",
+        CacheGroup: "String",
+        CacheGroupRole: "String",
+        ClientNm: "String",
       },
     },
   };
