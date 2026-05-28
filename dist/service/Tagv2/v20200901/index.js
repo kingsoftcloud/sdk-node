@@ -25,14 +25,14 @@ module.exports = class Client extends BaseClient {
     _defineProperty(this, "_apiList", {
       CreateTag: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2020-09-01",
             Action: "CreateTag"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -49,7 +49,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteTag"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -113,14 +113,14 @@ module.exports = class Client extends BaseClient {
       },
       ListResources: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2020-09-01",
             Action: "ListResources"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -134,6 +134,23 @@ module.exports = class Client extends BaseClient {
           PageSize: "Int"
         }
       },
+      ListTagsByResourceIds: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-09-01",
+            Action: "ListTagsByResourceIds"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ResourceType: "String",
+          ResourceUuids: "String"
+        }
+      },
       ReplaceResourcesTags: {
         url: "/",
         method: "GET",
@@ -143,7 +160,7 @@ module.exports = class Client extends BaseClient {
             Action: "ReplaceResourcesTags"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -167,6 +184,25 @@ module.exports = class Client extends BaseClient {
           ResourceType: "String",
           ResourceUuid: "String",
           TagIds: "String"
+        }
+      },
+      CreateTagAndAttachResource: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-09-01",
+            Action: "CreateTagAndAttachResource"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          TagKey: "String",
+          TagValue: "String",
+          ResourceType: "String",
+          ResourceUuid: "String"
         }
       }
     });
