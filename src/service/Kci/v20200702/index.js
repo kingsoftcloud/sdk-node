@@ -38,7 +38,7 @@ module.exports = class Client extends BaseClient {
         InstanceFamily: "String",
         ChargeType: "String",
         SpotStrategy: "String",
-        ProjectId: "Int",
+        ProjectId: "Long",
         Cpu: "Double",
         Memory: "Double",
         Gpu: "Double",
@@ -65,6 +65,8 @@ module.exports = class Client extends BaseClient {
         KlogEnabled: "Boolean",
         DataDisk: "Filter",
         ContainerSpec: "Filter",
+        HostPID: "Boolean",
+        InitContainer: "Filter",
       },
     },
     DescribeContainerGroup: {
@@ -265,6 +267,8 @@ module.exports = class Client extends BaseClient {
         Image: "String",
         Marker: "Int",
         MaxResults: "Int",
+        SortKey: "String",
+        SortDirection: "String",
       },
     },
     MatchImageCache: {
