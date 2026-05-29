@@ -42,7 +42,7 @@ module.exports = class Client extends BaseClient {
           StartTime: "String",
           EndTime: "String",
           Aggregate: "String",
-          Period: "Int"
+          Period: "String"
         }
       },
       ListMetrics: {
