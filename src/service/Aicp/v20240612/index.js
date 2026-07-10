@@ -267,6 +267,7 @@ module.exports = class Client extends BaseClient {
         EnablePublicNetworkSSH: "Boolean",
         AllocationId: "String",
         RunOnCPU: "String",
+        AutoSaveConfig: "Object",
       },
     },
     EnableKlog: {
@@ -499,6 +500,24 @@ module.exports = class Client extends BaseClient {
         ExpirationMinute: "String",
       },
     },
+    DescribeNotebookEvents: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeNotebookEvents",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        NotebookId: "String",
+        Sort: "String",
+        SortKey: "String",
+      },
+    },
     DescribeNotebookLog: {
       url: "/",
       method: "GET",
@@ -678,6 +697,12 @@ module.exports = class Client extends BaseClient {
         Description: "String",
         AssociatedModelIds: "Array",
         AllAssociatedModel: "Boolean",
+        AllowEndpoints: "Array",
+        AllAssociatedProjectResources: "Boolean",
+        AllAssociatedEndpoint: "Boolean",
+        LowPriceModels: "Array",
+        HighPriceModels: "Array",
+        AllowedIps: "Array",
       },
     },
     ActivateApiService: {
@@ -731,27 +756,9 @@ module.exports = class Client extends BaseClient {
         Provider: "Filter",
         ContextLength: "Filter",
         ModelName: "String",
-      },
-    },
-    CreateApikey: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "CreateApikey",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        Name: "String",
-        Description: "String",
-        ProjectId: "Long",
-        AssociatedModelIds: "Array",
-        AllAssociatedModel: "Boolean",
-        AllowedIps: "Array",
+        Capabilities: "Filter",
+        Status: "Int",
+        ContextLengthRanges: "Filter",
       },
     },
     GetModelDetail: {
@@ -768,29 +775,6 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ModelId: "String",
-      },
-    },
-    DescribeApikeys: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "DescribeApikeys",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        Marker: "Int",
-        MaxResults: "Int",
-        AssociatedModelId: "Filter",
-        Status: "Filter",
-        Namekeyword: "String",
-        DefaultKey: "Boolean",
-        KeyId: "Filter",
-        ExcludeTypes: "Filter",
       },
     },
     QueryTokenData: {
@@ -1532,6 +1516,7 @@ module.exports = class Client extends BaseClient {
         TaskType: "String",
         PageSize: "Int",
         Page: "Int",
+        UseIdleResource: "Boolean",
       },
     },
     SetKcrPersonalToken: {
@@ -1770,6 +1755,85 @@ module.exports = class Client extends BaseClient {
         ResourcePoolId: "String",
         ResourcePoolName: "String",
         Overallocate: "Boolean",
+      },
+    },
+    DescribeInferenceAndPodEvents: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeInferenceAndPodEvents",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InferenceId: "String",
+        PodNames: "Array",
+        SortKey: "String",
+        Sort: "String",
+      },
+    },
+    DescribeTrainJobAndPodEvents: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTrainJobAndPodEvents",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        TrainJobId: "String",
+        PodNames: "Array",
+        SortKey: "String",
+        Sort: "String",
+      },
+    },
+    DescribeFineTuneJobAndPodEvents: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeFineTuneJobAndPodEvents",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FineTuneJobId: "String",
+        PodNames: "Array",
+        SortKey: "String",
+        Sort: "String",
+      },
+    },
+    DescribeTerminateStopRecords: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTerminateStopRecords",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+        TerminatePolicyIds: "Array",
+        NotebookIds: "Array",
+        StartTime: "String",
+        EndTime: "String",
+        Page: "Int",
+        PageSize: "Int",
       },
     },
   };

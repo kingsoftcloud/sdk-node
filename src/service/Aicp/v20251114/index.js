@@ -240,6 +240,7 @@ module.exports = class Client extends BaseClient {
         EmbeddingModelProvider: "String",
         EmbeddingModel: "String",
         RetrievalModel: "Object",
+        ComputeUnit: "Int",
       },
     },
     DescribeKnowledgeBase: {
@@ -292,6 +293,9 @@ module.exports = class Client extends BaseClient {
         Name: "String",
         IndexingTechnique: "String",
         RetrievalModel: "Object",
+        ComputeUnit: "Int",
+        ProjectId: "String",
+        ChargeType: "String",
       },
     },
     CreateMemorySdk: {
@@ -314,6 +318,7 @@ module.exports = class Client extends BaseClient {
         Data: "Object",
         AgentUserId: "String",
         MemoryCollectionId: "String",
+        Flush: "Boolean",
       },
     },
     QueryMemorySdk: {
@@ -356,6 +361,10 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         Name: "String",
         Description: "String",
+        LongTermConfiguration: "Object",
+        MemoryType: "String",
+        ProjectId: "String",
+        ChargeType: "String",
       },
     },
     GetMemoryCollection: {
@@ -459,6 +468,7 @@ module.exports = class Client extends BaseClient {
         MemoryCollectionId: "String",
         Description: "String",
         Name: "String",
+        LongTermConfiguration: "Object",
       },
     },
     DeleteMcpServer: {
@@ -784,6 +794,153 @@ module.exports = class Client extends BaseClient {
         DatasetId: "String",
         DocumentId: "String",
         Status: "String",
+      },
+    },
+    GetApiDetail: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetApiDetail",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ApiService: "String",
+        ApiName: "String",
+        ApiVersion: "String",
+      },
+    },
+    GetApiOverview: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetApiOverview",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ApiService: "String",
+        ApiVersion: "String",
+      },
+    },
+    GetProductList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "GetProductList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
+    DescribeMcpRuntimeMetrics: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMcpRuntimeMetrics",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+        StartTime: "Long",
+        EndTime: "Long",
+        Interval: "Int",
+      },
+    },
+    QueryMcpMetrics: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QueryMcpMetrics",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StartTime: "Long",
+        EndTime: "Long",
+        Interval: "Int",
+        McpType: "String",
+        McpServerId: "String",
+      },
+    },
+    DescribeKnowledgeTokenMonitor: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeKnowledgeTokenMonitor",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        StartTime: "Long",
+        EndTime: "Long",
+        Granularity: "String",
+      },
+    },
+    DescribeKnowledgeStorageMonitor: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeKnowledgeStorageMonitor",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        StartTime: "Long",
+        EndTime: "Long",
+        Granularity: "String",
+      },
+    },
+    DescribeMcpRuntimeLogs: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMcpRuntimeLogs",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        McpServerId: "String",
+        StartTime: "Long",
+        EndTime: "Long",
+        Keyword: "String",
+        Page: "Int",
+        Limit: "Int",
       },
     },
   };

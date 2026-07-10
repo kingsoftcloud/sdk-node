@@ -34,6 +34,23 @@ module.exports = class Client extends BaseClient {
         EndTime: "Int",
       },
     },
+    ListGrafanaInstances: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-01-01",
+          Action: "ListGrafanaInstances",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PageIndex: "Int",
+        PageSize: "Int",
+      },
+    },
     DescribeSystemEventAttributes: {
       url: "/",
       method: "GET",
