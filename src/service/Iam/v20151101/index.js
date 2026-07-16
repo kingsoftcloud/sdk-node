@@ -1157,5 +1157,21 @@ module.exports = class Client extends BaseClient {
         InstanceIds: "Array",
       },
     },
+    SendEmailCode: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2015-11-01",
+          Action: "SendEmailCode",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        UserName: "String",
+      },
+    },
   };
 };
