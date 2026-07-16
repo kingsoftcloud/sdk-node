@@ -38,7 +38,8 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           VpcName: "String",
           CidrBlock: "String",
-          ProvidedIpv6CidrBlock: "Boolean"
+          ProvidedIpv6CidrBlock: "Boolean",
+          Ipv6CidrBlock: "String"
         }
       },
       DeleteVpc: {
@@ -1465,6 +1466,38 @@ module.exports = class Client extends BaseClient {
           MaxResults: "Int",
           Filter: "Filter",
           NextToken: "String"
+        }
+      },
+      PublishDirectConnectRouteToBgp: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "PublishDirectConnectRouteToBgp"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DirectConnectRouteId: "String"
+        }
+      },
+      CancelDirectConnectRouteToBgp: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CancelDirectConnectRouteToBgp"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          DirectConnectRouteId: "String"
         }
       },
       DetachDirectConnectGatewayWithVpc: {
