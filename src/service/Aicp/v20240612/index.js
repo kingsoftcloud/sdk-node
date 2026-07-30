@@ -40,6 +40,8 @@ module.exports = class Client extends BaseClient {
         LogProjectName: "String",
         Overallocate: "Boolean",
         Components: "Array",
+        EnableVolume: "Boolean",
+        VolumeChargeType: "String",
       },
     },
     CreateStorageConfig: {
@@ -192,6 +194,7 @@ module.exports = class Client extends BaseClient {
         ImageSource: "String",
         ImageRepoId: "String",
         ImageRegistryId: "String",
+        AutoSaveConfig: "Object",
       },
     },
     DeleteNotebook: {
@@ -208,6 +211,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         NotebookId: "String",
+        VolumeReclaimPolicy: "String",
       },
     },
     DescribeNotebooks: {
@@ -229,6 +233,7 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
         Filter: "Filter",
         QueueId: "String",
+        EnableVolume: "Boolean",
       },
     },
     CreateNotebook: {
@@ -268,6 +273,8 @@ module.exports = class Client extends BaseClient {
         AllocationId: "String",
         RunOnCPU: "String",
         AutoSaveConfig: "Object",
+        EnableVolume: "Boolean",
+        VolumeConfig: "Object",
       },
     },
     EnableKlog: {
@@ -761,6 +768,32 @@ module.exports = class Client extends BaseClient {
         ContextLengthRanges: "Filter",
       },
     },
+    CreateApikey: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateApikey",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        Description: "String",
+        ProjectId: "Long",
+        AssociatedModelIds: "Array",
+        AllAssociatedModel: "Boolean",
+        AllowedIps: "Array",
+        AllowEndpoints: "Array",
+        AllAssociatedEndpoint: "Boolean",
+        AllAssociatedProjectResources: "Boolean",
+        LowPriceModels: "Array",
+        HighPriceModels: "Array",
+      },
+    },
     GetModelDetail: {
       url: "/",
       method: "GET",
@@ -775,6 +808,29 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ModelId: "String",
+      },
+    },
+    DescribeApikeys: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeApikeys",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Marker: "Int",
+        MaxResults: "Int",
+        AssociatedModelId: "Filter",
+        Status: "Filter",
+        Namekeyword: "String",
+        DefaultKey: "Boolean",
+        SelfCreated: "Boolean",
+        SortOrder: "String",
       },
     },
     QueryTokenData: {
@@ -1334,6 +1390,7 @@ module.exports = class Client extends BaseClient {
         Component: "String",
         ResourcePoolId: "Filter",
         Filter: "Filter",
+        EnableVolume: "Boolean",
       },
     },
     DescribeResourcePoolInstances: {
@@ -1834,6 +1891,110 @@ module.exports = class Client extends BaseClient {
         EndTime: "String",
         Page: "Int",
         PageSize: "Int",
+      },
+    },
+    GetAccountBillRules: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetAccountBillRules",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
+    CreateUsageDownloadTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateUsageDownloadTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StartTimestamp: "Long",
+        EndTimestamp: "Long",
+        Filter: "Object",
+      },
+    },
+    GetUsageDownloadTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetUsageDownloadTask",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TaskId: "String",
+      },
+    },
+    AddStorageConfigAccess: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "AddStorageConfigAccess",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StorageConfigId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
+        Permission: "String",
+      },
+    },
+    ModifyStorageConfigAccessRole: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyStorageConfigAccessRole",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StorageConfigId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
+        Permission: "String",
+      },
+    },
+    RemoveStorageConfigAccess: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RemoveStorageConfigAccess",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        StorageConfigId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
       },
     },
   };

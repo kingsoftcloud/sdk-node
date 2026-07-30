@@ -943,5 +943,70 @@ module.exports = class Client extends BaseClient {
         Limit: "Int",
       },
     },
+    DescribeMemoryTokenMonitor: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMemoryTokenMonitor",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryId: "String",
+        StartTime: "Long",
+        EndTime: "Long",
+        Granularity: "String",
+      },
+    },
+    DescribeMemoryStorageMonitor: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMemoryStorageMonitor",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryId: "String",
+        StartTime: "Long",
+        EndTime: "Long",
+        Granularity: "String",
+      },
+    },
+    ListMemories: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ListMemories",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        AgentUserId: "String",
+        TopicId: "String",
+        Query: "String",
+        Page: "Long",
+        PageSize: "Long",
+        SortBy: "String",
+        SortOrder: "String",
+        CreatedAfter: "Long",
+        CreatedBefore: "Long",
+        OccurredAfter: "Long",
+        OccurredBefore: "Long",
+      },
+    },
   };
 };
