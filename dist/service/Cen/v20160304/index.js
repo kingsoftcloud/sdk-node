@@ -36,7 +36,8 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          CenName: "String"
+          CenName: "String",
+          Description: "String"
         }
       },
       ModifyCen: {
@@ -53,7 +54,8 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           CenId: "String",
-          CenName: "String"
+          CenName: "String",
+          Description: "String"
         }
       },
       DeleteCen: {
@@ -88,81 +90,6 @@ module.exports = class Client extends BaseClient {
           CenId: "Filter",
           MaxResults: "Int",
           NextToken: "String"
-        }
-      },
-      AttachCenInstance: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "AttachCenInstance"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          CenId: "String",
-          InstanceType: "String",
-          CenRegion: "String",
-          CenInstanceId: "String",
-          InstanceAccountId: "String"
-        }
-      },
-      DetachCenInstance: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DetachCenInstance"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          CenId: "String",
-          CenInstanceId: "String"
-        }
-      },
-      DescribeCenInstances: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeCenInstances"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          CenInstanceId: "Filter",
-          MaxResults: "Int",
-          Filter: "Filter",
-          NextToken: "String"
-        }
-      },
-      CreatCenGrant: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "CreatCenGrant"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          CenId: "String",
-          InstanceType: "String",
-          CenInstanceId: "String",
-          CenAccountId: "String"
         }
       },
       DeleteCenGrant: {
@@ -200,25 +127,6 @@ module.exports = class Client extends BaseClient {
           NextToken: "String"
         }
       },
-      DescribeRegionGroups: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeRegionGroups"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          RegionGroupId: "Filter",
-          Filter: "Filter",
-          MaxResults: "Int",
-          NextToken: "String"
-        }
-      },
       CreateCenBandWidthPackage: {
         url: "/",
         method: "GET",
@@ -233,10 +141,10 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           CenId: "String",
-          Name: "String",
-          RegionAGroupId: "String",
-          RegionBGroupId: "String",
-          BandWidth: "Int",
+          CenBandWidthPackageName: "String",
+          LocalAreaId: "String",
+          RemoteAreaId: "String",
+          PackageBandWidth: "Int",
           ProjectId: "String",
           ChargeType: "String",
           PurchaseTime: "Int"
@@ -256,7 +164,8 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           CenBandWidthPackageId: "String",
-          BandWidth: "Int"
+          PackageBandWidth: "Int",
+          CenBandWidthPackageName: "String"
         }
       },
       DeleteCenBandWidthPackage: {
@@ -318,7 +227,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCenBandWidthPackages"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -326,7 +235,9 @@ module.exports = class Client extends BaseClient {
           CenBandWidthPackageId: "Filter",
           Filter: "Filter",
           MaxResults: "Int",
-          NextToken: "String"
+          NextToken: "String",
+          TagKey: "Filter",
+          TagKV: "Filter"
         }
       },
       CreateCenRegionBandwidth: {
@@ -342,11 +253,10 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          CenId: "String",
-          RegionA: "String",
-          RegionB: "String",
+          LocalRegion: "String",
+          RemoteRegion: "String",
           CenBandWidthPackageId: "String",
-          BandWidth: "Int"
+          InterBandWidth: "Int"
         }
       },
       DeleteCenRegionBandwidth: {
@@ -379,7 +289,7 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           CenRegionBandwidthId: "String",
-          BandWidth: "String"
+          InterBandWidth: "String"
         }
       },
       DescribeCenRegionBandwidths: {
@@ -391,7 +301,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCenRegionBandwidths"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
@@ -420,25 +330,6 @@ module.exports = class Client extends BaseClient {
           NextToken: "String"
         }
       },
-      DescribeCenRegions: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2016-03-04",
-            Action: "DescribeCenRegions"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {
-          CenRegionId: "Filter",
-          Filter: "Filter",
-          MaxResults: "Int",
-          NextToken: "String"
-        }
-      },
       DescribeCenBandWidthPackageUsage: {
         url: "/",
         method: "GET",
@@ -448,11 +339,164 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeCenBandWidthPackageUsage"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
           CenBandWidthPackageId: "String"
+        }
+      },
+      DescribeNetworkInstances: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeNetworkInstances"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          NetworkInstanceId: "Filter",
+          MaxResults: "Int",
+          Filter: "Filter",
+          NextToken: "String"
+        }
+      },
+      CreateCenGrant: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CreateCenGrant"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CenId: "String",
+          InstanceType: "String",
+          NetworkInstanceId: "String",
+          CenAccountId: "String"
+        }
+      },
+      DescribeInterAreas: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeInterAreas"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InterAreaId: "Filter",
+          Filter: "Filter",
+          MaxResults: "Int",
+          NextToken: "String"
+        }
+      },
+      DescribeInterRegions: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeInterRegions"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          InterRegionId: "Filter",
+          Filter: "Filter",
+          MaxResults: "Int",
+          NextToken: "String"
+        }
+      },
+      AttachNetworkInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "AttachNetworkInstance"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CenId: "String",
+          InstanceType: "String",
+          InstanceRegion: "String",
+          NetworkInstanceId: "String",
+          InstanceAccountId: "String"
+        }
+      },
+      DetachNetworkInstance: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DetachNetworkInstance"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          CenId: "String",
+          NetworkInstanceId: "String"
+        }
+      },
+      CenCidrPublish: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CenCidrPublish"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          NetworkInstanceId: "String",
+          InstanceType: "String",
+          NetworkRouteId: "Filter",
+          SelfDefineCidr: "Filter",
+          CenId: "String"
+        }
+      },
+      CenCidrDelete: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CenCidrDelete"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          NetworkInstanceId: "String",
+          InstanceType: "String",
+          NetworkRouteId: "Filter",
+          SelfRouteId: "Filter",
+          CenId: "String"
         }
       }
     });
