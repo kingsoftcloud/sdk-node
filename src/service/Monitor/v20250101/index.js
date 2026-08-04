@@ -95,6 +95,25 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
       },
     },
+    QueryRange: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-01-01",
+          Action: "QueryRange",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Query: "String",
+        Start: "Int",
+        End: "Int",
+        Step: "Int",
+      },
+    },
     GetPrometheusToken: {
       url: "/",
       method: "GET",
