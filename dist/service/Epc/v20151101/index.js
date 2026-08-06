@@ -37,11 +37,13 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           HostType: "String",
+          GroupSubType: "String",
           AvailabilityZone: "String",
           Raid: "String",
           RaidId: "String",
           ImageId: "String",
           NetworkInterfaceMode: "String",
+          BondAttribute: "String",
           SubnetId: "String",
           PrivateIpAddress: "String",
           keyId: "String",
@@ -73,7 +75,6 @@ module.exports = class Client extends BaseClient {
           NvmeDataFileType: "String",
           NvmeDataDiskCatalogue: "String",
           NvmeDataDiskCatalogueSuffix: "String",
-          BondAttribute: "String",
           ContainerAgent: "String",
           KesAgent: "String",
           KmrAgent: "String",
@@ -95,7 +96,18 @@ module.exports = class Client extends BaseClient {
           "Engine.N": "String",
           "AiModel.N": "String",
           UserData: "String",
-          StorageRoceNetworkInterfaceMode: "String"
+          StorageRoceNetworkInterfaceMode: "String",
+          RoceCluster: "String",
+          SRoceCluster: "String",
+          UserDefinedData: "String",
+          ClientToken: "String",
+          NetworkCardNameFormat: "String",
+          NetworkCardPriority: "String",
+          FileSystemId: "String",
+          PosixAclId: "String",
+          CustomInstallConfig: "Filter",
+          DeleteProtection: "String",
+          UltraServerSn: "String"
         }
       },
       StartEpc: {
@@ -111,7 +123,8 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          HostId: "String"
+          HostId: "String",
+          ClientToken: "String"
         }
       },
       RebootEpc: {
@@ -127,7 +140,8 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          HostId: "String"
+          HostId: "String",
+          ClientToken: "String"
         }
       },
       DeleteEpc: {
@@ -143,7 +157,8 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          HostId: "String"
+          HostId: "String",
+          ClientToken: "String"
         }
       },
       ReinstallEpc: {
@@ -187,7 +202,14 @@ module.exports = class Client extends BaseClient {
           ContainerAgent: "String",
           PasswordInherit: "String",
           DataDiskMount: "String",
-          StorageRoceNetworkCardName: "String"
+          StorageRoceNetworkCardName: "String",
+          UserDefinedData: "String",
+          ClientToken: "String",
+          NetworkCardNameFormat: "String",
+          NetworkCardPriority: "String",
+          FileSystemId: "String",
+          PosixAclId: "String",
+          CustomInstallConfig: "Filter"
         }
       },
       ModifySecurityGroup: {
@@ -295,7 +317,8 @@ module.exports = class Client extends BaseClient {
           HostId: "String",
           ImageName: "String",
           ImageMode: "String",
-          ImageInitialization: "String"
+          ImageInitialization: "String",
+          Description: "String"
         }
       },
       ModifyImage: {
@@ -346,7 +369,8 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           MaxResults: "Int",
           NextToken: "String",
-          "ImageId.N": "String"
+          "ImageId.N": "String",
+          Filter: "Filter"
         }
       },
       ModifyDns: {
@@ -423,7 +447,8 @@ module.exports = class Client extends BaseClient {
           DynamicCode: "String",
           Pin: "String",
           EpcManagementId: "Filter",
-          RemoteManagementId: "String"
+          RemoteManagementId: "String",
+          ProjectId: "Filter"
         }
       },
       DescribeRemoteManagements: {
@@ -455,7 +480,8 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          HostId: "String"
+          HostId: "String",
+          ClientToken: "String"
         }
       },
       ModifyEpc: {
@@ -473,7 +499,9 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           HostId: "String",
           HostName: "String",
-          Description: "String"
+          Description: "String",
+          ClientToken: "String",
+          DeleteProtection: "String"
         }
       },
       ModifyRemoteManagement: {
@@ -495,7 +523,7 @@ module.exports = class Client extends BaseClient {
           NewPhoneNumber: "String",
           NewPin: "String",
           Name: "String",
-          VersionId: "Int"
+          VersionId: "Long"
         }
       },
       CreateRemoteManagement: {
@@ -515,7 +543,7 @@ module.exports = class Client extends BaseClient {
           Pin: "String",
           PhoneNumber: "String",
           Name: "String",
-          VersionId: "Int"
+          VersionId: "Long"
         }
       },
       ReinstallCustomerEpc: {
@@ -1179,6 +1207,7 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           HostType: "String",
+          GroupSubType: "String",
           AvailabilityZone: "String",
           Raid: "String",
           RaidId: "String",
@@ -1232,7 +1261,16 @@ module.exports = class Client extends BaseClient {
           TimedRegularization: "String",
           PasswordInherit: "String",
           DataDiskMount: "String",
-          StorageRoceNetworkCardName: "String"
+          StorageRoceNetworkCardName: "String",
+          SRoceCluster: "String",
+          RoceCluster: "String",
+          ClientToken: "String",
+          NetworkCardNameFormat: "String",
+          NetworkCardPriority: "String",
+          FileSystemId: "String",
+          PosixAclId: "String",
+          CustomInstallConfig: "Filter",
+          UltraServerSn: "String"
         }
       },
       DescribeUseHotStandbyRecords: {
@@ -1266,7 +1304,12 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          SpineName: "String"
+          SpineName: "String",
+          LeafName: "String",
+          HostId: "String",
+          Sn: "String",
+          RoceCluster: "String",
+          SRoceCluster: "String"
         }
       },
       ModifyProcess: {
@@ -1478,7 +1521,8 @@ module.exports = class Client extends BaseClient {
           UniqueSuffix: "Boolean",
           InstallRunCommandAgent: "Boolean",
           Count: "Int",
-          SoZoneId: "String"
+          SoZoneId: "String",
+          UserData: "String"
         }
       },
       DescribeSoImages: {
@@ -1969,7 +2013,8 @@ module.exports = class Client extends BaseClient {
           InstanceId: "String",
           InstanceName: "String",
           Password: "String",
-          SoZoneId: "String"
+          SoZoneId: "String",
+          UserData: "String"
         }
       },
       CreateSoKeyPair: {
@@ -1988,6 +2033,300 @@ module.exports = class Client extends BaseClient {
           KeyPairName: "String",
           Description: "String",
           SoZoneId: "String"
+        }
+      },
+      InstallAgent: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "InstallAgent"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          HostId: "String",
+          AgentId: "String",
+          Username: "String",
+          Password: "String",
+          Key: "String"
+        }
+      },
+      DescribeAgent: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DescribeAgent"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          AgentName: "String",
+          AgentId: "String",
+          AgentType: "String"
+        }
+      },
+      DescribeAgentInstallStatus: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DescribeAgentInstallStatus"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          HostId: "Filter",
+          AgentId: "String",
+          Status: "String",
+          NextToken: "String",
+          MaxResults: "Int"
+        }
+      },
+      DescribeSoUserData: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DescribeSoUserData"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          InstanceId: "String"
+        }
+      },
+      DescribeUserData: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DescribeUserData"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          HostId: "String"
+        }
+      },
+      CreateLaunchTemplate: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "CreateLaunchTemplate"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ChargeType: "String",
+          PurchaseTime: "Int",
+          AvailabilityZone: "String",
+          HostType: "String",
+          NetworkInterfaceMode: "String",
+          BondAttribute: "String",
+          ImageId: "String",
+          GpuImageDriverId: "String",
+          Raid: "String",
+          RaidId: "String",
+          DataDiskMount: "String",
+          SystemFileType: "String",
+          DataFileType: "String",
+          DataDiskCatalogue: "String",
+          DataDiskCatalogueSuffix: "String",
+          NvmeDataFileType: "String",
+          NvmeDataDiskCatalogue: "String",
+          NvmeDataDiskCatalogueSuffix: "String",
+          SubnetId: "String",
+          SecurityGroupId: "Filter",
+          ExtensionSubnetId: "String",
+          ExtensionSecurityGroupId: "Filter",
+          AddressBandWidth: "String",
+          LineId: "String",
+          BandWidthShareId: "String",
+          AddressChargeType: "String",
+          AddressPurchaseTime: "Int",
+          AddressProjectId: "String",
+          LaunchTemplateName: "String",
+          VersionDescription: "String",
+          HostName: "String",
+          Description: "String",
+          ComputerName: "String",
+          HostNameStartNo: "Int",
+          ComputerNameStartNo: "Int",
+          ProjectId: "String",
+          KeyId: "String",
+          PasswordInherit: "String",
+          CloudMonitorAgent: "String",
+          ContainerAgent: "String",
+          ZoneId: "String",
+          ZoneType: "String",
+          StorageRoceNetworkCardName: "String",
+          UserData: "String"
+        }
+      },
+      CreateLaunchTemplateVersion: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "CreateLaunchTemplateVersion"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ChargeType: "String",
+          PurchaseTime: "Int",
+          AvailabilityZone: "String",
+          HostType: "String",
+          NetworkInterfaceMode: "String",
+          BondAttribute: "String",
+          ImageId: "String",
+          GpuImageDriverId: "String",
+          Raid: "String",
+          RaidId: "String",
+          DataDiskMount: "String",
+          SystemFileType: "String",
+          DataFileType: "String",
+          DataDiskCatalogue: "String",
+          DataDiskCatalogueSuffix: "String",
+          NvmeDataFileType: "String",
+          NvmeDataDiskCatalogue: "String",
+          NvmeDataDiskCatalogueSuffix: "String",
+          SubnetId: "String",
+          ExtensionSecurityGroupId: "Filter",
+          AddressBandWidth: "String",
+          LineId: "String",
+          BandWidthShareId: "String",
+          AddressChargeType: "String",
+          AddressPurchaseTime: "Int",
+          AddressProjectId: "String",
+          LaunchTemplateId: "String",
+          VersionDescription: "String",
+          HostName: "String",
+          Description: "String",
+          ComputerName: "String",
+          HostNameStartNo: "Int",
+          ComputerNameStartNo: "Int",
+          ProjectId: "String",
+          KeyId: "String",
+          PasswordInherit: "String",
+          CloudMonitorAgent: "String",
+          ContainerAgent: "String",
+          ZoneId: "String",
+          ZoneType: "String",
+          StorageRoceNetworkCardName: "String",
+          UserData: "String"
+        }
+      },
+      DescribeLaunchTemplates: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DescribeLaunchTemplates"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          NextToken: "String",
+          MaxResults: "Int",
+          LaunchTemplateId: "Filter"
+        }
+      },
+      DescribeLaunchTemplateVersions: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DescribeLaunchTemplateVersions"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          LaunchTemplateId: "String",
+          DefaultVersion: "Boolean",
+          LaunchTemplateVersion: "Filter",
+          NextToken: "String",
+          MaxResults: "Int"
+        }
+      },
+      ModifyTemplateDefaultVersion: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "ModifyTemplateDefaultVersion"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          LaunchTemplateId: "String",
+          DefaultVersionNumber: "Int"
+        }
+      },
+      DeleteLaunchTemplate: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DeleteLaunchTemplate"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          LaunchTemplateId: "String"
+        }
+      },
+      DeleteLaunchTemplateVersion: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "DeleteLaunchTemplateVersion"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          LaunchTemplateId: "String",
+          LaunchTemplateVersion: "Filter"
         }
       }
     });

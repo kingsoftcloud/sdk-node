@@ -41,6 +41,25 @@ module.exports = class Client extends BaseClient {
           DurationSeconds: "String",
           Policy: "String"
         }
+      },
+      AssumeRoleTemporarySAML: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2015-11-01",
+            Action: "AssumeRoleTemporarySAML"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          RoleKrn: "String",
+          RoleSessionName: "String",
+          DurationSeconds: "String",
+          Policy: "String"
+        }
       }
     });
   }
