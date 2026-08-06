@@ -374,6 +374,9 @@ module.exports = class Client extends BaseClient {
         Type: "String",
         RecordTtl: "Int",
         RecordValue: "String",
+        Priority: "Int",
+        Weight: "Int",
+        Port: "Int",
       },
     },
     DeleteZoneRecord: {
@@ -431,6 +434,8 @@ module.exports = class Client extends BaseClient {
         ZoneId: "String",
         RecordId: "Filter",
         Filter: "Filter",
+        MaxResults: "Int",
+        NextToken: "String",
       },
     },
     UnbindFdZoneVpc: {
