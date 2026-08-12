@@ -1,6 +1,6 @@
 {
     "name": "ksyun-sdk-node",
-    "version": "1.5.66",
+    "version": "1.5.67",
     "description": "",
     "main": "dist/index.js",
     "scripts": {

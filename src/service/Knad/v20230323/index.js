@@ -229,7 +229,7 @@ module.exports = class Client extends BaseClient {
           Action: "GetZoneList",
         },
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       },
       paramsType: {},
@@ -281,7 +281,7 @@ module.exports = class Client extends BaseClient {
           Action: "GetBlockLocations",
         },
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       },
       paramsType: {
@@ -302,23 +302,6 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         KnadId: "String",
-      },
-    },
-    InsertEips: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2023-03-23",
-          Action: "InsertEips",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        KnadId: "String",
-        Ip: "Array",
       },
     },
   };
