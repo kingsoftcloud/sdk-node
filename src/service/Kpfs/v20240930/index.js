@@ -29,7 +29,6 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        Region: "String",
         FileSystemName: "String",
         FileSystemIds: "String",
         StoreClasses: "String",
@@ -97,6 +96,84 @@ module.exports = class Client extends BaseClient {
         HostNamePrefix: "String",
         PageSize: "Int",
         PageNum: "Int",
+      },
+    },
+    DescribeFileSystemFileList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeFileSystemFileList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        Dir: "String",
+        FileName: "String",
+        PageNum: "Long",
+        PageSize: "Long",
+      },
+    },
+    RenewFileSystem: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "RenewFileSystem",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        PurchaseTime: "Long",
+      },
+    },
+    UpgradeFileSystem: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "UpgradeFileSystem",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        Capacity: "Long",
+      },
+    },
+    CreateFileSystem: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateFileSystem",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemName: "String",
+        Region: "String",
+        AvailZone: "String",
+        ChargeType: "String",
+        PurchaseTime: "Long",
+        StoreClass: "String",
+        Capacity: "Long",
+        ChunkSize: "Long",
+        ClusterCode: "String",
       },
     },
     GetCapacityAvailable: {
@@ -263,6 +340,81 @@ module.exports = class Client extends BaseClient {
         VpcIp: "String",
       },
     },
+    DeletePerformanceOnePosixAcl: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeletePerformanceOnePosixAcl",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PosixAclId: "String",
+      },
+    },
+    UpdatePerformanceOnePosixAcl: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "UpdatePerformanceOnePosixAcl",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        PosixAclId: "String",
+        FileSystemList: "Array",
+        AutoMount: "Boolean",
+        Ips: "Array",
+        Desc: "String",
+      },
+    },
+    DescribePerformanceOnePosixAclList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribePerformanceOnePosixAclList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        FileSystemName: "String",
+        Ip: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    SetPerformanceOnePosixAcl: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "SetPerformanceOnePosixAcl",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemList: "Array",
+        AutoMount: "Boolean",
+        Ips: "Array",
+        Desc: "String",
+      },
+    },
     DescribeDirQuotaList: {
       url: "/",
       method: "GET",
@@ -272,7 +424,7 @@ module.exports = class Client extends BaseClient {
           Action: "DescribeDirQuotaList",
         },
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       },
       paramsType: {
@@ -452,7 +604,7 @@ module.exports = class Client extends BaseClient {
           Action: "DescribeDirQuota",
         },
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       },
       paramsType: {
@@ -461,6 +613,502 @@ module.exports = class Client extends BaseClient {
         ClusterName: "String",
         FileSystemName: "String",
         DirPath: "String",
+      },
+    },
+    DeleteFileSystem: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteFileSystem",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+      },
+    },
+    AddPerformanceOnePosixAclIp: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "AddPerformanceOnePosixAclIp",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        PosixAclId: "String",
+        Ip: "String",
+      },
+    },
+    RemovePerformanceOnePosixAclIp: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "RemovePerformanceOnePosixAclIp",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        PosixAclId: "String",
+        Ip: "String",
+      },
+    },
+    GetDataMigrateTaskProgress: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetDataMigrateTaskProgress",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TaskId: "String",
+      },
+    },
+    DescribeDataMigrateTaskList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeDataMigrateTaskList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        TaskIds: "String",
+        TaskName: "String",
+        TaskType: "String",
+        DirPath: "String",
+        Bucket: "String",
+        BucketPrefix: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    StartDataMigrateTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "StartDataMigrateTask",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TaskId: "String",
+      },
+    },
+    StopDataMigrateTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "StopDataMigrateTask",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TaskId: "String",
+      },
+    },
+    DeleteDataMigrateTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteDataMigrateTask",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        TaskIds: "String",
+      },
+    },
+    UpdateDataMigrateTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "UpdateDataMigrateTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        TaskId: "String",
+        TaskName: "String",
+        DirPath: "String",
+        Description: "String",
+        BandWidthLimit: "Int",
+        CleanSourceFile: "Boolean",
+        ExportTaskPeriodEnabled: "String",
+        ExportTaskPeriodConfig: "Object",
+      },
+    },
+    CreateDataMigrateTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateDataMigrateTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        TaskName: "String",
+        TaskType: "String",
+        BucketConfig: "Object",
+        DirPath: "String",
+        Description: "String",
+        BandWidthLimit: "Int",
+        CleanSourceFile: "Boolean",
+        ExportTaskPeriodEnabled: "String",
+        ExportTaskPeriodConfig: "Object",
+      },
+    },
+    DescribeClientInstallInfo: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeClientInstallInfo",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+      },
+    },
+    ManageDataFlowTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "ManageDataFlowTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+        TaskId: "String",
+        Operation: "String",
+      },
+    },
+    CreateDataFlowStrategy: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateDataFlowStrategy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyName: "String",
+        StrategyType: "String",
+        Bind: "String",
+        DataLoadingMode: "String",
+        DirPath: "String",
+        Bucket: "String",
+        BucketPrefix: "String",
+        DuplicateProcess: "String",
+        Subscribe: "String",
+        CleanSourceFile: "Boolean",
+        BandWidthLimit: "String",
+        ArchiveRule: "Int",
+      },
+    },
+    DescribeDataFlowTaskList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeDataFlowTaskList",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+      },
+    },
+    ActivateDataFlowTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "ActivateDataFlowTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+      },
+    },
+    DeleteDataFlowStrategy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteDataFlowStrategy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+      },
+    },
+    DescribeDataFlowStrategyList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeDataFlowStrategyList",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    CleanRecycledFiles: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CleanRecycledFiles",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+      },
+    },
+    DeleteCleanRecycledFiles: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteCleanRecycledFiles",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+      },
+    },
+    DeleteRecycleBinConfig: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteRecycleBinConfig",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+      },
+    },
+    DeleteRecycledFileList: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteRecycledFileList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+      },
+    },
+    GetRecycleBinConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "GetRecycleBinConfig",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+      },
+    },
+    SetRecycleBinConfig: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "SetRecycleBinConfig",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        Enabled: "String",
+        ExpireTime: "Int",
+        ExpireType: "String",
+      },
+    },
+    DescribeRecycledFileList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeRecycledFileList",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        RecycledPath: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    DeleteRecycledFiles: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteRecycledFiles",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        RecycledPath: "String",
+        Files: "Array",
+        Inodes: "Array",
+      },
+    },
+    RestoreRecycledFiles: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "RestoreRecycledFiles",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        RecycledPath: "String",
+        Files: "Array",
+        Inodes: "Array",
+      },
+    },
+    DescribeClusterInfo: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeClusterInfo",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Region: "String",
+        AvailZone: "String",
+        StoreClass: "String",
+        SRoceCluster: "String",
+        StorePoolType: "String",
       },
     },
     UpdatePerformanceNfsAclIp: {
@@ -564,8 +1212,8 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         FileSystemName: "String",
         NfsAclId: "String",
-        PageNum: "Int",
-        PageSize: "Int",
+        PageNum: "Long",
+        PageSize: "Long",
       },
     },
     DescribeFileSystemNfsClientInfo: {
@@ -588,104 +1236,6 @@ module.exports = class Client extends BaseClient {
         Version: "String",
       },
     },
-    DeleteDataFlow: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "DeleteDataFlow",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
-        DataFlowId: "String",
-      },
-    },
-    DescribeDataFlowTasks: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "DescribeDataFlowTasks",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
-        DataFlowId: "String",
-        TaskIds: "String",
-        PageSize: "Int",
-        PageNum: "Int",
-      },
-    },
-    DescribeDataFlows: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "DescribeDataFlows",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        FileSystemId: "String",
-        DataFlowId: "String",
-        PageSize: "Int",
-        PageNum: "Int",
-      },
-    },
-    CreateDataFlowTask: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "CreateDataFlowTask",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        DataFlowId: "String",
-        TaskAction: "String",
-        SrcDirectory: "String",
-        DstDirectory: "String",
-        EntryList: "Array",
-        Bandwidth: "Int",
-      },
-    },
-    CreateDataFlow: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-09-30",
-          Action: "CreateDataFlow",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        Name: "String",
-        FileSystemId: "String",
-        DirPath: "String",
-        Bucket: "String",
-        BucketPrefix: "String",
-        Description: "String",
-      },
-    },
     SetFileSystemResourceProtect: {
       url: "/",
       method: "POST",
@@ -701,6 +1251,182 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         FileSystemIds: "Array",
         IsProtection: "Boolean",
+      },
+    },
+    DescribeFileDeletePolicyList: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeFileDeletePolicyList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        DeletePolicyStatus: "String",
+        DirPath: "String",
+        FileDeletePolicyId: "Array",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    EnableFileDeletePolicy: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "EnableFileDeletePolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        FileDeletePolicyId: "String",
+      },
+    },
+    DisableFileDeletePolicy: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DisableFileDeletePolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        FileDeletePolicyId: "String",
+      },
+    },
+    DescribeFileDeletePolicy: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeFileDeletePolicy",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileDeletePolicyId: "String",
+        FileSystemId: "String",
+      },
+    },
+    DeleteFileDeletePolicy: {
+      url: "/",
+      method: "DELETE",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteFileDeletePolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        FileDeletePolicyId: "String",
+      },
+    },
+    UpdateFileDeletePolicy: {
+      url: "/",
+      method: "PUT",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "UpdateFileDeletePolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        FileDeletePolicyId: "String",
+        FileDeletePolicyName: "String",
+        ExecutionType: "String",
+        FrequencyUnit: "String",
+        IndexOfFrequency: "Array",
+        FrequencyTimePoints: "Array",
+        FileNameRule: "Object",
+        FileSizeRule: "Object",
+        TimeRuleParameters: "Array",
+        Description: "String",
+      },
+    },
+    CreateFileDeletePolicy: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateFileDeletePolicy",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        FileDeletePolicyName: "String",
+        DirPath: "String",
+        ExecutionType: "String",
+        FrequencyUnit: "String",
+        IndexOfFrequency: "Array",
+        FrequencyTimePoints: "Array",
+        FileNameRule: "Object",
+        FileSizeRule: "Object",
+        TimeRuleParameters: "Array",
+        Description: "String",
+      },
+    },
+    DescribeDataFlowStrategySubscribe: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeDataFlowStrategySubscribe",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+      },
+    },
+    ManageDataFlowStrategySubscribe: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "ManageDataFlowStrategySubscribe",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+        Operation: "String",
       },
     },
     GetRemoteCachePutLatency: {
@@ -833,6 +1559,137 @@ module.exports = class Client extends BaseClient {
         CacheGroup: "String",
         CacheGroupRole: "String",
         ClientNm: "String",
+      },
+    },
+    DescribeDataFlowStrategySubscribeFailed: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeDataFlowStrategySubscribeFailed",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        FileSystemId: "String",
+        StrategyId: "String",
+        SubscribeId: "String",
+        StartTime: "String",
+        EndTime: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
+    ManageMigrateTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "ManageMigrateTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        TaskId: "String",
+        Operation: "String",
+      },
+    },
+    DescribeMigrateTasks: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeMigrateTasks",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        RuleId: "String",
+        TaskId: "String",
+        PageSize: "Long",
+        PageNum: "Long",
+      },
+    },
+    CreateMigrateTask: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateMigrateTask",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        RuleId: "String",
+        SrcDirectory: "String",
+        DstDirectory: "String",
+        EntryList: "Array",
+      },
+    },
+    DeleteMigrateRule: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DeleteMigrateRule",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        RuleId: "String",
+      },
+    },
+    DescribeMigrateRules: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "DescribeMigrateRules",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        RuleId: "String",
+        Region: "String",
+        PageSize: "Long",
+        PageNum: "Long",
+      },
+    },
+    CreateMigrateRule: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-09-30",
+          Action: "CreateMigrateRule",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        Region: "String",
+        SrcData: "Object",
+        DstData: "Object",
       },
     },
   };
