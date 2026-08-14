@@ -90,6 +90,8 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         ModelId: "String",
         Users: "Array",
+        ModelPermission: "String",
+        SharedGroupList: "Array",
       },
     },
     CreateModelAndVersion: {
@@ -114,6 +116,8 @@ module.exports = class Client extends BaseClient {
         Format: "String",
         Framework: "String",
         Users: "Array",
+        ModelPermission: "String",
+        SharedGroupList: "Array",
       },
     },
     ModifyModel: {

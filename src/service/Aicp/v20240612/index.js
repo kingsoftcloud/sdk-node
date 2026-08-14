@@ -64,9 +64,11 @@ module.exports = class Client extends BaseClient {
         KpfsInfo: "Object",
         Ks3Info: "Object",
         Users: "Array",
+        DatasetPermission: "String",
+        SharedGroupList: "Array",
+        Prefetch: "Boolean",
         Ak: "String",
         Sk: "String",
-        Prefetch: "Boolean",
       },
     },
     ModifyStorageConfig: {
@@ -88,9 +90,11 @@ module.exports = class Client extends BaseClient {
         MountPath: "String",
         Ks3Info: "Object",
         Users: "Array",
+        DatasetPermission: "String",
+        SharedGroupList: "Array",
+        Prefetch: "Boolean",
         Ak: "String",
         Sk: "String",
-        Prefetch: "Boolean",
       },
     },
     DescribeStorageConfigs: {
@@ -195,6 +199,7 @@ module.exports = class Client extends BaseClient {
         ImageRepoId: "String",
         ImageRegistryId: "String",
         AutoSaveConfig: "Object",
+        Envs: "Array",
       },
     },
     DeleteNotebook: {
@@ -275,6 +280,7 @@ module.exports = class Client extends BaseClient {
         AutoSaveConfig: "Object",
         EnableVolume: "Boolean",
         VolumeConfig: "Object",
+        Envs: "Array",
       },
     },
     EnableKlog: {
@@ -319,6 +325,8 @@ module.exports = class Client extends BaseClient {
         UserName: "String",
         Password: "String",
         ImagePermission: "String",
+        AccessList: "Array",
+        SharedGroupList: "Array",
       },
     },
     DeleteImage: {
@@ -353,6 +361,8 @@ module.exports = class Client extends BaseClient {
         ImageId: "String",
         ImageName: "String",
         ImagePermission: "String",
+        AccessList: "Array",
+        SharedGroupList: "Array",
       },
     },
     DescribeImages: {
@@ -1631,6 +1641,7 @@ module.exports = class Client extends BaseClient {
         AllowBorrowing: "Boolean",
         Description: "String",
         AccessList: "Array",
+        SharedGroupList: "Array",
         WorkloadType: "Array",
       },
     },
@@ -1652,6 +1663,7 @@ module.exports = class Client extends BaseClient {
         AllowBorrowing: "Boolean",
         Description: "String",
         AccessList: "Array",
+        SharedGroupList: "Array",
         WorkloadType: "Array",
       },
     },
@@ -1893,6 +1905,164 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
       },
     },
+    CreateAccessGroup: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateAccessGroup",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        AccessGroupName: "String",
+        AccessGroupDescription: "String",
+        Users: "Array",
+      },
+    },
+    ModifyAccessGroup: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyAccessGroup",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        AccessGroupName: "String",
+        AccessGroupDescription: "String",
+        Users: "Array",
+      },
+    },
+    DescribeAccessGroups: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeAccessGroups",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "Filter",
+        Filter: "Filter",
+        Page: "Int",
+        PageSize: "Int",
+      },
+    },
+    DescribeAccessGroupAssociatedPermission: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeAccessGroupAssociatedPermission",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        ResourceType: "String",
+      },
+    },
+    DeleteAccessGroup: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteAccessGroup",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+      },
+    },
+    AddAccessGroupMembers: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "AddAccessGroupMembers",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        Users: "Array",
+      },
+    },
+    RemoveAccessGroupMembers: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RemoveAccessGroupMembers",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        UserIds: "Array",
+      },
+    },
+    ModifyAccessGroupMemberRole: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyAccessGroupMemberRole",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        UserId: "String",
+        Permission: "String",
+      },
+    },
+    DeleteAccessGroupAssociatedPermission: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteAccessGroupAssociatedPermission",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AccessGroupId: "String",
+        AssociatedResourceId: "String",
+      },
+    },
     GetAccountBillRules: {
       url: "/",
       method: "GET",
@@ -1995,6 +2165,60 @@ module.exports = class Client extends BaseClient {
         StorageConfigId: "String",
         UserId: "String",
         SharedGroupId: "String",
+      },
+    },
+    CheckKlogServiceStatus: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CheckKlogServiceStatus",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
+    CreateLogPoolConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateLogPoolConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        ModelName: "String",
+        EndpointId: "String",
+        Region: "String",
+      },
+    },
+    DeleteLogPoolConfig: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteLogPoolConfig",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ProjectName: "String",
+        LogPoolName: "String",
+        ModelName: "String",
+        EndpointId: "String",
+        Region: "String",
       },
     },
   };

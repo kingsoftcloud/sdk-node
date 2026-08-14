@@ -1008,5 +1008,75 @@ module.exports = class Client extends BaseClient {
         OccurredBefore: "Long",
       },
     },
+    DeleteMemory: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DeleteMemory",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        MemoryId: "String",
+        AgentUserId: "String",
+      },
+    },
+    UpdateMemory: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "UpdateMemory",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        MemoryId: "String",
+        Content: "String",
+        AgentUserId: "String",
+      },
+    },
+    QueryMemoryHistory: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QueryMemoryHistory",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        MemoryId: "String",
+      },
+    },
+    ListTopics: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "ListTopics",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+      },
+    },
   };
 };
