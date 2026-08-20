@@ -629,5 +629,39 @@ module.exports = class Client extends BaseClient {
         IpConfig: "Filter",
       },
     },
+    BatchCreateZoneRecord: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "BatchCreateZoneRecord",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ZoneId: "String",
+        RecordSet: "Array",
+      },
+    },
+    BatchDeleteZoneRecord: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "BatchDeleteZoneRecord",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ZoneId: "String",
+        RecordIds: "Array",
+      },
+    },
   };
 };
