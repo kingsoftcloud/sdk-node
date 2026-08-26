@@ -33,6 +33,8 @@ module.exports = class Client extends BaseClient {
         CidrBlock: "String",
         ProvidedIpv6CidrBlock: "Boolean",
         Ipv6CidrBlock: "String",
+        VpcIpv6CidrBlock: "String",
+        IsDefault: "Boolean",
       },
     },
     DeleteVpc: {
@@ -67,6 +69,7 @@ module.exports = class Client extends BaseClient {
         VpcId: "Filter",
         MaxResults: "Int",
         NextToken: "String",
+        ProvidedIpv6CidrBlock: "Boolean",
       },
     },
     CreateSubnet: {
@@ -95,6 +98,7 @@ module.exports = class Client extends BaseClient {
         SecondaryCidrId: "String",
         AvailabilityZone: "String",
         VisitInternet: "Boolean",
+        Ipv6CidrBlock: "String",
       },
     },
     DeleteSubnet: {
@@ -342,6 +346,7 @@ module.exports = class Client extends BaseClient {
         VpcId: "String",
         SecurityGroupName: "String",
         Description: "String",
+        SecurityGroupType: "String",
       },
     },
     DeleteSecurityGroup: {
@@ -385,6 +390,7 @@ module.exports = class Client extends BaseClient {
         RuleTag: "String",
         Priority: "Int",
         Policy: "String",
+        AuthorizedSecurityGroupId: "String",
       },
     },
     RevokeSecurityGroupEntry: {
@@ -446,6 +452,7 @@ module.exports = class Client extends BaseClient {
         ProjectId: "String",
         ChargeType: "String",
         PurchaseTime: "Int",
+        NatVersion: "String",
       },
     },
     DeleteNat: {
@@ -485,6 +492,7 @@ module.exports = class Client extends BaseClient {
         TagKV: "Filter",
         MaxResults: "Int",
         NextToken: "String",
+        NatVersion: "String",
       },
     },
     AssociateNat: {
@@ -691,6 +699,7 @@ module.exports = class Client extends BaseClient {
         Filter: "Filter",
         MaxResults: "Int",
         NextToken: "String",
+        VisitInternet: "Boolean",
       },
     },
     DescribeSubnetAvailableAddresses: {
@@ -891,6 +900,8 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         VpcId: "String",
         DirectConnectGatewayName: "String",
+        ProjectId: "String",
+        AutoPublishSystemRoute: "Boolean",
       },
     },
     DeleteDirectConnectGateway: {
@@ -1280,6 +1291,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         NatId: "String",
         AddNumber: "Int",
+        NatIp: "String",
       },
     },
     DeleteNatIp: {
@@ -1330,8 +1342,6 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         Ipv6PublicIpAddressId: "Filter",
         Filter: "Filter",
-        MaxResults: "Int",
-        NextToken: "String",
       },
     },
     DescribeIpv6NetworkInterfaces: {
@@ -1698,7 +1708,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         NetworkInterfaceId: "String",
         BandwidthLimit: "Int",
-        inBandwidthLimit: "Int",
+        InBandwidthLimit: "Int",
       },
     },
     DescribeNatRateLimit: {
@@ -1716,6 +1726,8 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         NatId: "String",
         Filter: "Filter",
+        NextToken: "String",
+        MaxResults: "Int",
       },
     },
     ModifyNatRateLimit: {
@@ -2143,7 +2155,7 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {
-        BandwidthLimit: "String",
+        BandwidthLimit: "Int",
         InBandwidthLimit: "Int",
         NatRateLimitId: "Filter",
       },
@@ -2254,7 +2266,7 @@ module.exports = class Client extends BaseClient {
         EndTime: "String",
         SortType: "String",
         InstanceType: "String",
-        ip: "String",
+        Ip: "String",
       },
     },
     ModifyNatIpStatus: {
@@ -2434,6 +2446,164 @@ module.exports = class Client extends BaseClient {
         LogPoolName: "String",
         WindowTime: "Int",
         Description: "String",
+      },
+    },
+    AssociateEip: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "AssociateEip",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        NatId: "String",
+        FloatingIpIds: "Filter",
+      },
+    },
+    DisassociateEip: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DisassociateEip",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        NatId: "String",
+        FloatingIpIds: "Filter",
+      },
+    },
+    CreateNetworkPath: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CreateNetworkPath",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SourceId: "String",
+        SourceType: "String",
+        SourceIp: "String",
+        PathName: "String",
+        TargetId: "String",
+        TargetType: "String",
+        TargetIp: "String",
+        PublicPort: "Int",
+        Protocol: "String",
+      },
+    },
+    DeleteNetworkPath: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DeleteNetworkPath",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PathId: "String",
+      },
+    },
+    DescribeNetworkPath: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribeNetworkPath",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PathId: "Filter",
+      },
+    },
+    CreatePathTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "CreatePathTask",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PathId: "String",
+      },
+    },
+    DeletePathTask: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DeletePathTask",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PathTaskId: "String",
+      },
+    },
+    DescribePathTasks: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "DescribePathTasks",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PathId: "Filter",
+        PathTaskId: "Filter",
+        NextToken: "String",
+        MaxResults: "Int",
+      },
+    },
+    ModifyNetworkPathName: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "ModifyNetworkPathName",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        PathId: "String",
+        PathName: "String",
       },
     },
   };

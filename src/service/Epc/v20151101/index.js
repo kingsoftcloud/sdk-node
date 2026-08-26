@@ -312,6 +312,7 @@ module.exports = class Client extends BaseClient {
         ImageMode: "String",
         ImageInitialization: "String",
         Description: "String",
+        ProjectId: "String",
       },
     },
     ModifyImage: {
@@ -588,23 +589,6 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         HostId: "String",
         Password: "String",
-      },
-    },
-    ModifyHyperThreading: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2015-11-01",
-          Action: "ModifyHyperThreading",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        HostId: "String",
-        HyperThreadingStatus: "String",
       },
     },
     AssociateCluster: {
@@ -934,6 +918,7 @@ module.exports = class Client extends BaseClient {
         ImageId: "String",
         DestinationRegion: "String",
         CopyTag: "String",
+        ProjectId: "String",
       },
     },
     DescribeEpcRaidAttributes: {
@@ -1322,6 +1307,8 @@ module.exports = class Client extends BaseClient {
         Confirm: "String",
         Status: "String",
         Content: "String",
+        AuthorizeCableReplace: "String",
+        Description: "String",
       },
     },
     ConfirmProcess: {
@@ -2174,6 +2161,7 @@ module.exports = class Client extends BaseClient {
         ZoneId: "String",
         ZoneType: "String",
         StorageRoceNetworkCardName: "String",
+        UserDefinedData: "String",
         UserData: "String",
       },
     },
@@ -2232,6 +2220,7 @@ module.exports = class Client extends BaseClient {
         ZoneType: "String",
         StorageRoceNetworkCardName: "String",
         UserData: "String",
+        UserDefinedData: "String",
       },
     },
     DescribeLaunchTemplates: {
