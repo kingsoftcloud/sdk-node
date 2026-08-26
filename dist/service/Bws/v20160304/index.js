@@ -59,6 +59,9 @@ module.exports = class Client extends BaseClient {
           ProjectId: "Filter",
           BandWidthShareId: "Filter",
           Filter: "Filter",
+          IsContainTag: "Boolean",
+          TagKey: "Filter",
+          TagKV: "Filter",
           MaxResults: "Int",
           NextToken: "String"
         }
