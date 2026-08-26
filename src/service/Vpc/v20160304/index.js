@@ -34,7 +34,6 @@ module.exports = class Client extends BaseClient {
         ProvidedIpv6CidrBlock: "Boolean",
         Ipv6CidrBlock: "String",
         VpcIpv6CidrBlock: "String",
-        IsDefault: "Boolean",
       },
     },
     DeleteVpc: {
