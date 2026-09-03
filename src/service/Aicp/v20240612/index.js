@@ -42,6 +42,7 @@ module.exports = class Client extends BaseClient {
         Components: "Array",
         EnableVolume: "Boolean",
         VolumeChargeType: "String",
+        ProjectId: "String",
       },
     },
     CreateStorageConfig: {
@@ -720,6 +721,7 @@ module.exports = class Client extends BaseClient {
         LowPriceModels: "Array",
         HighPriceModels: "Array",
         AllowedIps: "Array",
+        ProjectId: "String",
       },
     },
     ActivateApiService: {
@@ -1637,7 +1639,10 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         ResourcePoolId: "String",
         QueueName: "String",
+        QueueType: "String",
+        NodeSelectType: "String",
         Capability: "Object",
+        NodeSpec: "Array",
         AllowBorrowing: "Boolean",
         Description: "String",
         AccessList: "Array",
@@ -1665,6 +1670,8 @@ module.exports = class Client extends BaseClient {
         AccessList: "Array",
         SharedGroupList: "Array",
         WorkloadType: "Array",
+        NodeSpec: "Array",
+        NodeSelectType: "String",
       },
     },
     DeleteQueue: {
@@ -1824,6 +1831,24 @@ module.exports = class Client extends BaseClient {
         ResourcePoolId: "String",
         ResourcePoolName: "String",
         Overallocate: "Boolean",
+      },
+    },
+    DescribeResourcePoolInstanceSpecs: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeResourcePoolInstanceSpecs",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ResourcePoolId: "String",
+        GPUModel: "String",
+        OnlyCPU: "Boolean",
       },
     },
     DescribeInferenceAndPodEvents: {
@@ -2219,6 +2244,62 @@ module.exports = class Client extends BaseClient {
         ModelName: "String",
         EndpointId: "String",
         Region: "String",
+      },
+    },
+    AddImageAccess: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "AddImageAccess",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ImageId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
+        Permission: "String",
+      },
+    },
+    ModifyImageAccessRole: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ModifyImageAccessRole",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ImageId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
+        Permission: "String",
+      },
+    },
+    RemoveImageAccess: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RemoveImageAccess",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ImageId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
       },
     },
   };

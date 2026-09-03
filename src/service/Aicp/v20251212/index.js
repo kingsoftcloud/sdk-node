@@ -48,6 +48,7 @@ module.exports = class Client extends BaseClient {
         RuntimeEnv: "String",
         EntryPointCommand: "String",
         UseIdleResource: "Boolean",
+        EnableRDMADepsCheck: "Boolean",
       },
     },
     DescribeTrainJobs: {
@@ -266,6 +267,62 @@ module.exports = class Client extends BaseClient {
         },
       },
       paramsType: {},
+    },
+    AddModelAccess: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-12-12",
+          Action: "AddModelAccess",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ModelId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
+        Permission: "String",
+      },
+    },
+    ModifyModelAccessRole: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-12-12",
+          Action: "ModifyModelAccessRole",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ModelId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
+        Permission: "String",
+      },
+    },
+    RemoveModelAccess: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-12-12",
+          Action: "RemoveModelAccess",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ModelId: "String",
+        UserId: "String",
+        SharedGroupId: "String",
+      },
     },
   };
 };

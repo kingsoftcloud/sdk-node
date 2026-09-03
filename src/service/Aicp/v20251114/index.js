@@ -884,6 +884,22 @@ module.exports = class Client extends BaseClient {
         McpServerId: "String",
       },
     },
+    QueryMemoryCollectionSkills: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QueryMemoryCollectionSkills",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+      },
+    },
     DescribeKnowledgeTokenMonitor: {
       url: "/",
       method: "POST",
@@ -1076,6 +1092,92 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         MemoryCollectionId: "String",
+      },
+    },
+    UpdateDocumentMetadata: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "UpdateDocumentMetadata",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        OperationData: "Array",
+      },
+    },
+    DeleteMetadata: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DeleteMetadata",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        MetadataId: "String",
+      },
+    },
+    UpdateMetadata: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "UpdateMetadata",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        MetadataId: "String",
+        Name: "String",
+      },
+    },
+    CreateMetadata: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "CreateMetadata",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        Name: "String",
+        Type: "String",
+      },
+    },
+    DescribeMetadata: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeMetadata",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
       },
     },
   };
