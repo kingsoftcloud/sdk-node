@@ -73,6 +73,7 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           ListenerId: "String",
           ListenerName: "String",
+          BindType: "String",
           ListenerState: "String",
           Method: "String",
           BandWidthIn: "Int",
@@ -85,7 +86,10 @@ module.exports = class Client extends BaseClient {
           CookieType: "String",
           CookieName: "String",
           CertificateId: "String",
-          RedirectListenerId: "String"
+          RedirectListenerId: "String",
+          CaCertificateId: "String",
+          CaEnabled: "Boolean",
+          UpstreamKeepalive: "String"
         }
       },
       CreateListeners: {
@@ -105,6 +109,7 @@ module.exports = class Client extends BaseClient {
           ListenerName: "String",
           ListenerState: "String",
           ListenerProtocol: "String",
+          BindType: "String",
           ListenerPort: "Int",
           Method: "String",
           BandWidthIn: "Int",
@@ -118,7 +123,10 @@ module.exports = class Client extends BaseClient {
           SessionPersistencePeriod: "Int",
           CookieType: "String",
           CookieName: "String",
-          CertificateId: "String"
+          CertificateId: "String",
+          CaCertificateId: "String",
+          CaEnabled: "Boolean",
+          UpstreamKeepalive: "String"
         }
       },
       ModifyInstancesWithListener: {
@@ -161,7 +169,8 @@ module.exports = class Client extends BaseClient {
           RealServerPort: "Int",
           InstanceId: "String",
           Tag: "String",
-          MasterSlaveType: "String"
+          MasterSlaveType: "String",
+          NetworkInterfaceId: "String"
         }
       },
       DeregisterInstancesFromListener: {
@@ -219,6 +228,7 @@ module.exports = class Client extends BaseClient {
           Interval: "Int",
           Timeout: "Int",
           UnhealthyThreshold: "Int",
+          HealthProtocol: "String",
           HttpMethod: "String",
           UrlPath: "String",
           HostName: "String",
@@ -281,6 +291,7 @@ module.exports = class Client extends BaseClient {
           Interval: "Int",
           Timeout: "Int",
           UnhealthyThreshold: "Int",
+          HealthProtocol: "String",
           HttpMethod: "String",
           UrlPath: "String",
           HostName: "String",
@@ -304,6 +315,9 @@ module.exports = class Client extends BaseClient {
           ProjectId: "Filter",
           LoadBalancerId: "Filter",
           Filter: "Filter",
+          IsContainTag: "Boolean",
+          TagKey: "Filter",
+          TagKV: "Filter",
           MaxResults: "Int",
           NextToken: "String",
           State: "String"
@@ -361,6 +375,9 @@ module.exports = class Client extends BaseClient {
           Type: "String",
           SubnetId: "String",
           PrivateIpAddress: "String",
+          DeleteProtection: "String",
+          ModificationProtection: "String",
+          ChargeType: "String",
           IpVersion: "String",
           LbType: "String",
           ProjectId: "String"
@@ -485,6 +502,7 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           VpcId: "String",
+          Protocol: "String",
           BackendServerGroupName: "String",
           BackendServerGroupType: "String",
           HostName: "String",
@@ -495,7 +513,7 @@ module.exports = class Client extends BaseClient {
           UnhealthyThreshold: "Int",
           UrlPath: "String",
           Region: "String",
-          Type: "String"
+          UpstreamKeepalive: "String"
         }
       },
       DeleteBackendServerGroup: {
@@ -528,7 +546,8 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           BackendServerGroupId: "String",
-          BackendServerGroupName: "String"
+          BackendServerGroupName: "String",
+          UpstreamKeepalive: "String"
         }
       },
       DescribeBackendServerGroups: {
@@ -820,7 +839,8 @@ module.exports = class Client extends BaseClient {
           PrivateLinkServerName: "String",
           ListenerId: "String",
           Description: "String",
-          ProjectId: "String"
+          ProjectId: "String",
+          DeleteProtection: "String"
         }
       },
       DescribePrivateLinkServer: {
@@ -873,7 +893,8 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           PrivateLinkServerId: "String",
           PrivateLinkServerName: "String",
-          Description: "String"
+          Description: "String",
+          DeleteProtection: "String"
         }
       },
       AssociatePrivateLinkServer: {
@@ -892,7 +913,8 @@ module.exports = class Client extends BaseClient {
           PrivateLinkServerId: "String",
           LoadBalancerId: "String",
           ListenerPort: "Int",
-          ProjectId: "String"
+          ProjectId: "String",
+          DeleteProtection: "String"
         }
       },
       DescribePrivateLink: {
@@ -1035,7 +1057,14 @@ module.exports = class Client extends BaseClient {
           IpVersion: "String",
           ProjectId: "String",
           AllocationId: "String",
-          ChargeType: "String"
+          ChargeType: "String",
+          SubnetId: "String",
+          PrivateIpAddress: "String",
+          EnabledQuic: "Boolean",
+          EnableHpa: "Boolean",
+          ProtocolLayers: "String",
+          DeleteProtection: "String",
+          ModificationProtection: "String"
         }
       },
       DeleteAlb: {
@@ -1103,38 +1132,47 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           AlbId: "Filter",
           Filter: "Filter",
+          IsContainTag: "Boolean",
+          TagKey: "Filter",
+          TagKV: "Filter",
+          ProjectId: "Filter",
           MaxResults: "Int",
           NextToken: "String"
         }
       },
       CreateAlbListener: {
         url: "/",
-        method: "GET",
+        method: "POST",
         config: {
           query: {
             Version: "2016-03-04",
             Action: "CreateAlbListener"
           },
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/json"
           }
         },
         paramsType: {
           AlbId: "String",
           AlbListenerName: "String",
-          Method: "String",
           Protocol: "String",
           Port: "Int",
+          IdleTimeout: "Int",
           CertificateId: "String",
           TlsCipherPolicy: "String",
           AlbListenerAclId: "String",
           AlbListenerState: "String",
-          SessionState: "String",
-          SessionPersistencePeriod: "Int",
-          CookieType: "String",
-          CookieName: "String",
+          RedirectAlbListenerId: "String",
+          RedirectHttpCode: "String",
           EnableHttp2: "Boolean",
-          HttpProtocol: "String"
+          BackendServerGroupId: "String",
+          FixedResponseConfig: "Object",
+          RewriteConfig: "Object",
+          CaEnabled: "Boolean",
+          CaCertificateId: "String",
+          EnableQuicUpgrade: "Boolean",
+          QuicListenerId: "String",
+          ServerGroupId: "String"
         }
       },
       ModifyAlbListener: {
@@ -1153,16 +1191,17 @@ module.exports = class Client extends BaseClient {
           AlbListenerId: "String",
           AlbListenerName: "String",
           AlbListenerState: "String",
-          Method: "String",
           CertificateId: "String",
           TlsCipherPolicy: "String",
           AlbListenerAclId: "String",
           HttpProtocol: "String",
-          SessionState: "String",
-          SessionPersistencePeriod: "Int",
-          CookieType: "String",
-          CookieName: "String",
-          EnableHttp2: "Boolean"
+          EnableHttp2: "Boolean",
+          CaEnabled: "Boolean",
+          CaCertificateId: "String",
+          EnableQuicUpgrade: "Boolean",
+          QuicListenerId: "String",
+          IdleTimeout: "Int",
+          ServerGroupId: "String"
         }
       },
       DeleteAlbListener: {
@@ -1216,22 +1255,12 @@ module.exports = class Client extends BaseClient {
           AlbRuleGroupName: "String",
           AlbListenerId: "String",
           BackendServerGroupId: "String",
-          ListenerSync: "String",
-          Method: "String",
-          SessionState: "String",
-          SessionPersistencePeriod: "Int",
-          CookieType: "String",
-          CookieName: "String",
-          HealthCheckState: "String",
-          Timeout: "Int",
-          Interval: "Int",
-          HealthyThreshold: "Int",
-          UnhealthyThreshold: "Int",
-          UrlPath: "String",
-          HostName: "String",
+          Type: "String",
           AlbRuleSet: "Array",
+          RedirectAlbListenerId: "String",
           RedirectHttpCode: "String",
-          RedirectAlbListenerId: "String"
+          FixedResponseConfig: "Object",
+          RewriteConfig: "Object"
         }
       },
       DeleteAlbRuleGroup: {
@@ -1285,22 +1314,11 @@ module.exports = class Client extends BaseClient {
           AlbRuleGroupId: "String",
           AlbRuleGroupName: "String",
           BackendServerGroupId: "String",
-          ListenerSync: "String",
-          Method: "String",
-          SessionState: "String",
-          SessionPersistencePeriod: "Int",
-          CookieType: "String",
-          CookieName: "String",
-          HealthCheckState: "String",
-          Timeout: "Int",
-          Interval: "Int",
-          HealthyThreshold: "Int",
-          UnhealthyThreshold: "Int",
-          UrlPath: "String",
-          HostName: "String",
+          Type: "String",
           AlbRuleSet: "Array",
+          RedirectAlbListenerId: "String",
           RedirectHttpCode: "String",
-          RedirectAlbListenerId: "String"
+          FixedResponseConfig: "Object"
         }
       },
       AddAlbRule: {
@@ -1472,9 +1490,364 @@ module.exports = class Client extends BaseClient {
           }
         },
         paramsType: {
-          VpcId: "String",
+          cloneLoadBalancerId: "String",
           LoadBalancerName: "String",
-          Type: "String"
+          Type: "String",
+          SubnetId: "String",
+          PrivateIpAddress: "String",
+          IpVersion: "String",
+          LbType: "String",
+          TagId: "Filter",
+          ProjectId: "String"
+        }
+      },
+      SetLBDeleteProtection: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "SetLBDeleteProtection"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          LoadBalancerId: "String",
+          DeleteProtection: "String"
+        }
+      },
+      SetLBModificationProtection: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "SetLBModificationProtection"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          LoadBalancerId: "String",
+          ModificationProtection: "String"
+        }
+      },
+      ModifyCertificateWithGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyCertificateWithGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          AlbListenerCertGroupId: "String",
+          OldCertificateId: "String",
+          CertificateId: "String"
+        }
+      },
+      CreateAlbBackendServerGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CreateAlbBackendServerGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          VpcId: "String",
+          Name: "String",
+          BackendServerType: "String",
+          Method: "String",
+          SessionState: "String",
+          SessionPersistencePeriod: "Int",
+          CookieType: "String",
+          CookieName: "String",
+          UpstreamKeepalive: "String",
+          Protocol: "String",
+          HealthCheckState: "String",
+          Timeout: "Int",
+          Interval: "Int",
+          HealthyThreshold: "Int",
+          UnhealthyThreshold: "Int",
+          UrlPath: "String",
+          HostName: "String",
+          HealthCheckConnectPort: "Int",
+          HealthProtocol: "String",
+          SlowStartEnabled: "Boolean",
+          SlowStartDuration: "Int",
+          HttpMethod: "String",
+          HealthCheckReq: "String",
+          HealthCheckExp: "String",
+          HealthCode: "String"
+        }
+      },
+      DeleteAlbBackendServerGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DeleteAlbBackendServerGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          BackendServerGroupId: "String"
+        }
+      },
+      ModifyAlbBackendServerGroup: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyAlbBackendServerGroup"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          BackendServerGroupId: "String",
+          Name: "String",
+          UpstreamKeepalive: "String",
+          Method: "String",
+          SessionState: "String",
+          SessionPersistencePeriod: "Int",
+          CookieType: "String",
+          CookieName: "String",
+          HealthCheckState: "String",
+          Timeout: "Int",
+          Interval: "Int",
+          HealthyThreshold: "Int",
+          UnhealthyThreshold: "Int",
+          UrlPath: "String",
+          HostName: "String",
+          HealthCheckConnectPort: "Int",
+          HealthProtocol: "String",
+          SlowStartEnabled: "Boolean",
+          SlowStartDuration: "Int",
+          HttpMethod: "String",
+          HealthCode: "String",
+          HealthCheckReq: "String",
+          HealthCheckExp: "String"
+        }
+      },
+      DescribeAlbBackendServerGroups: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeAlbBackendServerGroups"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Filter: "Filter",
+          BackendServerGroupId: "Filter",
+          MaxResults: "Int",
+          NextToken: "String"
+        }
+      },
+      RegisterAlbBackendServer: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "RegisterAlbBackendServer"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          BackendServerGroupId: "String",
+          BackendServerIp: "String",
+          Port: "Int",
+          Weight: "Int",
+          NetworkInterfaceId: "String",
+          DirectConnectGatewayId: "String",
+          MasterSlaveType: "String"
+        }
+      },
+      DeregisterAlbBackendServer: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DeregisterAlbBackendServer"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          BackendServerId: "String"
+        }
+      },
+      ModifyAlbBackendServer: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyAlbBackendServer"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          BackendServerId: "String",
+          Weight: "Int",
+          Port: "Int",
+          MasterSlaveType: "String"
+        }
+      },
+      DescribeAlbBackendServers: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeAlbBackendServers"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Filter: "Filter",
+          BackendServerId: "Filter",
+          MaxResults: "Int",
+          NextToken: "String"
+        }
+      },
+      RegisterBackendServerGroupWithListener: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "RegisterBackendServerGroupWithListener"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ListenerId: "String",
+          BackendServerGroupId: "String"
+        }
+      },
+      SetPrivateLinkDeleteProtection: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "SetPrivateLinkDeleteProtection"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          InstanceId: "String",
+          DeleteProtection: "String"
+        }
+      },
+      SetAlbDeleteProtection: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "SetAlbDeleteProtection"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          albId: "String",
+          deleteProtection: "String"
+        }
+      },
+      SetAlbModificationProtection: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "SetAlbModificationProtection"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          albId: "String",
+          modificationProtection: "String"
+        }
+      },
+      AddAlbRules: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "AddAlbRules"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          AlbRuleGroupId: "String",
+          AlbRuleType: "String",
+          AlbRuleValue: "String",
+          MethodValue: "Array",
+          SourceIpValue: "Array",
+          HeaderValue: "Array",
+          QueryValue: "Array",
+          CookieValue: "Array"
+        }
+      },
+      SetLbProtocolLayers: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "SetLbProtocolLayers"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          AlbId: "String",
+          ProtocolLayers: "String"
         }
       }
     });
