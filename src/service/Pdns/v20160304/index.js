@@ -269,6 +269,9 @@ module.exports = class Client extends BaseClient {
         ZoneTtl: "Int",
         ProjectId: "String",
         ChargeType: "String",
+        ProxyPattern: "String",
+        DeleteProtection: "String",
+        ModifyProtection: "String",
       },
     },
     ModifyPdnsZone: {
@@ -286,6 +289,7 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         ZoneId: "String",
         ZoneTtl: "Int",
+        ProxyPattern: "String",
       },
     },
     DeletePdnsZone: {
@@ -320,6 +324,7 @@ module.exports = class Client extends BaseClient {
         Filter: "Filter",
         MaxResults: "Int",
         NextToken: "String",
+        ZoneName: "Filter",
       },
     },
     BindZoneVpc: {
@@ -627,6 +632,40 @@ module.exports = class Client extends BaseClient {
         VpcId: "String",
         Description: "String",
         IpConfig: "Filter",
+      },
+    },
+    SetPdnsDeleteProtection: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "SetPdnsDeleteProtection",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ZoneId: "String",
+        DeleteProtection: "String",
+      },
+    },
+    SetPdnsModifyProtection: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2016-03-04",
+          Action: "SetPdnsModifyProtection",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ZoneId: "String",
+        ModifyProtection: "String",
       },
     },
     BatchCreateZoneRecord: {
