@@ -2584,5 +2584,37 @@ module.exports = class Client extends BaseClient {
         SharedGroupId: "String",
       },
     },
+    DescribeNotebookTimeLine: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeNotebookTimeLine",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        NotebookId: "String",
+      },
+    },
+    DescribeTrainJobTimeLine: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DescribeTrainJobTimeLine",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TrainJobId: "String",
+      },
+    },
   };
 };
