@@ -242,5 +242,19 @@ module.exports = class Client extends BaseClient {
         Timeout: "Int",
       },
     },
+    DeleteImageCache: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2026-04-01",
+          Action: "DeleteImageCache",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
+    },
   };
 };

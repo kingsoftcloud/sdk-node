@@ -1648,6 +1648,7 @@ module.exports = class Client extends BaseClient {
         AccessList: "Array",
         SharedGroupList: "Array",
         WorkloadType: "Array",
+        ResourceReservation: "Object",
       },
     },
     ModifyQueue: {
@@ -1672,6 +1673,7 @@ module.exports = class Client extends BaseClient {
         WorkloadType: "Array",
         NodeSpec: "Array",
         NodeSelectType: "String",
+        ResourceReservation: "Object",
       },
     },
     DeleteQueue: {
@@ -1815,6 +1817,252 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
       },
     },
+    ListSkillVersions: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListSkillVersions",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillId: "String",
+        PageNumber: "Int",
+        PageSize: "Int",
+      },
+    },
+    GetSkill: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetSkill",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillId: "String",
+      },
+    },
+    ListSkills: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListSkills",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillId: "String",
+        Name: "String",
+        Status: "String",
+        PageNumber: "Int",
+        PageSize: "Int",
+      },
+    },
+    ListSkillSpaces: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListSkillSpaces",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillspaceId: "String",
+        Name: "String",
+        PageNumber: "Int",
+        PageSize: "Int",
+      },
+    },
+    ListSkillsBySkillSpace: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListSkillsBySkillSpace",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillspaceId: "String",
+        PageNumber: "Int",
+        PageSize: "Int",
+      },
+    },
+    CreateSkill: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateSkill",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SourceType: "String",
+        SourceUrl: "String",
+        SkillSpaces: "Array",
+      },
+    },
+    CreateSkillVersion: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateSkillVersion",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SourceType: "String",
+        SourceUrl: "String",
+        SkillSpaces: "Array",
+      },
+    },
+    GetSkillUploadUrl: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetSkillUploadUrl",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        FileName: "String",
+        SkillName: "String",
+      },
+    },
+    DeleteSkillVersion: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteSkillVersion",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SkillId: "String",
+        VersionId: "String",
+      },
+    },
+    DeleteSkill: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteSkill",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SkillId: "String",
+      },
+    },
+    UpdateSkillSpaceSkillVersion: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "UpdateSkillSpaceSkillVersion",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SpaceId: "String",
+        SkillId: "String",
+        VersionName: "String",
+      },
+    },
+    RemoveSkillFromSpace: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RemoveSkillFromSpace",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SpaceId: "String",
+        SkillId: "String",
+      },
+    },
+    DeleteSkillSpace: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteSkillSpace",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillSpaceId: "String",
+      },
+    },
+    CreateSkillSpace: {
+      url: "/",
+      method: "POST",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateSkillSpace",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        Description: "String",
+        Skills: "Array",
+      },
+    },
     ModifyResourcePool: {
       url: "/",
       method: "POST",
@@ -1833,6 +2081,23 @@ module.exports = class Client extends BaseClient {
         Overallocate: "Boolean",
       },
     },
+    GetSkillDownloadUrl: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetSkillDownloadUrl",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillId: "String",
+        VersionId: "String",
+      },
+    },
     DescribeResourcePoolInstanceSpecs: {
       url: "/",
       method: "GET",
@@ -1849,6 +2114,23 @@ module.exports = class Client extends BaseClient {
         ResourcePoolId: "String",
         GPUModel: "String",
         OnlyCPU: "Boolean",
+      },
+    },
+    AddSkillsToSkillSpace: {
+      url: "/",
+      method: "GET",
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "AddSkillsToSkillSpace",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SkillSpaceId: "String",
+        Skills: "Object",
       },
     },
     DescribeInferenceAndPodEvents: {
