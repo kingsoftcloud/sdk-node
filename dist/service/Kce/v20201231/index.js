@@ -47,6 +47,7 @@ module.exports = class Client extends BaseClient {
           K8sVersion: "String",
           ReserveSubnetId: "String",
           PublicApiServer: "String",
+          ExposePublicApiServer: "Boolean",
           MaxPodPerNode: "String",
           MasterEtcdSeparate: "Boolean",
           ManagedClusterMultiMaster: "Filter",
@@ -54,8 +55,7 @@ module.exports = class Client extends BaseClient {
           ExistedInstanceForEpc: "Filter",
           Component: "Filter",
           ControlPlaneLog: "Object",
-          ServerlessClusterMaster: "Object",
-          ExposePublicApiServer: "Boolean"
+          EnableDelProtection: "Boolean"
         }
       }
     });
