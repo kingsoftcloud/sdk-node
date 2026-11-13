@@ -3,6 +3,9 @@
 
 name: tag/release/publish
 
+permissions:
+  contents: write
+
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,13 +19,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # 获取完整的 git 历史
 
-      - uses: actions/setup-node@v2
+      - name: Get version from package.json
+        id: package-version
+        run: echo "version=v$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      # A previous run may already have pushed the tag and then failed while
+      # creating the release or publishing to npm. In that case, resume from
+      # the exact tagged source instead of trying to create the tag again.
+      - name: Reuse existing tag when retrying
+        id: tag
+        env:
+          VERSION: ${{ steps.package-version.outputs.version }}
+        run: |
+          if git rev-parse --verify --quiet "refs/tags/$VERSION" >/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            git checkout "refs/tags/$VERSION"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
@@ -40,23 +62,35 @@ jobs:
           git config --global user.name "autotag"
 
       - name: Commit build files
+        if: steps.tag.outputs.exists == 'false'
         run: git add . && git commit -m 'build' || echo "No changes to commit"
 
-      - name: Get version from package.json
-        id: package-version
-        run: echo "version=v$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-
       - name: Create and push tag
+        if: steps.tag.outputs.exists == 'false'
+        env:
+          VERSION: ${{ steps.package-version.outputs.version }}
         run: |
-          git tag ${{ steps.package-version.outputs.version }}
-          git push origin ${{ steps.package-version.outputs.version }}
+          git tag "$VERSION"
+          git push origin "$VERSION"
 
       - name: Create GitHub Release
-        run: gh release create ${{ steps.package-version.outputs.version }} --generate-notes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.package-version.outputs.version }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release view "$VERSION" >/dev/null 2>&1 || gh release create "$VERSION" --generate-notes
+
+      - name: Check whether npm version is already published
+        id: npm
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          if npm view "ksyun-sdk-node@$PACKAGE_VERSION" version >/dev/null 2>&1; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Publish to npm
-        run: npm publish
+        if: steps.npm.outputs.published == 'false'
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+        run: npm publish
