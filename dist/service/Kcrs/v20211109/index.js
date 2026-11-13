@@ -32,7 +32,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateNamespace"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -50,7 +50,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeNamespace"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -70,7 +70,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyNamespaceType"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -105,7 +105,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteNamespace"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -122,7 +122,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeImages"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -143,7 +143,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteImages"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -162,7 +162,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteRepoTag"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -181,7 +181,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeRepository"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -201,7 +201,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyRepoDesc"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -220,7 +220,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteRepository"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -238,7 +238,7 @@ module.exports = class Client extends BaseClient {
             Action: "StartImageScan"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -257,7 +257,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeImageScan"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -276,7 +276,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateInstanceToken"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -295,7 +295,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInternalEndpoint"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -311,7 +311,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInstanceToken"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -329,7 +329,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateInternalEndpoint"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -347,7 +347,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyInstanceTokenStatus"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -365,7 +365,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteInternalEndpoint"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -383,7 +383,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyInstanceTokenInformation"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -403,7 +403,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInternalEndpointDns"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -422,7 +422,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteInstanceToken"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -439,7 +439,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateInternalEndpointDns"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -458,7 +458,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteInternalEndpointDns"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -477,7 +477,7 @@ module.exports = class Client extends BaseClient {
             Action: "CreateInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -497,12 +497,12 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
           InstanceId: "String",
-          DeleteBucket: "String"
+          DeleteBucket: "Boolean"
         }
       },
       DescribeInstanceUsage: {
@@ -530,7 +530,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeInstance"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -556,14 +556,7 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           InstanceId: "String",
           Namespace: "String",
-          Trigger: "String",
-          TriggerName: "String",
-          EventType: "Filter",
-          TriggerUrl: "String",
-          Header: "Filter",
-          Enabled: "String",
-          Key: "String",
-          Value: "Filter"
+          Trigger: "Object"
         }
       },
       DescribeWebhookTrigger: {
@@ -575,7 +568,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeWebhookTrigger"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -595,7 +588,7 @@ module.exports = class Client extends BaseClient {
             Action: "ModifyWebhookTrigger"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -621,7 +614,7 @@ module.exports = class Client extends BaseClient {
             Action: "DescribeWebhookTriggerLog"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -641,7 +634,7 @@ module.exports = class Client extends BaseClient {
             Action: "DeleteWebhookTrigger"
           },
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         },
         paramsType: {
@@ -649,34 +642,6 @@ module.exports = class Client extends BaseClient {
           Namespace: "String",
           TriggerId: "String"
         }
-      },
-      DescribeAllRepository: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-11-09",
-            Action: "DescribeAllRepository"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {}
-      },
-      GetMetadata: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-11-09",
-            Action: "GetMetadata"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {}
       },
       CreateRetentionRule: {
         url: "/",
@@ -690,7 +655,11 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Rule: "Object"
+        }
       },
       UpdateRetentionRule: {
         url: "/",
@@ -704,7 +673,11 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Rule: "Object"
+        }
       },
       DeleteRetentionRule: {
         url: "/",
@@ -718,7 +691,11 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Rule: "Object"
+        }
       },
       DescribeRetentionRule: {
         url: "/",
@@ -732,7 +709,10 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String"
+        }
       },
       RunRetentionPolicy: {
         url: "/",
@@ -746,7 +726,11 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          TestRun: "Boolean"
+        }
       },
       GetRetentionPolicyLogs: {
         url: "/",
@@ -760,7 +744,12 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Page: "Int",
+          PageSize: "Int"
+        }
       },
       GetRetentionPolicyLogDetail: {
         url: "/",
@@ -774,7 +763,13 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          ExecutionId: "String",
+          Page: "Int",
+          PageSize: "Int"
+        }
       },
       GetRetentionPolicyLog: {
         url: "/",
@@ -788,7 +783,12 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          TaskId: "Int",
+          ExecutionId: "Int"
+        }
       },
       GetRetentionTrigger: {
         url: "/",
@@ -802,7 +802,10 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String"
+        }
       },
       UpdateRetentionTrigger: {
         url: "/",
@@ -816,21 +819,11 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
-      },
-      GetNamespacePolicy: {
-        url: "/",
-        method: "GET",
-        config: {
-          query: {
-            Version: "2021-11-09",
-            Action: "GetNamespacePolicy"
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          Namespace: "String",
+          Trigger: "String"
+        }
       },
       Schedule: {
         url: "/",
@@ -844,7 +837,10 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          InstanceId: "String",
+          TestRun: "Boolean"
+        }
       }
     });
   }

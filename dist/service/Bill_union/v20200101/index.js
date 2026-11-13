@@ -38,7 +38,7 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           BillBeginMonth: "String",
           BillEndMonth: "String",
-          SubAccount: "Int",
+          SubAccount: "Long",
           FetchAllFinanceRelationData: "Boolean"
         }
       },
@@ -57,7 +57,7 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           BillBeginMonth: "String",
           BillEndMonth: "String",
-          SubAccount: "Int",
+          SubAccount: "Long",
           FetchAllFinanceRelationData: "Boolean"
         }
       },
@@ -76,7 +76,7 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           BillBeginMonth: "String",
           BillEndMonth: "String",
-          SubAccount: "Int",
+          SubAccount: "Long",
           FetchAllFinanceRelationData: "Boolean"
         }
       },
@@ -130,7 +130,7 @@ module.exports = class Client extends BaseClient {
           ProductGroupCode: "String",
           StatisticType: "Int",
           PayType: "Int",
-          SubAccountId: "Int",
+          SubAccountId: "Long",
           Page: "Int",
           Size: "String"
         }
@@ -168,7 +168,7 @@ module.exports = class Client extends BaseClient {
           ProductGroupCode: "String",
           StatisticType: "Int",
           PayType: "Int",
-          SubAccountId: "Int",
+          SubAccountId: "Long",
           Page: "Int",
           Size: "Int"
         }
