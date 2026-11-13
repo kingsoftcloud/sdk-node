@@ -40,8 +40,14 @@ module.exports = class BaseClient {
     let region = this.region || this._baseConfig.config.credentials.region;
     let headers = {
       ...(this._baseConfig.config.headers || {}),
-      ...(apiConfig.config.headers || {})
+      ...(apiConfig.config.headers || {}),
+      ...(this.httpProfile.headers || {})
     };
+    const isStream = apiConfig.responseMode === 1;
+    if (isStream) {
+      headers.Accept = 'text/event-stream';
+      headers['Cache-Control'] = 'no-cache';
+    }
 
     // 处理自定义path
     let customPath = this.httpProfile.path || '';
@@ -83,7 +89,7 @@ module.exports = class BaseClient {
     };
     let signHeaders = getSignatureHeaders(signParams);
     let url = `${protocol}${endpoint}${finalPath}?${getCanonicalizedQuery(query)}`;
-    let timeoutSecond = this.httpProfile.timeout || this._baseConfig.config.timeout;
+    let timeoutSecond = isStream ? 0 : this.httpProfile.timeout || this._baseConfig.config.timeout;
 
     // 打印 curl 命令
     this.printCurl(url, method, signHeaders, body);
@@ -93,6 +99,31 @@ module.exports = class BaseClient {
       headers: signHeaders,
       body
     });
+  }
+
+  /**
+   * 发起 SSE 请求并返回原始 Response。调用方应监听 response.body 的 data/end/error，
+   * 不再需要数据时调用 response.body.destroy() 主动断开连接。
+   */
+  async requestStream(apiAction, params = {}) {
+    const apiConfig = this._apiList[apiAction];
+    if (!apiConfig || apiConfig.responseMode !== 1) {
+      throw new Error(`${apiAction} is not configured as an SSE API`);
+    }
+    const response = await this.request(apiAction, params);
+    if (response instanceof Error) {
+      throw response;
+    }
+    const contentType = response.headers.get('content-type') || '';
+    if (!response.ok) {
+      const body = await response.text();
+      throw new Error(`SSE request failed with HTTP ${response.status}: ${body}`);
+    }
+    if (!/^text\/event-stream(?:\s*;|\s*$)/i.test(contentType)) {
+      response.body.destroy();
+      throw new Error(`Invalid SSE Content-Type: ${contentType || 'missing'}`);
+    }
+    return response;
   }
   /**
    * 格式化参数，对Filter类型做扁平处理
