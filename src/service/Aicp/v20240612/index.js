@@ -884,6 +884,35 @@ module.exports = class Client extends BaseClient {
         SortOrder: "String",
       },
     },
+    QueryTokenData: {
+      url: "/",
+      method: "GET",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "QueryTokenData",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        StartTimestamp: "Long",
+        EndTimestamp: "Long",
+        LastKey: "String",
+        MaxResults: "Int",
+        ModelKeyword: "String",
+        Keyword: "String",
+        GroupBy: "String",
+        ReasoningType: "String",
+        Marker: "Int",
+        ModelName: "String",
+        SortField: "String",
+        SortOrder: "String",
+        KeyId: "String",
+      },
+    },
     GetApiService: {
       url: "/",
       method: "GET",
