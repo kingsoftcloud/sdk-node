@@ -19,6 +19,7 @@ module.exports = class Client extends BaseClient {
     CreateResourcePool: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -43,11 +44,13 @@ module.exports = class Client extends BaseClient {
         EnableVolume: "Boolean",
         VolumeChargeType: "String",
         ProjectId: "String",
+        VolumeQuota: "Int",
       },
     },
     CreateStorageConfig: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -75,6 +78,7 @@ module.exports = class Client extends BaseClient {
     ModifyStorageConfig: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -101,6 +105,7 @@ module.exports = class Client extends BaseClient {
     DescribeStorageConfigs: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -120,6 +125,7 @@ module.exports = class Client extends BaseClient {
     DeleteStorageConfig: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -136,6 +142,7 @@ module.exports = class Client extends BaseClient {
     SaveNotebookImage: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -164,6 +171,7 @@ module.exports = class Client extends BaseClient {
     ModifyNotebook: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -206,6 +214,7 @@ module.exports = class Client extends BaseClient {
     DeleteNotebook: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -223,6 +232,7 @@ module.exports = class Client extends BaseClient {
     DescribeNotebooks: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -245,6 +255,7 @@ module.exports = class Client extends BaseClient {
     CreateNotebook: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -287,6 +298,7 @@ module.exports = class Client extends BaseClient {
     EnableKlog: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -305,6 +317,7 @@ module.exports = class Client extends BaseClient {
     CreateImage: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -333,6 +346,7 @@ module.exports = class Client extends BaseClient {
     DeleteImage: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -349,6 +363,7 @@ module.exports = class Client extends BaseClient {
     ModifyImage: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -369,6 +384,7 @@ module.exports = class Client extends BaseClient {
     DescribeImages: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -393,6 +409,7 @@ module.exports = class Client extends BaseClient {
     CreateInference: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -439,6 +456,7 @@ module.exports = class Client extends BaseClient {
     GetInferenceModels: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -453,6 +471,7 @@ module.exports = class Client extends BaseClient {
     GetInferenceLogs: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -472,6 +491,7 @@ module.exports = class Client extends BaseClient {
     StopNotebook: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -488,6 +508,7 @@ module.exports = class Client extends BaseClient {
     StartNotebook: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -504,6 +525,7 @@ module.exports = class Client extends BaseClient {
     GetWebIdeUrl: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -521,6 +543,7 @@ module.exports = class Client extends BaseClient {
     DescribeNotebookEvents: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -539,6 +562,7 @@ module.exports = class Client extends BaseClient {
     DescribeNotebookLog: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -557,6 +581,7 @@ module.exports = class Client extends BaseClient {
     ModifyComponents: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -574,6 +599,7 @@ module.exports = class Client extends BaseClient {
     GetInferenceAutoScaleStrategy: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -590,6 +616,7 @@ module.exports = class Client extends BaseClient {
     ModifyTerminatePolicy: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -609,6 +636,7 @@ module.exports = class Client extends BaseClient {
     DescribeTerminatePolicy: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -630,6 +658,7 @@ module.exports = class Client extends BaseClient {
     CreateTerminatePolicy: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -651,6 +680,7 @@ module.exports = class Client extends BaseClient {
     DeleteTerminatePolicy: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -667,6 +697,7 @@ module.exports = class Client extends BaseClient {
     StopNotebookSavingImage: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -683,6 +714,7 @@ module.exports = class Client extends BaseClient {
     EnableApikeyStatus: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -700,6 +732,7 @@ module.exports = class Client extends BaseClient {
     ModifyApikey: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -720,13 +753,14 @@ module.exports = class Client extends BaseClient {
         AllAssociatedEndpoint: "Boolean",
         LowPriceModels: "Array",
         HighPriceModels: "Array",
-        AllowedIps: "Array",
-        ProjectId: "String",
+        OffpeakModels: "Array",
+        CostQuotas: "Array",
       },
     },
     ActivateApiService: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -736,13 +770,12 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/json",
         },
       },
-      paramsType: {
-        Status: "String",
-      },
+      paramsType: {},
     },
     DeleteApikey: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -759,6 +792,7 @@ module.exports = class Client extends BaseClient {
     DescribeModels: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -783,6 +817,7 @@ module.exports = class Client extends BaseClient {
     CreateApikey: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -804,11 +839,14 @@ module.exports = class Client extends BaseClient {
         AllAssociatedProjectResources: "Boolean",
         LowPriceModels: "Array",
         HighPriceModels: "Array",
+        OffpeakModels: "Array",
+        CostQuotas: "Array",
       },
     },
     GetModelDetail: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -825,6 +863,7 @@ module.exports = class Client extends BaseClient {
     DescribeApikeys: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -845,54 +884,10 @@ module.exports = class Client extends BaseClient {
         SortOrder: "String",
       },
     },
-    QueryTokenData: {
-      url: "/",
-      method: "GET",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "QueryTokenData",
-        },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      },
-      paramsType: {
-        StartTimestamp: "Long",
-        EndTimestamp: "Long",
-        LastKey: "String",
-        MaxResults: "Int",
-        ModelKeyword: "String",
-        Keyword: "String",
-        GroupBy: "String",
-        ReasoningType: "String",
-        Marker: "Int",
-        ModelName: "String",
-        SortField: "String",
-        SortOrder: "String",
-        KeyId: "String",
-      },
-    },
-    DisableApikeyStatus: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "DisableApikeyStatus",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        KeyId: "String",
-        Status: "String",
-      },
-    },
     GetApiService: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -907,6 +902,7 @@ module.exports = class Client extends BaseClient {
     GetBatchInferenceJobsFinalResultDownloadUrl: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -923,6 +919,7 @@ module.exports = class Client extends BaseClient {
     DescribeInferenceJobsKs3AuthInfo: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -937,6 +934,7 @@ module.exports = class Client extends BaseClient {
     StopBatchInferenceJob: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -946,13 +944,12 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/json",
         },
       },
-      paramsType: {
-        BatchId: "String",
-      },
+      paramsType: {},
     },
     CreateBatchInferenceJob: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -962,25 +959,12 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/json",
         },
       },
-      paramsType: {
-        JobName: "String",
-        JobDesc: "String",
-        ApikeyId: "String",
-        Model: "String",
-        ExecuteTimeoutMs: "Long",
-        InputDataType: "String",
-        Ks3Region: "String",
-        Ks3Ak: "String",
-        Ks3Sk: "String",
-        InBucket: "String",
-        OutBucket: "String",
-        InObjectName: "String",
-        OutObjectName: "String",
-      },
+      paramsType: {},
     },
     ModifyBatchInferenceJob: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -999,6 +983,7 @@ module.exports = class Client extends BaseClient {
     DescribeBatchInferenceJobs: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1019,6 +1004,7 @@ module.exports = class Client extends BaseClient {
     DeleteBatchInferenceJob: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1028,13 +1014,12 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/json",
         },
       },
-      paramsType: {
-        BatchId: "String",
-      },
+      paramsType: {},
     },
     EnableModels: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1044,13 +1029,12 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/json",
         },
       },
-      paramsType: {
-        ModelIds: "Array",
-      },
+      paramsType: {},
     },
     DescribeModelQuotas: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1070,6 +1054,7 @@ module.exports = class Client extends BaseClient {
     DisableModels: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1086,6 +1071,7 @@ module.exports = class Client extends BaseClient {
     EnableOverFreeLimit: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1099,25 +1085,10 @@ module.exports = class Client extends BaseClient {
         ModelIds: "Array",
       },
     },
-    DisableOverFreeLimit: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "DisableOverFreeLimit",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        ModelIds: "Array",
-      },
-    },
     DescribeTrainJobEvents: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1135,6 +1106,7 @@ module.exports = class Client extends BaseClient {
     StopTrainJob: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1151,6 +1123,7 @@ module.exports = class Client extends BaseClient {
     StartTrainJob: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1167,6 +1140,7 @@ module.exports = class Client extends BaseClient {
     DeleteTrainJob: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1183,6 +1157,7 @@ module.exports = class Client extends BaseClient {
     ModifyTrainJob: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1201,6 +1176,7 @@ module.exports = class Client extends BaseClient {
     DescribeTrainJobPodLogs: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1221,6 +1197,7 @@ module.exports = class Client extends BaseClient {
     DescribeTrainJobPods: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1240,6 +1217,7 @@ module.exports = class Client extends BaseClient {
     DescribeInferences: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1259,6 +1237,7 @@ module.exports = class Client extends BaseClient {
     SetInferenceAutoScaleStrategy: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1277,6 +1256,7 @@ module.exports = class Client extends BaseClient {
     DeleteInference: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1293,6 +1273,7 @@ module.exports = class Client extends BaseClient {
     StopInference: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1309,6 +1290,7 @@ module.exports = class Client extends BaseClient {
     GetInferenceDetail: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1325,6 +1307,7 @@ module.exports = class Client extends BaseClient {
     StartInference: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1341,6 +1324,7 @@ module.exports = class Client extends BaseClient {
     ModifyInference: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1368,6 +1352,7 @@ module.exports = class Client extends BaseClient {
     SetInferenceReplicas: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1385,6 +1370,7 @@ module.exports = class Client extends BaseClient {
     DescribeResourcePools: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1408,6 +1394,7 @@ module.exports = class Client extends BaseClient {
     DescribeResourcePoolInstances: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1430,6 +1417,7 @@ module.exports = class Client extends BaseClient {
     EnableKpfsComponent: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1447,6 +1435,7 @@ module.exports = class Client extends BaseClient {
     CreateInferenceEndpoint: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1468,6 +1457,7 @@ module.exports = class Client extends BaseClient {
     DescribeInferenceEndpoints: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1489,6 +1479,7 @@ module.exports = class Client extends BaseClient {
     EnableEndpointRateLimit: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1506,6 +1497,7 @@ module.exports = class Client extends BaseClient {
     StartInferenceEndpoint: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1522,6 +1514,7 @@ module.exports = class Client extends BaseClient {
     StopInferenceEndpoint: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1538,6 +1531,7 @@ module.exports = class Client extends BaseClient {
     DeleteInferenceEndpoint: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1554,6 +1548,7 @@ module.exports = class Client extends BaseClient {
     DisableEndpointRateLimit: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1570,6 +1565,7 @@ module.exports = class Client extends BaseClient {
     DescribeResourcePoolInstanceTasks: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1591,6 +1587,7 @@ module.exports = class Client extends BaseClient {
     SetKcrPersonalToken: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1608,6 +1605,7 @@ module.exports = class Client extends BaseClient {
     DescribeQueues: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1627,6 +1625,7 @@ module.exports = class Client extends BaseClient {
     CreateQueue: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1654,6 +1653,7 @@ module.exports = class Client extends BaseClient {
     ModifyQueue: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1679,6 +1679,7 @@ module.exports = class Client extends BaseClient {
     DeleteQueue: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1695,6 +1696,7 @@ module.exports = class Client extends BaseClient {
     AddQueueAccessUser: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1713,6 +1715,7 @@ module.exports = class Client extends BaseClient {
     RemoveQueueAccessUser: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1727,9 +1730,181 @@ module.exports = class Client extends BaseClient {
         SubAccountId: "String",
       },
     },
+    CreateAgentProduct: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateAgentProduct",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Name: "String",
+        Description: "String",
+        ClientToken: "String",
+        Framework: "String",
+        DeploymentType: "String",
+        CodeConfig: "Object",
+        ContainerConfig: "Object",
+        Resource: "Object",
+        Scaling: "Object",
+        Storage: "Object",
+        KS3MountConfig: "Object",
+        SessionAffinity: "Object",
+        Network: "Object",
+        Access: "Object",
+        Advanced: "Object",
+        ComponentConfig: "Object",
+        UiConfig: "Object",
+        DeployMode: "String",
+        MemoryConfig: "Object",
+        AutoPay: "Boolean",
+      },
+    },
+    ListAgents: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListAgents",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Page: "Int",
+        PageSize: "Int",
+        Name: "String",
+        Id: "String",
+        Status: "String",
+        Framework: "String",
+      },
+    },
+    GetAgent: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetAgent",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+      },
+    },
+    UpdateAgent: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "UpdateAgent",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
+    DeleteAgent: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteAgent",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+      },
+    },
+    ListVersions: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListVersions",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+        Page: "Int",
+        PageSize: "Int",
+      },
+    },
+    RollbackVersion: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RollbackVersion",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+        TargetVersionId: "String",
+        TargetTag: "String",
+      },
+    },
+    RunAgent: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RunAgent",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+        Messages: "Array",
+        SessionId: "String",
+        Model: "String",
+        Stream: "Boolean",
+        Background: "Boolean",
+        ApiFormat: "String",
+        ResponsesInput: "String",
+        PreviousResponseId: "String",
+        InvocationId: "String",
+      },
+    },
     DescribeModelTypes: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1744,6 +1919,7 @@ module.exports = class Client extends BaseClient {
     EnableEndpointQuotaLimit: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1763,6 +1939,7 @@ module.exports = class Client extends BaseClient {
     DisableEndpointQuotaLimit: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1782,6 +1959,7 @@ module.exports = class Client extends BaseClient {
     GetQueueMember: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1801,6 +1979,7 @@ module.exports = class Client extends BaseClient {
     DescribeInferencePods: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1817,9 +1996,87 @@ module.exports = class Client extends BaseClient {
         PageSize: "Int",
       },
     },
+    CreateSession: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CreateSession",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Tags: "Object",
+        AgentId: "String",
+        SessionId: "String",
+        ExpiresHours: "Int",
+      },
+    },
+    GetSession: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetSession",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SessionId: "String",
+        Id: "String",
+      },
+    },
+    ListSessions: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListSessions",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        TagFilters: "Object",
+        TagMatch: "String",
+        AgentId: "String",
+        Page: "Int",
+        PageSize: "Int",
+      },
+    },
+    DeleteSession: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "DeleteSession",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        SessionId: "String",
+        Id: "String",
+      },
+    },
     ListSkillVersions: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1838,6 +2095,7 @@ module.exports = class Client extends BaseClient {
     GetSkill: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1854,6 +2112,7 @@ module.exports = class Client extends BaseClient {
     ListSkills: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1874,6 +2133,7 @@ module.exports = class Client extends BaseClient {
     ListSkillSpaces: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1893,6 +2153,7 @@ module.exports = class Client extends BaseClient {
     ListSkillsBySkillSpace: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1911,6 +2172,7 @@ module.exports = class Client extends BaseClient {
     CreateSkill: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1929,6 +2191,7 @@ module.exports = class Client extends BaseClient {
     CreateSkillVersion: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1944,9 +2207,25 @@ module.exports = class Client extends BaseClient {
         SkillSpaces: "Array",
       },
     },
+    GetSkillVersionTree: {
+      url: "/",
+      method: "GET",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetSkillVersionTree",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {},
+    },
     GetSkillUploadUrl: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1964,6 +2243,7 @@ module.exports = class Client extends BaseClient {
     DeleteSkillVersion: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1978,9 +2258,29 @@ module.exports = class Client extends BaseClient {
         VersionId: "String",
       },
     },
+    UpdateSkill: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "UpdateSkill",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SkillId: "String",
+        Name: "String",
+        Description: "String",
+      },
+    },
     DeleteSkill: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -1997,6 +2297,7 @@ module.exports = class Client extends BaseClient {
     UpdateSkillSpaceSkillVersion: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2015,6 +2316,7 @@ module.exports = class Client extends BaseClient {
     RemoveSkillFromSpace: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2032,6 +2334,7 @@ module.exports = class Client extends BaseClient {
     DeleteSkillSpace: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2045,9 +2348,27 @@ module.exports = class Client extends BaseClient {
         SkillSpaceId: "String",
       },
     },
+    GetSkillSpace: {
+      url: "/",
+      method: "GET",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetSkillSpace",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        SkillSpaceId: "String",
+      },
+    },
     CreateSkillSpace: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2066,6 +2387,7 @@ module.exports = class Client extends BaseClient {
     ModifyResourcePool: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2084,6 +2406,7 @@ module.exports = class Client extends BaseClient {
     GetSkillDownloadUrl: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2101,6 +2424,7 @@ module.exports = class Client extends BaseClient {
     DescribeResourcePoolInstanceSpecs: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2119,6 +2443,7 @@ module.exports = class Client extends BaseClient {
     AddSkillsToSkillSpace: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2136,6 +2461,7 @@ module.exports = class Client extends BaseClient {
     DescribeInferenceAndPodEvents: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2155,6 +2481,7 @@ module.exports = class Client extends BaseClient {
     DescribeTrainJobAndPodEvents: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2171,28 +2498,10 @@ module.exports = class Client extends BaseClient {
         Sort: "String",
       },
     },
-    DescribeFineTuneJobAndPodEvents: {
-      url: "/",
-      method: "POST",
-      config: {
-        query: {
-          Version: "2024-06-12",
-          Action: "DescribeFineTuneJobAndPodEvents",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      paramsType: {
-        FineTuneJobId: "String",
-        PodNames: "Array",
-        SortKey: "String",
-        Sort: "String",
-      },
-    },
     DescribeTerminateStopRecords: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2215,6 +2524,7 @@ module.exports = class Client extends BaseClient {
     CreateAccessGroup: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2233,6 +2543,7 @@ module.exports = class Client extends BaseClient {
     ModifyAccessGroup: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2252,6 +2563,7 @@ module.exports = class Client extends BaseClient {
     DescribeAccessGroups: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2271,6 +2583,7 @@ module.exports = class Client extends BaseClient {
     DescribeAccessGroupAssociatedPermission: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2288,6 +2601,7 @@ module.exports = class Client extends BaseClient {
     DeleteAccessGroup: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2304,6 +2618,7 @@ module.exports = class Client extends BaseClient {
     AddAccessGroupMembers: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2321,6 +2636,7 @@ module.exports = class Client extends BaseClient {
     RemoveAccessGroupMembers: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2338,6 +2654,7 @@ module.exports = class Client extends BaseClient {
     ModifyAccessGroupMemberRole: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2356,6 +2673,7 @@ module.exports = class Client extends BaseClient {
     DeleteAccessGroupAssociatedPermission: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2373,6 +2691,7 @@ module.exports = class Client extends BaseClient {
     GetAccountBillRules: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2384,9 +2703,85 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {},
     },
+    ResumeRun: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ResumeRun",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+        SessionId: "String",
+        RunId: "String",
+        CheckpointId: "String",
+        ResumeAttemptId: "String",
+        InvocationId: "String",
+        Stream: "Boolean",
+        Background: "Boolean",
+        Model: "String",
+        ResumeInstructionEnabled: "Boolean",
+        ResumeInstruction: "String",
+      },
+    },
+    ListSessionMessages: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListSessionMessages",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+        SessionId: "String",
+        AfterSeqId: "Int",
+        BeforeSeqId: "Int",
+        CursorSource: "String",
+        HistoryEpoch: "String",
+        SnapshotSeqId: "Int",
+        Limit: "Int",
+        IncludeReasoning: "Boolean",
+        IncludeToolEvents: "Boolean",
+        IncludeAttachments: "Boolean",
+      },
+    },
+    CancelRun: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "CancelRun",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        AgentId: "String",
+        SessionId: "String",
+        InvocationId: "String",
+        ScopeId: "String",
+        ClientToken: "String",
+      },
+    },
     CreateUsageDownloadTask: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2405,6 +2800,7 @@ module.exports = class Client extends BaseClient {
     GetUsageDownloadTask: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2421,6 +2817,7 @@ module.exports = class Client extends BaseClient {
     AddStorageConfigAccess: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2432,7 +2829,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         StorageConfigId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
         Permission: "String",
       },
@@ -2440,6 +2837,7 @@ module.exports = class Client extends BaseClient {
     ModifyStorageConfigAccessRole: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2451,7 +2849,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         StorageConfigId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
         Permission: "String",
       },
@@ -2459,6 +2857,7 @@ module.exports = class Client extends BaseClient {
     RemoveStorageConfigAccess: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2470,13 +2869,14 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         StorageConfigId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
       },
     },
     CheckKlogServiceStatus: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2491,6 +2891,7 @@ module.exports = class Client extends BaseClient {
     CreateLogPoolConfig: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2511,6 +2912,7 @@ module.exports = class Client extends BaseClient {
     DeleteLogPoolConfig: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2531,6 +2933,7 @@ module.exports = class Client extends BaseClient {
     AddImageAccess: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2542,7 +2945,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ImageId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
         Permission: "String",
       },
@@ -2550,6 +2953,7 @@ module.exports = class Client extends BaseClient {
     ModifyImageAccessRole: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2561,7 +2965,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ImageId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
         Permission: "String",
       },
@@ -2569,6 +2973,7 @@ module.exports = class Client extends BaseClient {
     RemoveImageAccess: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2580,13 +2985,32 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ImageId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
+      },
+    },
+    RemovePhysicalQueueInstances: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "RemovePhysicalQueueInstances",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        QueueId: "String",
+        InstanceIds: "Array",
       },
     },
     DescribeNotebookTimeLine: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2603,6 +3027,7 @@ module.exports = class Client extends BaseClient {
     DescribeTrainJobTimeLine: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2024-06-12",
@@ -2615,6 +3040,41 @@ module.exports = class Client extends BaseClient {
       paramsType: {
         TrainJobId: "String",
       },
+    },
+    GetComponentObservabilityOverview: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "GetComponentObservabilityOverview",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        ComponentType: "String",
+        StartTime: "Int",
+        EndTime: "Int",
+        IntervalSeconds: "Int",
+      },
+    },
+    ListComponentStats: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2024-06-12",
+          Action: "ListComponentStats",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {},
     },
   };
 };

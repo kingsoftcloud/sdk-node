@@ -19,6 +19,7 @@ module.exports = class Client extends BaseClient {
     CreateSandboxTemplate: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -54,6 +55,7 @@ module.exports = class Client extends BaseClient {
     UpdateSandboxTemplate: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -90,6 +92,7 @@ module.exports = class Client extends BaseClient {
     DeleteSandboxInstance: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -106,6 +109,7 @@ module.exports = class Client extends BaseClient {
     GetSandboxInstance: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -122,6 +126,7 @@ module.exports = class Client extends BaseClient {
     GetSandboxInstanceList: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -141,6 +146,7 @@ module.exports = class Client extends BaseClient {
     GetSandboxTemplateList: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -160,6 +166,7 @@ module.exports = class Client extends BaseClient {
     StartSandboxInstance: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -182,6 +189,7 @@ module.exports = class Client extends BaseClient {
     DeleteSandboxTemplate: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -198,6 +206,7 @@ module.exports = class Client extends BaseClient {
     GetSandboxTemplate: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -214,6 +223,7 @@ module.exports = class Client extends BaseClient {
     GetPublicImageList: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -228,6 +238,7 @@ module.exports = class Client extends BaseClient {
     UpdateSandboxInstance: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -242,9 +253,50 @@ module.exports = class Client extends BaseClient {
         Timeout: "Int",
       },
     },
+    CreateImageCache: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2026-04-01",
+          Action: "CreateImageCache",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        ImageConfigs: "Filter",
+      },
+    },
+    GetImageCacheList: {
+      url: "/",
+      method: "GET",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2026-04-01",
+          Action: "GetImageCacheList",
+        },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      },
+      paramsType: {
+        Scope: "String",
+        ImageCacheId: "String",
+        Image: "String",
+        Description: "String",
+        Status: "String",
+        PageNum: "Int",
+        PageSize: "Int",
+      },
+    },
     DeleteImageCache: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2026-04-01",
@@ -254,7 +306,49 @@ module.exports = class Client extends BaseClient {
           "Content-Type": "application/json",
         },
       },
-      paramsType: {},
+      paramsType: {
+        ImageCacheId: "String",
+      },
+    },
+    CreateSandboxInstanceCommit: {
+      url: "/",
+      method: "GET",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2026-04-01",
+          Action: "CreateSandboxInstanceCommit",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        Image: "String",
+        RegistryUsername: "String",
+        RegistryPassword: "String",
+        Pause: "Boolean",
+        TimeoutSeconds: "Int",
+      },
+    },
+    GetSandboxInstanceCommit: {
+      url: "/",
+      method: "GET",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2026-04-01",
+          Action: "GetSandboxInstanceCommit",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        InstanceId: "String",
+        TaskId: "String",
+      },
     },
   };
 };

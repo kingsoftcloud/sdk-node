@@ -19,6 +19,7 @@ module.exports = class Client extends BaseClient {
     DescribeKnowledgeBaseModels: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -35,6 +36,7 @@ module.exports = class Client extends BaseClient {
     ActivateKnowledgeBaseService: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -49,6 +51,7 @@ module.exports = class Client extends BaseClient {
     RetrieveKnowledge: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -67,6 +70,7 @@ module.exports = class Client extends BaseClient {
     DescribeChunk: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -84,6 +88,7 @@ module.exports = class Client extends BaseClient {
     BatchDisplayStatus: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -101,6 +106,7 @@ module.exports = class Client extends BaseClient {
     DisplayStatus: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -118,6 +124,7 @@ module.exports = class Client extends BaseClient {
     IndexingStatus: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -135,6 +142,7 @@ module.exports = class Client extends BaseClient {
     DeleteDocument: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -152,6 +160,7 @@ module.exports = class Client extends BaseClient {
     DescribeDocument: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -170,6 +179,7 @@ module.exports = class Client extends BaseClient {
     DescribeDocuments: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -189,6 +199,7 @@ module.exports = class Client extends BaseClient {
     ImportDocuments: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -203,11 +214,13 @@ module.exports = class Client extends BaseClient {
         Data: "Object",
         AddType: "String",
         Ks3Path: "Array",
+        SecurityProcessingEnabled: "Boolean",
       },
     },
     DeleteKnowledgeBase: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -224,6 +237,7 @@ module.exports = class Client extends BaseClient {
     ModifyKnowledgeBase: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -246,6 +260,7 @@ module.exports = class Client extends BaseClient {
     DescribeKnowledgeBase: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -262,6 +277,7 @@ module.exports = class Client extends BaseClient {
     DescribeKnowledgeBases: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -280,6 +296,7 @@ module.exports = class Client extends BaseClient {
     CreateKnowledgeBase: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -301,6 +318,7 @@ module.exports = class Client extends BaseClient {
     CreateMemorySdk: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -324,6 +342,7 @@ module.exports = class Client extends BaseClient {
     QueryMemorySdk: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -349,6 +368,7 @@ module.exports = class Client extends BaseClient {
     CreateMemoryCollection: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -370,6 +390,7 @@ module.exports = class Client extends BaseClient {
     GetMemoryCollection: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -386,6 +407,7 @@ module.exports = class Client extends BaseClient {
     ListMemoryCollections: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -411,6 +433,7 @@ module.exports = class Client extends BaseClient {
     DeleteMemoryCollection: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -427,6 +450,7 @@ module.exports = class Client extends BaseClient {
     GetMemoryBaseService: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -441,6 +465,7 @@ module.exports = class Client extends BaseClient {
     ActivateMemoryBaseService: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -455,6 +480,7 @@ module.exports = class Client extends BaseClient {
     UpdateMemoryCollection: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -474,6 +500,7 @@ module.exports = class Client extends BaseClient {
     DeleteMcpServer: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -490,6 +517,7 @@ module.exports = class Client extends BaseClient {
     ModifyMcpServer: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -512,6 +540,7 @@ module.exports = class Client extends BaseClient {
     CreateMcpServer: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -541,6 +570,7 @@ module.exports = class Client extends BaseClient {
     DescribeMcpServers: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -559,6 +589,7 @@ module.exports = class Client extends BaseClient {
     DescribeMcpOfficialServers: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -577,6 +608,7 @@ module.exports = class Client extends BaseClient {
     DeactivateMcpOfficialServer: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -593,6 +625,7 @@ module.exports = class Client extends BaseClient {
     ActivateMcpOfficialServer: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -610,6 +643,7 @@ module.exports = class Client extends BaseClient {
     DescribeMcpSquares: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -627,6 +661,7 @@ module.exports = class Client extends BaseClient {
     GetMcpOfficialServerDetail: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -643,6 +678,7 @@ module.exports = class Client extends BaseClient {
     GetMcpServerDetail: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -659,6 +695,7 @@ module.exports = class Client extends BaseClient {
     GetMcpSquareDetail: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -675,6 +712,7 @@ module.exports = class Client extends BaseClient {
     ListSessions: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -697,6 +735,7 @@ module.exports = class Client extends BaseClient {
     AddSession: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -711,6 +750,7 @@ module.exports = class Client extends BaseClient {
     QueryMemoryCollectionMetrics: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -729,6 +769,7 @@ module.exports = class Client extends BaseClient {
     QuerySessionMemories: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -746,6 +787,7 @@ module.exports = class Client extends BaseClient {
     RetrieveHistories: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -764,6 +806,7 @@ module.exports = class Client extends BaseClient {
     ReindexDocuments: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -781,6 +824,7 @@ module.exports = class Client extends BaseClient {
     ModifyDocumentStatus: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -799,6 +843,7 @@ module.exports = class Client extends BaseClient {
     GetApiDetail: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -817,6 +862,7 @@ module.exports = class Client extends BaseClient {
     GetApiOverview: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -834,6 +880,7 @@ module.exports = class Client extends BaseClient {
     GetProductList: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -848,6 +895,7 @@ module.exports = class Client extends BaseClient {
     DescribeMcpRuntimeMetrics: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -867,6 +915,7 @@ module.exports = class Client extends BaseClient {
     QueryMcpMetrics: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -887,6 +936,7 @@ module.exports = class Client extends BaseClient {
     QueryMemoryCollectionSkills: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -903,6 +953,7 @@ module.exports = class Client extends BaseClient {
     DescribeKnowledgeTokenMonitor: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -922,6 +973,7 @@ module.exports = class Client extends BaseClient {
     DescribeKnowledgeStorageMonitor: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -941,6 +993,7 @@ module.exports = class Client extends BaseClient {
     DescribeMcpRuntimeLogs: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -962,6 +1015,7 @@ module.exports = class Client extends BaseClient {
     DescribeMemoryTokenMonitor: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -981,6 +1035,7 @@ module.exports = class Client extends BaseClient {
     DescribeMemoryStorageMonitor: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1000,6 +1055,7 @@ module.exports = class Client extends BaseClient {
     ListMemories: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1024,9 +1080,35 @@ module.exports = class Client extends BaseClient {
         OccurredBefore: "Long",
       },
     },
+    QueryAgenticMemory: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QueryAgenticMemory",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        AgentUserId: "String",
+        Query: "String",
+        SceneId: "String",
+        OccurredAfter: "Long",
+        OccurredBefore: "Long",
+        ReturnCitations: "Boolean",
+        Limit: "Int",
+        MaxSteps: "Int",
+      },
+    },
     DeleteMemory: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1045,6 +1127,7 @@ module.exports = class Client extends BaseClient {
     UpdateMemory: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1064,6 +1147,7 @@ module.exports = class Client extends BaseClient {
     QueryMemoryHistory: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1081,6 +1165,7 @@ module.exports = class Client extends BaseClient {
     ListTopics: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1097,6 +1182,7 @@ module.exports = class Client extends BaseClient {
     UpdateDocumentMetadata: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1114,6 +1200,7 @@ module.exports = class Client extends BaseClient {
     DeleteMetadata: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1131,6 +1218,7 @@ module.exports = class Client extends BaseClient {
     UpdateMetadata: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1149,6 +1237,7 @@ module.exports = class Client extends BaseClient {
     CreateMetadata: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1167,6 +1256,7 @@ module.exports = class Client extends BaseClient {
     DescribeMetadata: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-11-14",
@@ -1180,5 +1270,76 @@ module.exports = class Client extends BaseClient {
         DatasetId: "String",
       },
     },
+    QueryAgenticMemoryStream: {
+      url: "/",
+      method: "POST",
+      responseMode: 1,
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "QueryAgenticMemoryStream",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        MemoryCollectionId: "String",
+        AgentUserId: "String",
+        Query: "String",
+        Limit: "Int",
+        SceneId: "String",
+        ReturnCitations: "Boolean",
+        OccurredAfter: "Int",
+        OccurredBefore: "Int",
+        MaxSteps: "Int",
+      },
+    },
+    DescribeStructuredData: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "DescribeStructuredData",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        DocumentId: "String",
+        Page: "Int",
+        PageSize: "Int",
+        SearchColumn: "String",
+        SearchValue: "String",
+      },
+    },
+    BatchModifyStructuredData: {
+      url: "/",
+      method: "POST",
+      responseMode: 0,
+      config: {
+        query: {
+          Version: "2025-11-14",
+          Action: "BatchModifyStructuredData",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      paramsType: {
+        DatasetId: "String",
+        DocumentId: "String",
+        Items: "Array",
+      },
+    },
   };
+
+  /** 返回 node-fetch Response；通过 response.body 逐块消费 SSE，关闭 body 可主动断开。 */
+  QueryAgenticMemoryStreamStream(params = {}) {
+    return this.requestStream("QueryAgenticMemoryStream", params);
+  }
 };

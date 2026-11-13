@@ -19,6 +19,7 @@ module.exports = class Client extends BaseClient {
     CreateTrainJob: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -54,6 +55,7 @@ module.exports = class Client extends BaseClient {
     DescribeTrainJobs: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -79,6 +81,7 @@ module.exports = class Client extends BaseClient {
     ModifyModelAccess: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -98,6 +101,7 @@ module.exports = class Client extends BaseClient {
     CreateModelAndVersion: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -124,6 +128,7 @@ module.exports = class Client extends BaseClient {
     ModifyModel: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -142,6 +147,7 @@ module.exports = class Client extends BaseClient {
     DescribeModels: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -161,6 +167,7 @@ module.exports = class Client extends BaseClient {
     DeleteModel: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -177,6 +184,7 @@ module.exports = class Client extends BaseClient {
     CreateModelVersion: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -199,6 +207,7 @@ module.exports = class Client extends BaseClient {
     DeleteModelVersion: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -215,6 +224,7 @@ module.exports = class Client extends BaseClient {
     ModifyModelVersion: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -237,6 +247,7 @@ module.exports = class Client extends BaseClient {
     DescribeModelVersions: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -257,6 +268,7 @@ module.exports = class Client extends BaseClient {
     DescribeFormatAndFrameworks: {
       url: "/",
       method: "GET",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -271,6 +283,7 @@ module.exports = class Client extends BaseClient {
     AddModelAccess: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -282,7 +295,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ModelId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
         Permission: "String",
       },
@@ -290,6 +303,7 @@ module.exports = class Client extends BaseClient {
     ModifyModelAccessRole: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -301,7 +315,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ModelId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
         Permission: "String",
       },
@@ -309,6 +323,7 @@ module.exports = class Client extends BaseClient {
     RemoveModelAccess: {
       url: "/",
       method: "POST",
+      responseMode: 0,
       config: {
         query: {
           Version: "2025-12-12",
@@ -320,7 +335,7 @@ module.exports = class Client extends BaseClient {
       },
       paramsType: {
         ModelId: "String",
-        UserId: "String",
+        KsyunUserId: "String",
         SharedGroupId: "String",
       },
     },
