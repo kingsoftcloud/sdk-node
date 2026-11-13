@@ -35,7 +35,12 @@ module.exports = class Client extends BaseClient {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         },
-        paramsType: {}
+        paramsType: {
+          Uuid: "String",
+          Name: "String",
+          IpVersion: "String",
+          Type: "String"
+        }
       },
       DescribeAddresses: {
         url: "/",
@@ -53,6 +58,9 @@ module.exports = class Client extends BaseClient {
           ProjectId: "Filter",
           AllocationId: "Filter",
           Filter: "Filter",
+          IsContainTag: "Boolean",
+          TagKey: "Filter",
+          TagKV: "Filter",
           MaxResults: "Int",
           NextToken: "String",
           State: "String",
@@ -148,6 +156,76 @@ module.exports = class Client extends BaseClient {
           AllocationId: "String",
           BandWidth: "Int"
         }
+      },
+      CreateEipPool: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "CreateEipPool"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      DeleteEipPool: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DeleteEipPool"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      ModifyEipPool: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "ModifyEipPool"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      DescribeEipPools: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeEipPools"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
+      },
+      DescribeIpExistEipPoolUse: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2016-03-04",
+            Action: "DescribeIpExistEipPoolUse"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {}
       }
     });
   }

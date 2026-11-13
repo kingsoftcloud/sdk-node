@@ -135,6 +135,48 @@ module.exports = class Client extends BaseClient {
           App: "String",
           StreamID: "String"
         }
+      },
+      StartLoop: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "StartLoop"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          UniqName: "String",
+          App: "String",
+          Preset: "String",
+          StreamID: "String",
+          SrcInfo: "Array",
+          PubDomain: "String",
+          TaskStartTime: "String",
+          TaskStopTime: "String",
+          LoopTimes: "Int"
+        }
+      },
+      StopLoop: {
+        url: "/",
+        method: "POST",
+        config: {
+          query: {
+            Version: "2017-01-01",
+            Action: "StopLoop"
+          },
+          headers: {
+            "Content-Type": "application/json"
+          }
+        },
+        paramsType: {
+          UniqName: "String",
+          App: "String",
+          StreamID: "String"
+        }
       }
     });
   }

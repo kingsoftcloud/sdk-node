@@ -23,6 +23,44 @@ module.exports = class Client extends BaseClient {
       }
     });
     _defineProperty(this, "_apiList", {
+      CreateWaf: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "CreateWaf"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          WafType: "String",
+          BillType: "Int",
+          PurchaseTime: "Int",
+          DomainBag: "Int",
+          BandWidthIpv4: "Int",
+          StorageSize: "Int",
+          ProjectId: "Int"
+        }
+      },
+      DeleteWaf: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "DeleteWaf"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          Action: "String"
+        }
+      },
       CreateDomain: {
         url: "/",
         method: "GET",
@@ -128,13 +166,11 @@ module.exports = class Client extends BaseClient {
         paramsType: {
           ResourceRecordId: "String",
           RuleName: "String",
-          RuleType: "String",
-          ArgName: "String",
-          RuleData: "String",
-          MatchRule: "Int",
           Level: "Int",
           RuleAction: "Int",
-          Status: "Boolean"
+          Status: "Boolean",
+          MatchRuleInfo: "String",
+          Priority: "Int"
         }
       },
       DescribeAccessControlRules: {
@@ -241,6 +277,153 @@ module.exports = class Client extends BaseClient {
         },
         paramsType: {
           ResourceRecordId: "Array"
+        }
+      },
+      ModifyStorageTime: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "ModifyStorageTime"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          StorageTime: "Int"
+        }
+      },
+      CreateAlbDomain: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "CreateAlbDomain"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ResourceRecord: "String",
+          HttpRewrite: "Boolean",
+          HttpSource: "Boolean",
+          CertificateId: "String",
+          CertificateRegion: "String",
+          LbMethod: "String",
+          HasProxy: "Boolean",
+          ProjectId: "Int",
+          HeaderMark: "String",
+          HeaderValue: "String",
+          HealthMonitor: "String",
+          HttpPort: "Filter",
+          HttpsPort: "Filter",
+          Sources: "String"
+        }
+      },
+      ModifyAlbDomain: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "ModifyAlbDomain"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ResourceRecordId: "String",
+          HttpRewrite: "Boolean",
+          HttpSource: "Boolean",
+          CertificateId: "String",
+          CertificateRegion: "String",
+          LbMethod: "String",
+          HasProxy: "Boolean",
+          ProjectId: "Int",
+          HeaderMark: "String",
+          HeaderValue: "String",
+          HealthMonitor: "String",
+          HttpPort: "Filter",
+          HttpsPort: "Filter",
+          Sources: "String"
+        }
+      },
+      DeleteAlbDomain: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "DeleteAlbDomain"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ResourceRecordId: "String"
+        }
+      },
+      CreateAlbWaf: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "CreateAlbWaf"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          WafType: "String",
+          BillType: "Int",
+          ProjectId: "Int",
+          AlbNumber: "Int",
+          DomainBag: "Int",
+          QpsBag: "Int",
+          PurchaseTime: "Int"
+        }
+      },
+      ModifyAlbWaf: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "ModifyAlbWaf"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          WafType: "String",
+          DomainBag: "Int",
+          AlbNumber: "Int",
+          QpsBag: "Int"
+        }
+      },
+      DescribeAlbDomains: {
+        url: "/",
+        method: "GET",
+        config: {
+          query: {
+            Version: "2020-07-07",
+            Action: "DescribeAlbDomains"
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        },
+        paramsType: {
+          ResourceRecord: "String"
         }
       }
     });
